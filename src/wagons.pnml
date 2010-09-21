@@ -39,7 +39,6 @@ item(FEAT_TRAINS, mail_wagon, 28) {
 item(FEAT_TRAINS, coal_wagon, 29) {
 	property {
 		climates_available:           CLIMATE_ALL;
-//		refittable_cargo_types:       
 		refittable_cargo_classes:     CC_BULK;
 		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS | CC_LIQUID | CC_OVERSIZED | CC_COVERED | CC_REFRIGERATED;
 	}
@@ -56,30 +55,107 @@ item(FEAT_TRAINS, oil_wagon, 30) {
 item(FEAT_TRAINS, goods_wagon, 32) {
 	property {
 		climates_available:           CLIMATE_ALL;
-		refittable_cargo_types:       0x01 | 0x02 | 0x04 | 0x08 | 0x10;
 		refittable_cargo_classes:     CC_PIECE_GOODS | CC_COVERED;
 		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_OVERSIZED | CC_REFRIGERATED;
+//		refittable_cargo_types:       0x01 | 0x02 | 0x04 | 0x08 | 0x10;
 	}
 }
 
 item(FEAT_TRAINS, wood_wagon, 34) {
 	property {
 		climates_available:           CLIMATE_ALL;
-		refittable_cargo_types:       0x01 | 0x02 | 0x20 | 0x40 | 0x80 | 0x100 | 0x200;
 		refittable_cargo_classes:     CC_PIECE_GOODS;
 		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+//		refittable_cargo_types:       0x01 | 0x02 | 0x20 | 0x40 | 0x80 | 0x100 | 0x200;
 	}
 }
 
-// probably better disable this for FIRS and leave it at default...
-/*
-item(FEAT_TRAINS, valuables_wagon, 37) {
-	property {
-		cargo_type:                   0x02;
-		climates_available:           CLIMATE_ALL;
-		refittable_cargo_types:       0x01 | 0x02 | 0x04 | 0x10 | 0x20 | 0x40 | 0x80 | 0x100 | 0x200 | 0x4000;
-		refittable_cargo_classes:     CC_ARMOURED | CC_PIECE_GOODS;
-		non_refittable_cargo_classes: CC_PASSENGERS | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+// bulk wagon for coal, ore and alike:
+
+template tmpl_railwagon(x,y) {
+	[  0+x, y,  8,24,   -3,-12]
+	[ 16+x, y, 22,17,  -14, -9]
+	[ 48+x, y, 32,12,  -16, -8]
+	[ 96+x, y, 22,17,   -6, -9]
+}
+
+spriteblock(FEAT_TRAINS) {
+	spriteset(bulk_wagon_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,25) }
+
+	spriteset(bulk_wagon_coal_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,250) }
+	spritegroup bulk_wagon_coal_group {
+		loaded: bulk_wagon_empty_set;
+		loading: bulk_wagon_coal_set;
+	}
+
+	spriteset(bulk_wagon_gravel_set, "src/gfx/railwagon_gravel.png") { tmpl_railwagon(0,0) }
+	spritegroup bulk_wagon_gravel_group {
+		loaded: bulk_wagon_empty_set;
+		loading: bulk_wagon_gravel_set;
+	}
+
+	spriteset(bulk_wagon_empty_grain_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,150) }
+	spriteset(bulk_wagon_grain_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,275) }
+	spritegroup bulk_wagon_grain_group {
+		loaded: bulk_wagon_empty_grain_set;
+		loading: bulk_wagon_grain_set;
+	}
+
+	spriteset(bulk_wagon_bauxite_set, "src/gfx/railwagon_bauxite.png") { tmpl_railwagon(0,0) }
+	spritegroup bulk_wagon_bauxite_group {
+		loaded: bulk_wagon_empty_set;
+		loading: bulk_wagon_bauxite_set;
+	}
+
+	spriteset(bulk_wagon_empty_ironore_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,225) }
+	spriteset(bulk_wagon_ironore_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,350) }
+	spritegroup bulk_wagon_ironore_group {
+		loaded: bulk_wagon_empty_ironore_set;
+		loading: bulk_wagon_ironore_set;
+	}
+
+	spriteset(bulk_wagon_sand_set, "src/gfx/railwagon_sand.png") { tmpl_railwagon(0,0) }
+	spritegroup bulk_wagon_sand_group {
+		loaded: bulk_wagon_empty_set;
+		loading: bulk_wagon_sand_set;
 	}
 }
-*/
+
+switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
+	GRAI: bulk_wagon_grain_group;
+	AORE: bulk_wagon_bauxite_group;
+	IORE: bulk_wagon_ironore_group;
+	SAND: bulk_wagon_sand_group;
+	GRVL: bulk_wagon_gravel_group;
+	bulk_wagon_coal_group;                // default to coal
+}
+
+item(FEAT_TRAINS, bulk_wagon) {
+	property {
+		name:							string(STR_NAME_BULK_WAGON);
+		climates_available:				CLIMATE_ALL;
+		introduction_date:				date(1880,01,01);
+		model_life:						255;                  // years
+		vehicle_life:                   30;
+		reliability_decay:              1;
+		refittable_cargo_classes:		CC_BULK;
+		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+		refittable_cargo_types:         bitmask(WDPR);
+		cargo_type:                     bitmask(COAL);
+		cargo_capacity:                 30;
+		cost_factor:					1;
+		running_cost_factor:			1;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		loading_speed:                  20;
+		callback_flags:					VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
+		visual_effect:                  VISUAL_EFFECT_DISABLE;
+		track_type:						RAIL;
+		power:							0;
+		speed:                          270 km/h;
+		weight:							19 ton;
+	}
+	graphics {
+		bulk_wagon_switch;
+	}
+}

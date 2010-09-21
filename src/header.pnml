@@ -11,10 +11,10 @@ grf {
  
 // Cargo translation table tested for FIRS
 cargotable {
-	LVST, ALUM, WOOD, STEL,
-	SCRP, GOOD, WOOL, FMSP,
-	ENSP, MNSP, PASS, MAIL,
-	COAL, OIL_, PAPR
+	LVST, WOOD, WDPR, STEL,
+	COAL, IORE, AORE, CLAY,
+	GRVL, SAND, GRAI, SRCN,
+	GOOD, FOOD
 } 
 
 template ground_tile(x, y) {
