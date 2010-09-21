@@ -1,0 +1,22 @@
+grf {
+	// comment
+	grfid : "OG+1";
+	name : string(STR_GRF_NAME);
+	desc : string(STR_GRF_DESCRIPTION);
+	version : 1;
+	/* A comment */
+}
+
+// Define some cargo translation table
+ 
+// Cargo translation table tested for FIRS
+cargotable {
+	LVST, ALUM, WOOD, STEL,
+	SCRP, GOOD, WOOL, FMSP,
+	ENSP, MNSP, PASS, MAIL,
+	COAL, OIL_, PAPR
+} 
+
+template ground_tile(x, y) {
+	[x, y, 64, 31, -31, 0, 9]
+}

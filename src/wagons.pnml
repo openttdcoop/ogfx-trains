@@ -1,0 +1,85 @@
+/* 
+ * =============================================================================
+ * Generic Wagons
+ * =============================================================================
+ */
+ 
+/*
+ * Add cargo classes to a few wagons in order to support non-default cargos
+ * Also define new graphics for those where we use livery-override.
+ */
+
+item(FEAT_TRAINS, passenger_wagon, 27) {
+	property {
+		sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
+		misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
+		refittable_cargo_classes:     CC_PASSENGERS;          // Allow passengers (and tourists)
+		non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
+	}
+	graphics {
+		normal_passenger_group;
+	}
+}
+
+item(FEAT_TRAINS, mail_wagon, 28) {
+	property {
+		sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
+		misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
+		refittable_cargo_classes:     CC_MAIL;                // Allow mail
+		non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
+	}
+	graphics {
+		normal_mail_group;
+	}
+}
+
+// The other wagons are better separately and slowly added with appropriate cargo definitions
+// Otherwise strange combinations may result
+
+item(FEAT_TRAINS, coal_wagon, 29) {
+	property {
+		climates_available:           CLIMATE_ALL;
+//		refittable_cargo_types:       
+		refittable_cargo_classes:     CC_BULK;
+		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS | CC_LIQUID | CC_OVERSIZED | CC_COVERED | CC_REFRIGERATED;
+	}
+}
+
+item(FEAT_TRAINS, oil_wagon, 30) {
+	property {
+		climates_available:           CLIMATE_ALL;
+		refittable_cargo_classes:     CC_LIQUID;
+		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_OVERSIZED | CC_PIECE_GOODS;
+	}
+}
+
+item(FEAT_TRAINS, goods_wagon, 32) {
+	property {
+		climates_available:           CLIMATE_ALL;
+		refittable_cargo_types:       0x01 | 0x02 | 0x04 | 0x08 | 0x10;
+		refittable_cargo_classes:     CC_PIECE_GOODS | CC_COVERED;
+		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_OVERSIZED | CC_REFRIGERATED;
+	}
+}
+
+item(FEAT_TRAINS, wood_wagon, 34) {
+	property {
+		climates_available:           CLIMATE_ALL;
+		refittable_cargo_types:       0x01 | 0x02 | 0x20 | 0x40 | 0x80 | 0x100 | 0x200;
+		refittable_cargo_classes:     CC_PIECE_GOODS;
+		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+	}
+}
+
+// probably better disable this for FIRS and leave it at default...
+/*
+item(FEAT_TRAINS, valuables_wagon, 37) {
+	property {
+		cargo_type:                   0x02;
+		climates_available:           CLIMATE_ALL;
+		refittable_cargo_types:       0x01 | 0x02 | 0x04 | 0x10 | 0x20 | 0x40 | 0x80 | 0x100 | 0x200 | 0x4000;
+		refittable_cargo_classes:     CC_ARMOURED | CC_PIECE_GOODS;
+		non_refittable_cargo_classes: CC_PASSENGERS | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+	}
+}
+*/
