@@ -12,11 +12,13 @@ grf {
 // Cargo translation table tested for FIRS
 cargotable {
 	LVST, WOOD, WDPR, STEL,
+	OIL_, GOOD,					// WDPR not yet referenced
 	COAL, IORE, AORE, CLAY,
 	GRVL, SAND, GRAI, RSGR,
 	CLAY, MAIZ, CORE, FERT,
-	SULP, WHEA, MILK, WATR,
-	RFPR, OIL_, FUEL 
+	SULP, WHEA, SCRP, RFPR,
+	PETR, FOOD, PAPR, FRVG,		// MILK, RUBR not yet refrenced.
+	WOOL, VEHI, CMNT, BRCK
 } 
 
 template ground_tile(x, y) {

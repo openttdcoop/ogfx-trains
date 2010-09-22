@@ -1,4 +1,7 @@
 lang: 7F
 STR_GRF_NAME                                                    :OpenGFX+ Trains NewGRF{VERSION}
 STR_GRF_DESCRIPTION                                             :OpenGFX+ Trains enhances default rail vehicles and extends the rolling stock. Designed to fit OpenGFX style.
-STR_NAME_BULK_WAGON												:Bulk Wagon
+STR_NAME_BULK_WAGON												:Bulk wagon
+STR_NAME_TANK_WAGON												:Tank wagon
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Piece goods wagon (covered)
+STR_NAME_FLATBED_WAGON                                          :Flatbed wagon

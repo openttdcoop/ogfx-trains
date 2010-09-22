@@ -36,48 +36,22 @@ item(FEAT_TRAINS, mail_wagon, 28) {
 // The other wagons are better separately and slowly added with appropriate cargo definitions
 // Otherwise strange combinations may result
 
-item(FEAT_TRAINS, coal_wagon, 29) {
-	property {
-		climates_available:           CLIMATE_ALL;
-		refittable_cargo_classes:     CC_BULK;
-		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS | CC_LIQUID | CC_OVERSIZED | CC_COVERED | CC_REFRIGERATED;
-	}
-}
-
-item(FEAT_TRAINS, oil_wagon, 30) {
-	property {
-		climates_available:           CLIMATE_ALL;
-		refittable_cargo_classes:     CC_LIQUID;
-		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_OVERSIZED | CC_PIECE_GOODS;
-	}
-}
-
-item(FEAT_TRAINS, goods_wagon, 32) {
-	property {
-		climates_available:           CLIMATE_ALL;
-		refittable_cargo_classes:     CC_PIECE_GOODS | CC_COVERED;
-		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_OVERSIZED | CC_REFRIGERATED;
-//		refittable_cargo_types:       0x01 | 0x02 | 0x04 | 0x08 | 0x10;
-	}
-}
-
-item(FEAT_TRAINS, wood_wagon, 34) {
-	property {
-		climates_available:           CLIMATE_ALL;
-		refittable_cargo_classes:     CC_PIECE_GOODS;
-		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
-//		refittable_cargo_types:       0x01 | 0x02 | 0x20 | 0x40 | 0x80 | 0x100 | 0x200;
-	}
-}
-
-// bulk wagon for coal, ore and alike:
-
 template tmpl_railwagon(x,y) {
 	[  0+x, y,  8,24,   -3,-12]
 	[ 16+x, y, 22,17,  -14, -9]
 	[ 48+x, y, 32,12,  -16, -8]
 	[ 96+x, y, 22,17,   -6, -9]
 }
+
+/* 
+ * ***************************
+ * Bulk wagon:
+ *
+ * coal, iron ore, bauxite, copper ore,
+ * gravel, sand, clay, grains, maize, wheat,
+ * sulphur, fertilizer, scrap metal
+ * ***************************
+ */
 
 spriteblock(FEAT_TRAINS) {
 	spriteset(bulk_wagon_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,25) }
@@ -136,7 +110,7 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
 	bulk_wagon_coal_group;                // default to coal; also waste (WSTE)
 }
 
-item(FEAT_TRAINS, bulk_wagon) {
+item(FEAT_TRAINS, bulk_wagon, 30) {
 	property {
 		name:							string(STR_NAME_BULK_WAGON);
 		climates_available:				CLIMATE_ALL;
@@ -146,7 +120,7 @@ item(FEAT_TRAINS, bulk_wagon) {
 		reliability_decay:              1;
 		refittable_cargo_classes:		CC_BULK;
 		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
-		refittable_cargo_types:         bitmask(WDPR);
+		refittable_cargo_types:         bitmask(WDPR, SCRP);
 		cargo_type:                     bitmask(COAL);
 		cargo_capacity:                 30;
 		cost_factor:					1;
@@ -165,3 +139,152 @@ item(FEAT_TRAINS, bulk_wagon) {
 		bulk_wagon_switch;
 	}
 }
+
+/* 
+ * ***************************
+ * Tank wagon:
+ *
+ * oil, fuel oil, water, milk,
+ * rubber, dyes, chemicals
+ * ***************************
+ */
+
+spriteblock(FEAT_TRAINS) {
+	spriteset(tank_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,75) }
+	spritegroup tank_wagon_default_group {
+		loaded: tank_wagon_default_set;
+		loading: tank_wagon_default_set;
+	}
+
+	spriteset(tank_wagon_chemicals_set, "src/gfx/railwagon_chemicals.png") { tmpl_railwagon(0,0) }
+	spritegroup tank_wagon_chemicals_group {
+		loaded: tank_wagon_chemicals_set;
+		loading: tank_wagon_chemicals_set;
+	}
+}
+
+switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
+	RFPR: tank_wagon_chemicals_group;
+	PETR: tank_wagon_chemicals_group;
+	tank_wagon_default_group;
+}
+
+item(FEAT_TRAINS, tank_wagon, 29) {
+	property {
+		name:							string(STR_NAME_TANK_WAGON);
+		climates_available:				CLIMATE_ALL;
+		introduction_date:				date(1880,01,01);
+		model_life:						255;                  // years
+		vehicle_life:                   30;
+		reliability_decay:              1;
+		refittable_cargo_classes:		CC_LIQUID;
+		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
+		refittable_cargo_types:         bitmask(CMNT);
+		cargo_type:                     bitmask(OIL_);
+		cargo_capacity:                 30;
+		cost_factor:					1;
+		running_cost_factor:			1;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		loading_speed:                  20;
+		callback_flags:					VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
+		visual_effect:                  VISUAL_EFFECT_DISABLE;
+		track_type:						RAIL;
+		power:							0;
+		speed:                          270 km/h;
+		weight:							19 ton;
+	}
+	graphics {
+		tank_wagon_switch;
+	}
+}
+
+/* 
+ * ***************************
+ * Piece goods wagon:
+ *
+ * goods, food, paper, fruits, fruit + vegetables,
+ * farm supplies, engineering supplies, 
+ * manufacturing supplies, wool
+ * ***************************
+ */
+
+spriteblock(FEAT_TRAINS) {
+	spriteset(piecegoods_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,125) }
+	spritegroup piecegoods_wagon_default_group {
+		loaded: piecegoods_wagon_default_set;
+		loading: piecegoods_wagon_default_set;
+	}
+
+	spriteset(piecegoods_wagon_paper_empty_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,200) }
+	spriteset(piecegoods_wagon_paper_full_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,425) }
+	spritegroup piecegoods_wagon_paper_group {
+		loaded: piecegoods_wagon_paper_empty_set;
+		loading: piecegoods_wagon_paper_full_set;
+	}
+
+	spriteset(piecegoods_wagon_fruit_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,400) }
+	spritegroup piecegoods_wagon_fruit_group {
+		loaded: piecegoods_wagon_fruit_set;
+		loading: piecegoods_wagon_fruit_set;
+	}
+}
+
+switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
+	PAPR: piecegoods_wagon_paper_group;
+	FRVG: piecegoods_wagon_fruit_group;
+	piecegoods_wagon_default_group;
+}
+
+item(FEAT_TRAINS, piecegoods_wagon, 32) {
+	property {
+		name:							string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
+		climates_available:				CLIMATE_ALL;
+		introduction_date:				date(1880,01,01);
+		model_life:						255;                  // years
+		vehicle_life:                   30;
+		reliability_decay:              1;
+		refittable_cargo_classes:		CC_PIECE_GOODS;
+		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED;
+		refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK);
+		cargo_type:                     bitmask(GOOD);
+		cargo_capacity:                 30;
+		cost_factor:					1;
+		running_cost_factor:			1;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		loading_speed:                  20;
+		callback_flags:					VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
+		visual_effect:                  VISUAL_EFFECT_DISABLE;
+		track_type:						RAIL;
+		power:							0;
+		speed:                          270 km/h;
+		weight:							19 ton;
+	}
+	graphics {
+		piecegoods_wagon_switch;
+	}
+}
+
+/* 
+ * ***************************
+ * Flatbed wagon:
+ *
+ * wood, lumber, metal, steel, glass,
+ * goods, manufacturing supplies,
+ * farm supplies, engineering supplies
+ * ***************************
+ */
+
+item(FEAT_TRAINS, flatbed_wagon, 34) {
+	property {
+		name:                         string(STR_NAME_FLATBED_WAGON);
+		climates_available:           CLIMATE_ALL;
+		refittable_cargo_classes:     CC_PIECE_GOODS;
+		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
+		refittable_cargo_types:       bitmask(LVST, WOOL, SCRP);
+	}
+}
+
+
+
