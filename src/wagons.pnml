@@ -123,11 +123,17 @@ spriteblock(FEAT_TRAINS) {
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
 	GRAI: bulk_wagon_grain_group;
+	WHEA: bulk_wagon_grain_group;
+	MAIZ: bulk_wagon_grain_group;
+	CORE: bulk_wagon_bauxite_group;
 	AORE: bulk_wagon_bauxite_group;
 	IORE: bulk_wagon_ironore_group;
+	SULP: bulk_wagon_sand_group;
 	SAND: bulk_wagon_sand_group;
+	FERT: bulk_wagon_gravel_group;
 	GRVL: bulk_wagon_gravel_group;
-	bulk_wagon_coal_group;                // default to coal
+	CLAY: bulk_wagon_gravel_group;
+	bulk_wagon_coal_group;                // default to coal; also waste (WSTE)
 }
 
 item(FEAT_TRAINS, bulk_wagon) {

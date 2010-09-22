@@ -13,8 +13,10 @@ grf {
 cargotable {
 	LVST, WOOD, WDPR, STEL,
 	COAL, IORE, AORE, CLAY,
-	GRVL, SAND, GRAI, SRCN,
-	GOOD, FOOD
+	GRVL, SAND, GRAI, RSGR,
+	CLAY, MAIZ, CORE, FERT,
+	SULP, WHEA, MILK, WATR,
+	RFPR, OIL_, FUEL 
 } 
 
 template ground_tile(x, y) {
