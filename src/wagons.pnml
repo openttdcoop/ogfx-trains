@@ -75,6 +75,13 @@ spriteblock(FEAT_TRAINS) {
 		loading: bulk_wagon_grain_set;
 	}
 
+	spriteset(bulk_wagon_empty_copperore_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,225) }
+	spriteset(bulk_wagon_copperore_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,450) }
+	spritegroup bulk_wagon_copperore_group {
+		loaded: bulk_wagon_empty_copperore_set;
+		loading: bulk_wagon_copperore_set;
+	}
+
 	spriteset(bulk_wagon_bauxite_set, "src/gfx/railwagon_bauxite.png") { tmpl_railwagon(0,0) }
 	spritegroup bulk_wagon_bauxite_group {
 		loaded: bulk_wagon_empty_set;
@@ -93,13 +100,20 @@ spriteblock(FEAT_TRAINS) {
 		loaded: bulk_wagon_empty_set;
 		loading: bulk_wagon_sand_set;
 	}
+
+	spriteset(bulk_wagon_empty_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,500) }
+	spriteset(bulk_wagon_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,525) }
+	spritegroup bulk_wagon_rawsugar_group {
+		loaded: bulk_wagon_empty_rawsugar_set;
+		loading: bulk_wagon_rawsugar_set;
+	}
 }
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
 	GRAI: bulk_wagon_grain_group;
 	WHEA: bulk_wagon_grain_group;
 	MAIZ: bulk_wagon_grain_group;
-	CORE: bulk_wagon_bauxite_group;
+	CORE: bulk_wagon_copperore_group;
 	AORE: bulk_wagon_bauxite_group;
 	IORE: bulk_wagon_ironore_group;
 	SULP: bulk_wagon_sand_group;
@@ -107,6 +121,7 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
 	FERT: bulk_wagon_gravel_group;
 	GRVL: bulk_wagon_gravel_group;
 	CLAY: bulk_wagon_gravel_group;
+	RSGR: bulk_wagon_rawsugar_group;
 	bulk_wagon_coal_group;                // default to coal; also waste (WSTE)
 }
 
