@@ -12,12 +12,12 @@ grf {
 // Cargo translation table tested for FIRS
 cargotable {
 	LVST, WOOD, WDPR, STEL,
-	OIL_, GOOD,					// WDPR not yet referenced
+	OIL_, GOOD,	WATR, MILK,		// WDPR not yet referenced
 	COAL, IORE, AORE, CLAY,
 	GRVL, SAND, GRAI, RSGR,
 	CLAY, MAIZ, CORE, FERT,
 	SULP, WHEA, SCRP, RFPR,
-	PETR, FOOD, PAPR, FRVG,		// MILK, RUBR not yet refrenced.
+	PETR, FOOD, PAPR, FRVG,
 	WOOL, VEHI, CMNT, BRCK
 } 
 

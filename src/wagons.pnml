@@ -136,7 +136,7 @@ item(FEAT_TRAINS, bulk_wagon, 30) {
 		refittable_cargo_classes:		CC_BULK;
 		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
 		refittable_cargo_types:         bitmask(WDPR, SCRP);
-		cargo_type:                     bitmask(COAL);
+		cargo_type:                     0x01; // coal for default, ECS + FIRS
 		cargo_capacity:                 30;
 		cost_factor:					1;
 		running_cost_factor:			1;
@@ -165,10 +165,15 @@ item(FEAT_TRAINS, bulk_wagon, 30) {
  */
 
 spriteblock(FEAT_TRAINS) {
-	spriteset(tank_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,75) }
-	spritegroup tank_wagon_default_group {
-		loaded: tank_wagon_default_set;
-		loading: tank_wagon_default_set;
+	spriteset(tank_wagon_default_temperate_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,75) }
+	spriteset(tank_wagon_default_tropic_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,75) }
+	spritegroup tank_wagon_default_temperate_group {
+		loaded: tank_wagon_default_temperate_set;
+		loading: tank_wagon_default_temperate_set;
+	}
+	spritegroup tank_wagon_default_tropic_group {
+		loaded: tank_wagon_default_tropic_set;
+		loading: tank_wagon_default_tropic_set;
 	}
 
 	spriteset(tank_wagon_chemicals_set, "src/gfx/railwagon_chemicals.png") { tmpl_railwagon(0,0) }
@@ -176,12 +181,25 @@ spriteblock(FEAT_TRAINS) {
 		loaded: tank_wagon_chemicals_set;
 		loading: tank_wagon_chemicals_set;
 	}
+
+	spriteset(tank_wagon_water_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,475) }
+	spritegroup tank_wagon_water_group {
+		loaded: tank_wagon_water_set;
+		loading: tank_wagon_water_set;
+	}
+}
+
+switch(FEAT_TRAINS, SELF, tank_wagon_default_switch, climate) {
+	CLIMATE_TROPICAL: tank_wagon_default_tropic_group;
+	tank_wagon_default_temperate_group;
 }
 
 switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
 	RFPR: tank_wagon_chemicals_group;
 	PETR: tank_wagon_chemicals_group;
-	tank_wagon_default_group;
+	MILK: tank_wagon_default_tropic_group;
+	WATR: tank_wagon_water_group;
+	tank_wagon_default_switch;
 }
 
 item(FEAT_TRAINS, tank_wagon, 29) {
@@ -195,7 +213,7 @@ item(FEAT_TRAINS, tank_wagon, 29) {
 		refittable_cargo_classes:		CC_LIQUID;
 		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
 		refittable_cargo_types:         bitmask(CMNT);
-		cargo_type:                     bitmask(OIL_);
+		cargo_type:                     0x03;   // oil in default, ECS + FIRS
 		cargo_capacity:                 30;
 		cost_factor:					1;
 		running_cost_factor:			1;
@@ -262,7 +280,7 @@ item(FEAT_TRAINS, piecegoods_wagon, 32) {
 		refittable_cargo_classes:		CC_PIECE_GOODS;
 		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED;
 		refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK);
-		cargo_type:                     bitmask(GOOD);
+		cargo_type:                     0x05; // goods in default, ECS + FIRS
 		cargo_capacity:                 30;
 		cost_factor:					1;
 		running_cost_factor:			1;
@@ -298,6 +316,7 @@ item(FEAT_TRAINS, flatbed_wagon, 34) {
 		refittable_cargo_classes:     CC_PIECE_GOODS;
 		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
 		refittable_cargo_types:       bitmask(LVST, WOOL, SCRP);
+		cargo_type:                   0x07; // wood in default, ECS + FIRS
 	}
 }
 
