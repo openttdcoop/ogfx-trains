@@ -10,15 +10,20 @@ grf {
 // Define some cargo translation table
  
 // Cargo translation table tested for FIRS
-cargotable {
-	LVST, WOOD, WDPR, STEL,
-	OIL_, GOOD,	WATR, MILK,		// WDPR not yet referenced
+cargotable {                        // cargos needed for special refit orders
+	WDPR, SCRP, CMNT, WOOD, 		// bulk, bulk+piece+flat, tank, piece
+	LVST, STEL, VEHI, BRCK,			// piece+flat, piece, piece, piece
+	WOOL, BUBL, FZDR,               //
+	
+	                                // cargos only referenced
+	OIL_, GOOD,	WATR, MILK,
 	COAL, IORE, AORE, CLAY,
 	GRVL, SAND, GRAI, RSGR,
 	CLAY, MAIZ, CORE, FERT,
-	SULP, WHEA, SCRP, RFPR,
+	SULP, WHEA, RFPR, VEHI,
 	PETR, FOOD, PAPR, FRVG,
-	WOOL, VEHI, CMNT, BRCK
+	PASS, MAIL,
+	
 } 
 
 template ground_tile(x, y) {
