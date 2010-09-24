@@ -4,7 +4,6 @@ grf {
 	name : string(STR_GRF_NAME);
 	desc : string(STR_GRF_DESCRIPTION);
 	version : 1;
-	/* A comment */
 }
 
 // Define some cargo translation table
@@ -25,7 +24,3 @@ cargotable {                        // cargos needed for special refit orders
 	PASS, MAIL, BATT
 	
 } 
-
-template ground_tile(x, y) {
-	[x, y, 64, 31, -31, 0, 9]
-}
