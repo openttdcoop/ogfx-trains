@@ -268,11 +268,27 @@ spriteblock(FEAT_TRAINS) {
         loaded: piecegoods_wagon_fruit_set;
         loading: piecegoods_wagon_fruit_set;
     }
+
+    spriteset(piecegoods_wagon_sweets_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,260) }
+    spriteset(piecegoods_wagon_sweets_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,280) }
+    spritegroup piecegoods_wagon_sweets_group {
+        loaded: piecegoods_wagon_sweets_empty_set;
+        loading: piecegoods_wagon_sweets_full_set;
+    }
+
+    spriteset(piecegoods_wagon_toys_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,300) }
+    spriteset(piecegoods_wagon_toys_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,320) }
+    spritegroup piecegoods_wagon_toys_group {
+        loaded: piecegoods_wagon_toys_empty_set;
+        loading: piecegoods_wagon_toys_full_set;
+    }
 }
 
 switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
     PAPR: piecegoods_wagon_paper_group;
     FRVG: piecegoods_wagon_fruit_group;
+    SWET: piecegoods_wagon_sweets_group;
+    TOYS: piecegoods_wagon_toys_group;
     piecegoods_wagon_default_group;
 }
 
@@ -345,8 +361,8 @@ spriteblock(FEAT_TRAINS) {
         loading: flatbed_wagon_fizzy_empty_set;
     }
 
-    spriteset(flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
-    spriteset(flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
+    spriteset(flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,400) }
+    spriteset(flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,380) }
     spritegroup flatbed_wagon_battery_group {
         loaded: flatbed_wagon_battery_set;
         loading: flatbed_wagon_battery_empty_set;

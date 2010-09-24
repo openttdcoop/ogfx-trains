@@ -21,5 +21,5 @@ cargotable {                        // cargos needed for special refit orders
     CLAY, MAIZ, CORE, FERT,
     SULP, WHEA, RFPR, VEHI,
     PETR, FOOD, PAPR, FRVG,
-    PASS, MAIL, BATT
+    PASS, MAIL, BATT, SWET
 } 
