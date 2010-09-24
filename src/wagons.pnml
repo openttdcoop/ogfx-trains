@@ -362,17 +362,32 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
 }
 
 item(FEAT_TRAINS, flatbed_wagon, 34) {
-	property {
-		name:                         string(STR_NAME_FLATBED_WAGON);
-		climates_available:           CLIMATE_ALL;
-		refittable_cargo_classes:     CC_PIECE_GOODS;
-		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
-		refittable_cargo_types:       bitmask(LVST, WOOL, SCRP, FZDR, TOYS);
-		cargo_type:                   0xFF; // wood in default, ECS + FIRS
-	}
-	graphics {
-		flatbed_wagon_switch;
-	}
+    property {
+        name:                           string(STR_NAME_FLATBED_WAGON);
+        climates_available:             CLIMATE_ALL;
+        refittable_cargo_classes:       CC_PIECE_GOODS;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
+        refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS);
+        cargo_type:                     0xFF; // wood in default, ECS + FIRS
+        introduction_date:              date(1880,01,01);
+        model_life:                     255;                  // years
+        vehicle_life:                   30;
+        reliability_decay:              1;
+        cost_factor:                    1;
+        running_cost_factor:            1;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        refit_cost:                     0;
+        loading_speed:                  20;
+        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
+        visual_effect:                  VISUAL_EFFECT_DISABLE;
+        track_type:                     RAIL;
+        power:                          0;
+        speed:                          270 km/h;
+        weight:                         19 ton;
+    }
+    graphics {
+        flatbed_wagon_switch;
+    }
 }
 
 
