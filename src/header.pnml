@@ -1,26 +1,25 @@
 grf {
-	// comment
-	grfid : "OG+1";
-	name : string(STR_GRF_NAME);
-	desc : string(STR_GRF_DESCRIPTION);
-	version : REPO_REVISION;
+    // comment
+    grfid : "OG+1";
+    name : string(STR_GRF_NAME);
+    desc : string(STR_GRF_DESCRIPTION);
+    version : REPO_REVISION;
 }
 
 // Define some cargo translation table
  
 // Cargo translation table tested for FIRS
 cargotable {                        // cargos needed for special refit orders
-	WDPR, SCRP, CMNT, WOOD, 		// bulk, bulk+piece+flat, tank, piece
-	LVST, STEL, VEHI, BRCK,			// piece+flat, piece, piece, piece
-	WOOL, BUBL, TOYS, FZDR,         // piece, flat, flat, flat
-	
-	                                // cargos only referenced
-	OIL_, GOOD,	WATR, MILK,
-	COAL, IORE, AORE, CLAY,
-	GRVL, SAND, GRAI, RSGR,
-	CLAY, MAIZ, CORE, FERT,
-	SULP, WHEA, RFPR, VEHI,
-	PETR, FOOD, PAPR, FRVG,
-	PASS, MAIL, BATT
-	
+    WDPR, SCRP, CMNT, WOOD,         // bulk, bulk+piece+flat, tank, piece
+    LVST, STEL, VEHI, BRCK,         // piece+flat, piece, piece, piece
+    WOOL, BUBL, TOYS, FZDR,         // piece, flat, flat, flat
+    
+                                    // cargos only referenced
+    OIL_, GOOD, WATR, MILK,
+    COAL, IORE, AORE, CLAY,
+    GRVL, SAND, GRAI, RSGR,
+    CLAY, MAIZ, CORE, FERT,
+    SULP, WHEA, RFPR, VEHI,
+    PETR, FOOD, PAPR, FRVG,
+    PASS, MAIL, BATT
 } 

@@ -10,37 +10,37 @@
  */
 
 item(FEAT_TRAINS, passenger_wagon, 27) {
-	property {
-		sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
-		misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
-		refittable_cargo_classes:     CC_PASSENGERS;          // Allow passengers (and tourists)
-		non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
-	}
-	graphics {
-		normal_passenger_group;
-	}
+    property {
+        sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
+        misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
+        refittable_cargo_classes:     CC_PASSENGERS;          // Allow passengers (and tourists)
+        non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
+    }
+    graphics {
+        normal_passenger_group;
+    }
 }
 
 item(FEAT_TRAINS, mail_wagon, 28) {
-	property {
-		sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
-		misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
-		refittable_cargo_classes:     CC_MAIL;                // Allow mail
-		non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
-	}
-	graphics {
-		normal_mail_group;
-	}
+    property {
+        sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
+        misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
+        refittable_cargo_classes:     CC_MAIL;                // Allow mail
+        non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
+    }
+    graphics {
+        normal_mail_group;
+    }
 }
 
 // The other wagons are better separately and slowly added with appropriate cargo definitions
 // Otherwise strange combinations may result
 
 template tmpl_railwagon(x,y) {
-	[  0+x, y,  8,24,   -3,-12]
-	[ 16+x, y, 22,17,  -14, -9]
-	[ 48+x, y, 32,12,  -16, -8]
-	[ 96+x, y, 22,17,   -6, -9]
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,12,  -16, -8]
+    [ 96+x, y, 22,17,   -6, -9]
 }
 
 template tmpl_short_railwagon(x,y) {
@@ -61,105 +61,105 @@ template tmpl_short_railwagon(x,y) {
  */
 
 spriteblock(FEAT_TRAINS) {
-	spriteset(bulk_wagon_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,25) }
+    spriteset(bulk_wagon_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,25) }
 
-	spriteset(bulk_wagon_coal_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,250) }
-	spritegroup bulk_wagon_coal_group {
-		loaded: bulk_wagon_empty_set;
-		loading: bulk_wagon_coal_set;
-	}
+    spriteset(bulk_wagon_coal_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,250) }
+    spritegroup bulk_wagon_coal_group {
+        loaded: bulk_wagon_empty_set;
+        loading: bulk_wagon_coal_set;
+    }
 
-	spriteset(bulk_wagon_gravel_set, "src/gfx/railwagon_gravel.png") { tmpl_railwagon(0,0) }
-	spritegroup bulk_wagon_gravel_group {
-		loaded: bulk_wagon_empty_set;
-		loading: bulk_wagon_gravel_set;
-	}
+    spriteset(bulk_wagon_gravel_set, "src/gfx/railwagon_gravel.png") { tmpl_railwagon(0,0) }
+    spritegroup bulk_wagon_gravel_group {
+        loaded: bulk_wagon_empty_set;
+        loading: bulk_wagon_gravel_set;
+    }
 
-	spriteset(bulk_wagon_empty_grain_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,150) }
-	spriteset(bulk_wagon_grain_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,275) }
-	spritegroup bulk_wagon_grain_group {
-		loaded: bulk_wagon_empty_grain_set;
-		loading: bulk_wagon_grain_set;
-	}
+    spriteset(bulk_wagon_empty_grain_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,150) }
+    spriteset(bulk_wagon_grain_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,275) }
+    spritegroup bulk_wagon_grain_group {
+        loaded: bulk_wagon_empty_grain_set;
+        loading: bulk_wagon_grain_set;
+    }
 
-	spriteset(bulk_wagon_empty_copperore_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,225) }
-	spriteset(bulk_wagon_copperore_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,450) }
-	spritegroup bulk_wagon_copperore_group {
-		loaded: bulk_wagon_empty_copperore_set;
-		loading: bulk_wagon_copperore_set;
-	}
+    spriteset(bulk_wagon_empty_copperore_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,225) }
+    spriteset(bulk_wagon_copperore_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,450) }
+    spritegroup bulk_wagon_copperore_group {
+        loaded: bulk_wagon_empty_copperore_set;
+        loading: bulk_wagon_copperore_set;
+    }
 
-	spriteset(bulk_wagon_bauxite_set, "src/gfx/railwagon_bauxite.png") { tmpl_railwagon(0,0) }
-	spritegroup bulk_wagon_bauxite_group {
-		loaded: bulk_wagon_empty_set;
-		loading: bulk_wagon_bauxite_set;
-	}
+    spriteset(bulk_wagon_bauxite_set, "src/gfx/railwagon_bauxite.png") { tmpl_railwagon(0,0) }
+    spritegroup bulk_wagon_bauxite_group {
+        loaded: bulk_wagon_empty_set;
+        loading: bulk_wagon_bauxite_set;
+    }
 
-	spriteset(bulk_wagon_empty_ironore_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,225) }
-	spriteset(bulk_wagon_ironore_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,350) }
-	spritegroup bulk_wagon_ironore_group {
-		loaded: bulk_wagon_empty_ironore_set;
-		loading: bulk_wagon_ironore_set;
-	}
+    spriteset(bulk_wagon_empty_ironore_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,225) }
+    spriteset(bulk_wagon_ironore_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,350) }
+    spritegroup bulk_wagon_ironore_group {
+        loaded: bulk_wagon_empty_ironore_set;
+        loading: bulk_wagon_ironore_set;
+    }
 
-	spriteset(bulk_wagon_sand_set, "src/gfx/railwagon_sand.png") { tmpl_railwagon(0,0) }
-	spritegroup bulk_wagon_sand_group {
-		loaded: bulk_wagon_empty_set;
-		loading: bulk_wagon_sand_set;
-	}
+    spriteset(bulk_wagon_sand_set, "src/gfx/railwagon_sand.png") { tmpl_railwagon(0,0) }
+    spritegroup bulk_wagon_sand_group {
+        loaded: bulk_wagon_empty_set;
+        loading: bulk_wagon_sand_set;
+    }
 
-	spriteset(bulk_wagon_empty_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,500) }
-	spriteset(bulk_wagon_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,525) }
-	spritegroup bulk_wagon_rawsugar_group {
-		loaded: bulk_wagon_empty_rawsugar_set;
-		loading: bulk_wagon_rawsugar_set;
-	}
+    spriteset(bulk_wagon_empty_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,500) }
+    spriteset(bulk_wagon_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,525) }
+    spritegroup bulk_wagon_rawsugar_group {
+        loaded: bulk_wagon_empty_rawsugar_set;
+        loading: bulk_wagon_rawsugar_set;
+    }
 }
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
-	GRAI: bulk_wagon_grain_group;
-	WHEA: bulk_wagon_grain_group;
-	MAIZ: bulk_wagon_grain_group;
-	CORE: bulk_wagon_copperore_group;
-	AORE: bulk_wagon_bauxite_group;
-	IORE: bulk_wagon_ironore_group;
-	SULP: bulk_wagon_sand_group;
-	SAND: bulk_wagon_sand_group;
-	FERT: bulk_wagon_gravel_group;
-	GRVL: bulk_wagon_gravel_group;
-	CLAY: bulk_wagon_gravel_group;
-	RSGR: bulk_wagon_rawsugar_group;
-	bulk_wagon_coal_group;                // default to coal; also waste (WSTE)
+    GRAI: bulk_wagon_grain_group;
+    WHEA: bulk_wagon_grain_group;
+    MAIZ: bulk_wagon_grain_group;
+    CORE: bulk_wagon_copperore_group;
+    AORE: bulk_wagon_bauxite_group;
+    IORE: bulk_wagon_ironore_group;
+    SULP: bulk_wagon_sand_group;
+    SAND: bulk_wagon_sand_group;
+    FERT: bulk_wagon_gravel_group;
+    GRVL: bulk_wagon_gravel_group;
+    CLAY: bulk_wagon_gravel_group;
+    RSGR: bulk_wagon_rawsugar_group;
+    bulk_wagon_coal_group;                // default to coal; also waste (WSTE)
 }
 
 item(FEAT_TRAINS, bulk_wagon, 30) {
-	property {
-		name:							string(STR_NAME_BULK_WAGON);
-		climates_available:				CLIMATE_ALL;
-		introduction_date:				date(1880,01,01);
-		model_life:						255;                  // years
-		vehicle_life:                   30;
-		reliability_decay:              1;
-		refittable_cargo_classes:		CC_BULK;
-		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
-		refittable_cargo_types:         bitmask(WDPR, SCRP);
-		cargo_type:                     0xFF; // coal for default, ECS + FIRS
-		cargo_capacity:                 30;
-		cost_factor:					1;
-		running_cost_factor:			1;
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		refit_cost:						0;
-		loading_speed:                  20;
-		callback_flags:					VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
-		visual_effect:                  VISUAL_EFFECT_DISABLE;
-		track_type:						RAIL;
-		power:							0;
-		speed:                          270 km/h;
-		weight:							19 ton;
-	}
-	graphics {
-		bulk_wagon_switch;
-	}
+    property {
+        name:                           string(STR_NAME_BULK_WAGON);
+        climates_available:             CLIMATE_ALL;
+        introduction_date:              date(1880,01,01);
+        model_life:                     255;                  // years
+        vehicle_life:                   30;
+        reliability_decay:              1;
+        refittable_cargo_classes:       CC_BULK;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+        refittable_cargo_types:         bitmask(WDPR, SCRP);
+        cargo_type:                     0xFF; // coal for default, ECS + FIRS
+        cargo_capacity:                 30;
+        cost_factor:                    1;
+        running_cost_factor:            1;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        refit_cost:                     0;
+        loading_speed:                  20;
+        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
+        visual_effect:                  VISUAL_EFFECT_DISABLE;
+        track_type:                     RAIL;
+        power:                          0;
+        speed:                          270 km/h;
+        weight:                         19 ton;
+    }
+    graphics {
+        bulk_wagon_switch;
+    }
 }
 
 /* 
@@ -172,71 +172,71 @@ item(FEAT_TRAINS, bulk_wagon, 30) {
  */
 
 spriteblock(FEAT_TRAINS) {
-	spriteset(tank_wagon_default_temperate_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,75) }
-	spriteset(tank_wagon_default_tropic_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,75) }
-	spritegroup tank_wagon_default_temperate_group {
-		loaded: tank_wagon_default_temperate_set;
-		loading: tank_wagon_default_temperate_set;
-	}
-	spritegroup tank_wagon_default_tropic_group {
-		loaded: tank_wagon_default_tropic_set;
-		loading: tank_wagon_default_tropic_set;
-	}
+    spriteset(tank_wagon_default_temperate_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,75) }
+    spriteset(tank_wagon_default_tropic_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,75) }
+    spritegroup tank_wagon_default_temperate_group {
+        loaded: tank_wagon_default_temperate_set;
+        loading: tank_wagon_default_temperate_set;
+    }
+    spritegroup tank_wagon_default_tropic_group {
+        loaded: tank_wagon_default_tropic_set;
+        loading: tank_wagon_default_tropic_set;
+    }
 
-	spriteset(tank_wagon_chemicals_set, "src/gfx/railwagon_chemicals.png") { tmpl_railwagon(0,0) }
-	spritegroup tank_wagon_chemicals_group {
-		loaded: tank_wagon_chemicals_set;
-		loading: tank_wagon_chemicals_set;
-	}
+    spriteset(tank_wagon_chemicals_set, "src/gfx/railwagon_chemicals.png") { tmpl_railwagon(0,0) }
+    spritegroup tank_wagon_chemicals_group {
+        loaded: tank_wagon_chemicals_set;
+        loading: tank_wagon_chemicals_set;
+    }
 
-	spriteset(tank_wagon_water_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,475) }
-	spritegroup tank_wagon_water_group {
-		loaded: tank_wagon_water_set;
-		loading: tank_wagon_water_set;
-	}
+    spriteset(tank_wagon_water_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,475) }
+    spritegroup tank_wagon_water_group {
+        loaded: tank_wagon_water_set;
+        loading: tank_wagon_water_set;
+    }
 }
 
 switch(FEAT_TRAINS, SELF, tank_wagon_default_switch, climate) {
-	CLIMATE_TROPICAL: tank_wagon_default_tropic_group;
-	tank_wagon_default_temperate_group;
+    CLIMATE_TROPICAL: tank_wagon_default_tropic_group;
+    tank_wagon_default_temperate_group;
 }
 
 switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
-	RFPR: tank_wagon_chemicals_group;
-	PETR: tank_wagon_chemicals_group;
-	MILK: tank_wagon_default_tropic_group;
-	WATR: tank_wagon_water_group;
-	tank_wagon_default_switch;
+    RFPR: tank_wagon_chemicals_group;
+    PETR: tank_wagon_chemicals_group;
+    MILK: tank_wagon_default_tropic_group;
+    WATR: tank_wagon_water_group;
+    tank_wagon_default_switch;
 }
 
 item(FEAT_TRAINS, tank_wagon, 29) {
-	property {
-		name:							string(STR_NAME_TANK_WAGON);
-		climates_available:				CLIMATE_ALL;
-		introduction_date:				date(1880,01,01);
-		model_life:						255;                  // years
-		vehicle_life:                   30;
-		reliability_decay:              1;
-		refittable_cargo_classes:		CC_LIQUID;
-		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
-		refittable_cargo_types:         bitmask(CMNT, FZDR);
-		cargo_type:                     0xFF;   // oil in default, ECS + FIRS
-		cargo_capacity:                 30;
-		cost_factor:					1;
-		running_cost_factor:			1;
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		refit_cost:						0;
-		loading_speed:                  20;
-		callback_flags:					VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
-		visual_effect:                  VISUAL_EFFECT_DISABLE;
-		track_type:						RAIL;
-		power:							0;
-		speed:                          270 km/h;
-		weight:							19 ton;
-	}
-	graphics {
-		tank_wagon_switch;
-	}
+    property {
+        name:                           string(STR_NAME_TANK_WAGON);
+        climates_available:             CLIMATE_ALL;
+        introduction_date:              date(1880,01,01);
+        model_life:                     255;                  // years
+        vehicle_life:                   30;
+        reliability_decay:              1;
+        refittable_cargo_classes:       CC_LIQUID;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
+        refittable_cargo_types:         bitmask(CMNT, FZDR);
+        cargo_type:                     0xFF;   // oil in default, ECS + FIRS
+        cargo_capacity:                 30;
+        cost_factor:                    1;
+        running_cost_factor:            1;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        refit_cost:                     0;
+        loading_speed:                  20;
+        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
+        visual_effect:                  VISUAL_EFFECT_DISABLE;
+        track_type:                     RAIL;
+        power:                          0;
+        speed:                          270 km/h;
+        weight:                         19 ton;
+    }
+    graphics {
+        tank_wagon_switch;
+    }
 }
 
 /* 
@@ -250,60 +250,60 @@ item(FEAT_TRAINS, tank_wagon, 29) {
  */
 
 spriteblock(FEAT_TRAINS) {
-	spriteset(piecegoods_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,125) }
-	spritegroup piecegoods_wagon_default_group {
-		loaded: piecegoods_wagon_default_set;
-		loading: piecegoods_wagon_default_set;
-	}
+    spriteset(piecegoods_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,125) }
+    spritegroup piecegoods_wagon_default_group {
+        loaded: piecegoods_wagon_default_set;
+        loading: piecegoods_wagon_default_set;
+    }
 
-	spriteset(piecegoods_wagon_paper_empty_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,200) }
-	spriteset(piecegoods_wagon_paper_full_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,425) }
-	spritegroup piecegoods_wagon_paper_group {
-		loaded: piecegoods_wagon_paper_empty_set;
-		loading: piecegoods_wagon_paper_full_set;
-	}
+    spriteset(piecegoods_wagon_paper_empty_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,200) }
+    spriteset(piecegoods_wagon_paper_full_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,425) }
+    spritegroup piecegoods_wagon_paper_group {
+        loaded: piecegoods_wagon_paper_empty_set;
+        loading: piecegoods_wagon_paper_full_set;
+    }
 
-	spriteset(piecegoods_wagon_fruit_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,400) }
-	spritegroup piecegoods_wagon_fruit_group {
-		loaded: piecegoods_wagon_fruit_set;
-		loading: piecegoods_wagon_fruit_set;
-	}
+    spriteset(piecegoods_wagon_fruit_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,400) }
+    spritegroup piecegoods_wagon_fruit_group {
+        loaded: piecegoods_wagon_fruit_set;
+        loading: piecegoods_wagon_fruit_set;
+    }
 }
 
 switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
-	PAPR: piecegoods_wagon_paper_group;
-	FRVG: piecegoods_wagon_fruit_group;
-	piecegoods_wagon_default_group;
+    PAPR: piecegoods_wagon_paper_group;
+    FRVG: piecegoods_wagon_fruit_group;
+    piecegoods_wagon_default_group;
 }
 
 item(FEAT_TRAINS, piecegoods_wagon, 32) {
-	property {
-		name:							string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
-		climates_available:				CLIMATE_ALL;
-		introduction_date:				date(1880,01,01);
-		model_life:						255;                  // years
-		vehicle_life:                   30;
-		reliability_decay:              1;
-		refittable_cargo_classes:		CC_PIECE_GOODS | CC_EXPRESS;
-		non_refittable_cargo_classes:	CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED;
-		refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL);
-		cargo_type:                     0xFF; // goods in default, ECS + FIRS
-		cargo_capacity:                 30;
-		cost_factor:					1;
-		running_cost_factor:			1;
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		refit_cost:						0;
-		loading_speed:                  20;
-		callback_flags:					VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
-		visual_effect:                  VISUAL_EFFECT_DISABLE;
-		track_type:						RAIL;
-		power:							0;
-		speed:                          270 km/h;
-		weight:							19 ton;
-	}
-	graphics {
-		piecegoods_wagon_switch;
-	}
+    property {
+        name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
+        climates_available:             CLIMATE_ALL;
+        introduction_date:              date(1880,01,01);
+        model_life:                     255;                  // years
+        vehicle_life:                   30;
+        reliability_decay:              1;
+        refittable_cargo_classes:       CC_PIECE_GOODS | CC_EXPRESS;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED;
+        refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL);
+        cargo_type:                     0xFF; // goods in default, ECS + FIRS
+        cargo_capacity:                 30;
+        cost_factor:                    1;
+        running_cost_factor:            1;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        refit_cost:                     0;
+        loading_speed:                  20;
+        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
+        visual_effect:                  VISUAL_EFFECT_DISABLE;
+        track_type:                     RAIL;
+        power:                          0;
+        speed:                          270 km/h;
+        weight:                         19 ton;
+    }
+    graphics {
+        piecegoods_wagon_switch;
+    }
 }
 
 /* 
@@ -317,48 +317,48 @@ item(FEAT_TRAINS, piecegoods_wagon, 32) {
  */
 
 spriteblock(FEAT_TRAINS) {
-	spriteset(flatbed_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,300) }
-	spriteset(flatbed_wagon_default_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,175) }
-	spritegroup flatbed_wagon_default_group {
-		loaded: flatbed_wagon_default_set;
-		loading: flatbed_wagon_default_empty_set;
-	}
+    spriteset(flatbed_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,300) }
+    spriteset(flatbed_wagon_default_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,175) }
+    spritegroup flatbed_wagon_default_group {
+        loaded: flatbed_wagon_default_set;
+        loading: flatbed_wagon_default_empty_set;
+    }
 
-	spriteset(flatbed_wagon_steel_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,325) }
-	spriteset(flatbed_wagon_steel_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,200) }
-	spritegroup flatbed_wagon_steel_group {
-		loaded: flatbed_wagon_steel_set;
-		loading: flatbed_wagon_steel_empty_set;
-	}
+    spriteset(flatbed_wagon_steel_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,325) }
+    spriteset(flatbed_wagon_steel_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,200) }
+    spritegroup flatbed_wagon_steel_group {
+        loaded: flatbed_wagon_steel_set;
+        loading: flatbed_wagon_steel_empty_set;
+    }
 
-	spriteset(flatbed_wagon_bubbles_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,80) }
-	spriteset(flatbed_wagon_bubbles_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,60) }
-	spritegroup flatbed_wagon_bubbles_group {
-		loaded: flatbed_wagon_bubbles_set;
-		loading: flatbed_wagon_bubbles_empty_set;
-	}
+    spriteset(flatbed_wagon_bubbles_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,80) }
+    spriteset(flatbed_wagon_bubbles_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,60) }
+    spritegroup flatbed_wagon_bubbles_group {
+        loaded: flatbed_wagon_bubbles_set;
+        loading: flatbed_wagon_bubbles_empty_set;
+    }
 
-	spriteset(flatbed_wagon_fizzy_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
-	spriteset(flatbed_wagon_fizzy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
-	spritegroup flatbed_wagon_fizzy_group {
-		loaded: flatbed_wagon_fizzy_set;
-		loading: flatbed_wagon_fizzy_empty_set;
-	}
+    spriteset(flatbed_wagon_fizzy_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
+    spriteset(flatbed_wagon_fizzy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
+    spritegroup flatbed_wagon_fizzy_group {
+        loaded: flatbed_wagon_fizzy_set;
+        loading: flatbed_wagon_fizzy_empty_set;
+    }
 
-	spriteset(flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
-	spriteset(flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
-	spritegroup flatbed_wagon_battery_group {
-		loaded: flatbed_wagon_battery_set;
-		loading: flatbed_wagon_battery_empty_set;
-	}
+    spriteset(flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
+    spriteset(flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
+    spritegroup flatbed_wagon_battery_group {
+        loaded: flatbed_wagon_battery_set;
+        loading: flatbed_wagon_battery_empty_set;
+    }
 }
  
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
-	STEL: flatbed_wagon_steel_group;
-	BUBL: flatbed_wagon_bubbles_group;
-	FZDR: flatbed_wagon_fizzy_group;
-	BATT: flatbed_wagon_battery_group;
-	flatbed_wagon_default_group;
+    STEL: flatbed_wagon_steel_group;
+    BUBL: flatbed_wagon_bubbles_group;
+    FZDR: flatbed_wagon_fizzy_group;
+    BATT: flatbed_wagon_battery_group;
+    flatbed_wagon_default_group;
 }
 
 item(FEAT_TRAINS, flatbed_wagon, 34) {
