@@ -37,6 +37,6 @@ endif # project_type == NML
 
 %.nml: %.pnml $(REV_FILENAME)
 	$(_E) "[CPP] $@"
-	$(_V) $(CC) $(CC_FLAGS) $< > $@
+	$(_V) $(CC) -D REPO_REVISION=$(REPO_REVISION) $(CC_FLAGS) $< > $@
 
 

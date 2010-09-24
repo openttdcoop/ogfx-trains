@@ -3,7 +3,7 @@ grf {
 	grfid : "OG+1";
 	name : string(STR_GRF_NAME);
 	desc : string(STR_GRF_DESCRIPTION);
-	version : 1;
+	version : REPO_REVISION;
 }
 
 // Define some cargo translation table
