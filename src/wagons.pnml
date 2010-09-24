@@ -143,7 +143,7 @@ item(FEAT_TRAINS, bulk_wagon, 30) {
         refittable_cargo_classes:       CC_BULK;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
         refittable_cargo_types:         bitmask(WDPR, SCRP);
-        cargo_type:                     0xFF; // coal for default, ECS + FIRS
+        cargo_type:                     0xFF;
         cargo_capacity:                 30;
         cost_factor:                    1;
         running_cost_factor:            1;
@@ -220,7 +220,7 @@ item(FEAT_TRAINS, tank_wagon, 29) {
         refittable_cargo_classes:       CC_LIQUID;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
         refittable_cargo_types:         bitmask(CMNT, FZDR);
-        cargo_type:                     0xFF;   // oil in default, ECS + FIRS
+        cargo_type:                     0xFF;
         cargo_capacity:                 30;
         cost_factor:                    1;
         running_cost_factor:            1;
@@ -287,7 +287,7 @@ item(FEAT_TRAINS, piecegoods_wagon, 32) {
         refittable_cargo_classes:       CC_PIECE_GOODS | CC_EXPRESS;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED;
         refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL);
-        cargo_type:                     0xFF; // goods in default, ECS + FIRS
+        cargo_type:                     0xFF;
         cargo_capacity:                 30;
         cost_factor:                    1;
         running_cost_factor:            1;
@@ -368,7 +368,7 @@ item(FEAT_TRAINS, flatbed_wagon, 34) {
         refittable_cargo_classes:       CC_PIECE_GOODS;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
         refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS);
-        cargo_type:                     0xFF; // wood in default, ECS + FIRS
+        cargo_type:                     0xFF;
         introduction_date:              date(1880,01,01);
         model_life:                     255;                  // years
         vehicle_life:                   30;
