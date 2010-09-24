@@ -43,6 +43,13 @@ template tmpl_railwagon(x,y) {
 	[ 96+x, y, 22,17,   -6, -9]
 }
 
+template tmpl_short_railwagon(x,y) {
+    [  0, y,  8, 18,  -3, -10 ]
+    [ 16, y, 20, 16, -12,  -8 ]
+    [ 48, y, 28, 12, -14,  -7 ]
+    [ 96, y, 20, 16,  -4,  -8 ]
+}
+
 /* 
  * ***************************
  * Bulk wagon:
@@ -309,14 +316,62 @@ item(FEAT_TRAINS, piecegoods_wagon, 32) {
  * ***************************
  */
 
+spriteblock(FEAT_TRAINS) {
+	spriteset(flatbed_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,300) }
+	spriteset(flatbed_wagon_default_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,175) }
+	spritegroup flatbed_wagon_default_group {
+		loaded: flatbed_wagon_default_set;
+		loading: flatbed_wagon_default_empty_set;
+	}
+
+	spriteset(flatbed_wagon_steel_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,325) }
+	spriteset(flatbed_wagon_steel_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,200) }
+	spritegroup flatbed_wagon_steel_group {
+		loaded: flatbed_wagon_steel_set;
+		loading: flatbed_wagon_steel_empty_set;
+	}
+
+	spriteset(flatbed_wagon_bubbles_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,80) }
+	spriteset(flatbed_wagon_bubbles_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,60) }
+	spritegroup flatbed_wagon_bubbles_group {
+		loaded: flatbed_wagon_bubbles_set;
+		loading: flatbed_wagon_bubbles_empty_set;
+	}
+
+	spriteset(flatbed_wagon_fizzy_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
+	spriteset(flatbed_wagon_fizzy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
+	spritegroup flatbed_wagon_fizzy_group {
+		loaded: flatbed_wagon_fizzy_set;
+		loading: flatbed_wagon_fizzy_empty_set;
+	}
+
+	spriteset(flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
+	spriteset(flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
+	spritegroup flatbed_wagon_battery_group {
+		loaded: flatbed_wagon_battery_set;
+		loading: flatbed_wagon_battery_empty_set;
+	}
+}
+ 
+switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
+	STEL: flatbed_wagon_steel_group;
+	BUBL: flatbed_wagon_bubbles_group;
+	FZDR: flatbed_wagon_fizzy_group;
+	BATT: flatbed_wagon_battery_group;
+	flatbed_wagon_default_group;
+}
+
 item(FEAT_TRAINS, flatbed_wagon, 34) {
 	property {
 		name:                         string(STR_NAME_FLATBED_WAGON);
 		climates_available:           CLIMATE_ALL;
 		refittable_cargo_classes:     CC_PIECE_GOODS;
 		non_refittable_cargo_classes: CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
-		refittable_cargo_types:       bitmask(LVST, WOOL, SCRP, FZDR);
+		refittable_cargo_types:       bitmask(LVST, WOOL, SCRP, FZDR, TOYS);
 		cargo_type:                   0xFF; // wood in default, ECS + FIRS
+	}
+	graphics {
+		flatbed_wagon_switch;
 	}
 }
 
