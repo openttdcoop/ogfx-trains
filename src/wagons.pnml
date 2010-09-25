@@ -114,6 +114,27 @@ spriteblock(FEAT_TRAINS) {
         loaded: [bulk_wagon_empty_rawsugar_set, bulk_wagon_rawsugar_set];
         loading: [bulk_wagon_empty_rawsugar_set, bulk_wagon_rawsugar_set];
     }
+
+    spriteset(bulk_wagon_cottoncandy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,140) }
+    spriteset(bulk_wagon_cottoncandy_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,160) }
+    spritegroup bulk_wagon_cottoncandy_group {
+        loaded: [bulk_wagon_cottoncandy_empty_set, bulk_wagon_cottoncandy_full_set];
+        loading: [bulk_wagon_cottoncandy_empty_set, bulk_wagon_cottoncandy_full_set];
+    }
+
+    spriteset(bulk_wagon_toffee_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,180) }
+    spriteset(bulk_wagon_toffee_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,200) }
+    spritegroup bulk_wagon_toffee_group {
+        loaded: [bulk_wagon_toffee_empty_set, bulk_wagon_toffee_full_set];
+        loading: [bulk_wagon_toffee_empty_set, bulk_wagon_toffee_full_set];
+    }
+
+    spriteset(bulk_wagon_sugar_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,100) }
+    spriteset(bulk_wagon_sugar_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,120) }
+    spritegroup bulk_wagon_sugar_group {
+        loaded: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
+        loading: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
+    }
 }
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
@@ -129,6 +150,9 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     GRVL: bulk_wagon_gravel_group;
     CLAY: bulk_wagon_gravel_group;
     RSGR: bulk_wagon_rawsugar_group;
+    CTCD: bulk_wagon_cottoncandy_group;
+    TOFF: bulk_wagon_toffee_group;
+    SUGR: bulk_wagon_sugar_group;
     bulk_wagon_coal_group;                // default to coal; also waste (WSTE)
 }
 
@@ -194,6 +218,13 @@ spriteblock(FEAT_TRAINS) {
         loaded: tank_wagon_water_set;
         loading: tank_wagon_water_set;
     }
+
+    spriteset(tank_wagon_cola_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,220) }
+    spriteset(tank_wagon_cola_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,240) }
+    spritegroup tank_wagon_cola_group {
+        loaded: [tank_wagon_cola_empty_set, tank_wagon_cola_full_set];
+        loading: [tank_wagon_cola_empty_set, tank_wagon_cola_full_set];
+    }
 }
 
 switch(FEAT_TRAINS, SELF, tank_wagon_default_switch, climate) {
@@ -206,6 +237,7 @@ switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
     PETR: tank_wagon_chemicals_group;
     MILK: tank_wagon_default_tropic_group;
     WATR: tank_wagon_water_group;
+    COLA: tank_wagon_cola_group;
     tank_wagon_default_switch;
 }
 
