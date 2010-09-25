@@ -32,13 +32,44 @@ template tmpl_short_railwagon(x,y) {
  */
 
 spriteblock(FEAT_TRAINS) {
-	spriteset(normal_passenger_set, "src/gfx/arctic_railwagons.png") {
+	spriteset(temperate_passenger_rail_set, "src/gfx/temperate_railwagons.png") {
         tmpl_railwagon(0,0) tmpl_railwagon(0,0)               // 8 views needed for livery override by turbotrain
 	}
-	spritegroup normal_passenger_group {
-		loading: normal_passenger_set;
-		loaded: normal_passenger_set;
+	spritegroup temperate_passenger_rail_group {
+		loading: temperate_passenger_rail_set;
+		loaded: temperate_passenger_rail_set;
 	}
+
+	spriteset(tropic_passenger_rail_set, "src/gfx/tropic_railwagons.png") {
+        tmpl_railwagon(0,0) tmpl_railwagon(0,0)               // 8 views needed for livery override by turbotrain
+	}
+	spritegroup tropic_passenger_rail_group {
+		loading: tropic_passenger_rail_set;
+		loaded: tropic_passenger_rail_set;
+	}
+
+	spriteset(arctic_passenger_rail_set, "src/gfx/arctic_railwagons.png") {
+        tmpl_railwagon(0,0) tmpl_railwagon(0,0)               // 8 views needed for livery override by turbotrain
+	}
+	spritegroup arctic_passenger_rail_group {
+		loading: arctic_passenger_rail_set;
+		loaded: arctic_passenger_rail_set;
+	}
+
+	spriteset(toyland_passenger_rail_set, "src/gfx/toyland_railwagons.png") {
+        tmpl_short_railwagon(0,0) tmpl_short_railwagon(0,0)   // 8 views needed for livery override by turbotrain
+	}
+	spritegroup toyland_passenger_rail_group {
+		loading: toyland_passenger_rail_set;
+		loaded: toyland_passenger_rail_set;
+	}
+}
+
+switch (FEAT_TRAINS, SELF, normal_passenger_switch, climate) {
+    CLIMATE_TROPICAL: tropic_passenger_rail_group;
+    CLIMATE_ARCTIC: arctic_passenger_rail_group;
+    CLIMATE_TOYLAND: toyland_passenger_rail_group;
+    temperate_passenger_rail_group;
 }
 
 item(FEAT_TRAINS, passenger_wagon, 27) {
@@ -49,7 +80,7 @@ item(FEAT_TRAINS, passenger_wagon, 27) {
         non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
     }
     graphics {
-        normal_passenger_group;
+        normal_passenger_switch;
     }
 }
 
