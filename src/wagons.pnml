@@ -130,11 +130,17 @@ item(FEAT_TRAINS, mail_wagon, 28) {
 
 spriteblock(FEAT_TRAINS) {
     spriteset(bulk_wagon_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,25) }
-
-    spriteset(bulk_wagon_coal_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,250) }
-    spritegroup bulk_wagon_coal_group {
-        loaded: [bulk_wagon_empty_set, bulk_wagon_coal_set];
-        loading: [bulk_wagon_empty_set, bulk_wagon_coal_set];
+    
+    spriteset(bulk_wagon_coal_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,250) }
+    spritegroup bulk_wagon_coal_default_group {
+        loaded: [bulk_wagon_empty_set, bulk_wagon_coal_default_set];
+        loading: [bulk_wagon_empty_set, bulk_wagon_coal_default_set];
+    }
+    spriteset(bulk_wagon_coal_arctic_empty_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,25) }
+    spriteset(bulk_wagon_coal_arctic_full_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,250) }
+    spritegroup bulk_wagon_coal_arctic_group {
+        loaded: [bulk_wagon_coal_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
+        loading: [bulk_wagon_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
     }
 
     spriteset(bulk_wagon_gravel_set, "src/gfx/railwagon_gravel.png") { tmpl_railwagon(0,0) }
@@ -205,7 +211,13 @@ spriteblock(FEAT_TRAINS) {
     }
 }
 
+switch (FEAT_TRAINS, SELF, bulk_wagon_coal_climate_switch, climate) {
+    CLIMATE_ARCTIC: bulk_wagon_coal_arctic_group;
+    bulk_wagon_coal_default_group;    
+}
+
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
+    COAL: bulk_wagon_coal_climate_switch;
     GRAI: bulk_wagon_grain_group;
     WHEA: bulk_wagon_grain_group;
     MAIZ: bulk_wagon_grain_group;
@@ -221,7 +233,7 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     CTCD: bulk_wagon_cottoncandy_group;
     TOFF: bulk_wagon_toffee_group;
     SUGR: bulk_wagon_sugar_group;
-    bulk_wagon_coal_group;                // default to coal; also waste (WSTE)
+    bulk_wagon_coal_default_group;                // default to coal; also waste (WSTE)
 }
 
 item(FEAT_TRAINS, bulk_wagon, 30) {
