@@ -25,23 +25,6 @@ spriteblock(FEAT_TRAINS) {
 	}
 }
 spriteblock(FEAT_TRAINS) {
-	spriteset(normal_passenger_set, "src/gfx/arctic_railwagons.png") {
-		[  0,  0,  8,24,   -3,-12]
-		[ 16,  0, 22,17,  -14, -9]
-		[ 48,  0, 32,12,  -16, -8]
-		[ 96,  0, 22,17,   -6, -9]
-		[  0,  0,  8,24,   -3,-12]
-		[ 16,  0, 22,17,  -14, -9]
-		[ 48,  0, 32,12,  -16, -8]
-		[ 96,  0, 22,17,   -6, -9]
-	}
-	spritegroup normal_passenger_group {
-		loading: normal_passenger_set;
-		loaded: normal_passenger_set;
-	}
-}
-
-spriteblock(FEAT_TRAINS) {
 	spriteset(turbotrain_passenger_set, "src/gfx/turbotrain.png") {
 		[142,139,  8,21,   -3,-10]
 		[158,139, 20,15,  -13, -7]
@@ -72,23 +55,6 @@ spriteblock(FEAT_TRAINS) {
 	spritegroup turbotrain_mail_group {
 		loading: turbotrain_mail_set;
 		loaded: turbotrain_mail_set;
-	}
-}
-
-spriteblock(FEAT_TRAINS) {
-	spriteset(normal_mail_set, "src/gfx/temperate_railwagons.png") {
-		[  0, 50,  8,24,   -3,-12]
-		[ 16, 50, 22,17,  -14, -9]
-		[ 48, 50, 32,12,  -16, -8]
-		[ 96, 50, 22,17,   -6, -9]
-		[  0, 50,  8,24,   -3,-12]
-		[ 16, 50, 22,17,  -14, -9]
-		[ 48, 50, 32,12,  -16, -8]
-		[ 96, 50, 22,17,   -6, -9]
-	}
-	spritegroup normal_mail_group {
-		loading: normal_mail_set;
-		loaded: normal_mail_set;
 	}
 }
 

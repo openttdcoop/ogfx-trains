@@ -3,11 +3,43 @@
  * Generic Wagons
  * =============================================================================
  */
+
+template tmpl_railwagon(x,y) {
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,12,  -16, -8]
+    [ 96+x, y, 22,17,   -6, -9]
+}
+
+template tmpl_short_railwagon(x,y) {
+    [  0, y,  8, 18,  -3, -10 ]
+    [ 16, y, 20, 16, -12,  -8 ]
+    [ 48, y, 28, 12, -14,  -7 ]
+    [ 96, y, 20, 16,  -4,  -8 ]
+}
  
 /*
  * Add cargo classes to a few wagons in order to support non-default cargos
  * Also define new graphics for those where we use livery-override.
  */
+
+/* 
+ * ***************************
+ * PAX wagon:
+ *
+ * Livery override by arctic turbotrain
+ * ***************************
+ */
+
+spriteblock(FEAT_TRAINS) {
+	spriteset(normal_passenger_set, "src/gfx/arctic_railwagons.png") {
+        tmpl_railwagon(0,0) tmpl_railwagon(0,0)               // 8 views needed for livery override by turbotrain
+	}
+	spritegroup normal_passenger_group {
+		loading: normal_passenger_set;
+		loaded: normal_passenger_set;
+	}
+}
 
 item(FEAT_TRAINS, passenger_wagon, 27) {
     property {
@@ -19,6 +51,25 @@ item(FEAT_TRAINS, passenger_wagon, 27) {
     graphics {
         normal_passenger_group;
     }
+}
+
+/* 
+ * ***************************
+ * Mail wagon:
+ *
+ * Livery override by arctic turbotrain
+ * ***************************
+ */
+
+
+spriteblock(FEAT_TRAINS) {
+	spriteset(normal_mail_set, "src/gfx/temperate_railwagons.png") {
+        tmpl_railwagon(0,50) tmpl_railwagon(0,50)             // 8 views needed for livery override by turbotrain
+	}
+	spritegroup normal_mail_group {
+		loading: normal_mail_set;
+		loaded: normal_mail_set;
+	}
 }
 
 item(FEAT_TRAINS, mail_wagon, 28) {
@@ -35,20 +86,6 @@ item(FEAT_TRAINS, mail_wagon, 28) {
 
 // The other wagons are better separately and slowly added with appropriate cargo definitions
 // Otherwise strange combinations may result
-
-template tmpl_railwagon(x,y) {
-    [  0+x, y,  8,24,   -3,-12]
-    [ 16+x, y, 22,17,  -14, -9]
-    [ 48+x, y, 32,12,  -16, -8]
-    [ 96+x, y, 22,17,   -6, -9]
-}
-
-template tmpl_short_railwagon(x,y) {
-    [  0, y,  8, 18,  -3, -10 ]
-    [ 16, y, 20, 16, -12,  -8 ]
-    [ 48, y, 28, 12, -14,  -7 ]
-    [ 96, y, 20, 16,  -4,  -8 ]
-}
 
 /* 
  * ***************************
