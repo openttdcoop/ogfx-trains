@@ -13,7 +13,7 @@ cargotable {                        // cargos needed for special refit orders
     WDPR, SCRP, CMNT, WOOD,         // bulk, bulk+piece+flat, tank, piece
     LVST, STEL, VEHI, BRCK,         // piece+flat, piece, piece, piece
     WOOL, BUBL, TOYS, FZDR,         // flat, flat, flat, tank
-    FRUT, FRVG,                     // bulk, bulk
+    FRUT, FRVG, FOOD,               // bulk, bulk, piece
 
                                     // cargos only referenced
     OIL_, GOOD, WATR, MILK,
@@ -21,7 +21,7 @@ cargotable {                        // cargos needed for special refit orders
     GRVL, SAND, GRAI, RSGR,
     CLAY, MAIZ, CORE, FERT,
     SULP, WHEA, RFPR, COLA,
-    PETR, FOOD, PAPR, TOFF,
+    PETR, PAPR, TOFF, SUGR,
     PASS, MAIL, BATT, SWET,
-    CTCD, SUGR
+    CTCD
 }

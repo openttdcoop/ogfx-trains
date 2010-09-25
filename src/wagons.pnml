@@ -416,16 +416,16 @@ switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
 }
 
 item(FEAT_TRAINS, piecegoods_wagon, 32) {
-    property {
-        name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
+    property {                                                // we re-use the default name
+//        name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
         climates_available:             CLIMATE_ALL;
         introduction_date:              date(1880,01,01);
         model_life:                     255;                  // years
         vehicle_life:                   30;
         reliability_decay:              1;
         refittable_cargo_classes:       CC_PIECE_GOODS | CC_EXPRESS;
-        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED;
-        refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL);
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED | CC_REFRIGERATED;
+        refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL, FOOD, FRUT, FRVG);
         cargo_type:                     0xFF;
         cargo_capacity:                 30;
         cost_factor:                    1;
