@@ -1,4 +1,13 @@
 #include "src/header.pnml"
 
+#include "src/sprite_templates.pnml"
+
+#include "src/wagon_pax.pnml"
+#include "src/wagon_mail.pnml"
+#include "src/wagon_bulk.pnml"
+#include "src/wagon_piecegoods.pnml"
+#include "src/wagon_refrigerated.pnml"
+#include "src/wagon_tank.pnml"
+#include "src/wagon_flatbed.pnml"
+
 #include "src/turbotrain.pnml"
-#include "src/wagons.pnml"

@@ -1,0 +1,30 @@
+/* 
+ * ***************************
+ * Mail wagon:
+ *
+ * Note: livery override by arctic turbotrain
+ * ***************************
+ */
+
+
+spriteblock(FEAT_TRAINS) {
+	spriteset(normal_mail_set, "src/gfx/temperate_railwagons.png") {
+        tmpl_railwagon(0,50) tmpl_railwagon(0,50)             // 8 views needed for livery override by turbotrain
+	}
+	spritegroup normal_mail_group {
+		loading: normal_mail_set;
+		loaded: normal_mail_set;
+	}
+}
+
+item(FEAT_TRAINS, mail_wagon, 28) {
+    property {
+        sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
+        misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
+        refittable_cargo_classes:     CC_MAIL;                // Allow mail
+        non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
+    }
+    graphics {
+        normal_mail_group;
+    }
+}

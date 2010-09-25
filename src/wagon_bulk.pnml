@@ -1,0 +1,144 @@
+/* 
+ * ***************************
+ * Bulk wagon:
+ *
+ * coal, iron ore, bauxite, copper ore,
+ * gravel, sand, clay, grains, maize, wheat,
+ * sulphur, fertilizer, scrap metal,
+ * fruit, fruit & vegetables, toffee,
+ * sugar, cotton candy, sugar beet
+ * ***************************
+ */
+
+spriteblock(FEAT_TRAINS) {
+    spriteset(bulk_wagon_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,25) }
+    
+    spriteset(bulk_wagon_coal_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,250) }
+    spritegroup bulk_wagon_coal_default_group {
+        loaded: [bulk_wagon_empty_set, bulk_wagon_coal_default_set];
+        loading: [bulk_wagon_empty_set, bulk_wagon_coal_default_set];
+    }
+    spriteset(bulk_wagon_coal_arctic_empty_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,25) }
+    spriteset(bulk_wagon_coal_arctic_full_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,250) }
+    spritegroup bulk_wagon_coal_arctic_group {
+        loaded: [bulk_wagon_coal_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
+        loading: [bulk_wagon_coal_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
+    }
+
+    spriteset(bulk_wagon_gravel_set, "src/gfx/railwagon_gravel.png") { tmpl_railwagon(0,0) }
+    spritegroup bulk_wagon_gravel_group {
+        loaded: [bulk_wagon_empty_set, bulk_wagon_gravel_set];
+        loading: [bulk_wagon_empty_set, bulk_wagon_gravel_set];
+    }
+
+    spriteset(bulk_wagon_empty_grain_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,150) }
+    spriteset(bulk_wagon_grain_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,275) }
+    spritegroup bulk_wagon_grain_group {
+        loaded: [bulk_wagon_empty_grain_set, bulk_wagon_grain_set];
+        loading: [bulk_wagon_empty_grain_set, bulk_wagon_grain_set];
+    }
+
+    spriteset(bulk_wagon_empty_copperore_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,225) }
+    spriteset(bulk_wagon_copperore_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,450) }
+    spritegroup bulk_wagon_copperore_group {
+        loaded: [bulk_wagon_empty_copperore_set, bulk_wagon_copperore_set];
+        loading: [bulk_wagon_empty_copperore_set, bulk_wagon_copperore_set];
+    }
+
+    spriteset(bulk_wagon_bauxite_set, "src/gfx/railwagon_bauxite.png") { tmpl_railwagon(0,0) }
+    spritegroup bulk_wagon_bauxite_group {
+        loaded: [bulk_wagon_empty_set, bulk_wagon_bauxite_set];
+        loading: [bulk_wagon_empty_set, bulk_wagon_bauxite_set];
+    }
+
+    spriteset(bulk_wagon_empty_ironore_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,225) }
+    spriteset(bulk_wagon_ironore_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,350) }
+    spritegroup bulk_wagon_ironore_group {
+        loaded: [bulk_wagon_empty_ironore_set, bulk_wagon_ironore_set];
+        loading: [bulk_wagon_empty_ironore_set, bulk_wagon_ironore_set];
+    }
+
+    spriteset(bulk_wagon_sand_set, "src/gfx/railwagon_sand.png") { tmpl_railwagon(0,0) }
+    spritegroup bulk_wagon_sand_group {
+        loaded: [bulk_wagon_empty_set, bulk_wagon_sand_set];
+        loading: [bulk_wagon_empty_set, bulk_wagon_sand_set];
+    }
+
+    spriteset(bulk_wagon_empty_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,500) }
+    spriteset(bulk_wagon_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,525) }
+    spritegroup bulk_wagon_rawsugar_group {
+        loaded: [bulk_wagon_empty_rawsugar_set, bulk_wagon_rawsugar_set];
+        loading: [bulk_wagon_empty_rawsugar_set, bulk_wagon_rawsugar_set];
+    }
+
+    spriteset(bulk_wagon_cottoncandy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,140) }
+    spriteset(bulk_wagon_cottoncandy_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,160) }
+    spritegroup bulk_wagon_cottoncandy_group {
+        loaded: [bulk_wagon_cottoncandy_empty_set, bulk_wagon_cottoncandy_full_set];
+        loading: [bulk_wagon_cottoncandy_empty_set, bulk_wagon_cottoncandy_full_set];
+    }
+
+    spriteset(bulk_wagon_toffee_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,180) }
+    spriteset(bulk_wagon_toffee_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,200) }
+    spritegroup bulk_wagon_toffee_group {
+        loaded: [bulk_wagon_toffee_empty_set, bulk_wagon_toffee_full_set];
+        loading: [bulk_wagon_toffee_empty_set, bulk_wagon_toffee_full_set];
+    }
+
+    spriteset(bulk_wagon_sugar_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,100) }
+    spriteset(bulk_wagon_sugar_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,120) }
+    spritegroup bulk_wagon_sugar_group {
+        loaded: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
+        loading: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
+    }
+
+    spriteset(bulk_wagon_fruit_empty_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,500) }
+    spriteset(bulk_wagon_fruit_full_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,525) }
+    spritegroup bulk_wagon_fruit_group {
+        loaded: [bulk_wagon_fruit_empty_set, bulk_wagon_fruit_full_set];
+        loading: [bulk_wagon_fruit_empty_set, bulk_wagon_fruit_full_set];
+    }
+}
+
+switch (FEAT_TRAINS, SELF, bulk_wagon_coal_climate_switch, climate) {
+    CLIMATE_ARCTIC: bulk_wagon_coal_arctic_group;
+    bulk_wagon_coal_default_group;    
+}
+
+switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
+    COAL: bulk_wagon_coal_climate_switch;
+    GRAI: bulk_wagon_grain_group;
+    WHEA: bulk_wagon_grain_group;
+    MAIZ: bulk_wagon_grain_group;
+    CORE: bulk_wagon_copperore_group;
+    AORE: bulk_wagon_bauxite_group;
+    IORE: bulk_wagon_ironore_group;
+    SULP: bulk_wagon_sand_group;
+    SAND: bulk_wagon_sand_group;
+    FERT: bulk_wagon_gravel_group;
+    GRVL: bulk_wagon_gravel_group;
+    CLAY: bulk_wagon_gravel_group;
+    RSGR: bulk_wagon_rawsugar_group;
+    CTCD: bulk_wagon_cottoncandy_group;
+    TOFF: bulk_wagon_toffee_group;
+    SUGR: bulk_wagon_sugar_group;
+    FRUT: bulk_wagon_fruit_group;
+    FRVG: bulk_wagon_fruit_group;
+    bulk_wagon_coal_default_group;                // default to coal; also waste (WSTE)
+}
+
+item(FEAT_TRAINS, bulk_wagon, 30) {
+    property {
+        name:                           string(STR_NAME_BULK_WAGON);
+        climates_available:             CLIMATE_ALL;
+        introduction_date:              date(1880,01,01);
+        refittable_cargo_classes:       CC_BULK;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+        refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
+        cargo_type:                     0xFF;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+    }
+    graphics {
+        bulk_wagon_switch;
+    }
+}

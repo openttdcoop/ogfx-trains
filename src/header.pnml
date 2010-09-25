@@ -25,3 +25,8 @@ cargotable {                        // cargos needed for special refit orders
     PASS, MAIL, BATT, SWET,
     CTCD
 }
+
+railtypetable {
+    RAIL, ELRL, MONO, MGLV,
+    TRPD
+}
