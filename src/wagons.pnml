@@ -250,25 +250,11 @@ item(FEAT_TRAINS, bulk_wagon, 30) {
         name:                           string(STR_NAME_BULK_WAGON);
         climates_available:             CLIMATE_ALL;
         introduction_date:              date(1880,01,01);
-        model_life:                     255;                  // years
-        vehicle_life:                   30;
-        reliability_decay:              1;
         refittable_cargo_classes:       CC_BULK;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
         refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
         cargo_type:                     0xFF;
-        cargo_capacity:                 30;
-        cost_factor:                    1;
-        running_cost_factor:            1;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        refit_cost:                     0;
-        loading_speed:                  20;
-        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
-        visual_effect:                  VISUAL_EFFECT_DISABLE;
-        track_type:                     RAIL;
-        power:                          0;
-        speed:                          270 km/h;
-        weight:                         19 ton;
     }
     graphics {
         bulk_wagon_switch;
@@ -334,26 +320,11 @@ item(FEAT_TRAINS, tank_wagon, 29) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
         climates_available:             CLIMATE_ALL;
-        introduction_date:              date(1880,01,01);
-        model_life:                     255;                  // years
-        vehicle_life:                   30;
-        reliability_decay:              1;
         refittable_cargo_classes:       CC_LIQUID;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
         refittable_cargo_types:         bitmask(CMNT, FZDR);
         cargo_type:                     0xFF;
-        cargo_capacity:                 30;
-        cost_factor:                    1;
-        running_cost_factor:            1;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        refit_cost:                     0;
-        loading_speed:                  20;
-        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
-        visual_effect:                  VISUAL_EFFECT_DISABLE;
-        track_type:                     RAIL;
-        power:                          0;
-        speed:                          270 km/h;
-        weight:                         19 ton;
     }
     graphics {
         tank_wagon_switch;
@@ -416,29 +387,13 @@ switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
 }
 
 item(FEAT_TRAINS, piecegoods_wagon, 32) {
-    property {                                                // we re-use the default name
-//        name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
+    property {                                                // we re-use the default name + properties
         climates_available:             CLIMATE_ALL;
-        introduction_date:              date(1880,01,01);
-        model_life:                     255;                  // years
-        vehicle_life:                   30;
-        reliability_decay:              1;
         refittable_cargo_classes:       CC_PIECE_GOODS | CC_EXPRESS;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED | CC_REFRIGERATED;
         refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL, FOOD, FRUT, FRVG);
         cargo_type:                     0xFF;
-        cargo_capacity:                 30;
-        cost_factor:                    1;
-        running_cost_factor:            1;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        refit_cost:                     0;
-        loading_speed:                  20;
-        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
-        visual_effect:                  VISUAL_EFFECT_DISABLE;
-        track_type:                     RAIL;
-        power:                          0;
-        speed:                          270 km/h;
-        weight:                         19 ton;
     }
     graphics {
         piecegoods_wagon_switch;
@@ -508,21 +463,7 @@ item(FEAT_TRAINS, flatbed_wagon, 34) {
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
         refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS);
         cargo_type:                     0xFF;
-        introduction_date:              date(1880,01,01);
-        model_life:                     255;                  // years
-        vehicle_life:                   30;
-        reliability_decay:              1;
-        cost_factor:                    1;
-        running_cost_factor:            1;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        refit_cost:                     0;
-        loading_speed:                  20;
-        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
-        visual_effect:                  VISUAL_EFFECT_DISABLE;
-        track_type:                     RAIL;
-        power:                          0;
-        speed:                          270 km/h;
-        weight:                         19 ton;
     }
     graphics {
         flatbed_wagon_switch;
@@ -551,23 +492,8 @@ item(FEAT_TRAINS, refrigerate_wagon, 38) {
         climates_available:             CLIMATE_ALL;
         refittable_cargo_classes:       CC_REFRIGERATED;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_HAZARDOUS;
-//        refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS);
         cargo_type:                     0xFF;
-        introduction_date:              date(1880,01,01);
-        model_life:                     255;                  // years
-        vehicle_life:                   30;
-        reliability_decay:              1;
-        cost_factor:                    1;
-        running_cost_factor:            1;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        refit_cost:                     0;
-        loading_speed:                  20;
-        callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_LOAD_AMOUNT | VEH_CBF_CARGO_SUFFIX;
-        visual_effect:                  VISUAL_EFFECT_DISABLE;
-        track_type:                     RAIL;
-        power:                          0;
-        speed:                          270 km/h;
-        weight:                         19 ton;
     }
     graphics {
         refrigerate_wagon_default_group;
