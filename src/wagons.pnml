@@ -140,7 +140,7 @@ spriteblock(FEAT_TRAINS) {
     spriteset(bulk_wagon_coal_arctic_full_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,250) }
     spritegroup bulk_wagon_coal_arctic_group {
         loaded: [bulk_wagon_coal_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
-        loading: [bulk_wagon_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
+        loading: [bulk_wagon_coal_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
     }
 
     spriteset(bulk_wagon_gravel_set, "src/gfx/railwagon_gravel.png") { tmpl_railwagon(0,0) }
@@ -209,6 +209,13 @@ spriteblock(FEAT_TRAINS) {
         loaded: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
         loading: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
     }
+
+    spriteset(bulk_wagon_fruit_empty_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,500) }
+    spriteset(bulk_wagon_fruit_full_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,525) }
+    spritegroup bulk_wagon_fruit_group {
+        loaded: [bulk_wagon_fruit_empty_set, bulk_wagon_fruit_full_set];
+        loading: [bulk_wagon_fruit_empty_set, bulk_wagon_fruit_full_set];
+    }
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_coal_climate_switch, climate) {
@@ -233,6 +240,8 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     CTCD: bulk_wagon_cottoncandy_group;
     TOFF: bulk_wagon_toffee_group;
     SUGR: bulk_wagon_sugar_group;
+    FRUT: bulk_wagon_fruit_group;
+    FRVG: bulk_wagon_fruit_group;
     bulk_wagon_coal_default_group;                // default to coal; also waste (WSTE)
 }
 
@@ -246,7 +255,7 @@ item(FEAT_TRAINS, bulk_wagon, 30) {
         reliability_decay:              1;
         refittable_cargo_classes:       CC_BULK;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
-        refittable_cargo_types:         bitmask(WDPR, SCRP);
+        refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
         cargo_type:                     0xFF;
         cargo_capacity:                 30;
         cost_factor:                    1;
@@ -398,6 +407,7 @@ spriteblock(FEAT_TRAINS) {
 
 switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
     PAPR: piecegoods_wagon_paper_group;
+    FRUT: piecegoods_wagon_fruit_group;
     FRVG: piecegoods_wagon_fruit_group;
     SWET: piecegoods_wagon_toyland_group;
     BATT: piecegoods_wagon_toyland_group;
