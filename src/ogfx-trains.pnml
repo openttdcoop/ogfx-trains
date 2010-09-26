@@ -1,5 +1,7 @@
 #include "src/header.pnml"
 
+#include "src/remove_wagons.pnml"
+
 #include "src/sprite_templates.pnml"
 
 #include "src/wagon_pax.pnml"

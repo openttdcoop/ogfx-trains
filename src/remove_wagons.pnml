@@ -1,0 +1,136 @@
+/* 
+ * =============================================================================
+ * Remove unneeded wagons
+ * =============================================================================
+ */
+ 
+/*
+ * The default wagons are not required anymore.
+ */
+
+/* Steam/diesel/electric wagons. */
+
+if REMOVE_WAGONS {
+
+    // #29 is coal. We just re-define it as bulk wagon
+
+    // #30 is oil. We just re-define it as liquid wagon
+
+    // #31 is lifestock. We don't provide one. Keep it.
+
+    // #32 is goods. We just re-define it as piece goods wagon
+
+    item(FEAT_TRAINS, removed_steam_grain_hopper, 33) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    // #34 is wood. We just re-define it as flatbed wagon
+
+    item(FEAT_TRAINS, removed_steam_iron_ore_hopper, 35) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_steel_truck, 36) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    // #37 is armoured van. We don't provide a new one. Keep it.
+
+    // #38 is food. We just re-define it as refrigerated wa
+
+    item(FEAT_TRAINS, removed_steam_paper_truck, 39) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_copper_ore_hopper, 40) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_water_tanker, 41) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_fruit_truck, 42) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_rubber_truck, 43) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_sugar_truck, 44) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_candyfloss_hopper, 45) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_toffee_hopper, 46) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_bubble_van, 47) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_cola_tanker, 48) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_sweet_van, 49) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_toy_van, 50) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_battery_truck, 51) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_fizzy_drink_truck, 52) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+
+    item(FEAT_TRAINS, removed_steam_plastic_truck, 53) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
+}

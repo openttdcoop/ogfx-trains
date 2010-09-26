@@ -1,14 +1,43 @@
 grf {
-    // comment
     grfid : "OG+1";
     name : string(STR_GRF_NAME);
     desc : string(STR_GRF_DESCRIPTION);
     version : REPO_REVISION;
+    
+    // Compatibility parameter: remove unneeded default wagon definitions
+    param {
+		param_compatibility {
+			type:    bool;
+			name:    string(STR_PARAM_DISABLE_UNNEEDED_WAGONS);
+			desc:    string(STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC);
+		}
+	}
 }
 
-// Define some cargo translation table
+/* 
+ * ********************************************
+ * Handle NewGRF parameters
+ * ********************************************
+ */
+
+/*
+ * ********************************************
+ * Parameter 1: Disable default wagons
+ *
+ * 0: (default) Keep all wagons (possibly needed for running games
+ * 1: Disable all unneeded wagons (good for new games)
+ * ********************************************
+ */
+
+#define KEEP_WAGONS   (param[0] == 0)
+#define REMOVE_WAGONS (param[0] == 1)
  
-// Cargo translation table tested for FIRS
+/* 
+ * ********************************************
+ * Define cargo and railtype translation tables
+ * ********************************************
+ */
+ 
 cargotable {                        // cargos needed for special refit orders
     WDPR, SCRP, CMNT, WOOD,         // bulk, bulk+piece+flat, tank, piece
     LVST, STEL, VEHI, BRCK,         // piece+flat, piece, piece, piece
