@@ -51,7 +51,8 @@ cargotable {                        // cargos needed for special refit orders
     MAIZ, CORE, FERT, CTCD,
     SULP, WHEA, RFPR, COLA,
     PETR, PAPR, TOFF, SUGR,
-    PASS, MAIL, BATT, SWET
+    PASS, MAIL, BATT, SWET,
+    RUBR
 }
 
 railtypetable {

@@ -1,0 +1,84 @@
+spriteblock(FEAT_TRAINS) {
+    spriteset(monorail_bulk_empty_coal_arctic_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,100) }
+    spriteset(monorail_bulk_full_coal_arctic_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,120) }
+    spritegroup monorail_bulk_wagon_coal_arctic_group {
+        loaded: [monorail_bulk_empty_coal_arctic_set, monorail_bulk_full_coal_arctic_set];
+        loading: [monorail_bulk_empty_coal_arctic_set, monorail_bulk_full_coal_arctic_set];
+    }
+
+    spriteset(monorail_bulk_empty_coal_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,100) }
+    spriteset(monorail_bulk_full_coal_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,120) }
+    spritegroup monorail_bulk_wagon_coal_group {
+        loaded: [monorail_bulk_empty_coal_set, monorail_bulk_full_coal_set];
+        loading: [monorail_bulk_empty_coal_set, monorail_bulk_full_coal_set];
+    }
+
+    spriteset(monorail_bulk_empty_grain_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0, 240) }
+    spriteset(monorail_bulk_full_grain_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0, 260) }
+    spritegroup monorail_bulk_wagon_grain_group {
+        loaded: [monorail_bulk_empty_grain_set, monorail_bulk_full_grain_set];
+        loading: [monorail_bulk_empty_grain_set, monorail_bulk_full_grain_set];
+    }
+
+    spriteset(monorail_bulk_empty_ironore_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0, 360) }
+    spriteset(monorail_bulk_full_ironore_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0, 380) }
+    spritegroup monorail_bulk_wagon_ironore_group {
+        loaded: [monorail_bulk_empty_ironore_set, monorail_bulk_full_ironore_set];
+        loading: [monorail_bulk_empty_ironore_set, monorail_bulk_full_ironore_set];
+    }
+
+    spriteset(monorail_bulk_empty_copper_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 280) }
+    spriteset(monorail_bulk_full_copper_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 300) }
+    spritegroup monorail_bulk_wagon_copper_group {
+        loaded: [monorail_bulk_empty_copper_set, monorail_bulk_full_copper_set];
+        loading: [monorail_bulk_empty_copper_set, monorail_bulk_full_copper_set];
+    }
+
+    spriteset(monorail_bulk_empty_fruit_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 340) }
+    spriteset(monorail_bulk_full_fruit_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 360) }
+    spritegroup monorail_bulk_wagon_fruit_group {
+        loaded: [monorail_bulk_empty_fruit_set, monorail_bulk_full_fruit_set];
+        loading: [monorail_bulk_empty_fruit_set, monorail_bulk_full_fruit_set];
+    }
+
+    spriteset(monorail_bulk_empty_rubber_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 380) }
+    spriteset(monorail_bulk_full_rubber_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 400) }
+    spritegroup monorail_bulk_wagon_rubber_group {
+        loaded: [monorail_bulk_empty_rubber_set, monorail_bulk_full_rubber_set];
+        loading: [monorail_bulk_empty_rubber_set, monorail_bulk_full_rubber_set];
+    }
+
+}
+
+switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_coal_switch, climate) {
+    CLIMATE_ARCTIC: monorail_bulk_wagon_coal_arctic_group;
+    monorail_bulk_wagon_coal_group;
+}
+
+switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_switch, cargo_type_in_veh) {
+    COAL: monorail_bulk_wagon_coal_switch;
+    CORE: monorail_bulk_wagon_copper_group;
+    FRUT: monorail_bulk_wagon_fruit_group;
+    FRVG: monorail_bulk_wagon_fruit_group;
+    GRAI: monorail_bulk_wagon_grain_group;
+    IORE: monorail_bulk_wagon_ironore_group;
+    MAIZ: monorail_bulk_wagon_grain_group;
+    RUBR: monorail_bulk_wagon_rubber_group;
+    WHEA: monorail_bulk_wagon_grain_group;
+    bulk_wagon_switch;                  // default to normal rail wagons
+}
+
+item(FEAT_TRAINS, monorail_bulk_wagon, 59) {
+    property {
+        name:                           string(STR_NAME_BULK_WAGON);
+        climates_available:             CLIMATE_ALL;
+        refittable_cargo_classes:       CC_BULK;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+        refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
+        cargo_type:                     0xFF;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+    }
+    graphics {
+        monorail_bulk_wagon_switch;
+    }        
+}
