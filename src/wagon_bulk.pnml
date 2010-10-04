@@ -118,24 +118,24 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_coal_climate_switch, climate) {
 }
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
-    COAL: bulk_wagon_coal_climate_switch;
-    GRAI: bulk_wagon_grain_group;
-    WHEA: bulk_wagon_grain_group;
-    MAIZ: bulk_wagon_grain_group;
-    CORE: bulk_wagon_copperore_group;
     AORE: bulk_wagon_bauxite_group;
-    IORE: bulk_wagon_ironore_group;
-    SULP: bulk_wagon_sand_group;
-    SAND: bulk_wagon_sand_group;
-    FERT: bulk_wagon_gravel_group;
-    GRVL: bulk_wagon_gravel_group;
     CLAY: bulk_wagon_gravel_group;
-    RSGR: bulk_wagon_rawsugar_group;
+    COAL: bulk_wagon_coal_climate_switch;
+    CORE: bulk_wagon_copperore_group;
     CTCD: bulk_wagon_cottoncandy_group;
-    TOFF: bulk_wagon_toffee_group;
-    SUGR: bulk_wagon_sugar_group;
+    FERT: bulk_wagon_gravel_group;
     FRUT: bulk_wagon_fruit_group;
     FRVG: bulk_wagon_fruit_group;
+    GRAI: bulk_wagon_grain_group;
+    GRVL: bulk_wagon_gravel_group;
+    IORE: bulk_wagon_ironore_group;
+    MAIZ: bulk_wagon_grain_group;
+    RSGR: bulk_wagon_rawsugar_group;
+    SAND: bulk_wagon_sand_group;
+    SUGR: bulk_wagon_sugar_group;
+    SULP: bulk_wagon_sand_group;
+    TOFF: bulk_wagon_toffee_group;
+    WHEA: bulk_wagon_grain_group;
     bulk_wagon_coal_default_group;                // default to coal; also waste (WSTE)
 }
 

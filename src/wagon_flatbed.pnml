@@ -54,10 +54,10 @@ spriteblock(FEAT_TRAINS) {
 }
  
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
-    STEL: flatbed_wagon_steel_group;
+    BATT: flatbed_wagon_battery_group;
     BUBL: flatbed_wagon_bubbles_group;
     FZDR: flatbed_wagon_fizzy_group;
-    BATT: flatbed_wagon_battery_group;
+    STEL: flatbed_wagon_steel_group;
     WDPR: flatbed_wagon_woodproducts_group;
     flatbed_wagon_default_group;
 }

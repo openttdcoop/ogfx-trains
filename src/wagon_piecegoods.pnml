@@ -44,11 +44,11 @@ spriteblock(FEAT_TRAINS) {
 }
 
 switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
-    PAPR: piecegoods_wagon_paper_group;
+    BATT: piecegoods_wagon_toyland_group;
     FRUT: piecegoods_wagon_fruit_group;
     FRVG: piecegoods_wagon_fruit_group;
+    PAPR: piecegoods_wagon_paper_group;
     SWET: piecegoods_wagon_toyland_group;
-    BATT: piecegoods_wagon_toyland_group;
     TOYS: piecegoods_wagon_toys_group;
     piecegoods_wagon_default_group;
 }
