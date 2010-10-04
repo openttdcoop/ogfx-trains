@@ -23,4 +23,11 @@
  
 #include "src/monorail_bulk.pnml"
 
+/*
+ * Maglev has to go below monorail wagons as some
+ * of their graphics are re-used
+ */
+ 
+#include "src/maglev_bulk.pnml"
+
 #include "src/turbotrain.pnml"
