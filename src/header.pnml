@@ -48,11 +48,10 @@ cargotable {                        // cargos needed for special refit orders
     OIL_, GOOD, WATR, MILK,
     COAL, IORE, AORE, CLAY,
     GRVL, SAND, GRAI, RSGR,
-    CLAY, MAIZ, CORE, FERT,
+    MAIZ, CORE, FERT, CTCD,
     SULP, WHEA, RFPR, COLA,
     PETR, PAPR, TOFF, SUGR,
-    PASS, MAIL, BATT, SWET,
-    CTCD
+    PASS, MAIL, BATT, SWET
 }
 
 railtypetable {
