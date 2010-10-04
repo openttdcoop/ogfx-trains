@@ -28,6 +28,12 @@ spriteblock(FEAT_TRAINS) {
         loading: piecegoods_wagon_fruit_set;
     }
 
+    spriteset(piecegoods_wagon_livestock_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,100) }
+    spritegroup piecegoods_wagon_livestock_group {
+        loaded: piecegoods_wagon_livestock_set;
+        loading: piecegoods_wagon_livestock_set;
+    }
+
     spriteset(piecegoods_wagon_toyland_open_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,260) }
     spriteset(piecegoods_wagon_toyland_closed_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,280) }
     spritegroup piecegoods_wagon_toyland_group {
@@ -47,6 +53,7 @@ switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
     BATT: piecegoods_wagon_toyland_group;
     FRUT: piecegoods_wagon_fruit_group;
     FRVG: piecegoods_wagon_fruit_group;
+    LVST: piecegoods_wagon_livestock_group;
     PAPR: piecegoods_wagon_paper_group;
     SWET: piecegoods_wagon_toyland_group;
     TOYS: piecegoods_wagon_toys_group;
