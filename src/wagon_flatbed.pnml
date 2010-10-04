@@ -44,6 +44,13 @@ spriteblock(FEAT_TRAINS) {
         loaded: [flatbed_wagon_battery_empty_set, flatbed_wagon_battery_set];
         loading: [flatbed_wagon_battery_empty_set, flatbed_wagon_battery_set];
     }
+
+    spriteset(flatbed_wagon_woodproducts_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,802) }
+    spriteset(flatbed_wagon_woodproducts_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,802) }
+    spritegroup flatbed_wagon_woodproducts_group {
+        loaded: [flatbed_wagon_woodproducts_empty_set, flatbed_wagon_woodproducts_set];
+        loading: [flatbed_wagon_woodproducts_set, flatbed_wagon_woodproducts_set];
+    }
 }
  
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
@@ -51,6 +58,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     BUBL: flatbed_wagon_bubbles_group;
     FZDR: flatbed_wagon_fizzy_group;
     BATT: flatbed_wagon_battery_group;
+    WDPR: flatbed_wagon_woodproducts_group;
     flatbed_wagon_default_group;
 }
 
