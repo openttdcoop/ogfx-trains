@@ -75,7 +75,6 @@ item(FEAT_TRAINS, monorail_bulk_wagon, 59) {
         refittable_cargo_classes:       CC_BULK;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
         refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
-        cargo_type:                     0xFF;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {

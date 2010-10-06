@@ -69,7 +69,6 @@ item(FEAT_TRAINS, flatbed_wagon, 34) {
         refittable_cargo_classes:       CC_PIECE_GOODS;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
         refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS);
-        cargo_type:                     0xFF;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {

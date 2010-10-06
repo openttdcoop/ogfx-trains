@@ -61,7 +61,6 @@ item(FEAT_TRAINS, tank_wagon, 29) {
         refittable_cargo_classes:       CC_LIQUID;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
         refittable_cargo_types:         bitmask(CMNT, FZDR);
-        cargo_type:                     0xFF;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {

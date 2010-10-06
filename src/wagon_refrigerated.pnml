@@ -20,7 +20,6 @@ item(FEAT_TRAINS, refrigerate_wagon, 38) {
         climates_available:             CLIMATE_ALL;
         refittable_cargo_classes:       CC_REFRIGERATED;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_HAZARDOUS;
-        cargo_type:                     0xFF;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {
