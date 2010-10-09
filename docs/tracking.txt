@@ -1,0 +1,86 @@
+Planned extensions of OpenGFX+ Trains:
+
+- wagon types supported:
+    passenger,
+    mail,
+    valuables,
+    open bulk,
+    covered bulk,
+    piece goods (covered),
+    flatbed (not covered),
+    tank
+
+- dedicated support for all normal, FIRS, ECS and PBI cargos (empty + full):
+    AORE,   bauxite             open bulk                                       all climates: empty + full
+    BATT,   batteries           flatbed                                         all climates: empty + full
+    BATT,   batteries           piece(?)                                        -/-
+    BRCK,   bricks              piece                                           -/-
+    BRCK,   bricks              flatbed                                         -/-
+    BUBL,   bubbles             flatbed                                         all climates: empty + full
+    CLAY,   clay                open bulk                                       all climates: empty + full (== gravel)
+    CMNT,   cement              covered bulk                                    -/-
+    COAL,   coal                open bulk:                                      arctic: empty + full; other: 2 types à empty + full
+    COLA,   cola                tank                                            all climates: empty + full
+    COLA,   cola                flatbed                                         -/-
+    CORE,   copper ore          open bulk                                       all climates: empty + full
+    CTCD,   cotton candy        bulk                                            all climates: empty + full
+    FERT,   fertilizer          bulk                                            -/- (== gravel)
+    FERT,   fertilizer,         flatbed (containers)                            -/-
+    FOOD,   food                piece                                           -/-
+    FOOD,   food                refrigerated                                    -/-
+    FRUT,   fruits              open bulk                                       all climates: empty + full
+    FRUT,   fruits              piece                                           all climates: 1
+    FRUT,   fruits              refrigerated                                    -/-
+    FRVG,   fruits + vegetables open bulk                                       all climates: empty + full
+    FRVG    fruits + vegetables piece                                           all climates: 1
+    FRVG,   fruits + vegetables refrigerated                                    -/-
+    FZDR,   fizzy drinks        flatbed                                         all climates: empty + full
+    FZDR,   fizzy drinks        tank                                            -/-
+    GOOD,   goods               piece                                           (== default per definition)
+    GOOD    goods               flatbed                                         -/-
+    GRAI,   grain               open bulk                                       all climates: empty + full
+    GRVL,   gravel, stone       open bulk                                       all climates: empty + full
+    IORE,   iron ore            open bulk                                       all climates: empty + full
+    LVST,   lifestock           piece                                           all climates: 1
+    MAIL,   mail                mail                                            all climates: 1
+    MAIZ,   maize               open bulk                                       all climates: (== grain)
+    MILK,   milk                piece                                           -/-
+    MILK,   milk                tank                                            all climates: (== tropic default)
+    OIL_,   oil                 tank                                            tropic: 1; other: 1
+    PAPR,   paper               piece                                           all climates: loading + driving
+    PAPR,   paper               flatbed                                         -/-
+    PASS,   passengers          passenger                                       artic, tropic, temperate, toyland: 1
+    PETR,   fuel oil            tank                                            -/-
+    RSGR,   raw sugar           open bulk                                       all climates: empty + full
+    RFPR,   refinery products   tank                                            -/-
+    RFPR,   refinery products   piece                                           -/-
+    RFPR,   refinery products   flatbed                                         -/-
+    SAND,   sand                open bulk                                       all climates: empty + full
+    SCRP,   scrap metal         open bulk                                       all climates: empty + full
+    SUGR,   sugar               open bulk                                       all climates: empty + full
+    SULP,   sulphur             covered bulk                                    -/-
+    STEL,   steel               flatbed                                         all climates: empty + full
+    SWET,   sweets              ??
+    TOFF,   toffee              ??
+    TOYS,   toys                piece                                           all climates: loading + driving
+    VALU,   valuables           valuabels                                       all climates: 1
+    VEHI,   vehicles            flatbed                                         -/-
+    WATR,   water               piece                                           -/-
+    WATR,   water               tank                                            all climates: 1
+    WDPR,   wood products       flatbed                                         all climates: empty + full
+    WDPR    wood products       open bulk                                       -/-
+    WHEA,   wheat               open bulk                                       all climates: like grain
+    WOOD,   wood                flatbed                                         all climates: empty + full
+    WOOL,   wool                piece                                           -/-
+    WOOL,   wool                flatbed                                         -/-
+
+- support for up to four loading stages (in order normal, FIRS, ECS, PBI)
+    note: this requires wagons where the cargo is visible to have 8 views instead of four.
+- support for climate-specific sprites
+    note: this can be added on a per-cargo-basis.
+- support for random look of the same cargo:
+    note: to be added on an individual per-cargo-basis.
+    - goods: flatbed: containers with different colours, vehicles, ...
+- support for time-dependent sprites for the wagons
+    
+- support for livery override for a number of passenger trains
