@@ -1,4 +1,4 @@
-item(FEAT_TRAINS, piecegoods_wagon, 94) {
+item(FEAT_TRAINS, maglev_piecegoods_wagon, 94) {
     property {                                                // we re-use the default name + properties
         climates_available:             CLIMATE_ALL;
         refittable_cargo_classes:       CC_PIECE_GOODS | CC_EXPRESS;

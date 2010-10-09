@@ -1,4 +1,4 @@
-item(FEAT_TRAINS, flatbed_wagon, 64) {
+item(FEAT_TRAINS, monorail_flatbed_wagon, 64) {
     property {
         name:                           string(STR_NAME_FLATBED_WAGON);
         climates_available:             CLIMATE_ALL;

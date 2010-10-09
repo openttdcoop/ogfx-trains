@@ -1,5 +1,5 @@
 
-item(FEAT_TRAINS, refrigerate_wagon, 68) {
+item(FEAT_TRAINS, monorail_refrigerate_wagon, 68) {
     property {                                                // we keep the name 'food van'
         climates_available:             CLIMATE_ALL;
         refittable_cargo_classes:       CC_REFRIGERATED;

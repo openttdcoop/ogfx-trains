@@ -1,4 +1,4 @@
-item(FEAT_TRAINS, tank_wagon, 60) {
+item(FEAT_TRAINS, monorail_tank_wagon, 60) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
         climates_available:             CLIMATE_ALL;
