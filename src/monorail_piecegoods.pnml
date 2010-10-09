@@ -1,0 +1,12 @@
+item(FEAT_TRAINS, piecegoods_wagon, 62) {
+    property {                                                // we re-use the default name + properties
+        climates_available:             CLIMATE_ALL;
+        refittable_cargo_classes:       CC_PIECE_GOODS | CC_EXPRESS;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED | CC_REFRIGERATED;
+        refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL, FOOD, FRUT, FRVG);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+    }
+    graphics {
+        piecegoods_wagon_switch;
+    }
+}

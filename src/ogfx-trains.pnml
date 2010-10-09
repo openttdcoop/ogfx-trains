@@ -22,6 +22,7 @@
  */
  
 #include "src/monorail_bulk.pnml"
+#include "src/monorail_piecegoods.pnml"
 #include "src/monorail_tank.pnml"
 #include "src/monorail_flatbed.pnml"
 
@@ -31,6 +32,7 @@
  */
  
 #include "src/maglev_bulk.pnml"
+#include "src/maglev_piecegoods.pnml"
 #include "src/maglev_tank.pnml"
 #include "src/maglev_flatbed.pnml"
 
