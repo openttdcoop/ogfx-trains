@@ -1,0 +1,13 @@
+item(FEAT_TRAINS, tank_wagon, 60) {
+    property {
+        name:                           string(STR_NAME_TANK_WAGON);
+        climates_available:             CLIMATE_ALL;
+        refittable_cargo_classes:       CC_LIQUID;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
+        refittable_cargo_types:         bitmask(CMNT, FZDR);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+    }
+    graphics {
+        tank_wagon_switch;
+    }
+}
