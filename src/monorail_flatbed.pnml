@@ -1,0 +1,13 @@
+item(FEAT_TRAINS, flatbed_wagon, 64) {
+    property {
+        name:                           string(STR_NAME_FLATBED_WAGON);
+        climates_available:             CLIMATE_ALL;
+        refittable_cargo_classes:       CC_PIECE_GOODS;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
+        refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+    }
+    graphics {
+        flatbed_wagon_switch;
+    }
+}
