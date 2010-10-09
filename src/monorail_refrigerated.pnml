@@ -1,0 +1,12 @@
+
+item(FEAT_TRAINS, refrigerate_wagon, 68) {
+    property {                                                // we keep the name 'food van'
+        climates_available:             CLIMATE_ALL;
+        refittable_cargo_classes:       CC_REFRIGERATED;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_HAZARDOUS;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+    }
+    graphics {
+        refrigerate_wagon_default_group;
+    }
+}
