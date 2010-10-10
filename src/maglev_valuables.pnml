@@ -1,0 +1,16 @@
+/* 
+ * ***************************
+ * Armoured wagon:
+ *
+ * valuables
+ * ***************************
+ */
+ 
+ item(FEAT_TRAINS, maglev_valuables_wagon, 99) {
+    property {
+        climates_available:             CLIMATE_ALL;
+        introduction_date:              date(1880,01,01);
+        refittable_cargo_classes:       CC_ARMOURED;
+        non_refittable_cargo_classes:   CC_PASSENGERS | CC_LIQUID | CC_REFRIGERATED | CC_BULK;
+    }
+}

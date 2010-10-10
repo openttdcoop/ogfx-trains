@@ -15,6 +15,7 @@
 #include "src/wagon_refrigerated.pnml"
 #include "src/wagon_tank.pnml"
 #include "src/wagon_flatbed.pnml"
+#include "src/wagon_valuables.pnml"
 
 /*
  * Monorail has to go below railwagons as some
@@ -26,6 +27,7 @@
 #include "src/monorail_refrigerated.pnml"
 #include "src/monorail_tank.pnml"
 #include "src/monorail_flatbed.pnml"
+#include "src/monorail_valuables.pnml"
 
 /*
  * Maglev has to go below monorail wagons as some
@@ -37,5 +39,6 @@
 #include "src/maglev_refrigerated.pnml"
 #include "src/maglev_tank.pnml"
 #include "src/maglev_flatbed.pnml"
+#include "src/maglev_valuables.pnml"
 
 #include "src/turbotrain.pnml"
