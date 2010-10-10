@@ -14,13 +14,13 @@
 
 if REMOVE_WAGONS {
 
-    // #29 is coal. We just re-define it as bulk wagon
+    /* 29 is coal. We just re-define it as bulk wagon */
 
-    // #30 is oil. We just re-define it as liquid wagon
+    /* 30 is oil. We just re-define it as liquid wagon */
 
-    // #31 is lifestock. We don't provide one. Keep it.
+    /* 31 is lifestock. We don't provide one. Keep it. */
 
-    // #32 is goods. We just re-define it as piece goods wagon
+    /* 32 is goods. We just re-define it as piece goods wagon */
 
     item(FEAT_TRAINS, removed_steam_grain_hopper, 33) {
         property {
@@ -28,7 +28,7 @@ if REMOVE_WAGONS {
         }
     }
 
-    // #34 is wood. We just re-define it as flatbed wagon
+    /* 34 is wood. We just re-define it as flatbed wagon */
 
     item(FEAT_TRAINS, removed_steam_iron_ore_hopper, 35) {
         property {
@@ -42,9 +42,9 @@ if REMOVE_WAGONS {
         }
     }
 
-    // #37 is armoured van. We don't provide a new one. Keep it.
+    /* 37 is armoured van. We redefine it and keep it. */
 
-    // #38 is food. We just re-define it as refrigerated wa
+    /* 38 is food. We just re-define it as refrigerated wagon */
 
     item(FEAT_TRAINS, removed_steam_paper_truck, 39) {
         property {
@@ -135,258 +135,259 @@ if REMOVE_WAGONS {
             climates_available:		CLIMATE_NONE;
         }
     }
-}
 
 /* =====================================================
  * Monorail wagons.
  * ================================================== */
 
-/* coal replaced by bulk. Keep it */
+	/* coal replaced by bulk. Keep it */
 
-/* oil replaced by tank. Keep it */
+	/* oil replaced by tank. Keep it */
 
-/* livestock not replaced. Keep it */
+	/* livestock not replaced. Keep it */
 
-/* goods replaced by piece goods. Keep it */
+	/* goods replaced by piece goods. Keep it */
 
-item(FEAT_TRAINS, removed_monorail_grain_hopper, 63) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_grain_hopper, 63) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-/* wood replaced by flatbed. Keep it */
+	/* wood replaced by flatbed. Keep it */
 
-item(FEAT_TRAINS, removed_monorail_iron_ore_hopper, 65) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_iron_ore_hopper, 65) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_steel_truck, 66) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_steel_truck, 66) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-/* armoured van not replaced. Keep it */
+	/* armoured van is redefined, we keep it */
 
-/* food van replaced by refrigerated. Keep it */
+	/* food van replaced by refrigerated. Keep it */
 
-item(FEAT_TRAINS, removed_monorail_paper_truck, 69) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_paper_truck, 69) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_copper_ore_hopper, 70) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_copper_ore_hopper, 70) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_water_tanker, 71) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_water_tanker, 71) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_fruit_truck, 72) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_fruit_truck, 72) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_rubber_truck, 73) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_rubber_truck, 73) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_sugar_truck, 74) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_sugar_truck, 74) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_candyfloss_hopper, 75) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_candyfloss_hopper, 75) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_toffee_hopper, 76) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_toffee_hopper, 76) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_bubble_van, 77) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_bubble_van, 77) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_cola_tanker, 78) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_cola_tanker, 78) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_sweet_van, 79) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_sweet_van, 79) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_toy_van, 80) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_toy_van, 80) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_battery_truck, 81) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_battery_truck, 81) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_fizzy_drink_truck, 82) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_fizzy_drink_truck, 82) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_monorail_plastic_truck, 83) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_monorail_plastic_truck, 83) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
 
 /* =====================================================
  * Maglev wagons
  * ================================================== */
 
-/* Coal van replaced by bulk. Keep it */
+	/* Coal van replaced by bulk. Keep it */
 
-/* Oil van replaced by tank. Keep it */
+	/* Oil van replaced by tank. Keep it */
 
-/* Lifestock not replaced. Keep it */
+	/* Lifestock not replaced. Keep it */
 
-/* Goods replaced by piecegoods. Keep it */
+	/* Goods replaced by piecegoods. Keep it */
 
-item(FEAT_TRAINS, removed_maglev_grain_hopper, 95) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_grain_hopper, 95) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-/* wood replaced by flatbed. Keep it */
+	/* wood replaced by flatbed. Keep it */
 
-item(FEAT_TRAINS, removed_maglev_iron_ore_hopper, 97) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_iron_ore_hopper, 97) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_steel_truck, 98) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_steel_truck, 98) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-/* armoured van not replaced. Keep it */
+	/* armoured van is redefined, we keep it */
 
-/* food van replaced by refrigerated. Keep it */
+	/* food van replaced by refrigerated. Keep it */
 
-item(FEAT_TRAINS, removed_maglev_paper_truck, 101) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_paper_truck, 101) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_copper_ore_hopper, 102) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_copper_ore_hopper, 102) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_water_tanker, 103) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_water_tanker, 103) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_fruit_truck, 104) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_fruit_truck, 104) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_rubber_truck, 105) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_rubber_truck, 105) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_sugar_truck, 106) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_sugar_truck, 106) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_candyfloss_hopper, 107) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_candyfloss_hopper, 107) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_toffee_hopper, 108) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_toffee_hopper, 108) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_bubble_van, 109) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_bubble_van, 109) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_cola_tanker, 110) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_cola_tanker, 110) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_sweet_van, 111) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_sweet_van, 111) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_toy_van, 112) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_toy_van, 112) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_battery_truck, 113) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_battery_truck, 113) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_fizzy_drink_truck, 114) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_fizzy_drink_truck, 114) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
-}
 
-item(FEAT_TRAINS, removed_maglev_plastic_truck, 115) {
-	property {
-		climates_available:		CLIMATE_NONE;
+	item(FEAT_TRAINS, removed_maglev_plastic_truck, 115) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
 	}
+
 }
 
