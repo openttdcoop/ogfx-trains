@@ -143,7 +143,6 @@ item(FEAT_TRAINS, bulk_wagon, 30) {
     property {
         name:                           string(STR_NAME_BULK_WAGON);
         climates_available:             CLIMATE_ALL;
-        introduction_date:              date(1880,01,01);
         refittable_cargo_classes:       CC_BULK;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
         refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
