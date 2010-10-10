@@ -213,7 +213,9 @@ hg clone http://hg.openttdcoop.org/ogfx-trains
 6 Credits
 ---------
 
-Author: Ingo von Borstel (aka planetmaker)
+Authors: 
+    Lead programmer:       Ingo von Borstel (aka planetmaker)
+    General coding:        Terkhen
 Graphics: 
     Toyland rail wagons:   molace
     Temperate rail wagons: buttercup, DanMacK, Uzurpator, Zephyris

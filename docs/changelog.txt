@@ -1,3 +1,8 @@
 0.1.0 - initial release
 -----------------------
-- Livery override for arctic TurboTrain
+- Feature: Livery override for arctic TurboTrain
+- Feature: Refittable bulk cargo wagon
+- Feature: Refittable flatbed wagon
+- Feature: Refittable tank wagon
+- Feature: Refittable piece cargo wagon
+- Feature: Refittable wagon for refrigerated cargos
