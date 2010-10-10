@@ -10,6 +10,7 @@ grf {
 			type:    bool;
 			name:    string(STR_PARAM_DISABLE_UNNEEDED_WAGONS);
 			desc:    string(STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC);
+			def_value: 1;
 		}
 	}
 }
@@ -24,8 +25,8 @@ grf {
  * ********************************************
  * Parameter 1: Disable default wagons
  *
- * 0: (default) Keep all wagons (possibly needed for running games
- * 1: Disable all unneeded wagons (good for new games)
+ * 0: Keep all wagons (possibly needed for running games
+ * 1: (default) Disable all unneeded wagons (good for new games)
  * ********************************************
  */
 
