@@ -1,3 +1,13 @@
+/* 
+ * ***************************
+ * Piece goods wagon:
+ *
+ * goods, food, paper, fruits, fruit + vegetables,
+ * farm supplies, engineering supplies, 
+ * manufacturing supplies, wool
+ * ***************************
+ */
+
 item(FEAT_TRAINS, maglev_piecegoods_wagon, 94) {
     property {                                                // we re-use the default name + properties
         climates_available:             CLIMATE_ALL;
@@ -7,6 +17,6 @@ item(FEAT_TRAINS, maglev_piecegoods_wagon, 94) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {
-        piecegoods_wagon_switch;
+        monorail_piecegoods_cargo_switch;
     }
 }

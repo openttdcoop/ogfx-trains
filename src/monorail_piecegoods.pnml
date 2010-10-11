@@ -1,3 +1,62 @@
+/* 
+ * ***************************
+ * Piece goods wagon:
+ *
+ * goods, food, paper, fruits, fruit + vegetables,
+ * farm supplies, engineering supplies, 
+ * manufacturing supplies, wool
+ * ***************************
+ */
+
+spriteblock(FEAT_TRAINS) {
+    spriteset(monorail_piecegoods_default_open_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,200) }
+    spriteset(monorail_piecegoods_default_closed_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,220) }
+    spritegroup monorail_piecegoods_default_group {
+        loaded: monorail_piecegoods_default_closed_set;
+        loading: monorail_piecegoods_default_open_set;
+    }
+	
+    spriteset(monorail_piecegoods_goods_arctic_open_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,200) }
+    spriteset(monorail_piecegoods_goods_arctic_closed_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,220) }
+    spritegroup monorail_piecegoods_goods_arctic_group {
+        loaded: monorail_piecegoods_goods_arctic_closed_set;
+        loading: monorail_piecegoods_goods_arctic_open_set;
+    }
+    spriteset(monorail_piecegoods_goods_tropic_open_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,120) }
+    spriteset(monorail_piecegoods_goods_tropic_closed_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,140) }
+    spritegroup monorail_piecegoods_goods_tropic_group {
+        loaded: monorail_piecegoods_goods_tropic_closed_set;
+        loading: monorail_piecegoods_goods_tropic_open_set;
+    }
+
+    spriteset(monorail_piecegoods_paper_open_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,360) }
+    spriteset(monorail_piecegoods_paper_closed_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,380) }
+    spritegroup monorail_piecegoods_paper_group {
+        loaded: monorail_piecegoods_paper_closed_set;
+        loading: monorail_piecegoods_paper_open_set;
+    }
+
+    spriteset(monorail_piecegoods_food_open_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,240) }
+    spriteset(monorail_piecegoods_food_closed_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,260) }
+    spritegroup monorail_piecegoods_food_group {
+        loaded: monorail_piecegoods_food_closed_set;
+        loading: monorail_piecegoods_food_open_set;
+    }
+}
+
+switch(FEAT_TRAINS, SELF, monorail_piecegoods_goods_climate_switch, climate) {
+	CLIMATE_ARCTIC: monorail_piecegoods_goods_arctic_group;
+	CLIMATE_TROPIC: monorail_piecegoods_goods_tropic_group;
+	monorail_piecegoods_default_group;
+}
+
+switch(FEAT_TRAINS, SELF, monorail_piecegoods_cargo_switch, cargo_type_in_veh) {
+	FOOD: monorail_piecegoods_food_group;
+	GOOD: monorail_piecegoods_goods_climate_switch;
+	PAPR: monorail_piecegoods_paper_group;
+	monorail_piecegoods_default_group;
+}
+
 item(FEAT_TRAINS, monorail_piecegoods_wagon, 62) {
     property {                                                // we re-use the default name + properties
         climates_available:             CLIMATE_ALL;
@@ -7,6 +66,6 @@ item(FEAT_TRAINS, monorail_piecegoods_wagon, 62) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {
-        piecegoods_wagon_switch;
+        monorail_piecegoods_cargo_switch;
     }
 }
