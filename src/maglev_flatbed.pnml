@@ -1,3 +1,14 @@
+/* 
+ * ***************************
+ * Flatbed wagon:
+ *
+ * wood, lumber, metal, steel, glass,
+ * goods, manufacturing supplies,
+ * farm supplies, engineering supplies,
+ * batteries, fizzy drinks, bubbles
+ * ***************************
+ */
+
 item(FEAT_TRAINS, maglev_flatbed_wagon, 96) {
     property {
         name:                           string(STR_NAME_FLATBED_WAGON);
@@ -8,6 +19,6 @@ item(FEAT_TRAINS, maglev_flatbed_wagon, 96) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {
-        flatbed_wagon_switch;
+        monorail_flatbed_switch;
     }
 }
