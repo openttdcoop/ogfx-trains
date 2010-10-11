@@ -6,5 +6,5 @@ STR_NAME_TANK_WAGON												:Kesselwaggon
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :gedeckter Stückgutwaggon
 STR_NAME_FLATBED_WAGON                                          :Flachbettwaggon
 
-STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Nicht benötigte Waggons deaktivieren
-STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Kompatibilitätseinstellung. Wenn dieses NewGRF einem bestehenden Spiel zugefügt wird, wird sollten vorhandene Fahrzeuge (Lokomotiven, Waggons) NICHT deaktiviert werden, ansonsten wird empfohlen, sie zu deaktivieren (Standardeinstellung).
+STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Orginalwaggons deaktivieren
+STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Kompatibilitätseinstellung. Wenn dieses NewGRF einem bestehenden Spiel zugefügt wird, wird sollten vorhandene Fahrzeuge (Lokomotiven, Waggons) NICHT deaktiviert werden, ansonsten wird empfohlen, die ursprünglichen Waggons zu deaktivieren (Standardeinstellung).
