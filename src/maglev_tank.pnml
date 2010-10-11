@@ -1,4 +1,4 @@
-item(FEAT_TRAINS, maglev_tank_wagon, 92) {
+item(FEAT_TRAINS, maglev_tank_wagon) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
         climates_available:             CLIMATE_ALL;
@@ -8,6 +8,6 @@ item(FEAT_TRAINS, maglev_tank_wagon, 92) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {
-        tank_wagon_switch;
+        monorail_tank_switch;
     }
 }

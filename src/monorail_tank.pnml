@@ -1,3 +1,39 @@
+spriteblock(FEAT_TRAINS) {
+    spriteset(monorail_tank_oil_arctic_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,140) }
+    spriteset(monorail_tank_oil_tropic_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,100) }
+    spriteset(monorail_tank_oil_temperate_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,140) }
+    spritegroup monorail_tank_oil_temperate_group {
+        loaded: monorail_tank_oil_temperate_set;
+        loading: monorail_tank_oil_temperate_set;
+    }
+    spritegroup monorail_tank_oil_tropic_group {
+        loaded: monorail_tank_oil_tropic_set;
+        loading: monorail_tank_oil_tropic_set;
+    }
+    spritegroup monorail_tank_oil_arctic_group {
+        loaded: monorail_tank_oil_arctic_set;
+        loading: monorail_tank_oil_arctic_set;
+    }
+
+    spriteset(monorail_tank_water_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,140) }
+    spritegroup monorail_tank_water_group {
+        loaded: monorail_tank_water_set;
+        loading: monorail_tank_water_set;
+    }
+}
+
+switch(FEAT_TRAINS, SELF, monorail_tank_oil_climate_switch, climate) {
+	CLIMATE_ARCTIC: monorail_tank_oil_arctic_group;
+	CLIMATE_TROPIC: monorail_tank_oil_tropic_group;
+	monorail_tank_oil_temperate_group;
+}
+
+switch(FEAT_TRAINS, SELF, monorail_tank_switch, cargo_type_in_veh) {
+	OIL_: monorail_tank_oil_climate_switch;
+	WATR: monorail_tank_water_group;
+	tank_wagon_switch;                   // fall back to normal rail tank wagon
+}
+
 item(FEAT_TRAINS, monorail_tank_wagon, 60) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
@@ -8,6 +44,6 @@ item(FEAT_TRAINS, monorail_tank_wagon, 60) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {
-        tank_wagon_switch;
+        monorail_tank_switch;
     }
 }
