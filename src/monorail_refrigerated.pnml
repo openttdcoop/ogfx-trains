@@ -1,3 +1,24 @@
+/* 
+ * ***************************
+ * Refrigerated wagon:
+ *
+ * food, fruits, milk, fish
+ * ***************************
+ */
+
+spriteblock (FEAT_TRAINS) {
+    spriteset(monorail_refrigerated_default_closed_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,420) }
+    spriteset(monorail_refrigerated_default_open_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,400) }
+    spritegroup monorail_refrigerated_default_group {
+        loaded: monorail_refrigerated_default_closed_set;
+        loading: monorail_refrigerated_default_open_set;
+    }
+
+}
+
+switch(FEAT_TRAINS, SELF, monorail_refrigerated_switch, cargo_type_in_veh) {
+	monorail_refrigerated_default_group;
+}
 
 item(FEAT_TRAINS, monorail_refrigerate_wagon, 68) {
     property {                                                // we keep the name 'food van'
@@ -7,6 +28,6 @@ item(FEAT_TRAINS, monorail_refrigerate_wagon, 68) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {
-        refrigerate_wagon_default_group;
+        monorail_refrigerated_switch;
     }
 }

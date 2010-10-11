@@ -1,3 +1,10 @@
+/* 
+ * ***************************
+ * Refrigerated wagon:
+ *
+ * food, fruits, milk, fish
+ * ***************************
+ */
 
 item(FEAT_TRAINS, maglev_refrigerate_wagon, 100) {
     property {                                                // we keep the name 'food van'
@@ -7,6 +14,6 @@ item(FEAT_TRAINS, maglev_refrigerate_wagon, 100) {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
     }
     graphics {
-        refrigerate_wagon_default_group;
+        monorail_refrigerated_switch;
     }
 }
