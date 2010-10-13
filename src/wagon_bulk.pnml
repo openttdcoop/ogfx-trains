@@ -139,14 +139,32 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     bulk_wagon_coal_default_group;                // default to coal; also waste (WSTE)
 }
 
-item(FEAT_TRAINS, bulk_wagon, 30) {
+item(FEAT_TRAINS, bulk_wagon) {
     property {
+		// usings stats of original grain wagon
         name:                           string(STR_NAME_BULK_WAGON);
         climates_available:             CLIMATE_ALL;
         refittable_cargo_classes:       CC_BULK;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
         refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
+		introduction_date:              date(1880,1,1);
+		model_life:                     255;
+		retire_early:                   0;
+		vehicle_life:                   30;
+		reliability_decay:              0;
+		loading_speed:                  10;
+		cost_factor:                    182;
+		running_cost_factor:            5;
+		speed:                          0;
+		refit_cost:                     40;
+		callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_CARGO_SUFFIX;
+		track_type:                     RAIL;
+		power:                          0;
+		running_cost_base:              RUNNING_COST_STEAM;
+		cargo_capacity:                 30;
+		weight:                         19;
+		bitmask_vehicle_info:           0;
     }
     graphics {
         bulk_wagon_switch;

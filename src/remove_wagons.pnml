@@ -14,13 +14,25 @@
 
 if REMOVE_WAGONS {
 
-    /* 29 is coal. We just re-define it as bulk wagon */
+    item(FEAT_TRAINS, removed_steam_coal_hopper, 29) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
 
-    /* 30 is oil. We just re-define it as liquid wagon */
+    item(FEAT_TRAINS, removed_steam_oil_wagon, 30) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
 
     /* 31 is lifestock. We don't provide one. Keep it. */
 
-    /* 32 is goods. We just re-define it as piece goods wagon */
+    item(FEAT_TRAINS, removed_steam_goods_wagon, 32) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
 
     item(FEAT_TRAINS, removed_steam_grain_hopper, 33) {
         property {
@@ -28,7 +40,11 @@ if REMOVE_WAGONS {
         }
     }
 
-    /* 34 is wood. We just re-define it as flatbed wagon */
+    item(FEAT_TRAINS, removed_steam_wood_hopper, 34) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
 
     item(FEAT_TRAINS, removed_steam_iron_ore_hopper, 35) {
         property {
@@ -44,7 +60,11 @@ if REMOVE_WAGONS {
 
     /* 37 is armoured van. We redefine it and keep it. */
 
-    /* 38 is food. We just re-define it as refrigerated wagon */
+    item(FEAT_TRAINS, removed_steam_food_wagon, 38) {
+        property {
+            climates_available:		CLIMATE_NONE;
+        }
+    }
 
     item(FEAT_TRAINS, removed_steam_paper_truck, 39) {
         property {

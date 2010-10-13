@@ -5,6 +5,7 @@ STR_NAME_BULK_WAGON												:Bulk wagon
 STR_NAME_TANK_WAGON												:Tank wagon
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Piece goods wagon (covered)
 STR_NAME_FLATBED_WAGON                                          :Flatbed wagon
+STR_NAME_REFRIGERATOR_WAGON                                     :Refrigerator wagon
 
 STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Disable default wagons
 STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Allows to set compatibility. If you add this set to an existing game, and have already bought train vehicles, don't disable any wagons, otherwise it's save and recommended to disable the unneeded default wagons (default setting).
