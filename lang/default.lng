@@ -1,6 +1,6 @@
 lang: 7F
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} enhances default rail vehicles and extends the rolling stock.{}Designed to fit OpenGFX style.{}Programming: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zeyphris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}License: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Special thanks to {SILVER}Yexo{BLACK} and {SILVER}Ammler{BLACK} for their support and contributions 
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} enhances default rail vehicles and extends the rolling stock.{}Designed to fit OpenGFX style.{}Programming: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}License: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Special thanks to {SILVER}Yexo{BLACK} and {SILVER}Ammler{BLACK} for their support and contributions
 STR_NAME_BULK_WAGON												:Bulk wagon
 STR_NAME_TANK_WAGON												:Tank wagon
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Piece goods wagon (covered)
