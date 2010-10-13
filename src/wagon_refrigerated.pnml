@@ -33,7 +33,7 @@ item(FEAT_TRAINS, refrigerate_wagon) {
 		running_cost_factor:            5;
 		speed:                          0;
 		refit_cost:                     40;
-		callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_CARGO_SUFFIX;
+		callback_flags:                 0;
 		track_type:                     RAIL;
 		power:                          0;
 		running_cost_base:              RUNNING_COST_STEAM;

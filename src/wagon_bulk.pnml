@@ -139,6 +139,20 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     bulk_wagon_coal_default_group;                // default to coal; also waste (WSTE)
 }
 
+switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    FRUT: return 20;
+    FRVG: return 20;
+    RSGR: return 20;
+    FICR: return 25;
+    return 30;
+}
+
+switch (FEAT_TRAINS, SELF, bulk_wagon_cb_switch, current_callback) {
+    VEH_CB_REFITTED_CAPACITY: bulk_wagon_cb_capacity_switch;
+    bulk_wagon_switch;
+}
+
+
 item(FEAT_TRAINS, bulk_wagon) {
     property {
 		// usings stats of original grain wagon
@@ -158,7 +172,7 @@ item(FEAT_TRAINS, bulk_wagon) {
 		running_cost_factor:            5;
 		speed:                          0;
 		refit_cost:                     40;
-		callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_CARGO_SUFFIX;
+		callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
 		track_type:                     RAIL;
 		power:                          0;
 		running_cost_base:              RUNNING_COST_STEAM;
@@ -167,6 +181,6 @@ item(FEAT_TRAINS, bulk_wagon) {
 		bitmask_vehicle_info:           0;
     }
     graphics {
-        bulk_wagon_switch;
+        bulk_wagon_cb_switch;
     }
 }
