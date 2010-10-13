@@ -62,6 +62,19 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     flatbed_wagon_default_group;
 }
 
+switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    ENSP: return 25;
+    FMSP: return 25;
+    MNSP: return 25;
+    VEHI: return 15;
+    return 30;
+}
+
+switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_switch, current_callback) {
+    VEH_CB_REFITTED_CAPACITY: flatbed_wagon_cb_capacity_switch;
+    flatbed_wagon_switch;
+}
+
 item(FEAT_TRAINS, flatbed_wagon) {
     property {
         name:                           string(STR_NAME_FLATBED_WAGON);
@@ -80,15 +93,15 @@ item(FEAT_TRAINS, flatbed_wagon) {
 		running_cost_factor:            5;
 		speed:                          0;
 		refit_cost:                     40;
-		callback_flags:                 VEH_CBF_REFITTED_CAPACITY | VEH_CBF_CARGO_SUFFIX;
+		callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
 		track_type:                     RAIL;
 		power:                          0;
 		running_cost_base:              RUNNING_COST_STEAM;
-		cargo_capacity:                 60;
+		cargo_capacity:                 30; // Usually units of goods which fit onto it.
 		weight:                         16;
 		bitmask_vehicle_info:           0;
     }
     graphics {
-        flatbed_wagon_switch;
+        flatbed_wagon_cb_switch;
     }
 }

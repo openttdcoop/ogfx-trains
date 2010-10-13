@@ -53,7 +53,7 @@ cargotable {                        // cargos needed for special refit orders
     SULP, WHEA, RFPR, COLA,
     PETR, PAPR, TOFF, SUGR,
     PASS, MAIL, BATT, SWET,
-    RUBR
+    RUBR, FMSP, ENSP, MNSP
 }
 
 railtypetable {
