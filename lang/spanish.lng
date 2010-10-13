@@ -1,0 +1,10 @@
+lang: 04
+STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} mejora los vehículos de ferrocarril estándar y los extiende con nuevos vagones y locomotoras.{}Diseñado para concordar con el estilo OpenGFX.{}Programación: {SILVER}planetmaker, Terkhen{}{BLACK}Gráficos: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencia: {SILVER}GPL v2{}{BLACK}Página web: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Agradecimientos especiales a {SILVER}Yexo{BLACK} y {SILVER}Ammler{BLACK} por su apoyo y contribuciones
+STR_NAME_BULK_WAGON                                             :Vagón a Granel
+STR_NAME_TANK_WAGON                                             :Vagón Cisterna
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Vagón de Mercancías (cubierto)
+STR_NAME_FLATBED_WAGON                                          :Vagón de Plataforma
+
+STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Deshabilitar vagones estándar
+STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Se emplea por compatibilidad. Si añades este conjunto de gráficos a una partida existente en la cual ya has comprado vagones, desactiva esta opción. En cualquier otro caso se recomienda deshabilitar los vagones innecesarios (configuración por defecto).
