@@ -54,7 +54,7 @@ cargotable {                        // cargos needed for special refit orders
     PETR, PAPR, TOFF, SUGR,
     PASS, MAIL, BATT, SWET,
     RUBR, FMSP, ENSP, MNSP,
-    FICR
+    FICR, PLAS, PLST
 }
 
 railtypetable {

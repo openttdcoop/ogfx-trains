@@ -54,6 +54,23 @@ switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
     tank_wagon_default_switch;
 }
 
+switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+    WATR: return 25;
+    MILK: return 25;
+    return 24;
+}
+
+switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_switch, extra_callback_info1) {
+    0x16: tank_wagon_cb_property_weight_switch;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, tank_wagon_cb_switch, current_callback) {
+    VEH_CB_VEHICLE_PROPERTIES: tank_wagon_cb_property_switch;
+    tank_wagon_switch;
+}
+
+
 item(FEAT_TRAINS, tank_wagon) {
     property {
 		// uses stats of original oil wagon
@@ -82,6 +99,6 @@ item(FEAT_TRAINS, tank_wagon) {
 		bitmask_vehicle_info:           0;
     }
     graphics {
-        tank_wagon_switch;
+        tank_wagon_cb_switch;
     }
 }

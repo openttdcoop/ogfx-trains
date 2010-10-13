@@ -147,8 +147,22 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
     return 30;
 }
 
+switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+    COAL: return 18;
+    FRUT: return 18;
+    FRVG: return 18;
+    RSGR: return 18;
+    return 19;
+}
+
+switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_switch, extra_callback_info1) {
+    0x16: bulk_wagon_cb_property_weight_switch;
+    CB_FAILED;
+}
+
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY: bulk_wagon_cb_capacity_switch;
+    VEH_CB_REFITTED_CAPACITY:  bulk_wagon_cb_capacity_switch;
+    VEH_CB_VEHICLE_PROPERTIES: bulk_wagon_cb_property_switch;
     bulk_wagon_switch;
 }
 
@@ -177,7 +191,7 @@ item(FEAT_TRAINS, bulk_wagon) {
 		power:                          0;
 		running_cost_base:              RUNNING_COST_STEAM;
 		cargo_capacity:                 30;
-		weight:                         19;
+		weight:                         19 ton;
 		bitmask_vehicle_info:           0;
     }
     graphics {

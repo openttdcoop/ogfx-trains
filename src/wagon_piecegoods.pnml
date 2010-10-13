@@ -67,8 +67,23 @@ switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_capacity_switch, cargo_type_in_ve
     return 25;
 }
 
+switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+    FOOD: return 22;
+    FRUT: return 22;
+    FRVG: return 22;
+    GOOD: return 21;
+    MILK: return 22;
+    return 21;
+}
+
+switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_property_switch, extra_callback_info1) {
+    0x16: piecegoods_wagon_cb_property_weight_switch;
+    CB_FAILED;
+}
+
 switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY: piecegoods_wagon_cb_capacity_switch;
+    VEH_CB_REFITTED_CAPACITY:  piecegoods_wagon_cb_capacity_switch;
+    VEH_CB_VEHICLE_PROPERTIES: piecegoods_wagon_cb_property_switch;
     piecegoods_wagon_switch;
 }
 
