@@ -54,6 +54,14 @@ switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
     tank_wagon_default_switch;
 }
 
+switch (FEAT_TRAINS, SELF, tank_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    COLA: return 25;
+    FZDR: return 25;
+    MILK: return 25;
+    WATR: return 25;
+    CB_FAILED; // use default value = 30.000l
+}
+
 switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_weight_switch, cargo_type_in_veh) {
     WATR: return 25;
     MILK: return 25;
@@ -62,10 +70,12 @@ switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_weight_switch, cargo_type_in_v
 
 switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_switch, extra_callback_info1) {
     0x16: tank_wagon_cb_property_weight_switch;
+    0x14: tank_wagon_cb_capacity_switch;         // also needed as CB_REFITTED_CAPACITY doesn't work for default cargo
     CB_FAILED;
 }
 
 switch (FEAT_TRAINS, SELF, tank_wagon_cb_switch, current_callback) {
+    VEH_CB_REFITTED_CAPACITY:  tank_wagon_cb_capacity_switch;
     VEH_CB_VEHICLE_PROPERTIES: tank_wagon_cb_property_switch;
     tank_wagon_switch;
 }
@@ -90,7 +100,7 @@ item(FEAT_TRAINS, tank_wagon) {
 		running_cost_factor:            5;
 		speed:                          0;
 		refit_cost:                     40;
-		callback_flags:                 0;
+		callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
 		track_type:                     RAIL;
 		power:                          0;
 		running_cost_base:              RUNNING_COST_STEAM;
