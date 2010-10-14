@@ -160,13 +160,25 @@ if REMOVE_WAGONS {
  * Monorail wagons.
  * ================================================== */
 
-	/* coal replaced by bulk. Keep it */
+	item(FEAT_TRAINS, removed_monorail_coal_hopper, 59) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
-	/* oil replaced by tank. Keep it */
+	item(FEAT_TRAINS, removed_monorail_oil_tanker, 60) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	/* livestock not replaced. Keep it */
 
-	/* goods replaced by piece goods. Keep it */
+	item(FEAT_TRAINS, removed_monorail_goods_wagon, 62) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_monorail_grain_hopper, 63) {
 		property {
@@ -174,7 +186,11 @@ if REMOVE_WAGONS {
 		}
 	}
 
-	/* wood replaced by flatbed. Keep it */
+	item(FEAT_TRAINS, removed_monorail_wood_wagon, 64) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_monorail_iron_ore_hopper, 65) {
 		property {
@@ -190,7 +206,11 @@ if REMOVE_WAGONS {
 
 	/* armoured van is redefined, we keep it */
 
-	/* food van replaced by refrigerated. Keep it */
+	item(FEAT_TRAINS, removed_monorail_food_wagon, 68) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_monorail_paper_truck, 69) {
 		property {
