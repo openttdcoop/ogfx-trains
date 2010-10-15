@@ -61,19 +61,24 @@ switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
 }
 
 switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    // default: 25 units
     FOOD: return 20;
     FRUT: return 20;
     FRVG: return 20;
-    return 25;
+    PAPR: return 20;
+    TOYS: return 20;
+    CB_FAILED;
 }
 
 switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+    // default: 21 tons
     FOOD: return 22;
     FRUT: return 22;
     FRVG: return 22;
-    GOOD: return 21;
     MILK: return 22;
-    return 21;
+    PAPR: return 18;
+    TOYS: return 21;
+    CB_FAILED;
 }
 
 switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_property_switch, extra_callback_info1) {

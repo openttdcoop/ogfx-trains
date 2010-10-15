@@ -140,19 +140,27 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
-    FRUT: return 20;
-    FRVG: return 20;
-    RSGR: return 20;
+    // default: 30 units
     FICR: return 25;
-    return 30;
+    FRUT: return 25;
+    FRVG: return 25;
+    RSGR: return 20;
+    RUBR: return 21;
+    SWET: return 25;
+    CB_FAILED;
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+    // default: 19 tons
+    CDFL: return 20;
     COAL: return 18;
     FRUT: return 18;
     FRVG: return 18;
+    PLAS: return 18;
     RSGR: return 18;
-    return 19;
+    SWET: return 21;
+    TOFF: return 20;
+    CB_FAILED;
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_switch, extra_callback_info1) {

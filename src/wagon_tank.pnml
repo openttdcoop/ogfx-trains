@@ -55,17 +55,19 @@ switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
 }
 
 switch (FEAT_TRAINS, SELF, tank_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    // default 30.000l
     COLA: return 25;
     FZDR: return 25;
     MILK: return 25;
     WATR: return 25;
-    CB_FAILED; // use default value = 30.000l
+    CB_FAILED;
 }
 
 switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+    // default: 24 tons
     WATR: return 25;
     MILK: return 25;
-    return 24;
+    CB_FAILED;
 }
 
 switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_switch, extra_callback_info1) {

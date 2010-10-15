@@ -12,7 +12,6 @@ spriteblock (FEAT_TRAINS) {
         loaded: refrigerate_wagon_default_set;
         loading: refrigerate_wagon_default_set;
     }
-
 }
 
 item(FEAT_TRAINS, refrigerate_wagon) {

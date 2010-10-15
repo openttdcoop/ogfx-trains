@@ -68,6 +68,8 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_capacity_switch, cargo_type_in_veh) 
     FMSP: return 25;
     FZDR: return 25;
     MNSP: return 25;
+    PAPR: return 20;
+    STEL: return 20;
     VEHI: return 15;
     return 30;
 }
@@ -76,6 +78,8 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_property_weight_switch, cargo_type_i
     BATT: return 18;
     BUBL: return 21;
     FZDR: return 18;
+    GOOD: return 18;
+    PAPR: return 18;
     PLAS: return 18;
     PLST: return 18;
     SCRP: return 18;
