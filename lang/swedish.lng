@@ -1,0 +1,11 @@
+lang: 2E
+STR_GRF_NAME                                                    :OpenGFX+ Tåg {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Tåg{BLACK} förbättrar standardlokomotiven och utvidgar vagnvalen Designad för OpenGFX.{}Programmering: {SILVER}planetmaker, Terkhen{}{BLACK}Grafik: {SILVER}Zeyphris, DanMacK, molace, Uzurpator{}{BLACK}Licens: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-tog{}{BLACK}Speciellt tack till {SILVER}Yexo{BLACK} och {SILVER}Ammler{BLACK} för deras stöd och bidrag
+STR_NAME_BULK_WAGON                                             :Bulkvagn
+STR_NAME_TANK_WAGON                                             :Tankvagn
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Styckegodsvagn (täckt)
+STR_NAME_FLATBED_WAGON                                          :Flatvagn
+STR_NAME_REFRIGERATOR_WAGON                                     :Kylvagn
+
+STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Deaktivera standardvagnar
+STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Deaktivera inte standardvagnar om du lägger till det här setet till ett pågående spel. Annars är det säkert (och rekommenderas) att avaktivera onödiga standardvagnar (standard).

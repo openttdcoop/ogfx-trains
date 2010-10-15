@@ -1,0 +1,12 @@
+lang: 2F
+STR_GRF_NAME                                                    :OpenGFX+ Tog {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Tog{BLACK} forbedrer de standard lokomotivene og utvider vognvalget Designet til å passe til OpenGFX.{}Programering: {SILVER}planetmaker, Terkhen{}{BLACK}Grafikk: {SILVER}Zeyphris, DanMacK, molace, Uzurpator{}{BLACK}Lisens: {SILVER}GPL v2{}{BLACK}Webside: {SILVER}http://dev.openttdcoop.org/projects/ogfx-tog{}{BLACK}En spesiell takk til {SILVER}Yexo{BLACK} og {SILVER}Ammler{BLACK} for deres støtte og bigrag
+STR_NAME_BULK_WAGON                                             :Bulkvogn
+STR_NAME_TANK_WAGON                                             :Tankvogn
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Stykkgodsvogn (tildekt)
+STR_NAME_FLATBED_WAGON                                          :Flatvogn
+
+STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Deaktivere standard vogner
+STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Tillater å sette kompatibilitet. Ikke trygg å forandre om du allerede har kjøpt standard vogner.(shortened this one abit, but the meaning should be the same)
+
+

@@ -1,0 +1,11 @@
+lang: 03
+STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} améliore les véhicules ferroviaires de base et augmente le nombre de cargaison transportable.{}Design correspondant au style OpenGFX.{}Programming: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zephyris, DanMacK, molace, Uzurpator{}{BLACK}License: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Remerciement spécial à {SILVER}Yexo{BLACK} et {SILVER}Ammler{BLACK} pour leur support et leurs contributions. 
+STR_NAME_BULK_WAGON                                             :Wagon tombereau
+STR_NAME_TANK_WAGON                                             :Wagon citerne
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Wagon couvert
+STR_NAME_FLATBED_WAGON                                          :Wagon plat
+STR_NAME_REFRIGERATOR_WAGON                                     :Wagon frigorifique
+
+STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Désactive les wagons de base.
+STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Ne pas désactiver les wagons de base si vous ajoutez ce set à une sauvegarde existante. Autrement il est recommandé de désactiver les wagons de base non nécessaire (Configuration par défaut).

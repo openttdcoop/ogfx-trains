@@ -214,16 +214,24 @@ hg clone http://hg.openttdcoop.org/ogfx-trains
 ---------
 
 Authors: 
-    Lead programmer:       Ingo von Borstel (aka planetmaker)
-    General coding:        Terkhen
+    Lead programmer:            Ingo von Borstel (aka planetmaker)
+    General coding:             Terkhen
 Graphics: 
-    Toyland rail wagons:   molace
-    Temperate rail wagons: DanMacK, Uzurpator, Zephyris
-    Tropical rail wagons:  DanMacK, Uzurpator, Zephyris
-    Arctic rail wagons:    DanMacK, Uzurpator, Zephyris
+    Toyland rail wagons:        molace
+    Temperate rail wagons:      DanMacK, Uzurpator, Zephyris, molace
+    Tropical rail wagons:       DanMacK, Uzurpator, Zephyris, molace
+    Arctic rail wagons:         DanMacK, Uzurpator, Zephyris, molace
 
     Single trains and consits:
-        Turner Turbo train:    DanMacK
+        Turner Turbo train:     DanMacK
+Translations:
+    Croation:                   Voyager1
+    Dutch:                      Hirundo
+    English:                    planetmaker
+    French:                     peetleouf
+    Norwegian Bokmal:           DJNekkid
+    Serbian:                    etran
+    Swedish:                    AndersI
     
 Special thanks to #openttdcoop and especially Ammler who provides and
 works a lot on maintaining the Development Zone where this repository is

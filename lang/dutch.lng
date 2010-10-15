@@ -1,0 +1,11 @@
+lang: 1F
+STR_GRF_NAME                                                    :OpenGFX+ Treinen {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Treinen{BLACK} verbetert de standaard railvoertuigen en breidt het wagenpark uit.{}Ontworpen om te passen bij de stijl van OpenGFX.{}Programmeren: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zephyris, DanMacK, molace, Uzurpator{}{BLACK}Licentie: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Met dank aan {SILVER}Yexo{BLACK} en{SILVER}Ammler{BLACK} voor hun ondersteuning en bijdragen
+STR_NAME_BULK_WAGON                                             :Open wagen
+STR_NAME_TANK_WAGON                                             :Ketelwagen
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Gesloten wagen
+STR_NAME_FLATBED_WAGON                                          :Platte wagen
+STR_NAME_REFRIGERATOR_WAGON                                     :Koelwagen
+
+STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Schakel standaard wagons uit
+STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Schakel standaard wagons niet uit, als je deze set toevoegt aan een bestaand spel. Anders is het veilig en aan te raden om de onnodige standaard wagons uit te schakelen (standaardinstelling).
