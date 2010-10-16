@@ -65,6 +65,7 @@ switch (FEAT_TRAINS, SELF, monorail_piecegoods_switch, current_callback) {
 
 item(FEAT_TRAINS, monorail_piecegoods_wagon) {
     property {                                                // we re-use the default name + properties
+        name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
         climates_available:             CLIMATE_ALL;
         refittable_cargo_classes:       CC_PIECE_GOODS | CC_EXPRESS;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED | CC_REFRIGERATED;
