@@ -152,7 +152,6 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_veh) {
     // default: 19 tons
-    CDFL: return 20;
     COAL: return 18;
     FRUT: return 18;
     FRVG: return 18;
