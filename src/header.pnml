@@ -61,3 +61,10 @@ railtypetable {
     RAIL, ELRL, MONO, MGLV,
     TRPD
 }
+
+/* 
+ * ********************************************
+ * Vehicles may be 32px wide in the depots
+ * ********************************************
+ */
+train_width_32_px = 1;
