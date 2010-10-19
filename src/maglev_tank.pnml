@@ -1,4 +1,35 @@
-item(FEAT_TRAINS, maglev_tank_wagon, 92) {
+/* 
+ * ***************************
+ * Maglev Tank wagon:
+ *
+ * oil, fuel oil, water, milk,
+ * rubber, dyes, chemicals,
+ * cola
+ * ***************************
+ */
+
+switch (FEAT_TRAINS, SELF, maglev_tank_wagon_capacity_switch, cargo_type_in_veh) {
+    // default 37.000l
+    COLA: return 32;
+    FZDR: return 32;
+    MILK: return 32;
+    WATR: return 32;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, maglev_tank_wagon_property_switch, extra_callback_info1) {
+    0x16: tank_wagon_cb_property_weight_switch;                         // use rail wagon; weight does not differ
+    0x14: maglev_tank_wagon_capacity_switch;                            // also needed as CB_REFITTED_CAPACITY doesn't work for default cargo
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, maglev_tank_switch, current_callback) {
+    VEH_CB_REFITTED_CAPACITY:  maglev_tank_wagon_capacity_switch;       // use rail wagon properties
+    VEH_CB_VEHICLE_PROPERTIES: maglev_tank_wagon_property_switch;       // use rail wagon properties
+    monorail_tank_graphics_switch;                                      // use monorail graphics
+}
+
+item(FEAT_TRAINS, maglev_tank_wagon) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
         climates_available:             CLIMATE_ALL;
@@ -6,8 +37,25 @@ item(FEAT_TRAINS, maglev_tank_wagon, 92) {
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
         refittable_cargo_types:         bitmask(CMNT, FZDR);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        introduction_date:              date(1925,1,1);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   0;
+        vehicle_life:                   20;
+        reliability_decay:              20;
+        loading_speed:                  5;
+        cost_factor:                    200;
+        running_cost_factor:            5;
+        speed:                          0;
+        refit_cost:                     40;
+        callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
+        track_type:                     RAIL;
+        power:                          0;
+        running_cost_base:              RUNNING_COST_STEAM;
+        cargo_capacity:                 37;
+        weight:                         24;
+        bitmask_vehicle_info:           0;
     }
     graphics {
-        monorail_tank_switch;
+        maglev_tank_switch;
     }
 }

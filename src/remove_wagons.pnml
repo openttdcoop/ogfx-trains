@@ -309,7 +309,11 @@ if REMOVE_WAGONS {
 
 	/* Coal van replaced by bulk. Keep it */
 
-	/* Oil van replaced by tank. Keep it */
+	item(FEAT_TRAINS, removed_maglev_oil_tanker, 92) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	/* Lifestock not replaced. Keep it */
 
