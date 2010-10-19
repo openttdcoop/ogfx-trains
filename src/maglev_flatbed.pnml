@@ -8,8 +8,31 @@
  * batteries, fizzy drinks, bubbles
  * ***************************
  */
+switch (FEAT_TRAINS, SELF, maglev_flatbed_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    BATT: return 29;
+    ENSP: return 32;
+    FMSP: return 32;
+    FZDR: return 32;
+    MNSP: return 32;
+    PAPR: return 27;
+    STEL: return 27;
+    VEHI: return 22;
+    return 37;
+}
 
-item(FEAT_TRAINS, maglev_flatbed_wagon, 96) {
+switch (FEAT_TRAINS, SELF, maglev_flatbed_wagon_cb_property_switch, extra_callback_info1) {
+    0x16: flatbed_wagon_cb_property_weight_switch; // weight is independent of railtype, use rail wagon
+    0x14: maglev_flatbed_wagon_cb_capacity_switch;
+    CB_FAILED;
+}
+
+switch(FEAT_TRAINS, SELF, maglev_flatbed_switch, current_callback) {
+    VEH_CB_REFITTED_CAPACITY:  maglev_flatbed_wagon_cb_capacity_switch;
+    VEH_CB_VEHICLE_PROPERTIES: maglev_flatbed_wagon_cb_property_switch;
+    monorail_flatbed_graphics_switch;                                      // use monorail wagon graphics
+}
+
+item(FEAT_TRAINS, maglev_flatbed_wagon) {
     property {
         name:                           string(STR_NAME_FLATBED_WAGON);
         climates_available:             CLIMATE_ALL;
@@ -17,8 +40,25 @@ item(FEAT_TRAINS, maglev_flatbed_wagon, 96) {
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
         refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        introduction_date:              date(1925,1,1);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   0;
+        vehicle_life:                   20;
+        reliability_decay:              20;
+        loading_speed:                  5;
+        cost_factor:                    181;
+        running_cost_factor:            5;
+        speed:                          0;
+        refit_cost:                     40;
+        callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
+        track_type:                     MGLV;
+        power:                          0;
+        running_cost_base:              RUNNING_COST_STEAM;
+        cargo_capacity:                 37;
+        weight:                         16;
+        bitmask_vehicle_info:           0;
     }
     graphics {
-        monorail_flatbed_switch;
+        maglev_flatbed_switch;
     }
 }

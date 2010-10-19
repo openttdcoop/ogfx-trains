@@ -321,7 +321,11 @@ if REMOVE_WAGONS {
 		}
 	}
 
-	/* wood replaced by flatbed. Keep it */
+	item(FEAT_TRAINS, removed_maglev_wood_wagon, 96) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_maglev_iron_ore_hopper, 97) {
 		property {
