@@ -8,15 +8,55 @@
  * ***************************
  */
 
-item(FEAT_TRAINS, maglev_piecegoods_wagon, 94) {
-    property {                                                // we re-use the default name + properties
+switch (FEAT_TRAINS, SELF, maglev_piecegoods_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    // default: 32 units
+    FOOD: return 27;
+    FRUT: return 27;
+    FRVG: return 27;
+    PAPR: return 27;
+    TOYS: return 27;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, maglev_piecegoods_wagon_cb_property_switch, extra_callback_info1) {
+    0x16: piecegoods_wagon_cb_property_weight_switch;                       // rail wagon weight is the same, use it.
+    0x14: maglev_piecegoods_wagon_cb_capacity_switch;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, maglev_piecegoods_switch, current_callback) {
+    VEH_CB_REFITTED_CAPACITY:  maglev_piecegoods_wagon_cb_capacity_switch;
+    VEH_CB_VEHICLE_PROPERTIES: maglev_piecegoods_wagon_cb_property_switch;
+    monorail_piecegoods_cargo_switch;                                       // re-use graphics from monorail
+}
+
+item(FEAT_TRAINS, maglev_piecegoods_wagon) {
+    property {
+        name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
         climates_available:             CLIMATE_ALL;
         refittable_cargo_classes:       CC_PIECE_GOODS | CC_EXPRESS;
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_BULK | CC_ARMOURED | CC_LIQUID | CC_OVERSIZED | CC_REFRIGERATED;
         refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL, FOOD, FRUT, FRVG);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        introduction_date:              date(1925,1,1);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   0;
+        vehicle_life:                   20;
+        reliability_decay:              20;
+        loading_speed:                  5;
+        cost_factor:                    190;
+        running_cost_factor:            5;
+        speed:                          0;
+        refit_cost:                     40;
+        callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
+        track_type:                     MGLV;
+        power:                          0;
+        running_cost_base:              RUNNING_COST_STEAM;
+        cargo_capacity:                 32;
+        weight:                         21;
+        bitmask_vehicle_info:           0;
     }
     graphics {
-        monorail_piecegoods_cargo_switch;
+        maglev_piecegoods_switch;
     }
 }

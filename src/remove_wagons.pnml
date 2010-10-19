@@ -313,7 +313,11 @@ if REMOVE_WAGONS {
 
 	/* Lifestock not replaced. Keep it */
 
-	/* Goods replaced by piecegoods. Keep it */
+	item(FEAT_TRAINS, removed_maglev_goods_wagon, 94) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_maglev_grain_hopper, 95) {
 		property {
