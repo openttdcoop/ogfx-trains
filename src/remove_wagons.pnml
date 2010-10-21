@@ -307,7 +307,11 @@ if REMOVE_WAGONS {
  * Maglev wagons
  * ================================================== */
 
-	/* Coal van replaced by bulk. Keep it */
+	item(FEAT_TRAINS, removed_maglev_coal_wagon, 91) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_maglev_oil_tanker, 92) {
 		property {

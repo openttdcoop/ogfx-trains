@@ -1,5 +1,39 @@
+/* 
+ * ***************************
+ * Bulk wagon:
+ *
+ * coal, iron ore, bauxite, copper ore,
+ * gravel, sand, clay, grains, maize, wheat,
+ * sulphur, fertilizer, scrap metal,
+ * fruit, fruit & vegetables, toffee,
+ * sugar, cotton candy, sugar beet
+ * ***************************
+ */
 
-item(FEAT_TRAINS, maglev_bulk_wagon, 91) {
+switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
+    // default: 37 units
+    FICR: return 32;
+    FRUT: return 32;
+    FRVG: return 32;
+    RSGR: return 27;
+    RUBR: return 28;
+    SWET: return 32;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_property_switch, extra_callback_info1) {
+    0x16: bulk_wagon_cb_property_weight_switch; // same weight for all rail types
+    0x14: maglev_bulk_wagon_cb_capacity_switch; // set weight
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_switch, current_callback) {
+    VEH_CB_REFITTED_CAPACITY:  maglev_bulk_wagon_cb_capacity_switch;
+    VEH_CB_VEHICLE_PROPERTIES: maglev_bulk_wagon_cb_property_switch;
+    monorail_bulk_wagon_graphics_switch;
+}
+
+item(FEAT_TRAINS, maglev_bulk_wagon) {
     property {
         name:                           string(STR_NAME_BULK_WAGON);
         climates_available:             CLIMATE_ALL;
@@ -7,8 +41,25 @@ item(FEAT_TRAINS, maglev_bulk_wagon, 91) {
         non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
         refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-    }
+        introduction_date:              date(1925,1,1);
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   0;
+        vehicle_life:                   20;
+        reliability_decay:              20;
+        loading_speed:                  5;
+        cost_factor:                    176;
+        running_cost_factor:            5;
+        speed:                          0;
+        refit_cost:                     40;
+        callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
+        track_type:                     RAIL;
+        power:                          0;
+        running_cost_base:              RUNNING_COST_STEAM;
+        cargo_capacity:                 37;
+        weight:                         18;
+        bitmask_vehicle_info:           0;
+     }
     graphics {
-        monorail_bulk_wagon_switch;     // we use the same graphics so far
+        maglev_bulk_wagon_switch;     // we use the same graphics so far
     }        
 }
