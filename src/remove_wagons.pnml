@@ -353,7 +353,11 @@ if REMOVE_WAGONS {
 
 	/* armoured van is redefined, we keep it */
 
-	/* food van replaced by refrigerated. Keep it */
+	item(FEAT_TRAINS, removed_maglev_food_truck, 100) {
+		property {
+			climates_available:		CLIMATE_NONE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_maglev_paper_truck, 101) {
 		property {
