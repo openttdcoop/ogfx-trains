@@ -59,9 +59,9 @@ switch (FEAT_TRAINS, SELF, monorail_flatbed_switch, current_callback) {
 item(FEAT_TRAINS, monorail_flatbed_wagon) {
     property {
         name:                           string(STR_NAME_FLATBED_WAGON);
-        climates_available:             CLIMATE_ALL;
-        refittable_cargo_classes:       CC_PIECE_GOODS;
-        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_BULK | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS | CC_COVERED;
+        climates_available:             ALL_CLIMATES;
+        refittable_cargo_classes:       bitmask(CC_PIECE_GOODS);
+        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_BULK, CC_LIQUID, CC_REFRIGERATED, CC_HAZARDOUS, CC_COVERED);
         refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         introduction_date:              date(1980,1,1);

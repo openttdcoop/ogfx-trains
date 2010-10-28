@@ -178,9 +178,9 @@ item(FEAT_TRAINS, bulk_wagon) {
     property {
         // We try to simulate the stats of the temperate grain wagon
         name:                           string(STR_NAME_BULK_WAGON);
-        climates_available:             CLIMATE_ALL;
-        refittable_cargo_classes:       CC_BULK;
-        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_LIQUID | CC_REFRIGERATED | CC_HAZARDOUS;
+        climates_available:             ALL_CLIMATES;
+        refittable_cargo_classes:       bitmask(CC_BULK);
+        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_LIQUID, CC_REFRIGERATED, CC_HAZARDOUS);
         refittable_cargo_types:         bitmask(WDPR, SCRP, FRUT, FRVG);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         introduction_date:              date(1925,1,1);

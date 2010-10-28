@@ -62,7 +62,7 @@ spriteblock(FEAT_TRAINS) {
 item(FEAT_TRAINS, turbotrain, 20) {
 	property {
 		sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
-		misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
+		misc_flags:                   bitmask(TRAIN_FLAG_MU); // We use special sprites for passenger and mail wagons
 	}
 	graphics {
 		turbotrain_engine_group;

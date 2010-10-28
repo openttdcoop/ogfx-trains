@@ -16,13 +16,13 @@ if REMOVE_WAGONS {
 
     item(FEAT_TRAINS, removed_steam_coal_hopper, 29) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_oil_wagon, 30) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
@@ -30,31 +30,31 @@ if REMOVE_WAGONS {
 
     item(FEAT_TRAINS, removed_steam_goods_wagon, 32) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_grain_hopper, 33) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_wood_hopper, 34) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_iron_ore_hopper, 35) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_steel_truck, 36) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
@@ -62,97 +62,97 @@ if REMOVE_WAGONS {
 
     item(FEAT_TRAINS, removed_steam_food_wagon, 38) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_paper_truck, 39) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_copper_ore_hopper, 40) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_water_tanker, 41) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_fruit_truck, 42) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_rubber_truck, 43) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_sugar_truck, 44) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_candyfloss_hopper, 45) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_toffee_hopper, 46) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_bubble_van, 47) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_cola_tanker, 48) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_sweet_van, 49) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_toy_van, 50) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_battery_truck, 51) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_fizzy_drink_truck, 52) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
     item(FEAT_TRAINS, removed_steam_plastic_truck, 53) {
         property {
-            climates_available:		CLIMATE_NONE;
+            climates_available:		NO_CLIMATE;
         }
     }
 
@@ -162,13 +162,13 @@ if REMOVE_WAGONS {
 
 	item(FEAT_TRAINS, removed_monorail_coal_hopper, 59) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_oil_tanker, 60) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
@@ -176,31 +176,31 @@ if REMOVE_WAGONS {
 
 	item(FEAT_TRAINS, removed_monorail_goods_wagon, 62) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_grain_hopper, 63) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_wood_wagon, 64) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_iron_ore_hopper, 65) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_steel_truck, 66) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
@@ -208,97 +208,97 @@ if REMOVE_WAGONS {
 
 	item(FEAT_TRAINS, removed_monorail_food_wagon, 68) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_paper_truck, 69) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_copper_ore_hopper, 70) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_water_tanker, 71) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_fruit_truck, 72) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_rubber_truck, 73) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_sugar_truck, 74) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_candyfloss_hopper, 75) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_toffee_hopper, 76) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_bubble_van, 77) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_cola_tanker, 78) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_sweet_van, 79) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_toy_van, 80) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_battery_truck, 81) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_fizzy_drink_truck, 82) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_monorail_plastic_truck, 83) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
@@ -309,13 +309,13 @@ if REMOVE_WAGONS {
 
 	item(FEAT_TRAINS, removed_maglev_coal_wagon, 91) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_oil_tanker, 92) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
@@ -323,31 +323,31 @@ if REMOVE_WAGONS {
 
 	item(FEAT_TRAINS, removed_maglev_goods_wagon, 94) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_grain_hopper, 95) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_wood_wagon, 96) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_iron_ore_hopper, 97) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_steel_truck, 98) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
@@ -355,97 +355,97 @@ if REMOVE_WAGONS {
 
 	item(FEAT_TRAINS, removed_maglev_food_truck, 100) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_paper_truck, 101) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_copper_ore_hopper, 102) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_water_tanker, 103) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_fruit_truck, 104) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_rubber_truck, 105) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_sugar_truck, 106) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_candyfloss_hopper, 107) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_toffee_hopper, 108) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_bubble_van, 109) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_cola_tanker, 110) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_sweet_van, 111) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_toy_van, 112) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_battery_truck, 113) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_fizzy_drink_truck, 114) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 
 	item(FEAT_TRAINS, removed_maglev_plastic_truck, 115) {
 		property {
-			climates_available:		CLIMATE_NONE;
+			climates_available:		NO_CLIMATE;
 		}
 	}
 

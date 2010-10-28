@@ -20,9 +20,9 @@ spriteblock(FEAT_TRAINS) {
 item(FEAT_TRAINS, mail_wagon, 28) {
     property {
         sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
-        misc_flags:                   TRAIN_FLAG_MU;          // We use special sprites for passenger and mail wagons
-        refittable_cargo_classes:     CC_MAIL;                // Allow mail
-        non_refittable_cargo_classes: CC_NONE;                // Disallow other cargos
+        misc_flags:                   bitmask(TRAIN_FLAG_MU); // We use special sprites for passenger and mail wagons
+        refittable_cargo_classes:     bitmask(CC_MAIL);       // Allow mail
+        non_refittable_cargo_classes: NO_CARGO_CLASS;         // Disallow other cargos
     }
     graphics {
         normal_mail_group;

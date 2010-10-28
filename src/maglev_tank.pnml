@@ -32,9 +32,9 @@ switch (FEAT_TRAINS, SELF, maglev_tank_switch, current_callback) {
 item(FEAT_TRAINS, maglev_tank_wagon) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
-        climates_available:             CLIMATE_ALL;
-        refittable_cargo_classes:       CC_LIQUID;
-        non_refittable_cargo_classes:   CC_PASSENGERS | CC_MAIL | CC_ARMOURED | CC_PIECE_GOODS;
+        climates_available:             ALL_CLIMATES;
+        refittable_cargo_classes:       bitmask(CC_LIQUID);
+        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_PIECE_GOODS);
         refittable_cargo_types:         bitmask(CMNT, FZDR);
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         introduction_date:              date(1925,1,1);
