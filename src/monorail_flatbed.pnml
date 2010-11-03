@@ -9,33 +9,31 @@
  * ***************************
  */
 
-spriteblock(FEAT_TRAINS) {
-    spriteset(monorail_flatbed_paper_empty_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,320) }
-    spriteset(monorail_flatbed_paper_full_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,340) }
-    spritegroup monorail_flatbed_paper_group {
-        loaded: [monorail_flatbed_paper_empty_set, monorail_flatbed_paper_full_set];
-        loading: [monorail_flatbed_paper_empty_set, monorail_flatbed_paper_full_set];
-    }
+spriteset(monorail_flatbed_paper_empty_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,320) }
+spriteset(monorail_flatbed_paper_full_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,340) }
+spritegroup monorail_flatbed_paper_group {
+	loaded: [monorail_flatbed_paper_empty_set, monorail_flatbed_paper_full_set];
+	loading: [monorail_flatbed_paper_empty_set, monorail_flatbed_paper_full_set];
+}
 
-    spriteset(monorail_flatbed_wood_empty_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,280) }
-    spriteset(monorail_flatbed_wood_full_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,300) }
-    spritegroup monorail_flatbed_wood_group {
-        loaded: [monorail_flatbed_wood_empty_set, monorail_flatbed_wood_full_set];
-        loading: [monorail_flatbed_wood_empty_set, monorail_flatbed_wood_full_set];
-    }
-    spriteset(monorail_flatbed_tropicwood_empty_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,200) }
-    spriteset(monorail_flatbed_tropicwood_full_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,220) }
-    spritegroup monorail_flatbed_tropicwood_group {
-        loaded: [monorail_flatbed_tropicwood_empty_set, monorail_flatbed_tropicwood_full_set];
-        loading: [monorail_flatbed_tropicwood_empty_set, monorail_flatbed_tropicwood_full_set];
-    }
+spriteset(monorail_flatbed_wood_empty_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,280) }
+spriteset(monorail_flatbed_wood_full_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,300) }
+spritegroup monorail_flatbed_wood_group {
+	loaded: [monorail_flatbed_wood_empty_set, monorail_flatbed_wood_full_set];
+	loading: [monorail_flatbed_wood_empty_set, monorail_flatbed_wood_full_set];
+}
+spriteset(monorail_flatbed_tropicwood_empty_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,200) }
+spriteset(monorail_flatbed_tropicwood_full_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,220) }
+spritegroup monorail_flatbed_tropicwood_group {
+	loaded: [monorail_flatbed_tropicwood_empty_set, monorail_flatbed_tropicwood_full_set];
+	loading: [monorail_flatbed_tropicwood_empty_set, monorail_flatbed_tropicwood_full_set];
+}
 
-    spriteset(monorail_flatbed_steel_empty_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,320) }
-    spriteset(monorail_flatbed_steel_full_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,340) }
-    spritegroup monorail_flatbed_steel_group {
-        loaded: [monorail_flatbed_steel_empty_set, monorail_flatbed_steel_full_set];
-        loading: [monorail_flatbed_steel_empty_set, monorail_flatbed_steel_full_set];
-    }
+spriteset(monorail_flatbed_steel_empty_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,320) }
+spriteset(monorail_flatbed_steel_full_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,340) }
+spritegroup monorail_flatbed_steel_group {
+	loaded: [monorail_flatbed_steel_empty_set, monorail_flatbed_steel_full_set];
+	loading: [monorail_flatbed_steel_empty_set, monorail_flatbed_steel_full_set];
 }
 
 switch(FEAT_TRAINS, SELF, monorail_flatbed_wood_climate_switch, climate) {

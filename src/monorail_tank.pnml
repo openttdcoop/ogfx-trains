@@ -1,25 +1,23 @@
-spriteblock(FEAT_TRAINS) {
-    spriteset(monorail_tank_oil_arctic_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,140) }
-    spriteset(monorail_tank_oil_tropic_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,100) }
-    spriteset(monorail_tank_oil_temperate_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,140) }
-    spritegroup monorail_tank_oil_temperate_group {
-        loaded: monorail_tank_oil_temperate_set;
-        loading: monorail_tank_oil_temperate_set;
-    }
-    spritegroup monorail_tank_oil_tropic_group {
-        loaded: monorail_tank_oil_tropic_set;
-        loading: monorail_tank_oil_tropic_set;
-    }
-    spritegroup monorail_tank_oil_arctic_group {
-        loaded: monorail_tank_oil_arctic_set;
-        loading: monorail_tank_oil_arctic_set;
-    }
+spriteset(monorail_tank_oil_arctic_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,140) }
+spriteset(monorail_tank_oil_tropic_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,100) }
+spriteset(monorail_tank_oil_temperate_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,140) }
+spritegroup monorail_tank_oil_temperate_group {
+	loaded: monorail_tank_oil_temperate_set;
+	loading: monorail_tank_oil_temperate_set;
+}
+spritegroup monorail_tank_oil_tropic_group {
+	loaded: monorail_tank_oil_tropic_set;
+	loading: monorail_tank_oil_tropic_set;
+}
+spritegroup monorail_tank_oil_arctic_group {
+	loaded: monorail_tank_oil_arctic_set;
+	loading: monorail_tank_oil_arctic_set;
+}
 
-    spriteset(monorail_tank_water_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,140) }
-    spritegroup monorail_tank_water_group {
-        loaded: monorail_tank_water_set;
-        loading: monorail_tank_water_set;
-    }
+spriteset(monorail_tank_water_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,140) }
+spritegroup monorail_tank_water_group {
+	loaded: monorail_tank_water_set;
+	loading: monorail_tank_water_set;
 }
 
 switch(FEAT_TRAINS, SELF, monorail_tank_oil_climate_switch, climate) {

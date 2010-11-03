@@ -6,12 +6,10 @@
  * ***************************
  */
 
-spriteblock (FEAT_TRAINS) {
-    spriteset(refrigerate_wagon_default_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,400) }
-    spritegroup refrigerate_wagon_default_group {
-        loaded: refrigerate_wagon_default_set;
-        loading: refrigerate_wagon_default_set;
-    }
+spriteset(refrigerate_wagon_default_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,400) }
+spritegroup refrigerate_wagon_default_group {
+	loaded: refrigerate_wagon_default_set;
+	loading: refrigerate_wagon_default_set;
 }
 
 item(FEAT_TRAINS, refrigerate_wagon) {
