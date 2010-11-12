@@ -48,7 +48,7 @@ item(FEAT_TRAINS, maglev_piecegoods_wagon) {
         running_cost_factor:            5;
         speed:                          0;
         refit_cost:                     40;
-        callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
+        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
         track_type:                     MGLV;
         power:                          0;
         running_cost_base:              RUNNING_COST_STEAM;
