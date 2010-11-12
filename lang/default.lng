@@ -9,3 +9,5 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Refrigerator wa
 
 STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Disable default wagons
 STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Allows to set compatibility. If you add this set to an existing game, and have already bought train vehicles, don't disable any wagons, otherwise it's save and recommended to disable the unneeded default wagons (default setting).
+
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Wood chips)

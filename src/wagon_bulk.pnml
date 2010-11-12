@@ -161,6 +161,11 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_v
     CB_FAILED;
 }
 
+switch (FEAT_TRAINS, SELF, bulk_wagon_cb_cargo_subtype_switch, cargo_type_in_veh) {
+	WDPR: return string(STR_BULK_WAGON_CARGO_SUBTYPE_WDPR);
+    CB_FAILED;
+}
+
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_switch, extra_callback_info1) {
     0x16: bulk_wagon_cb_property_weight_switch;
     CB_FAILED;
@@ -169,6 +174,7 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_switch, extra_callback_info1) 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_switch, current_callback) {
     VEH_CB_REFITTED_CAPACITY:  bulk_wagon_cb_capacity_switch;
     VEH_CB_VEHICLE_PROPERTIES: bulk_wagon_cb_property_switch;
+	VEH_CB_CARGO_SUFFIX:       bulk_wagon_cb_cargo_subtype_switch;
     bulk_wagon_switch;
 }
 
@@ -192,7 +198,7 @@ item(FEAT_TRAINS, bulk_wagon) {
         running_cost_factor:            5;
         speed:                          0;
         refit_cost:                     40;
-        callback_flags:                 VEH_CBF_REFITTED_CAPACITY;
+        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY, VEH_CBF_CARGO_SUFFIX);
         track_type:                     RAIL;
         power:                          0;
         running_cost_base:              RUNNING_COST_STEAM;
