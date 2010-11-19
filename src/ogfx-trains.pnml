@@ -11,35 +11,38 @@
 
 #include "src/wagon_pax.pnml"
 #include "src/wagon_mail.pnml"
+#include "src/wagon_valuables.pnml"
 #include "src/wagon_bulk.pnml"
 #include "src/wagon_piecegoods.pnml"
 #include "src/wagon_refrigerated.pnml"
+#include "src/wagon_livestock.pnml"
 #include "src/wagon_tank.pnml"
 #include "src/wagon_flatbed.pnml"
-#include "src/wagon_valuables.pnml"
 
 /*
  * Monorail has to go below railwagons as some
  * of their graphics are re-used
  */
  
+#include "src/monorail_valuables.pnml"
 #include "src/monorail_bulk.pnml"
 #include "src/monorail_piecegoods.pnml"
+#include "src/monorail_livestock.pnml"
 #include "src/monorail_refrigerated.pnml"
 #include "src/monorail_tank.pnml"
 #include "src/monorail_flatbed.pnml"
-#include "src/monorail_valuables.pnml"
 
 /*
  * Maglev has to go below monorail wagons as some
  * of their graphics are re-used
  */
- 
+
+#include "src/maglev_valuables.pnml"
 #include "src/maglev_bulk.pnml"
 #include "src/maglev_piecegoods.pnml"
 #include "src/maglev_refrigerated.pnml"
+#include "src/maglev_livestock.pnml"
 #include "src/maglev_tank.pnml"
 #include "src/maglev_flatbed.pnml"
-#include "src/maglev_valuables.pnml"
 
 #include "src/turbotrain.pnml"
