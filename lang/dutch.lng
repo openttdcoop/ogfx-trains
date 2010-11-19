@@ -6,6 +6,3 @@ STR_NAME_TANK_WAGON                                             :Ketelwagen
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Gesloten wagen
 STR_NAME_FLATBED_WAGON                                          :Platte wagen
 STR_NAME_REFRIGERATOR_WAGON                                     :Koelwagen
-
-STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Schakel standaard wagons uit
-STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Schakel standaard wagons niet uit, als je deze set toevoegt aan een bestaand spel. Anders is het veilig en aan te raden om de onnodige standaard wagons uit te schakelen (standaardinstelling).

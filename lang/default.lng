@@ -7,7 +7,11 @@ STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Piece goods wag
 STR_NAME_FLATBED_WAGON                                          :Flatbed wagon
 STR_NAME_REFRIGERATOR_WAGON                                     :Refrigerator wagon
 
-STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Disable default wagons
-STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Allows to set compatibility. If you add this set to an existing game, and have already bought train vehicles, don't disable any wagons, otherwise it's save and recommended to disable the unneeded default wagons (default setting).
+STR_PARAM_PROVIDE                                               :Provide:
+STR_PARAM_PROVIDE_DESC                                          :Select which vehicles you want to add
+STR_PARAM_PROVIDE_ENGINES_AND_WAGONS                            :Engines and wagons
+STR_PARAM_PROVIDE_WAGONS_ONLY                                   :Wagons only
+STR_PARAM_KEEP_ORIGINAL                                         :Keep all existing default vehicles
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :Enable this setting only when you add this newgrf to a running game with existing default vehicles. Activating this setting will result in duplicate entries in the purchase list, but it is the only option of adding this set without selling all rail vehicles.
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Wood chips)

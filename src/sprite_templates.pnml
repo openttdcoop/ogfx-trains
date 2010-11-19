@@ -17,4 +17,10 @@ template tmpl_short_railwagon(x,y) {
     [ 48, y, 28, 12, -14,  -7 ]
     [ 96, y, 20, 16,  -4,  -8 ]
 }
- 
+
+template tmpl_railwagon_zephyris(x,y) {
+    [  0+x, y,     8,21,   -3,-12]
+    [  9+x, y+ 6, 22,15,  -14, -9]
+    [ 32+x, y+10, 32,11,  -16, -8]
+    [ 65+x, y+ 6, 22,15,   -6, -9]
+}

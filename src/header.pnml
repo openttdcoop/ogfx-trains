@@ -3,15 +3,29 @@ grf {
     name : string(STR_GRF_NAME);
     desc : string(STR_GRF_DESCRIPTION);
     version : REPO_REVISION;
-    min_compatible_version: 1;
+    min_compatible_version: 91;
     
     // Compatibility parameter: remove unneeded default wagon definitions
     param {
-		param_compatibility {
+		param_provide {
+			type:    int;
+			name:    string(STR_PARAM_PROVIDE);
+			desc:    string(STR_PARAM_PROVIDE_DESC);
+			min_value: 0;
+			max_value: 1;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_PROVIDE_ENGINES_AND_WAGONS);
+				1: string(STR_PARAM_PROVIDE_WAGONS_ONLY);
+			};
+		}
+	}
+	param {
+		param_keep_original {
 			type:    bool;
-			name:    string(STR_PARAM_DISABLE_UNNEEDED_WAGONS);
-			desc:    string(STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC);
-			def_value: 1;
+			name:    string(STR_PARAM_KEEP_ORIGINAL);
+			desc:    string(STR_PARAM_KEEP_ORIGINAL_DESC);
+			def_value: 0;
 		}
 	}
 }
@@ -24,16 +38,26 @@ grf {
 
 /*
  * ********************************************
- * Parameter 1: Disable default wagons
+ * Parameter 1: Defining Engines
  *
- * 0: Keep all wagons (possibly needed for running games
- * 1: (default) Disable all unneeded wagons (good for new games)
+ * 0: Define no train engines
+ * 1: (Re)define all engines (default)
  * ********************************************
  */
 
-#define KEEP_WAGONS   (param[0] == 0)
-#define REMOVE_WAGONS (param[0] == 1)
- 
+#define PROVIDE_ENGINES (param[0] == 0)
+
+/*
+ * ********************************************
+ * Parameter 2: Keep original vehicles
+ *
+ * 0: Don't keep the original vehicles (default)
+ * 1: Keep the original vehicles
+ * ********************************************
+ */
+
+#define REMOVE_ORIGINAL (param[1] == 0)
+
 /* 
  * ********************************************
  * Define cargo and railtype translation tables

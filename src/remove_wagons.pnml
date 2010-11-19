@@ -1,18 +1,14 @@
 /* 
  * =============================================================================
- * Remove unneeded wagons
+ * Remove default wagons - they are not required anymore
  * =============================================================================
- */
- 
-/*
- * The default wagons are not required anymore.
  */
 
 /* =====================================================
  * Steam / Diesel / Electric wagons.
  * ================================================== */
 
-if REMOVE_WAGONS {
+if REMOVE_ORIGINAL {
 
     item(FEAT_TRAINS, removed_steam_coal_hopper, 29) {
         property {
@@ -26,7 +22,11 @@ if REMOVE_WAGONS {
         }
     }
 
-    /* 31 is lifestock. We don't provide one. Keep it. */
+	item(FEAT_TRAINS, removed_steam_livestock_wagon, 31) {
+		property {
+			climates_available:		NO_CLIMATE;
+		}
+	}
 
     item(FEAT_TRAINS, removed_steam_goods_wagon, 32) {
         property {
@@ -58,7 +58,11 @@ if REMOVE_WAGONS {
         }
     }
 
-    /* 37 is armoured van. We redefine it and keep it. */
+	item(FEAT_TRAINS, removed_steam_armoured_wagon, 37) {
+		property {
+			climates_available:		NO_CLIMATE;
+		}
+	}
 
     item(FEAT_TRAINS, removed_steam_food_wagon, 38) {
         property {
@@ -172,7 +176,11 @@ if REMOVE_WAGONS {
 		}
 	}
 
-	/* livestock not replaced. Keep it */
+	item(FEAT_TRAINS, removed_monorail_livestock_wagon, 61) {
+		property {
+			climates_available:		NO_CLIMATE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_monorail_goods_wagon, 62) {
 		property {
@@ -204,7 +212,11 @@ if REMOVE_WAGONS {
 		}
 	}
 
-	/* armoured van is redefined, we keep it */
+	item(FEAT_TRAINS, removed_monorail_armoured_wagon, 67) {
+		property {
+			climates_available:		NO_CLIMATE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_monorail_food_wagon, 68) {
 		property {
@@ -319,7 +331,11 @@ if REMOVE_WAGONS {
 		}
 	}
 
-	/* Lifestock not replaced. Keep it */
+	item(FEAT_TRAINS, removed_maglev_livestock_wagon, 93) {
+		property {
+			climates_available:		NO_CLIMATE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_maglev_goods_wagon, 94) {
 		property {
@@ -351,7 +367,11 @@ if REMOVE_WAGONS {
 		}
 	}
 
-	/* armoured van is redefined, we keep it */
+	item(FEAT_TRAINS, removed_maglev_armoured_wagon, 99) {
+		property {
+			climates_available:		NO_CLIMATE;
+		}
+	}
 
 	item(FEAT_TRAINS, removed_maglev_food_truck, 100) {
 		property {

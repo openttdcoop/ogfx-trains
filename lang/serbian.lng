@@ -6,6 +6,3 @@ STR_NAME_TANK_WAGON                                             :Vagon cisterna
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Zatvoren vagon
 STR_NAME_FLATBED_WAGON                                          :Plato vagon
 STR_NAME_REFRIGERATOR_WAGON                                     :Vagon hladnjača
-
-STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Isključi nepotrebne vagone iz osnovnog skupa
-STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Ukoliko je ovaj skup dodat u postojeću partiju potrebno je ostaviti sve vagone iz osnovnog skupa. U suprotnom, isključivanje nepotrebnih vagona iz osnovnog skupa je sigurno i preporučljivo (podrazumevano).

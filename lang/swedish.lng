@@ -6,6 +6,3 @@ STR_NAME_TANK_WAGON                                             :Tankvagn
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Styckegodsvagn (täckt)
 STR_NAME_FLATBED_WAGON                                          :Flatvagn
 STR_NAME_REFRIGERATOR_WAGON                                     :Kylvagn
-
-STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Deaktivera standardvagnar
-STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Deaktivera inte standardvagnar om du lägger till det här setet till ett pågående spel. Annars är det säkert (och rekommenderas) att avaktivera onödiga standardvagnar (standard).

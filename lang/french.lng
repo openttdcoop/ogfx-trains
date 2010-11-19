@@ -6,6 +6,3 @@ STR_NAME_TANK_WAGON                                             :Wagon citerne
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Wagon couvert
 STR_NAME_FLATBED_WAGON                                          :Wagon plat
 STR_NAME_REFRIGERATOR_WAGON                                     :Wagon frigorifique
-
-STR_PARAM_DISABLE_UNNEEDED_WAGONS                               :Désactive les wagons de base.
-STR_PARAM_DISABLE_UNNEEDED_WAGONS_DESC                          :Ne pas désactiver les wagons de base si vous ajoutez ce set à une sauvegarde existante. Autrement il est recommandé de désactiver les wagons de base non nécessaire (Configuration par défaut).
