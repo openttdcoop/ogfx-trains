@@ -1,0 +1,196 @@
+/* 
+ * =============================================================================
+ * Remove default engines - they are not required anymore
+ * =============================================================================
+ */
+
+/* =====================================================
+ * Steam / Diesel / Electric wagons.
+ * ================================================== */
+
+if (REMOVE_ORIGINAL && !PROVIDE_ENGINES) {
+
+    item(FEAT_TRAINS, removed_kirbypaul, 00) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_mjs250, 01) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_ploddyphut_choochoo, 02) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_powernaut_choochoo, 03) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_mightymover_choochoo, 04) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_ploddyphut_diesel, 05) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_powernaut_diesel, 06) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_wills280, 07) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_chaneyjubilee, 08) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_ginzua4, 09) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_sh8p, 10) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_manleymorel, 11) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_dash, 12) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_shhendry, 13) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_uu37, 14) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_floss47, 15) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_cs4000, 16) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_cs2400, 17) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_centennial, 18) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_kelling3100, 19) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_turnerturbo, 20) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_mjs1000, 21) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_sh125, 22) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_sh30, 23) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_sh40, 24) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_tim, 25) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_asiastar, 26) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+
+
+
+    item(FEAT_TRAINS, removed_x2001, 54) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_milleniumz1, 55) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_wizzowowz99, 56) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+
+
+
+    item(FEAT_TRAINS, removed_lev1, 84) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_lev2, 85) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_lev3, 86) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_lev4, 87) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+    item(FEAT_TRAINS, removed_wizzowowrocketeer, 88) {
+        property {
+            climates_available:		NO_CLIMATE;
+        }
+    }
+} // if remove
+
+
