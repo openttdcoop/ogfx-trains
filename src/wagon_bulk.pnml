@@ -13,64 +13,24 @@
 
 spriteset(bulk_wagon_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,0) }
 
-spriteset(bulk_wagon_coal_empty_set1, "src/gfx/wagons_bulk/Coal1.png") { tmpl_railwagon_zephyris(1,1) }
-spriteset(bulk_wagon_coal_full_set1, "src/gfx/wagons_bulk/Coal1.png") { tmpl_railwagon_zephyris(1,23) }
-spriteset(bulk_wagon_coal_empty_set2, "src/gfx/wagons_bulk/Coal2.png") { tmpl_railwagon_zephyris(1,1) }
-spriteset(bulk_wagon_coal_full_set2, "src/gfx/wagons_bulk/Coal2.png") { tmpl_railwagon_zephyris(1,23) }
-spriteset(bulk_wagon_coal_empty_set3, "src/gfx/wagons_bulk/Coal3.png") { tmpl_railwagon_zephyris(1,1) }
-spriteset(bulk_wagon_coal_full_set3, "src/gfx/wagons_bulk/Coal3.png") { tmpl_railwagon_zephyris(1,23) }
-spriteset(bulk_wagon_coal_empty_set4, "src/gfx/wagons_bulk/Coal4.png") { tmpl_railwagon_zephyris(1,1) }
-spriteset(bulk_wagon_coal_full_set4, "src/gfx/wagons_bulk/Coal4.png") { tmpl_railwagon_zephyris(1,23) }
-
-spriteset(bulk_wagon_coal_empty_set1a, "src/gfx/wagons_bulk/Coal1a.png") { tmpl_railwagon_zephyris(1,1) }
-spriteset(bulk_wagon_coal_full_set1a, "src/gfx/wagons_bulk/Coal1a.png") { tmpl_railwagon_zephyris(1,23) }
-spriteset(bulk_wagon_coal_empty_set2a, "src/gfx/wagons_bulk/Coal2a.png") { tmpl_railwagon_zephyris(1,1) }
-spriteset(bulk_wagon_coal_full_set2a, "src/gfx/wagons_bulk/Coal2a.png") { tmpl_railwagon_zephyris(1,23) }
-spriteset(bulk_wagon_coal_empty_set3a, "src/gfx/wagons_bulk/Coal3a.png") { tmpl_railwagon_zephyris(1,1) }
-spriteset(bulk_wagon_coal_full_set3a, "src/gfx/wagons_bulk/Coal3a.png") { tmpl_railwagon_zephyris(1,23) }
-spriteset(bulk_wagon_coal_empty_set4a, "src/gfx/wagons_bulk/Coal4a.png") { tmpl_railwagon_zephyris(1,1) }
-spriteset(bulk_wagon_coal_full_set4a, "src/gfx/wagons_bulk/Coal4a.png") { tmpl_railwagon_zephyris(1,23) }
-
-spritegroup bulk_wagon_coal_group1 {
-	loaded: [bulk_wagon_coal_empty_set1, bulk_wagon_coal_full_set1];
-	loading: [bulk_wagon_coal_empty_set1, bulk_wagon_coal_full_set1];
+spriteset(bulk_wagon_coal_default_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,0) }
+spritegroup bulk_wagon_coal_default_group {
+	loaded: [bulk_wagon_empty_set, bulk_wagon_coal_default_set];
+	loading: [bulk_wagon_empty_set, bulk_wagon_coal_default_set];
 }
-spritegroup bulk_wagon_coal_group2 {
-	loaded: [bulk_wagon_coal_empty_set2, bulk_wagon_coal_full_set2];
-	loading: [bulk_wagon_coal_empty_set2, bulk_wagon_coal_full_set2];
-}
-spritegroup bulk_wagon_coal_group3 {
-	loaded: [bulk_wagon_coal_empty_set3, bulk_wagon_coal_full_set3];
-	loading: [bulk_wagon_coal_empty_set3, bulk_wagon_coal_full_set3];
-}
-spritegroup bulk_wagon_coal_group4 {
-	loaded: [bulk_wagon_coal_empty_set4, bulk_wagon_coal_full_set4];
-	loading: [bulk_wagon_coal_empty_set4, bulk_wagon_coal_full_set4];
-}
-
-spritegroup bulk_wagon_coal_group1a {
-	loaded: [bulk_wagon_coal_empty_set1a, bulk_wagon_coal_full_set1a];
-	loading: [bulk_wagon_coal_empty_set1a, bulk_wagon_coal_full_set1a];
-}
-spritegroup bulk_wagon_coal_group2a {
-	loaded: [bulk_wagon_coal_empty_set2a, bulk_wagon_coal_full_set2a];
-	loading: [bulk_wagon_coal_empty_set2a, bulk_wagon_coal_full_set2a];
-}
-spritegroup bulk_wagon_coal_group3a {
-	loaded: [bulk_wagon_coal_empty_set3a, bulk_wagon_coal_full_set3a];
-	loading: [bulk_wagon_coal_empty_set3a, bulk_wagon_coal_full_set3a];
-}
-spritegroup bulk_wagon_coal_group4a {
-	loaded: [bulk_wagon_coal_empty_set4a, bulk_wagon_coal_full_set4a];
-	loading: [bulk_wagon_coal_empty_set4a, bulk_wagon_coal_full_set4a];
-}
-
 spriteset(bulk_wagon_coal_arctic_empty_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,25) }
 spriteset(bulk_wagon_coal_arctic_full_set, "src/gfx/arctic_railwagons.png") { tmpl_railwagon(0,250) }
 spritegroup bulk_wagon_coal_arctic_group {
 	loaded: [bulk_wagon_coal_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
 	loading: [bulk_wagon_coal_arctic_empty_set, bulk_wagon_coal_arctic_full_set];
 }
+spriteset(bulk_wagon_coal2_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,842) }
+spriteset(bulk_wagon_coal2_full_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,842) }
+spritegroup bulk_wagon_coal2_group {
+	loaded: [bulk_wagon_coal2_empty_set, bulk_wagon_coal2_full_set];
+	loading: [bulk_wagon_coal2_empty_set, bulk_wagon_coal2_full_set];
+}
+
 
 spriteset(bulk_wagon_gravel_set, "src/gfx/railwagon_gravel.png") { tmpl_railwagon(0,0) }
 spritegroup bulk_wagon_gravel_group {
@@ -147,14 +107,8 @@ spritegroup bulk_wagon_fruit_group {
 }
 
 random_switch (FEAT_TRAINS, SELF, bulk_wagon_coal_default_switch, TRIGGER_VEHICLE_SERVICE) {
-//    1: bulk_wagon_coal_group1;
-//    1: bulk_wagon_coal_group1a;
-//    1: bulk_wagon_coal_group2;
-//    1: bulk_wagon_coal_group2a;
-//    1: bulk_wagon_coal_group3;
-//    1: bulk_wagon_coal_group3a;
-    1: bulk_wagon_coal_group4;
-    1: bulk_wagon_coal_group4a;
+    2: bulk_wagon_coal_default_group;
+    1: bulk_wagon_coal2_group;
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_coal_climate_switch, climate) {
@@ -181,7 +135,7 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     SULP: bulk_wagon_sand_group;
     TOFF: bulk_wagon_toffee_group;
     WHEA: bulk_wagon_grain_group;
-    bulk_wagon_coal_default_switch;                // default to coal; also waste (WSTE)
+    bulk_wagon_coal_default_group;                // default to coal; also waste (WSTE)
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
