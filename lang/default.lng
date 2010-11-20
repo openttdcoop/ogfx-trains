@@ -13,6 +13,6 @@ STR_PARAM_PROVIDE_DESC                                          :Select which ve
 STR_PARAM_PROVIDE_ENGINES_AND_WAGONS                            :Engines and wagons
 STR_PARAM_PROVIDE_WAGONS_ONLY                                   :Wagons only
 STR_PARAM_KEEP_ORIGINAL                                         :Keep all existing default vehicles
-STR_PARAM_KEEP_ORIGINAL_DESC                                    :Enable this setting only when you add this newgrf to a running game with existing default vehicles. Activating this setting will result in duplicate entries in the purchase list, but it is the only option of adding this set without selling all rail vehicles.
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :This setting is included for debugging purposes. You can use this setting if you want to add this newgrf to a running game with existing default vehicles. This is known to cause problems; enable it at your own risk.
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Wood chips)
