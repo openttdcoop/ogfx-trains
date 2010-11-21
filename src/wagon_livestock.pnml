@@ -18,11 +18,9 @@ item(FEAT_TRAINS, livestock_wagon, 31) {
     property {
         REFIT_PROPERTIES_LIVESTOCK
         WAGON_PROPERTIES_DEFAULT
-        introduction_date:              date(1925,1,1);
-        model_life:                     50;
+        WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    192;
         callback_flags:                 0;
-        track_type:                     RAIL;
         cargo_capacity:                 25;
         weight:                         20;
     }

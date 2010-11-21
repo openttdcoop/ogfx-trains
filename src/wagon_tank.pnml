@@ -87,11 +87,9 @@ item(FEAT_TRAINS, tank_wagon) {
         name:                           string(STR_NAME_TANK_WAGON);
         REFIT_PROPERTIES_TANK
         WAGON_PROPERTIES_DEFAULT
-        introduction_date:              date(1925,1,1);
-        model_life:                     50;
+        WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    200;
         callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
-        track_type:                     RAIL;
         cargo_capacity:                 30;
         weight:                         24;
     }
