@@ -8,7 +8,7 @@ Planned extensions of OpenGFX+ Trains:
     covered bulk,
     piece goods (covered),
     flatbed (not covered),
-    tank
+    tank (various looks, expensive refit)
 
 - dedicated support for all normal, FIRS, ECS and PBI cargos (empty + full):
     AORE,   bauxite             open bulk                                       all climates: empty + full

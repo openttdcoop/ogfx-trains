@@ -6,9 +6,8 @@
  * ***************************
  */
  
- item(FEAT_TRAINS, monorail_livestock_wagon) {
+ item(FEAT_TRAINS, monorail_livestock_wagon, 61) {
     property {
-        name:                           string(STR_NAME_LIVESTOCK_WAGON);
         climates_available:             ALL_CLIMATES;
         refittable_cargo_classes:       0;
         non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_LIQUID, CC_REFRIGERATED, CC_BULK);

@@ -14,9 +14,8 @@ spritegroup wagon_livestock_group {
 	loaded: temperate_livestock_rail_set;
 }
  
-item(FEAT_TRAINS, livestock_wagon) {
+item(FEAT_TRAINS, livestock_wagon, 31) {
     property {
-        name:                           string(STR_NAME_LIVESTOCK_WAGON);
         climates_available:             ALL_CLIMATES;
         refittable_cargo_classes:       0;
         non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_LIQUID, CC_REFRIGERATED, CC_BULK);
