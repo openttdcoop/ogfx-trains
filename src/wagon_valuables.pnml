@@ -9,7 +9,6 @@
  item(FEAT_TRAINS, valuables_wagon, 37) {
     property {
         climates_available:             ALL_CLIMATES;
-        refittable_cargo_classes:       bitmask(CC_ARMOURED);
-        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_LIQUID, CC_REFRIGERATED, CC_BULK);
+        REFIT_PROPERTIES_ARMOURED
     }
 }

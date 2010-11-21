@@ -95,9 +95,7 @@ item(FEAT_TRAINS, piecegoods_wagon) {
         // We try to simulate the stats of the temperate goods wagon
         name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
         climates_available:             ALL_CLIMATES;
-        refittable_cargo_classes:       bitmask(CC_PIECE_GOODS, CC_EXPRESS);
-        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_BULK, CC_ARMOURED, CC_LIQUID, CC_OVERSIZED, CC_REFRIGERATED);
-        refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL, FOOD, FRUT, FRVG);
+        REFIT_PROPERTIES_PIECE_GOODS
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         introduction_date:              date(1925,1,1);
         model_life:                     50;

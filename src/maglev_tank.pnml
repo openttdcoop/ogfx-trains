@@ -33,9 +33,7 @@ item(FEAT_TRAINS, maglev_tank_wagon) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
         climates_available:             ALL_CLIMATES;
-        refittable_cargo_classes:       bitmask(CC_LIQUID);
-        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_PIECE_GOODS);
-        refittable_cargo_types:         bitmask(CMNT, FZDR);
+        REFIT_PROPERTIES_TANK
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         introduction_date:              date(1925,1,1);
         model_life:                     VEHICLE_NEVER_EXPIRES;

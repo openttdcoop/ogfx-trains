@@ -9,9 +9,7 @@
  item(FEAT_TRAINS, monorail_livestock_wagon, 61) {
     property {
         climates_available:             ALL_CLIMATES;
-        refittable_cargo_classes:       0;
-        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_LIQUID, CC_REFRIGERATED, CC_BULK);
-        refittable_cargo_types:         bitmask(LVST);
+        REFIT_PROPERTIES_LIVESTOCK
         model_life:                     VEHICLE_NEVER_EXPIRES;
         introduction_date:              date(1925,1,1);
         retire_early:                   0;
