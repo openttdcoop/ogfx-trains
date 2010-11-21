@@ -20,11 +20,9 @@ item(FEAT_TRAINS, maglev_refrigerate_wagon) {
         name:                           string(STR_NAME_REFRIGERATOR_WAGON);
         REFIT_PROPERTIES_REFRIGERATED
         WAGON_PROPERTIES_DEFAULT
-        introduction_date:              date(1925,1,1);
-        model_life:                     VEHICLE_NEVER_EXPIRES;
+        WAGON_PROPERTIES_MAGLEV_DEFAULT
         cost_factor:                    191;
         callback_flags:                 0;
-        track_type:                     MGLV;
         cargo_capacity:                 32;
         weight:                         22;
     }
