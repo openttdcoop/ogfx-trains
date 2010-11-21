@@ -57,4 +57,4 @@
  * Declare all engines with new graphics here
  */
 
-#include "src/turbotrain.pnml"
+#include "src/engine_turbotrain.pnml"
