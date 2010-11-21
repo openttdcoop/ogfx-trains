@@ -59,11 +59,9 @@ item(FEAT_TRAINS, monorail_flatbed_wagon) {
         name:                           string(STR_NAME_FLATBED_WAGON);
         REFIT_PROPERTIES_FLATBED
         WAGON_PROPERTIES_DEFAULT
-        introduction_date:              date(1980,1,1);
-        model_life:                     50;
+        WAGON_PROPERTIES_MONORAIL_DEFAULT
         cost_factor:                    181;
         callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
-        track_type:                     MONO;
         cargo_capacity:                 30; // Usually units of goods which fit onto it.
         weight:                         16;
     }
