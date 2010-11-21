@@ -1,5 +1,13 @@
-Planned extensions of OpenGFX+ Trains:
 
+0 Content
+1 Currently planned extensions
+2 Immediate ToDo
+3 Future additions
+4 Summary of different cargos
+
+
+1 Currently planned extensions
+==============================
 - wagon types supported:
     passenger,
     mail,
@@ -10,10 +18,144 @@ Planned extensions of OpenGFX+ Trains:
     flatbed (not covered),
     tank (various looks, expensive refit)
 
+- Two Generations with distinct look for
+    passenger, (look: tbd)
+    mail,
+    valuables,
+    open bulk (look: like default coal ore wagons)
+
+==> the supported cargos need to be drawn for both wagon types
+==> the empty wagons should look pretty similar (exception: liquid, partially flatbed + piece goods)
+==> We skip climate dependence for now
+==> We skip differenciation between rail, monorail and maglev for now
+==> We skip further livery overrides for passenger engines for now
+
+2 Immediate ToDo-List for Wagons
+================================
+
 - dedicated support for all normal, FIRS, ECS and PBI cargos (empty + full):
-    AORE,   bauxite             open bulk                                       all climates: empty + full
-    BATT,   batteries           flatbed                                         all climates: empty + full
-    BATT,   batteries           piece(?)                                        -/-
+Basics (empty wagons + covered):
+    (default)                   open bulk (coarse)                              empty early and modern version (=coal and iron ore default)
+                                                                                default loaded sprites are used from coal (see below)
+    (default)                   open bulk (fine)                                empty early and modern version (=grain and fruits default)
+                                                                                default loaded sprites are used from grain (see below)
+    (default)                   open bulk toyland version                       empty
+                                                                                loaded sprites are used from cotton candy (see below)
+    (default)                   flatbed                                         three empty views: wood stakes, steel stakes, no stakes for
+                                                                                wood, steel and container / vehicle transport, maybe some
+                                                                                more empty versions needed?
+    (default)                   flatbed toyland version                         Small stakes like iron?
+    (default)                   piece goods                                     doors open and doors closed (1 generation only), each 4 sprites
+    (default)                   tank                                            default tanker used, 4 sprites
+    (default)                   valuables                                       doors open and doors closed, modern and early version, each 4 sprites
+    (default)                   mail                                            doors open and doors closed, modern and early version, each 4 sprites
+    (default)                   passengers                                      doors open and doors closed, modern and early version, each 4 sprites
+Special cargo support:
+  Bulk wagon (only full versions needed, 4 sprites per cargo and generation):
+    AORE,   bauxite             open bulk coarse             FIRS               early + modern
+    BRCK,   bricks              open bulk coarse             FIRS       ECS(?)  early + modern
+    CLAY,   clay                open bulk coarse             FIRS               early + modern
+    COAL,   coal                open bulk coarse        std, FIRS, PBI, ECS     early + modern
+    CORE,   copper ore          open bulk coarse        std,            ECS     early + modern
+    GRVL,   gravel, stone       open bulk coarse             FIRS,      ECS     early + modern
+    IORE,   iron ore            open bulk coarse        std, FIRS, PBI, ECS     early + modern
+    SAND,   sand                open bulk coarse             FIRS,      ECS     early + modern
+    SCRP,   scrap metal         open bulk coarse             FIRS,              early + modern
+    WDPR    wood products       open bulk coarse             FIRS       ECS     early + modern
+    CTCD,   cotton candy        open bulk toyland       std                     early
+    SUGR,   sugar               open bulk toyland       std                     early
+    FERT,   fertilizer          open bulk fine               FIRS,      ECS     early + modern
+    FRUT,   fruits              open bulk fine          std, FIRS,      ECS     early + modern
+    GRAI,   grain               open bulk fine          std, FIRS, PBI, ECS     early + modern
+    RSGR,   raw sugar           open bulk fine          std, FIRS,      ECS     early + modern
+    SULP,   sulphur             open bulk with cover                    ECS     early + modern
+    CMNT,   cement              open bulk with cover         FIRS,      ECS     early + modern
+
+  Flatbed wagons (only full versions needed. 8 sprites per view for non-symmetric cargos like
+    the big toyland battery; loading stages with half-full would be very nice)
+    (default)                   flatbed                                         4 views
+    BRCK,   bricks              flatbed                      FIRS,      ECS     4 or 8 views
+    PAPR,   paper               flatbed                 std, FIRS,      ECS     4 or 8 views
+    RFPR,   refinery products   flatbed                      FIRS,      ECS     4 or 8 views
+    STEL,   steel               flatbed                 std, FIRS, PBI, ECS     4 or 8 views
+    VEHI,   vehicles            flatbed                      FIRS       ECS     8 views
+    WOOD,   wood                flatbed                 std, FIRS, PBI, ECS     4 or 8 views
+    WOOL,   wool                flatbed                      FIRS,      ECS     4 or 8 views (bales of wool)
+    BATT,   batteries           flatbed toyland         std                     8 views
+    BUBL,   bubbles             flatbed toyland         std                     4 or 8 views
+    COLA,   cola                flatbed toyland         std                     4 or 8 views
+    FZDR,   fizzy drinks        flatbed toyland         std                     4 or 8 views
+    TOYS,   toys                flatbed toyland         std                     8 views
+
+  Piece goods wagon (open and closed doors needed; painting which reflects cargo; everything
+    except the default wagon is optional). Four base versions: default, toyland, refrigerated
+    and livestock
+    FOOD,   food                piece                   std, FIRS, PBI, ECS     open + closed
+    FRUT,   fruits              piece                   std, FIRS,      ECS     open + closed
+    GOOD,   goods               piece                   std, FIRS, PBI, ECS     open + closed (= default)
+    PAPR,   paper               piece                   std, FIRS; PBI, ECS     open + closed
+    SWET,   sweets              piece toyland           std                     open + closed
+    TOFF,   toffee              piece toyland           std                     open + closed
+    TOYS,   toys                piece toyland           std                     open + closed
+    
+    LVST,   lifestock           livestock               std, FIRS, PBI, ECS     open + closed; empty + full
+
+    FOOD,   food                refrigerated            std, FIRS, PBI, ECS     open + closed
+    FRUT,   fruits              refrigerated            std, FIRS, PBI, ECS     open + closed
+    FRUT,   fish                refrigerated                 FIRS               open + closed
+
+  optional:
+    RFPR,   refinery products   piece                        FIRS, PBI, ECS     open + closed
+    WATR,   water               piece                   std,                    open + closed
+    WOOL,   wool                piece                        FIRS,      ECS     open + closed
+
+
+  Tanker wagon: the most unique wagon where each comes completely with its own sprites. Depending
+    on that, empty and full needs to differ and 4 or 8 views are needed. Maybe some of the variety
+    of the wagons can be used rather for a generational difference - and cargos more differed by
+    symbols or colours?
+    COLA,   cola                tank toyland            std                     empty + full (transparent?)
+    FZDR,   fizzy drinks        tank toyland            std                     emtpy + full (transparent?)
+    MILK,   milk                tank                         FIRS               ?
+    OIL_,   oil                 tank                    std, FIRS, PBI, ECS     (== default)
+    PETR,   fuel oil            tank                         FIRS, PBI, ECS     
+    WATR,   water               tank                    std,            ECS     
+    DYES,   dyes                tank                                    ECS     
+    
+
+  Passenger wagon: with doors open and closed. Two generations. Is with and without people possible?
+  Mail wagon: with doors open and closed, Two generations.
+  Valuables wagon: with doors open and closed. Two generations.
+
+3 Future additions
+==================
+
+  Next
+    - Distinct wagons for monoral and maglev (e.g. again with the company-coloured line around)
+    - Different presentations of the same cargo for the flatbed wagon
+    - Random variation of the look for wagons (just slightly, like differently placed stains or so)
+    - Colour-variation of the containers and possibly other cargos via recolour sprites
+    
+  Mid-term
+    - Second generation flatbed wagons
+    - livery override for some engines (for passenger, mail and valuables)
+
+    - Metro trains?
+
+  Long-term
+    - Early generation of wagons with smaller sizes, different looks, introduction 1870 or so
+    - Late generation of wagons with larger capacity and different looks, introduction 2050 or so
+    - Early engines (starting about 1870)
+    - Late rail engines (starting about 2050)
+    - Differenciation between climates for passenger and mails
+
+
+4 Summary of different cargos
+=============================
+
+Note that this list is not exactly up to date
+    BATT,   batteries           flatbed                                         8 loaded views
+    BATT,   batteries           piece                                           -/-
     BRCK,   bricks              piece                                           -/-
     BRCK,   bricks              flatbed                                         -/-
     BUBL,   bubbles             flatbed                                         all climates: empty + full
@@ -76,13 +218,3 @@ Planned extensions of OpenGFX+ Trains:
     WOOL,   wool                piece                                           -/-
     WOOL,   wool                flatbed                                         -/-
 
-- support for up to four loading stages (in order normal, FIRS, ECS, PBI)
-    note: this requires wagons where the cargo is visible to have 8 views instead of four.
-- support for climate-specific sprites
-    note: this can be added on a per-cargo-basis.
-- support for random look of the same cargo:
-    note: to be added on an individual per-cargo-basis.
-    - goods: flatbed: containers with different colours, vehicles, ...
-- support for time-dependent sprites for the wagons
-    
-- support for livery override for a number of passenger trains
