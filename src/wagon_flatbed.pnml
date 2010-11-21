@@ -37,6 +37,13 @@ spritegroup flatbed_wagon_fizzy_group {
 	loading: [flatbed_wagon_fizzy_empty_set, flatbed_wagon_fizzy_set];
 }
 
+spriteset(flatbed_wagon_paper_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,722) }
+spriteset(flatbed_wagon_paper_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,722) }
+spritegroup flatbed_wagon_paper_group {
+	loaded: [flatbed_wagon_paper_empty_set, flatbed_wagon_paper_set];
+	loading: [flatbed_wagon_paper_empty_set, flatbed_wagon_paper_set];
+}
+
 spriteset(flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,400) }
 spriteset(flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,380) }
 spritegroup flatbed_wagon_battery_group {
@@ -55,6 +62,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     BATT: flatbed_wagon_battery_group;
     BUBL: flatbed_wagon_bubbles_group;
     FZDR: flatbed_wagon_fizzy_group;
+    PAPR: flatbed_wagon_paper_group;
     STEL: flatbed_wagon_steel_group;
     WDPR: flatbed_wagon_woodproducts_group;
     flatbed_wagon_default_group;
