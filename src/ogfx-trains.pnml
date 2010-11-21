@@ -6,6 +6,11 @@
 #include "src/sprite_templates.pnml"
 
 /*
+ * Make sure that the default engines are present
+ */
+#include "src/default_engines.pnml"
+
+/*
  * Declare all rail and elrail wagons here
  */
 
@@ -44,5 +49,10 @@
 #include "src/maglev_livestock.pnml"
 #include "src/maglev_tank.pnml"
 #include "src/maglev_flatbed.pnml"
+
+
+/*
+ * Declare all engines with new graphics here
+ */
 
 #include "src/turbotrain.pnml"
