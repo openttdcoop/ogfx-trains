@@ -16,26 +16,15 @@ item(FEAT_TRAINS, refrigerate_wagon) {
     property {
         // We try to simulate the stats of the arctic food wagon
         name:                           string(STR_NAME_REFRIGERATOR_WAGON);
-        climates_available:             ALL_CLIMATES;
-        sprite_id:                      SPRITE_ID_NEW_TRAIN;
         REFIT_PROPERTIES_REFRIGERATED
+        WAGON_PROPERTIES_DEFAULT
         introduction_date:              date(1925,1,1);
         model_life:                     50;
-        retire_early:                   0;
-        vehicle_life:                   20;
-        reliability_decay:              20;
-        loading_speed:                  5;
         cost_factor:                    191;
-        running_cost_factor:            5;
-        speed:                          0;
-        refit_cost:                     40;
         callback_flags:                 0;
         track_type:                     RAIL;
-        power:                          0;
-        running_cost_base:              RUNNING_COST_STEAM;
         cargo_capacity:                 25;
         weight:                         22;
-        bitmask_vehicle_info:           0;
     }
     graphics {
         refrigerate_wagon_default_group;
