@@ -17,6 +17,7 @@ Planned extensions of OpenGFX+ Trains:
     BRCK,   bricks              piece                                           -/-
     BRCK,   bricks              flatbed                                         -/-
     BUBL,   bubbles             flatbed                                         all climates: empty + full
+    CERE    cereals             bulk                                            -/- (== grain)
     CLAY,   clay                open bulk                                       all climates: empty + full (== gravel)
     CMNT,   cement              covered bulk                                    -/-
     COAL,   coal                open bulk:                                      arctic: empty + full; other: 2 types à empty + full
@@ -24,6 +25,7 @@ Planned extensions of OpenGFX+ Trains:
     COLA,   cola                flatbed                                         -/-
     CORE,   copper ore          open bulk                                       all climates: empty + full
     CTCD,   cotton candy        bulk                                            all climates: empty + full
+    DYES,   dyes                liquid or piece goods                           -/- (== default liquid or container)
     FERT,   fertilizer          bulk                                            -/- (== gravel)
     FERT,   fertilizer,         flatbed (containers)                            -/-
     FOOD,   food                piece                                           -/-

@@ -68,7 +68,7 @@ cargotable {                        // cargos needed for special refit orders
     WDPR, SCRP, CMNT, WOOD,         // bulk, bulk+piece+flat, tank, piece
     LVST, STEL, VEHI, BRCK,         // piece+flat, piece, piece, piece
     WOOL, BUBL, TOYS, FZDR,         // flat, flat, flat, tank
-    FRUT, FRVG, FOOD,               // bulk, bulk, piece
+    FRUT, FRVG, FOOD, FICR,         // bulk, bulk, piece, flatbed
 
                                     // cargos only referenced
     OIL_, GOOD, WATR, MILK,
@@ -79,8 +79,7 @@ cargotable {                        // cargos needed for special refit orders
     PETR, PAPR, TOFF, SUGR,
     PASS, MAIL, BATT, SWET,
     RUBR, FMSP, ENSP, MNSP,
-    FICR, PLAS, PLST, CERE,
-    DYES
+    PLAS, PLST, CERE, DYES
 }
 
 railtypetable {
