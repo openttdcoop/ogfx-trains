@@ -1,5 +1,5 @@
 #include "src/header.pnml"
-#include "src/translation_tables.pnml"
+#include "src/cargo_definitions.pnml"
 
 #include "src/remove_wagons.pnml"
 #include "src/remove_engines.pnml"

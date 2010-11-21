@@ -1,6 +1,6 @@
 /* 
  * ********************************************
- * Define cargo and railtype translation tables
+ * Define cargo translation table and refits
  * ********************************************
  */
  
@@ -20,11 +20,6 @@ cargotable {                        // cargos needed for special refit orders
     PASS, MAIL, BATT, SWET,
     RUBR, FMSP, ENSP, MNSP,
     PLAS, PLST, CERE, DYES
-}
-
-railtypetable {
-    RAIL, ELRL, MONO, MGLV,
-    TRPD
 }
 
 #define REFIT_PROPERTIES_PAX \
