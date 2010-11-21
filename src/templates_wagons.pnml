@@ -1,0 +1,14 @@
+#define WAGON_YEARSWITCH_2STAGE(year_for_modern, name) \
+spritegroup name ## _early_group { \
+	loaded: [ name ## _early_empty_set, name ## _early_full_set]; \
+	loading: [ name ## _early_empty_set, name ## _early_full_set]; \
+} \
+spritegroup name ## _modern_group { \
+	loaded: [ name ## _modern_empty_set, name ## _modern_full_set]; \
+	loading: [ name ## _modern_empty_set, name ## _modern_full_set]; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
+    1: name ## _early_group; \
+    name ## _modern_group; \
+}
+

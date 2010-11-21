@@ -4,6 +4,7 @@
 #include "src/remove_engines.pnml"
 
 #include "src/sprite_templates.pnml"
+#include "src/templates_wagons.pnml"
 
 /*
  * Make sure that the default engines are present
