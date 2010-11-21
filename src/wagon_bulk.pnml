@@ -7,7 +7,7 @@
  * sulphur, fertilizer, scrap metal,
  * fruit, fruit & vegetables, toffee,
  * sugar, cotton candy, sugar beet
- * lumber (wood chips)
+ * lumber (wood chips), cereal
  * ***************************
  */
 
@@ -118,6 +118,7 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_coal_climate_switch, climate) {
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     AORE: bulk_wagon_bauxite_group;
+    CERE: bulk_wagon_grain_group;
     CLAY: bulk_wagon_gravel_group;
     COAL: bulk_wagon_coal_climate_switch;
     CORE: bulk_wagon_copperore_group;
