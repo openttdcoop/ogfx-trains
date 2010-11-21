@@ -57,4 +57,9 @@
  * Declare all engines with new graphics here
  */
 
+#include "src/engine_manley-morel.pnml"
+#include "src/engine_dash.pnml"
 #include "src/engine_turbotrain.pnml"
+#include "src/engine_sh125.pnml"
+
+#include "src/engine_milleniumZ1.pnml"

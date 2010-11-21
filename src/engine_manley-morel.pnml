@@ -1,0 +1,8 @@
+if (PROVIDE_ENGINES) {
+	// Manley-Morel
+	item(FEAT_TRAINS, manleymorel, 11) {
+		property {
+            REFIT_PROPERTIES_PAX
+		}
+	}
+}

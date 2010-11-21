@@ -1,0 +1,8 @@
+if (PROVIDE_ENGINES) {
+	// Dash
+	item(FEAT_TRAINS, dash, 12) {
+		property {
+            REFIT_PROPERTIES_PAX
+		}
+	}
+}

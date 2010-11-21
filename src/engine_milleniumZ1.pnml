@@ -1,0 +1,8 @@
+if (PROVIDE_ENGINES) {
+	// Millenium Z1
+	item(FEAT_TRAINS, milleniumz1, 55) {
+		property {
+            REFIT_PROPERTIES_PAX
+		}
+	}
+}

@@ -1,0 +1,8 @@
+if (PROVIDE_ENGINES) {
+	// SH125
+	item(FEAT_TRAINS, sh125, 22) {
+		property {
+            REFIT_PROPERTIES_MAIL
+		}
+	}
+}
