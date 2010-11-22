@@ -12,6 +12,8 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
     name ## _modern_group; \
 }
 
+#define rail_modern_year 1970
+
 #define WAGON_PROPERTIES_DEFAULT \
         climates_available:             ALL_CLIMATES; \
         sprite_id:                      SPRITE_ID_NEW_TRAIN; \
