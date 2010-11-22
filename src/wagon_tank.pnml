@@ -8,7 +8,18 @@
  * ***************************
  */
 
-spriteset(tank_wagon_default_temperate_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,75) }
+// COLA
+spriteset(tank_wagon_cola_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,220) }
+spriteset(tank_wagon_cola_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,240) }
+spritegroup tank_wagon_cola_group {
+	loaded: [tank_wagon_cola_empty_set, tank_wagon_cola_full_set];
+	loading: [tank_wagon_cola_empty_set, tank_wagon_cola_full_set];
+}
+
+// MILK: see OIL_
+
+// OIL_
+spriteset(tank_wagon_default_temperate_set, "src/gfx/tank/rail_oil_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(tank_wagon_default_tropic_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,75) }
 spritegroup tank_wagon_default_temperate_group {
 	loaded: tank_wagon_default_temperate_set;
@@ -19,23 +30,20 @@ spritegroup tank_wagon_default_tropic_group {
 	loading: tank_wagon_default_tropic_set;
 }
 
+// PETR
 spriteset(tank_wagon_chemicals_set, "src/gfx/railwagon_chemicals.png") { tmpl_railwagon(0,0) }
 spritegroup tank_wagon_chemicals_group {
 	loaded: tank_wagon_chemicals_set;
 	loading: tank_wagon_chemicals_set;
 }
 
+// RFPR: see PETR
+
+// WATR
 spriteset(tank_wagon_water_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,475) }
 spritegroup tank_wagon_water_group {
 	loaded: tank_wagon_water_set;
 	loading: tank_wagon_water_set;
-}
-
-spriteset(tank_wagon_cola_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,220) }
-spriteset(tank_wagon_cola_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,240) }
-spritegroup tank_wagon_cola_group {
-	loaded: [tank_wagon_cola_empty_set, tank_wagon_cola_full_set];
-	loading: [tank_wagon_cola_empty_set, tank_wagon_cola_full_set];
 }
 
 switch(FEAT_TRAINS, SELF, tank_wagon_default_switch, climate) {
