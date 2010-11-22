@@ -75,3 +75,12 @@ railtypetable {
     TRPD
 }
 
+/* 
+ * ********************************************
+ * Check for engine pool
+ * ********************************************
+ */
+if (!dynamic_engines) {
+    error(ERROR, USED_WITH, string(STR_ERR_ENGINE_POOL));
+}
+
