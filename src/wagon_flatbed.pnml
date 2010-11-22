@@ -9,6 +9,7 @@
  * ***************************
  */
 
+// default: container
 spriteset(flatbed_wagon_default_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,762) }
 spriteset(flatbed_wagon_default_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,762) }
 spritegroup flatbed_wagon_default_group {
@@ -16,6 +17,7 @@ spritegroup flatbed_wagon_default_group {
 	loading: [flatbed_wagon_default_empty_set, flatbed_wagon_default_set];
 }
 
+// BATT
 spriteset(flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,400) }
 spriteset(flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,380) }
 spritegroup flatbed_wagon_battery_group {
@@ -23,6 +25,7 @@ spritegroup flatbed_wagon_battery_group {
 	loading: [flatbed_wagon_battery_empty_set, flatbed_wagon_battery_set];
 }
 
+// BUBL
 spriteset(flatbed_wagon_bubbles_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,80) }
 spriteset(flatbed_wagon_bubbles_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,60) }
 spritegroup flatbed_wagon_bubbles_group {
@@ -30,6 +33,7 @@ spritegroup flatbed_wagon_bubbles_group {
 	loading: [flatbed_wagon_bubbles_empty_set, flatbed_wagon_bubbles_set];
 }
 
+// FZDR
 spriteset(flatbed_wagon_fizzy_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
 spriteset(flatbed_wagon_fizzy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
 spritegroup flatbed_wagon_fizzy_group {
@@ -37,6 +41,7 @@ spritegroup flatbed_wagon_fizzy_group {
 	loading: [flatbed_wagon_fizzy_empty_set, flatbed_wagon_fizzy_set];
 }
 
+// PAPR
 spriteset(flatbed_wagon_paper_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,722) }
 spriteset(flatbed_wagon_paper_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,722) }
 spritegroup flatbed_wagon_paper_group {
@@ -44,6 +49,7 @@ spritegroup flatbed_wagon_paper_group {
 	loading: [flatbed_wagon_paper_empty_set, flatbed_wagon_paper_set];
 }
 
+// STEL
 spriteset(flatbed_wagon_steel_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,325) }
 spriteset(flatbed_wagon_steel_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,200) }
 spritegroup flatbed_wagon_steel_group {
@@ -51,18 +57,20 @@ spritegroup flatbed_wagon_steel_group {
 	loading: [flatbed_wagon_steel_empty_set, flatbed_wagon_steel_set];
 }
 
-spriteset(flatbed_wagon_wood_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127, 642) }
-spriteset(flatbed_wagon_wood_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0, 642) }
-spritegroup flatbed_wagon_wood_group {
-	loaded: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_set];
-	loading: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_set];
-}
-
+// WDPR
 spriteset(flatbed_wagon_woodproducts_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,802) }
 spriteset(flatbed_wagon_woodproducts_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,802) }
 spritegroup flatbed_wagon_woodproducts_group {
 	loaded: [flatbed_wagon_woodproducts_empty_set, flatbed_wagon_woodproducts_set];
 	loading: [flatbed_wagon_woodproducts_empty_set, flatbed_wagon_woodproducts_set];
+}
+
+// WOOD
+spriteset(flatbed_wagon_wood_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127, 642) }
+spriteset(flatbed_wagon_wood_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0, 642) }
+spritegroup flatbed_wagon_wood_group {
+	loaded: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_set];
+	loading: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_set];
 }
  
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
@@ -71,8 +79,8 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     FZDR: flatbed_wagon_fizzy_group;
     PAPR: flatbed_wagon_paper_group;
     STEL: flatbed_wagon_steel_group;
-    WOOD: flatbed_wagon_wood_group;
     WDPR: flatbed_wagon_woodproducts_group;
+    WOOD: flatbed_wagon_wood_group;
     flatbed_wagon_default_group;
 }
 
