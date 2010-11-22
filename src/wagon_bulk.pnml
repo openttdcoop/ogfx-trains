@@ -89,11 +89,23 @@ spritegroup bulk_wagon_sugar_group {
 	loading: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
 }
 
+spriteset(bulk_wagon_scrapmetal_early_empty_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(0, 0) }
+spriteset(bulk_wagon_scrapmetal_early_full_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(126, 0) }
+spriteset(bulk_wagon_scrapmetal_modern_empty_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(0, 32) }
+spriteset(bulk_wagon_scrapmetal_modern_full_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(126, 32) }
+WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_scrapmetal)
+
 spriteset(bulk_wagon_fruits_early_empty_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_fruits_early_full_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(126, 0) }
 spriteset(bulk_wagon_fruits_modern_empty_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(0, 32) }
 spriteset(bulk_wagon_fruits_modern_full_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(126, 32) }
 WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_fruits)
+
+spriteset(bulk_wagon_woodproducts_early_empty_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(0, 0) }
+spriteset(bulk_wagon_woodproducts_early_full_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(126, 0) }
+spriteset(bulk_wagon_woodproducts_modern_empty_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(0, 32) }
+spriteset(bulk_wagon_woodproducts_modern_full_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(126, 32) }
+WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_woodproducts)
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     AORE: bulk_wagon_bauxite_year_switch;
@@ -111,10 +123,12 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     MAIZ: bulk_wagon_grain_year_switch;
     RSGR: bulk_wagon_rawsugar_group;
     SAND: bulk_wagon_sand_year_switch;
+    SCRP: bulk_wagon_scrapmetal_year_switch;
     SUGR: bulk_wagon_sugar_group;
     SULP: bulk_wagon_sand_year_switch;
     TOFF: bulk_wagon_toffee_group;
     WHEA: bulk_wagon_grain_year_switch;
+    WDPR: bulk_wagon_woodproducts_year_switch;
     bulk_wagon_coal_year_switch;                // default to coal; also waste (WSTE)
 }
 
