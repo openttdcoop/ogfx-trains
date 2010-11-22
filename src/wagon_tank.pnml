@@ -16,7 +16,12 @@ spritegroup tank_wagon_cola_group {
 	loading: [tank_wagon_cola_empty_set, tank_wagon_cola_full_set];
 }
 
-// MILK: see OIL_
+// MILK:
+spriteset(tank_wagon_milk_set, "src/gfx/tank/rail_milk_temperate.png") { tmpl_railwagon(0, 0) }
+spritegroup tank_wagon_milk_group {
+	loaded: tank_wagon_milk_set;
+	loading: tank_wagon_milk_set;
+}
 
 // OIL_
 spriteset(tank_wagon_default_temperate_set, "src/gfx/tank/rail_oil_temperate.png") { tmpl_railwagon(0, 0) }
@@ -37,10 +42,15 @@ spritegroup tank_wagon_fueloil_group {
 	loading: tank_wagon_fueloil_set;
 }
 
-// RFPR: see PETR
+// RFPR:
+spriteset(tank_wagon_refineryproducts_set, "src/gfx/tank/rail_refineryproducts_temperate.png") { tmpl_railwagon(0, 4) }
+spritegroup tank_wagon_refineryproducts_group {
+	loaded: tank_wagon_refineryproducts_set;
+	loading: tank_wagon_refineryproducts_set;
+}
 
 // WATR
-spriteset(tank_wagon_water_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,475) }
+spriteset(tank_wagon_water_set, "src/gfx/tank/rail_water_temperate.png") { tmpl_railwagon(0, 0) }
 spritegroup tank_wagon_water_group {
 	loaded: tank_wagon_water_set;
 	loading: tank_wagon_water_set;
@@ -53,9 +63,11 @@ switch(FEAT_TRAINS, SELF, tank_wagon_default_switch, climate) {
 
 switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
     COLA: tank_wagon_cola_group;
-    MILK: tank_wagon_default_tropic_group;
+    FZDR: tank_wagon_default_switch;
+    MILK: tank_wagon_milk_group;
+    OIL_: tank_wagon_default_switch;
     PETR: tank_wagon_fueloil_group;
-    RFPR: tank_wagon_fueloil_group;
+    RFPR: tank_wagon_refineryproducts_group;
     WATR: tank_wagon_water_group;
     tank_wagon_default_switch;
 }
