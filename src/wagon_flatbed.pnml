@@ -10,11 +10,11 @@
  */
 
 // default: container
-spriteset(flatbed_wagon_default_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,762) }
-spriteset(flatbed_wagon_default_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,762) }
-spritegroup flatbed_wagon_default_group {
-	loaded: [flatbed_wagon_default_empty_set, flatbed_wagon_default_set];
-	loading: [flatbed_wagon_default_empty_set, flatbed_wagon_default_set];
+spriteset(flatbed_wagon_container_empty_set, "src/gfx/flatbed/rail_flatbed_container_temperate.png") { tmpl_railwagon(0, 8) }
+spriteset(flatbed_wagon_container_full_set, "src/gfx/flatbed/rail_flatbed_container_temperate.png") { tmpl_railwagon(126, 8) }
+spritegroup flatbed_wagon_container_group {
+	loaded: [flatbed_wagon_container_empty_set, flatbed_wagon_container_full_set];
+	loading: [flatbed_wagon_container_empty_set, flatbed_wagon_container_full_set];
 }
 
 // BATT
@@ -42,35 +42,35 @@ spritegroup flatbed_wagon_fizzy_group {
 }
 
 // PAPR
-spriteset(flatbed_wagon_paper_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,722) }
-spriteset(flatbed_wagon_paper_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,722) }
+spriteset(flatbed_wagon_paper_empty_set, "src/gfx/flatbed/rail_flatbed_paper_temperate.png") { tmpl_railwagon(0, 0) }
+spriteset(flatbed_wagon_paper_full_set, "src/gfx/flatbed/rail_flatbed_paper_temperate.png") { tmpl_railwagon(126, 0) }
 spritegroup flatbed_wagon_paper_group {
-	loaded: [flatbed_wagon_paper_empty_set, flatbed_wagon_paper_set];
-	loading: [flatbed_wagon_paper_empty_set, flatbed_wagon_paper_set];
+	loaded: [flatbed_wagon_paper_empty_set, flatbed_wagon_paper_full_set];
+	loading: [flatbed_wagon_paper_empty_set, flatbed_wagon_paper_full_set];
 }
 
 // STEL
-spriteset(flatbed_wagon_steel_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,325) }
-spriteset(flatbed_wagon_steel_empty_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,200) }
+spriteset(flatbed_wagon_steel_empty_set, "src/gfx/flatbed/rail_flatbed_steel_temperate.png") { tmpl_railwagon(0, 0) }
+spriteset(flatbed_wagon_steel_full_set, "src/gfx/flatbed/rail_flatbed_steel_temperate.png") { tmpl_railwagon(126, 0) }
 spritegroup flatbed_wagon_steel_group {
-	loaded: [flatbed_wagon_steel_empty_set, flatbed_wagon_steel_set];
-	loading: [flatbed_wagon_steel_empty_set, flatbed_wagon_steel_set];
+	loaded: [flatbed_wagon_steel_empty_set, flatbed_wagon_steel_full_set];
+	loading: [flatbed_wagon_steel_empty_set, flatbed_wagon_steel_full_set];
 }
 
 // WDPR
-spriteset(flatbed_wagon_woodproducts_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127,802) }
-spriteset(flatbed_wagon_woodproducts_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0,802) }
+spriteset(flatbed_wagon_woodproducts_empty_set, "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png") { tmpl_railwagon(0, 0) }
+spriteset(flatbed_wagon_woodproducts_full_set, "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png") { tmpl_railwagon(126, 0) }
 spritegroup flatbed_wagon_woodproducts_group {
-	loaded: [flatbed_wagon_woodproducts_empty_set, flatbed_wagon_woodproducts_set];
-	loading: [flatbed_wagon_woodproducts_empty_set, flatbed_wagon_woodproducts_set];
+	loaded: [flatbed_wagon_woodproducts_empty_set, flatbed_wagon_woodproducts_full_set];
+	loading: [flatbed_wagon_woodproducts_empty_set, flatbed_wagon_woodproducts_full_set];
 }
 
 // WOOD
-spriteset(flatbed_wagon_wood_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(127, 642) }
-spriteset(flatbed_wagon_wood_empty_set, "src/gfx/molace_wagons.png") { tmpl_railwagon(0, 642) }
+spriteset(flatbed_wagon_wood_empty_set, "src/gfx/flatbed/rail_flatbed_wood_temperate.png") { tmpl_railwagon(0, 0) }
+spriteset(flatbed_wagon_wood_full_set, "src/gfx/flatbed/rail_flatbed_wood_temperate.png") { tmpl_railwagon(126, 0) }
 spritegroup flatbed_wagon_wood_group {
-	loaded: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_set];
-	loading: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_set];
+	loaded: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_full_set];
+	loading: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_full_set];
 }
  
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
@@ -81,7 +81,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     STEL: flatbed_wagon_steel_group;
     WDPR: flatbed_wagon_woodproducts_group;
     WOOD: flatbed_wagon_wood_group;
-    flatbed_wagon_default_group;
+    flatbed_wagon_container_group;
 }
 
 switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_capacity_switch, cargo_type_in_veh) {
