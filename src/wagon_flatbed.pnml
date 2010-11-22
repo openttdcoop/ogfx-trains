@@ -57,6 +57,13 @@ spritegroup flatbed_wagon_steel_group {
 	loading: [flatbed_wagon_steel_empty_set, flatbed_wagon_steel_full_set];
 }
 
+// VEHI
+spriteset(flatbed_wagon_vehicles_empty_set, "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png") { tmpl_railwagon42(0, 7) }
+spriteset(flatbed_wagon_vehicles_full_set, "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png") { tmpl_railwagon8_high(126, 7) }
+spritegroup flatbed_wagon_vehicles_group {
+	loaded: [flatbed_wagon_vehicles_empty_set, flatbed_wagon_vehicles_full_set];
+	loading: [flatbed_wagon_vehicles_empty_set, flatbed_wagon_vehicles_full_set];
+}
 // WDPR
 spriteset(flatbed_wagon_woodproducts_empty_set, "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(flatbed_wagon_woodproducts_full_set, "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png") { tmpl_railwagon(126, 0) }
@@ -76,9 +83,11 @@ spritegroup flatbed_wagon_wood_group {
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     BATT: flatbed_wagon_battery_group;
     BUBL: flatbed_wagon_bubbles_group;
+    FMSP: flatbed_wagon_vehicles_group;
     FZDR: flatbed_wagon_fizzy_group;
     PAPR: flatbed_wagon_paper_group;
     STEL: flatbed_wagon_steel_group;
+    VEHI: flatbed_wagon_vehicles_group;
     WDPR: flatbed_wagon_woodproducts_group;
     WOOD: flatbed_wagon_wood_group;
     flatbed_wagon_container_group;

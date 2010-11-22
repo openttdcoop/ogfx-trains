@@ -11,6 +11,30 @@ template tmpl_railwagon(x,y) {
     [ 96+x, y, 22,17,   -6, -9]
 }
 
+// Simulate 8 sprites by repeating the first four (for empty wagons)
+template tmpl_railwagon42(x,y) {
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,12,  -16, -8]
+    [ 96+x, y, 22,17,   -6, -9]
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,12,  -16, -8]
+    [ 96+x, y, 22,17,   -6, -9]
+}
+
+// wagons with 8 sprites and higher than usual (e.g. vehicles on flatbed)
+template tmpl_railwagon8_high(x,y) {
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,14,  -16,-10]
+    [ 96+x, y, 22,17,   -6, -9]
+    [127+x, y,  8,24,   -3,-12]
+    [143+x, y, 22,17,  -14, -9]
+    [175+x, y, 32,14,  -16,-10]
+    [223+x, y, 22,17,   -6, -9]
+}
+
 template tmpl_short_railwagon(x,y) {
     [  0, y,  8, 18,  -3, -10 ]
     [ 16, y, 20, 16, -12,  -8 ]
