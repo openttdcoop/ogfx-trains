@@ -124,9 +124,16 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_property_switch, extra_callback_info
     CB_FAILED;
 }
 
+switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_cargo_suffix_switch, cargo_type_in_veh) {
+    FMSP: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);
+    VEHI: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);
+    CB_FAILED;
+}
+
 switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_switch, current_callback) {
     VEH_CB_REFITTED_CAPACITY:  flatbed_wagon_cb_capacity_switch;
     VEH_CB_VEHICLE_PROPERTIES: flatbed_wagon_cb_property_switch;
+    VEH_CB_CARGO_SUFFIX: flatbed_wagon_cb_cargo_suffix_switch;
     flatbed_wagon_switch;
 }
 
@@ -138,7 +145,7 @@ item(FEAT_TRAINS, flatbed_wagon) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    181;
-        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
+        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY, VEH_CBF_CARGO_SUFFIX);
         cargo_capacity:                 30; // Usually units of goods which fit onto it.
         weight:                         16;
     }

@@ -18,3 +18,4 @@ STR_PARAM_KEEP_ORIGINAL_DESC                                    :This setting is
 STR_ERR_ENGINE_POOL                                             :Enable multiple NewGRF engine sets = on
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Wood chips)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        : (Tractors)
