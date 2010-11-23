@@ -2,13 +2,25 @@
  * ***************************
  * Armoured wagon:
  *
- * valuables
+ * valuables, gold, diamonds
  * ***************************
  */
- 
+
+spriteset(valuables_rail_set, "src/gfx/temperate_railwagons.png") {
+	tmpl_railwagon(0,375)
+}
+spritegroup valuables_wagon_group {
+	loading: valuables_rail_set;
+	loaded: valuables_rail_set;
+}
+
  item(FEAT_TRAINS, valuables_wagon, 37) {
     property {
         climates_available:             ALL_CLIMATES;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
         REFIT_PROPERTIES_ARMOURED
+    }
+    graphics {
+        valuables_wagon_group;
     }
 }

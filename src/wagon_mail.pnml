@@ -10,7 +10,7 @@
 spriteset(normal_mail_set, "src/gfx/temperate_railwagons.png") {
 	tmpl_railwagon(0,50) tmpl_railwagon(0,50)             // 8 views needed for livery override by turbotrain
 }
-spritegroup normal_mail_group {
+spritegroup mail_wagon_group {
 	loading: normal_mail_set;
 	loaded: normal_mail_set;
 }
@@ -22,6 +22,6 @@ item(FEAT_TRAINS, mail_wagon, 28) {
         REFIT_PROPERTIES_MAIL
     }
     graphics {
-        normal_mail_group;
+        mail_wagon_group;
     }
 }
