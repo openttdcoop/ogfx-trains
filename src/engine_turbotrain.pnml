@@ -23,6 +23,13 @@ spritegroup turbotrain_engine_group {
 	loaded: turbotrain_engine_set;
 }
 
+CAN_ATTACH_VEHICLE(turbotrain, 20)
+
+switch(FEAT_TRAINS, SELF, turbotrain_engine_switch, current_callback) {
+    VEH_CB_CAN_ATTACH_WAGON: turbotrain_can_attach_switch;
+    turbotrain_engine_group;
+}
+
 if (PROVIDE_ENGINES) {
 	// Turbotrain engine:
 	item(FEAT_TRAINS, turbotrain, 20) {
@@ -31,7 +38,7 @@ if (PROVIDE_ENGINES) {
 			misc_flags:                   bitmask(TRAIN_FLAG_MU); // We use special sprites for passenger and mail wagons
 		}
 		graphics {
-			turbotrain_engine_group;
+			turbotrain_engine_switch;
 		}
 		livery_override(passenger_wagon) { 
 			turbotrain_passenger_group;
