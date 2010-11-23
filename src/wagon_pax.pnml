@@ -38,11 +38,32 @@ spritegroup toyland_passenger_rail_group {
 	loaded: toyland_passenger_rail_set;
 }
 
-switch (FEAT_TRAINS, SELF, normal_passenger_switch, climate) {
+// Livery override for turbotrain:
+spriteset(turbotrain_passenger_set, "src/gfx/turbotrain.png") {
+	[142,139,  8,21,   -3,-10]
+	[158,139, 20,15,  -13, -7]
+	[190,139, 28,10,  -12, -6]
+	[238,139, 20,16,   -6, -7]
+	[270,139,  8,21,   -3,-10]
+	[286,139, 20,15,  -15, -6]
+	[318,139, 28,10,  -16, -6]
+	[366,139, 20,16,   -6, -7]
+}
+spritegroup turbotrain_passenger_group {
+	loading: turbotrain_passenger_set;
+	loaded: turbotrain_passenger_set;
+}
+
+switch (FEAT_TRAINS, SELF, climate_passenger_switch, climate) {
     CLIMATE_TROPICAL: tropic_passenger_rail_group;
     CLIMATE_ARCTIC: arctic_passenger_rail_group;
     CLIMATE_TOYLAND: toyland_passenger_rail_group;
     temperate_passenger_rail_group;
+}
+
+switch (FEAT_TRAINS, PARENT, normal_passenger_switch, vehicle_type_id) {
+    20: turbotrain_passenger_group;
+    climate_passenger_switch;
 }
 
 item(FEAT_TRAINS, passenger_wagon, 27) {
