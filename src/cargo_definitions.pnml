@@ -9,7 +9,7 @@ cargotable {                        // cargos needed for special refit orders
     LVST, STEL, VEHI, BRCK,         // piece+flat, piece, piece, piece
     WOOL, BUBL, TOYS, FZDR,         // flat, flat, flat, tank
     FRUT, FRVG, FOOD, FICR,         // bulk, bulk, piece, flatbed
-
+    RUBR, 
                                     // cargos only referenced
     OIL_, GOOD, WATR, MILK,
     COAL, IORE, AORE, CLAY,
@@ -18,8 +18,8 @@ cargotable {                        // cargos needed for special refit orders
     SULP, WHEA, RFPR, COLA,
     PETR, PAPR, TOFF, SUGR,
     PASS, MAIL, BATT, SWET,
-    RUBR, FMSP, ENSP, MNSP,
-    PLAS, PLST, CERE, DYES
+    FMSP, ENSP, MNSP, DYES,
+    PLST, CERE, PLAS,
 }
 
 #define REFIT_PROPERTIES_PAX \
@@ -42,13 +42,13 @@ cargotable {                        // cargos needed for special refit orders
 #define REFIT_PROPERTIES_BULK \
         refittable_cargo_classes:       bitmask(CC_BULK); \
         non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_LIQUID, CC_REFRIGERATED, CC_HAZARDOUS); \
-        refittable_cargo_types:         bitmask(SCRP, FRUT, FRVG);
+        refittable_cargo_types:         bitmask(SCRP, FRUT, FRVG, RUBR);
 
 
 
 #define REFIT_PROPERTIES_PIECE_GOODS \
         refittable_cargo_classes:       bitmask(CC_PIECE_GOODS, CC_EXPRESS); \
-        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_BULK, CC_ARMOURED, CC_LIQUID, CC_OVERSIZED, CC_REFRIGERATED); \
+        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_BULK, CC_ARMOURED, CC_OVERSIZED, CC_REFRIGERATED); \
         refittable_cargo_types:         bitmask(WOOD, LVST, STEL, SCRP, VEHI, BRCK, BUBL, FOOD, FRUT, FRVG);
 
 #define REFIT_PROPERTIES_REFRIGERATED \
@@ -72,7 +72,7 @@ cargotable {                        // cargos needed for special refit orders
 
 #define REFIT_PROPERTIES_TANK \
         refittable_cargo_classes:       bitmask(CC_LIQUID); \
-        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_PIECE_GOODS); \
+        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED); \
         refittable_cargo_types:         bitmask(CMNT, FZDR);
 
 
