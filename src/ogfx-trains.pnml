@@ -6,6 +6,8 @@
 
 #include "src/sprite_templates.pnml"
 #include "src/templates_wagons.pnml"
+#include "src/template_engine_shunting.pnml"
+#include "src/template_engine2_shunting.pnml"
 
 /*
  * Make sure that the default engines are present
