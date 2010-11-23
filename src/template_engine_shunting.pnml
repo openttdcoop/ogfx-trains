@@ -103,7 +103,7 @@ switch(FEAT_TRAINS, SELF, engine_## name ##_reversed_pos_switch, position_in_con
     1: name ##_reversed_callback_switch; \
     passenger_## name ##_reversed_pos_switch; \
 } \
-switch(FEAT_TRAINS, PARENT, wagon_## name ##_switch, vehicle_is_reversed | \
+switch(FEAT_TRAINS, PARENT, wagon_## name ##_shunting_switch, vehicle_is_reversed | \
                 (STORE_TEMP(count_veh_id( id ), 3) & 0) | \
                 (STORE_TEMP(count_veh_id(passenger_wagon), 4) & 0) | \
                 (STORE_TEMP(count_veh_id(mail_wagon), 5) & 0) | \
@@ -117,4 +117,20 @@ switch(FEAT_TRAINS, PARENT, wagon_## name ##_switch, vehicle_is_reversed | \
         ) { \
     1: engine_## name ##_reversed_pos_switch; \
     engine_## name ##_normal_pos_switch; \
+} \
+switch(FEAT_TRAINS, SELF, wagon_## name ##_id_switch, vehicle_type_id) { \
+    passenger_wagon:    normal_passenger_switch; \
+    mail_wagon:         mail_wagon_group; \
+    valuables_wagon:    valuables_wagon_group; \
+    livestock_wagon:    wagon_livestock_group; \
+    bulk_wagon:         bulk_wagon_switch; \
+    piecegoods_wagon:   piecegoods_wagon_cb_switch; \
+    refrigerate_wagon:  refrigerate_wagon_default_group; \
+    tank_wagon:         tank_wagon_cb_switch; \
+    flatbed_wagon:      flatbed_wagon_cb_switch; \
+    name ## _normal_callback_switch; \
+} \
+switch(FEAT_TRAINS, PARENT, wagon_## name ##_switch, ALLOW_SHUNTING && !(vehicle_is_in_depot && vehicle_is_stopped)) { \
+    1: wagon_## name ##_shunting_switch; \
+    wagon_## name ##_id_switch; \
 }
