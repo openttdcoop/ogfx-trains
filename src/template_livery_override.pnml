@@ -1,0 +1,38 @@
+/*
+ * To be used in conjunction with either
+ * template_engine_shunting.pnml or
+ * template_engine2_shunting.pnml,
+ * providing the necessary livery override
+ * and graphics definitions for the item entry
+ */
+#define LIVERY_OVERRIDE(name) \
+     graphics { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(passenger_wagon) { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(mail_wagon) { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(valuables_wagon) { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(livestock_wagon) { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(bulk_wagon) { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(piecegoods_wagon) { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(refrigerate_wagon) { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(tank_wagon) { \
+     	wagon_## name ##_switch; \
+     } \
+     livery_override(flatbed_wagon) { \
+     	wagon_## name ##_switch; \
+     }
