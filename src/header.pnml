@@ -58,6 +58,8 @@ grf {
 
 #define REMOVE_ORIGINAL (param[1] == 0)
 
+#define ALLOW_SHUNTING 0
+
 /* 
  * ********************************************
  * Vehicles may be 32px wide in the depots

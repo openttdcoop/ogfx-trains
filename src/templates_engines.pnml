@@ -40,9 +40,11 @@
 /* This actually is not a template but a switch used for every vehicle
  * of this set and is called by the following template which checks
  * whether a vehicle can be attached
+ * return: error when shunting allowed
+ *         allow attaching when shunting not allowed
  */
-switch(FEAT_TRAINS, SELF, shunting_allowed_switch, 0) {
-    0: return string(STR_ERR_CANNOT_ATTACH);
+switch(FEAT_TRAINS, SELF, shunting_allowed_switch, ALLOW_SHUNTING) {
+    1: return string(STR_ERR_CANNOT_ATTACH);
     return 0xFF;
 }
 
