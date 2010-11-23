@@ -14,10 +14,19 @@
  */
  
 #define SHUNTING2(name, id) \
+switch(FEAT_TRAINS, SELF, fronthead_## name ##_normal_pos_switch, (position_in_consist % 2)) { \
+    1: name ##_reversed_callback_switch; \
+    name ##_reversed_callback_switch; \
+} \
+switch(FEAT_TRAINS, SELF, rearhead_## name ##_normal_pos_switch, (position_in_consist  % 2)) { \
+    1: name ##_normal_callback_switch; \
+    name ##_normal_callback_switch; \
+} \
+\
 switch(FEAT_TRAINS, SELF, flatbed_ ## name ## _normal_pos_switch, position_in_consist - LOAD_TEMP(3)/2 - LOAD_TEMP(4) - LOAD_TEMP(5) \
             - LOAD_TEMP(6) - LOAD_TEMP(7) - LOAD_TEMP(8) - LOAD_TEMP(9) - LOAD_TEMP(10) - LOAD_TEMP(11) < LOAD_TEMP(12)) { \
     1: flatbed_wagon_cb_switch; \
-    name ## _normal_callback_switch; \
+    rearhead_## name ##_normal_pos_switch; \
 } \
 switch(FEAT_TRAINS, SELF, tank_## name ##_normal_pos_switch, position_in_consist - LOAD_TEMP(3)/2 - LOAD_TEMP(4) - LOAD_TEMP(5)  \
             - LOAD_TEMP(6) - LOAD_TEMP(7) - LOAD_TEMP(8) - LOAD_TEMP(9) - LOAD_TEMP(10) < LOAD_TEMP(11)) { \
@@ -51,18 +60,18 @@ switch(FEAT_TRAINS, SELF, mail_## name ##_normal_pos_switch, position_in_consist
     valuables_## name ##_normal_pos_switch; \
 } \
 switch(FEAT_TRAINS, SELF, passenger_## name ##_normal_pos_switch, position_in_consist - LOAD_TEMP(3)/2 < LOAD_TEMP(4)) { \
-    1: arctic_passenger_rail_group; \
+    1: normal_passenger_switch; \
     mail_## name ##_normal_pos_switch; \
 } \
 switch(FEAT_TRAINS, SELF, engine_## name ##_normal_pos_switch, position_in_consist < LOAD_TEMP(3)/2) { \
-    1:  name ##_normal_callback_switch; \
+    1:  fronthead_## name ##_normal_pos_switch; \
     passenger_## name ##_normal_pos_switch; \
 } \
  \
 switch(FEAT_TRAINS, SELF, flatbed_## name ##_reversed_pos_switch, position_in_consist_from_end - LOAD_TEMP(3)/2 - LOAD_TEMP(4) - LOAD_TEMP(5)  \
             - LOAD_TEMP(6) - LOAD_TEMP(7) - LOAD_TEMP(8) - LOAD_TEMP(9) - LOAD_TEMP(10) - LOAD_TEMP(11) < LOAD_TEMP(12)) { \
     1: flatbed_wagon_cb_switch; \
-    name ##_reversed_callback_switch; \
+    fronthead_## name ##_normal_pos_switch; \
 } \
 switch(FEAT_TRAINS, SELF, tank_## name ##_reversed_pos_switch, position_in_consist_from_end - LOAD_TEMP(3)/2 - LOAD_TEMP(4) - LOAD_TEMP(5)  \
             - LOAD_TEMP(6) - LOAD_TEMP(7) - LOAD_TEMP(8) - LOAD_TEMP(9) - LOAD_TEMP(10) < LOAD_TEMP(11)) { \
@@ -96,14 +105,14 @@ switch(FEAT_TRAINS, SELF, mail_## name ##_reversed_pos_switch, position_in_consi
     valuables_## name ##_reversed_pos_switch; \
 } \
 switch(FEAT_TRAINS, SELF, passenger_## name ##_reversed_pos_switch, position_in_consist_from_end - LOAD_TEMP(3)/2 < LOAD_TEMP(4)) { \
-    1: arctic_passenger_rail_group; \
+    1: normal_passenger_switch; \
     mail_## name ##_reversed_pos_switch; \
 } \
 switch(FEAT_TRAINS, SELF, engine_## name ##_reversed_pos_switch, position_in_consist_from_end < LOAD_TEMP(3)/2) { \
-    1: name ##_reversed_callback_switch; \
+    1: rearhead_## name ##_normal_pos_switch; \
     passenger_## name ##_reversed_pos_switch; \
 } \
-switch(FEAT_TRAINS, PARENT, wagon_## name ##_switch, vehicle_is_reversed | \
+switch(FEAT_TRAINS, PARENT, wagon_## name ##_shunting_switch, vehicle_is_reversed | \
                 (STORE_TEMP(count_veh_id( id ), 3) & 0) | \
                 (STORE_TEMP(count_veh_id(passenger_wagon), 4) & 0) | \
                 (STORE_TEMP(count_veh_id(mail_wagon), 5) & 0) | \
@@ -117,4 +126,20 @@ switch(FEAT_TRAINS, PARENT, wagon_## name ##_switch, vehicle_is_reversed | \
         ) { \
     1: engine_## name ##_reversed_pos_switch; \
     engine_## name ##_normal_pos_switch; \
+} \
+switch(FEAT_TRAINS, SELF, wagon_## name ##_id_switch, vehicle_type_id) { \
+    passenger_wagon:    normal_passenger_switch; \
+    mail_wagon:         mail_wagon_group; \
+    valuables_wagon:    valuables_wagon_group; \
+    livestock_wagon:    wagon_livestock_group; \
+    bulk_wagon:         bulk_wagon_switch; \
+    piecegoods_wagon:   piecegoods_wagon_cb_switch; \
+    refrigerate_wagon:  refrigerate_wagon_default_group; \
+    tank_wagon:         tank_wagon_cb_switch; \
+    flatbed_wagon:      flatbed_wagon_cb_switch; \
+    name ## _normal_callback_switch; \
+} \
+switch(FEAT_TRAINS, PARENT, wagon_## name ##_switch, ALLOW_SHUNTING) { \
+    1: wagon_## name ##_shunting_switch; \
+    wagon_## name ##_id_switch; \
 }
