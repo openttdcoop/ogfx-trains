@@ -35,10 +35,15 @@ spritegroup flatbed_wagon_bubbles_group {
 
 // ENSP (vehicles)
 spriteset(flatbed_wagon_engineeringsupplies_empty_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png") { tmpl_railwagon8_normal(0,0) }
-spriteset(flatbed_wagon_engineeringsupplies_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1a.png") { tmpl_railwagon8_normal(0,0) }
-spritegroup flatbed_wagon_engineeringsupplies_group {
-	loaded: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_set];
-	loading: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_set];
+spriteset(flatbed_wagon_engineeringsupplies_vehicle1_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1a.png") { tmpl_railwagon8_normal(0,0) }
+spritegroup flatbed_wagon_engineeringsupplies_vehicle1_group {
+	loaded: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle1_set];
+	loading: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle1_set];
+}
+spriteset(flatbed_wagon_engineeringsupplies_vehicle2_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1b.png") { tmpl_railwagon8_normal(0,0) }
+spritegroup flatbed_wagon_engineeringsupplies_vehicle2_group {
+	loaded: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle2_set];
+	loading: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle2_set];
 }
 
 // FMSP: see VEHI
@@ -105,11 +110,16 @@ spritegroup flatbed_wagon_wood_group {
 	loaded: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_full_set];
 	loading: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_full_set];
 }
+
+random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch) {
+    3: flatbed_wagon_engineeringsupplies_vehicle1_group;
+    1: flatbed_wagon_engineeringsupplies_vehicle2_group;
+}
  
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     BATT: flatbed_wagon_battery_group;
     BUBL: flatbed_wagon_bubbles_group;
-    ENSP: flatbed_wagon_engineeringsupplies_group;
+    ENSP: flatbed_wagon_engineeringsupplies_switch;
     FMSP: flatbed_wagon_vehicles_group;
     FZDR: flatbed_wagon_fizzy_group;
     PAPR: flatbed_wagon_paper_group;
@@ -157,6 +167,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_property_switch, extra_callback_info
 
 switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_cargo_suffix_switch, cargo_type_in_veh) {
     FMSP: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);
+    ENSP: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY);
     PETR: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS);
     RFPR: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS);
     VEHI: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);

@@ -22,4 +22,5 @@ STR_ERR_CANNOT_ATTACH                                           :Special livery 
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Wood chips)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Barrels)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY                       : (Machinery)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        : (Tractors)
