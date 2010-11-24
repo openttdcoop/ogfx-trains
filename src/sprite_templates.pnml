@@ -23,6 +23,18 @@ template tmpl_railwagon42(x,y) {
     [ 96+x, y, 22,17,   -6, -9]
 }
 
+// wagons with 8 sprites and normal height)
+template tmpl_railwagon8_normal(x,y) {
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,12,  -16, -8]
+    [ 96+x, y, 22,17,   -6, -9]
+    [128+x, y,  8,24,   -3,-12]
+    [144+x, y, 22,17,  -14, -9]
+    [176+x, y, 32,12,  -16, -8]
+    [224+x, y, 22,17,   -6, -9]
+}
+
 // wagons with 8 sprites and higher than usual (e.g. vehicles on flatbed)
 template tmpl_railwagon8_high(x,y) {
     [  0+x, y,  8,24,   -3,-12]
