@@ -56,6 +56,19 @@ spritegroup flatbed_wagon_fizzy_group {
 	loading: [flatbed_wagon_fizzy_empty_set, flatbed_wagon_fizzy_set];
 }
 
+// GOOD (container)
+spriteset(flatbed_wagon_goods_empty_set, "src/gfx/flatbed/container/rail_flatbed_container_empty_NoWagonCC_2.png") { tmpl_railwagon(0,0) }
+spriteset(flatbed_wagon_goods_container1_set, "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2a.png") { tmpl_railwagon(0,0) }
+spritegroup flatbed_wagon_goods_1a_group {
+	loaded: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container1_set];
+	loading: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container1_set];
+}
+spriteset(flatbed_wagon_goods_container2_set, "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2b.png") { tmpl_railwagon(0,0) }
+spritegroup flatbed_wagon_goods_1b_group {
+	loaded: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container2_set];
+	loading: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container2_set];
+}
+
 // PAPR
 spriteset(flatbed_wagon_paper_empty_set, "src/gfx/flatbed/rail_flatbed_paper_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(flatbed_wagon_paper_full_set, "src/gfx/flatbed/rail_flatbed_paper_temperate.png") { tmpl_railwagon(126, 0) }
@@ -111,9 +124,29 @@ spritegroup flatbed_wagon_wood_group {
 	loading: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_full_set];
 }
 
-random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch) {
+random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch, TRIGGER_VEHICLE_NEW_LOAD) {
     3: flatbed_wagon_engineeringsupplies_vehicle1_group;
     1: flatbed_wagon_engineeringsupplies_vehicle2_group;
+}
+
+random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, TRIGGER_VEHICLE_NEW_LOAD) {
+    1: return 0x307;
+    1: return 0x308;
+    1: return 0x309;
+    1: return 0x30A;
+    1: return 0x30B;
+    1: return 0x30C;
+    1: return 0x30D;
+    1: return 0x30E;
+    1: return 0x30F;
+    1: return 0x310;
+    1: return 0x311;
+    1: return 0x312;
+    1: return 0x313;
+    1: return 0x314;
+    1: return 0x315;
+    1: return 0x316;
+    48: CB_FAILED;
 }
  
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
@@ -122,6 +155,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     ENSP: flatbed_wagon_engineeringsupplies_switch;
     FMSP: flatbed_wagon_vehicles_group;
     FZDR: flatbed_wagon_fizzy_group;
+    GOOD: flatbed_wagon_goods_1a_group;
     PAPR: flatbed_wagon_paper_group;
     PETR: flatbed_wagon_fueloil_group;
     RFPR: flatbed_wagon_refineryproducts_group;
@@ -168,9 +202,15 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_property_switch, extra_callback_info
 switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_cargo_suffix_switch, cargo_type_in_veh) {
     FMSP: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);
     ENSP: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY);
+    GOOD: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER);
     PETR: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS);
     RFPR: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS);
     VEHI: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_colour_switch, cargo_type_in_veh) {
+    GOOD: flatbed_wagon_random_colour_switch;
     CB_FAILED;
 }
 
@@ -178,6 +218,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_switch, current_callback) {
     VEH_CB_REFITTED_CAPACITY:  flatbed_wagon_cb_capacity_switch;
     VEH_CB_VEHICLE_PROPERTIES: flatbed_wagon_cb_property_switch;
     VEH_CB_CARGO_SUFFIX: flatbed_wagon_cb_cargo_suffix_switch;
+    VEH_CB_COLOUR_MAPPING: flatbed_wagon_cb_colour_switch;
     flatbed_wagon_switch;
 }
 
@@ -189,7 +230,7 @@ item(FEAT_TRAINS, flatbed_wagon) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    181;
-        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY, VEH_CBF_CARGO_SUFFIX);
+        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY, VEH_CBF_CARGO_SUFFIX, VEH_CBF_COLOUR_MAPPING);
         cargo_capacity:                 30; // Usually units of goods which fit onto it.
         weight:                         16;
     }
