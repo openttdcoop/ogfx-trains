@@ -9,17 +9,17 @@ cargotable {                        // cargos needed for special refit orders
     LVST, STEL, VEHI, BRCK,         // piece+flat, piece, piece, piece
     WOOL, BUBL, TOYS, FZDR,         // flat, flat, flat, tank
     FRUT, FRVG, FOOD, FICR,         // bulk, bulk, piece, flatbed
-    RUBR, 
+    RUBR, RFPR, PETR,               // piece, flatbed, flatbed
                                     // cargos only referenced
     OIL_, GOOD, WATR, MILK,
     COAL, IORE, AORE, CLAY,
     GRVL, SAND, GRAI, RSGR,
     MAIZ, CORE, FERT, CTCD,
-    SULP, WHEA, RFPR, COLA,
-    PETR, PAPR, TOFF, SUGR,
+    SULP, WHEA, COLA, CERE, 
+    PAPR, TOFF, SUGR, PLAS,
     PASS, MAIL, BATT, SWET,
     FMSP, ENSP, MNSP, DYES,
-    PLST, CERE, PLAS,
+    PLST
 }
 
 #define REFIT_PROPERTIES_PAX \
@@ -66,7 +66,7 @@ cargotable {                        // cargos needed for special refit orders
 #define REFIT_PROPERTIES_FLATBED \
         refittable_cargo_classes:       bitmask(CC_PIECE_GOODS, CC_EXPRESS); \
         non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_REFRIGERATED); \
-        refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS, FICR);
+        refittable_cargo_types:         bitmask(LVST, WOOL, SCRP, TOYS, FICR, PETR, RFPR);
 
 
 

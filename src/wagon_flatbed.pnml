@@ -49,6 +49,22 @@ spritegroup flatbed_wagon_paper_group {
 	loading: [flatbed_wagon_paper_empty_set, flatbed_wagon_paper_full_set];
 }
 
+// RFPR
+spriteset(flatbed_wagon_refineryproducts_empty_set, "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png") { tmpl_railwagon(0, 10) }
+spriteset(flatbed_wagon_refineryproducts_full_set, "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png") { tmpl_railwagon(126, 10) }
+spritegroup flatbed_wagon_refineryproducts_group {
+	loaded: [flatbed_wagon_refineryproducts_empty_set, flatbed_wagon_refineryproducts_full_set];
+	loading: [flatbed_wagon_refineryproducts_empty_set, flatbed_wagon_refineryproducts_full_set];
+}
+
+// PETR
+spriteset(flatbed_wagon_fueloil_empty_set, "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png") { tmpl_railwagon(0, 0) }
+spriteset(flatbed_wagon_fueloil_full_set, "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png") { tmpl_railwagon(126, 0) }
+spritegroup flatbed_wagon_fueloil_group {
+	loaded: [flatbed_wagon_fueloil_empty_set, flatbed_wagon_fueloil_full_set];
+	loading: [flatbed_wagon_fueloil_empty_set, flatbed_wagon_fueloil_full_set];
+}
+
 // STEL
 spriteset(flatbed_wagon_steel_empty_set, "src/gfx/flatbed/rail_flatbed_steel_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(flatbed_wagon_steel_full_set, "src/gfx/flatbed/rail_flatbed_steel_temperate.png") { tmpl_railwagon(126, 0) }
@@ -86,6 +102,8 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     FMSP: flatbed_wagon_vehicles_group;
     FZDR: flatbed_wagon_fizzy_group;
     PAPR: flatbed_wagon_paper_group;
+    PETR: flatbed_wagon_fueloil_group;
+    RFPR: flatbed_wagon_refineryproducts_group;
     STEL: flatbed_wagon_steel_group;
     VEHI: flatbed_wagon_vehicles_group;
     WDPR: flatbed_wagon_woodproducts_group;
@@ -100,6 +118,8 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_capacity_switch, cargo_type_in_veh) 
     FZDR: return 25;
     MNSP: return 25;
     PAPR: return 20;
+    PETR: return 12;
+    RFPR: return 12;
     STEL: return 20;
     VEHI: return 15;
     return 30;
@@ -126,6 +146,8 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_property_switch, extra_callback_info
 
 switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_cargo_suffix_switch, cargo_type_in_veh) {
     FMSP: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);
+    PETR: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS);
+    RFPR: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS);
     VEHI: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);
     CB_FAILED;
 }
