@@ -15,22 +15,6 @@ spritegroup mail_wagon_group {
 	loaded: normal_mail_set;
 }
 
-// Livery override for turbotrain:
-spriteset(turbotrain_mail_set, "src/gfx/turbotrain.png") {
-	[142,168,  8,21,   -3,-10]
-	[158,168, 20,15,  -13, -7]
-	[190,168, 28,10,  -12, -6]
-	[238,168, 20,16,   -6, -7]
-	[270,168,  8,21,   -3,-10]
-	[286,168, 20,15,  -15, -6]
-	[318,168, 28,10,  -16, -6]
-	[366,168, 20,16,   -6, -7]
-}
-spritegroup turbotrain_mail_group {
-	loading: turbotrain_mail_set;
-	loaded: turbotrain_mail_set;
-}
-
 item(FEAT_TRAINS, mail_wagon, 28) {
     property {
         sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
