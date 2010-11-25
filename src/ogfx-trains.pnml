@@ -9,6 +9,7 @@
 #include "src/template_engine_shunting.pnml"
 #include "src/template_engine2_shunting.pnml"
 #include "src/templates_engines.pnml"
+#include "src/template_mu.pnml"
 
 /*
  * Make sure that the default engines are present
@@ -64,5 +65,7 @@
 #include "src/engine_dash.pnml"
 #include "src/engine_turbotrain.pnml"
 #include "src/engine_sh125.pnml"
+#include "src/engine_asiastar.pnml"
+#include "src/engine_tim.pnml"
 
 #include "src/engine_milleniumZ1.pnml"
