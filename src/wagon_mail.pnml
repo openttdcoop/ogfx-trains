@@ -26,14 +26,9 @@ spriteset(turbotrain_mail_set, "src/gfx/turbotrain.png") {
 	[318,168, 28,10,  -16, -6]
 	[366,168, 20,16,   -6, -7]
 }
-spritegroup turbotrain_mail_group {
+spritegroup turbotrain_wagon_mail_group {
 	loading: turbotrain_mail_set;
 	loaded: turbotrain_mail_set;
-}
-
-switch(FEAT_TRAINS, PARENT, mail_wagon_switch, vehicle_type_id) {
-    20: turbotrain_mail_group;
-    mail_wagon_group;
 }
 
 item(FEAT_TRAINS, mail_wagon, 28) {
@@ -43,6 +38,6 @@ item(FEAT_TRAINS, mail_wagon, 28) {
         REFIT_PROPERTIES_MAIL
     }
     graphics {
-        mail_wagon_switch;
+        mail_wagon_group;
     }
 }

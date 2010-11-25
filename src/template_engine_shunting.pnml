@@ -119,8 +119,8 @@ switch(FEAT_TRAINS, PARENT, wagon_## name ##_shunting_switch, vehicle_is_reverse
     engine_## name ##_normal_pos_switch; \
 } \
 switch(FEAT_TRAINS, SELF, wagon_## name ##_id_switch, vehicle_type_id) { \
-    passenger_wagon:    normal_passenger_switch; \
-    mail_wagon:         mail_wagon_group; \
+    passenger_wagon:    name ##_wagon_passenger_group; \
+    mail_wagon:         name ##_wagon_mail_group; \
     valuables_wagon:    valuables_wagon_group; \
     livestock_wagon:    wagon_livestock_group; \
     bulk_wagon:         bulk_wagon_switch; \
