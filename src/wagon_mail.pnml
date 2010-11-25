@@ -26,7 +26,7 @@ spriteset(turbotrain_mail_set, "src/gfx/turbotrain.png") {
 	[318,168, 28,10,  -16, -6]
 	[366,168, 20,16,   -6, -7]
 }
-spritegroup turbotrain_wagon_mail_group {
+spritegroup turbotrain_mail_group {
 	loading: turbotrain_mail_set;
 	loaded: turbotrain_mail_set;
 }

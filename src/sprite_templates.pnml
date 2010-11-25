@@ -35,6 +35,18 @@ template tmpl_railwagon8_normal(x,y) {
     [224+x, y, 22,17,   -6, -9]
 }
 
+// wagons with 8 sprites, normal height and reversed)
+template tmpl_railwagon8_normal_reversed(x,y) {
+    [128+x, y,  8,24,   -3,-12]
+    [144+x, y, 22,17,  -14, -9]
+    [176+x, y, 32,12,  -16, -8]
+    [224+x, y, 22,17,   -6, -9]
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,12,  -16, -8]
+    [ 96+x, y, 22,17,   -6, -9]
+}
+
 // wagons with 8 sprites and higher than usual (e.g. vehicles on flatbed)
 template tmpl_railwagon8_high(x,y) {
     [  0+x, y,  8,24,   -3,-12]
@@ -45,6 +57,39 @@ template tmpl_railwagon8_high(x,y) {
     [143+x, y, 22,17,  -14, -9]
     [175+x, y, 32,14,  -16,-10]
     [223+x, y, 22,17,   -6, -9]
+}
+// wagons with 8 sprites and higher than usual (e.g. vehicles on flatbed)
+template tmpl_railwagon8_high_reversed(x,y) {
+    [127+x, y,  8,24,   -3,-12]
+    [143+x, y, 22,17,  -14, -9]
+    [175+x, y, 32,14,  -16,-10]
+    [223+x, y, 22,17,   -6, -9]
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,14,  -16,-10]
+    [ 96+x, y, 22,17,   -6, -9]
+}
+// wagons with 8 sprites and higher than usual (e.g. vehicles on flatbed)
+template tmpl_railwagon8_high2(x,y) {
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,17,  -16,-13]
+    [ 96+x, y, 22,17,   -6, -9]
+    [128+x, y,  8,24,   -3,-12]
+    [144+x, y, 22,17,  -14, -9]
+    [176+x, y, 32,17,  -16,-13]
+    [224+x, y, 22,17,   -6, -9]
+}
+// wagons with 8 sprites and higher than usual (e.g. vehicles on flatbed)
+template tmpl_railwagon8_high2_reversed(x,y) {
+    [128+x, y,  8,24,   -3,-12]
+    [144+x, y, 22,17,  -14, -9]
+    [176+x, y, 32,17,  -16,-13]
+    [224+x, y, 22,17,   -6, -9]
+    [  0+x, y,  8,24,   -3,-12]
+    [ 16+x, y, 22,17,  -14, -9]
+    [ 48+x, y, 32,17,  -16,-13]
+    [ 96+x, y, 22,17,   -6, -9]
 }
 
 template tmpl_short_railwagon(x,y) {

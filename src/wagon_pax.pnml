@@ -49,7 +49,7 @@ spriteset(turbotrain_passenger_set, "src/gfx/turbotrain.png") {
 	[318,139, 28,10,  -16, -6]
 	[366,139, 20,16,   -6, -7]
 }
-spritegroup turbotrain_wagon_passenger_group {
+spritegroup turbotrain_passenger_group {
 	loading: turbotrain_passenger_set;
 	loaded: turbotrain_passenger_set;
 }
