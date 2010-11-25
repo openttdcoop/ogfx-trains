@@ -1,4 +1,4 @@
-/* 
+/*
  * ***************************
  * Livestock wagon:
  *
@@ -13,7 +13,7 @@ spritegroup wagon_livestock_group {
 	loading: temperate_livestock_rail_set;
 	loaded: temperate_livestock_rail_set;
 }
- 
+
 item(FEAT_TRAINS, livestock_wagon, 31) {
     property {
         REFIT_PROPERTIES_LIVESTOCK

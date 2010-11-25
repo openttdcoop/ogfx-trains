@@ -1,9 +1,9 @@
-/* 
+/*
  * ********************************************
  * Define cargo translation table and refits
  * ********************************************
  */
- 
+
 cargotable {                        // cargos needed for special refit orders
     WDPR, SCRP, CMNT, WOOD,         // bulk, bulk+piece+flat, tank, piece
     LVST, STEL, VEHI, BRCK,         // piece+flat, piece, piece, piece
@@ -15,7 +15,7 @@ cargotable {                        // cargos needed for special refit orders
     COAL, IORE, AORE, CLAY,
     GRVL, SAND, GRAI, RSGR,
     MAIZ, CORE, FERT, CTCD,
-    SULP, WHEA, COLA, CERE, 
+    SULP, WHEA, COLA, CERE,
     PAPR, TOFF, SUGR, PLAS,
     PASS, MAIL, BATT, SWET,
     FMSP, ENSP, MNSP, DYES,

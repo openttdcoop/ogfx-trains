@@ -12,7 +12,7 @@
  * and is called itself by
  *      wagon_XXX_switch
  */
- 
+
 #define SHUNTING(name, id) \
 switch(FEAT_TRAINS, SELF, flatbed_ ## name ## _normal_pos_switch, position_in_consist - LOAD_TEMP(3) - LOAD_TEMP(4) - LOAD_TEMP(5) \
             - LOAD_TEMP(6) - LOAD_TEMP(7) - LOAD_TEMP(8) - LOAD_TEMP(9) - LOAD_TEMP(10) - LOAD_TEMP(11) < LOAD_TEMP(12)) { \

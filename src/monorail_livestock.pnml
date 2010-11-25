@@ -1,11 +1,11 @@
-/* 
+/*
  * ***************************
  * Livestock wagon:
  *
  * Livestock
  * ***************************
  */
- 
+
  item(FEAT_TRAINS, monorail_livestock_wagon, 61) {
     property {
         REFIT_PROPERTIES_LIVESTOCK

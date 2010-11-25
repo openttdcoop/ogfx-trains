@@ -1,4 +1,4 @@
-/* 
+/*
  * ***************************
  * Bulk wagon:
  *
@@ -98,5 +98,5 @@ item(FEAT_TRAINS, monorail_bulk_wagon) {
     }
     graphics {
         monorail_bulk_wagon_switch;
-    }        
+    }
 }

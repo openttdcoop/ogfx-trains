@@ -34,7 +34,7 @@
  * Monorail has to go below railwagons as some
  * of their graphics are re-used
  */
- 
+
 #include "src/monorail_valuables.pnml"
 #include "src/monorail_bulk.pnml"
 #include "src/monorail_piecegoods.pnml"

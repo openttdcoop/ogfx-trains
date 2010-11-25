@@ -12,7 +12,7 @@
  * and is called itself by
  *      wagon_XXX_switch
  */
- 
+
 #define SHUNTING2(name, id) \
 switch(FEAT_TRAINS, SELF, fronthead_## name ##_normal_pos_switch, (position_in_consist % 2)) { \
     0: name ##_normal_callback_switch; \

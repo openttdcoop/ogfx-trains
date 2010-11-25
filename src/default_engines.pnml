@@ -133,12 +133,14 @@ if (PROVIDE_ENGINES) {
 	item(FEAT_TRAINS, asiastar, 26) {
 		property {
 			bitmask_vehicle_info: bitmask(1);
-        }
+		}
 	}
-    
-    //**************************************
-    //* Monorail
-    //**************************************
+
+	/*
+     **************************************
+     * Monorail
+     **************************************
+	 */
     	item(FEAT_TRAINS, x2001, 54) {
 		property {
 			bitmask_vehicle_info: bitmask(1);
@@ -155,9 +157,11 @@ if (PROVIDE_ENGINES) {
         }
 	}
 
-    //**************************************
-    //* Monorail
-    //**************************************
+	/*
+     **************************************
+     * Maglev
+     **************************************
+	 */
     	item(FEAT_TRAINS, lev1, 84) {
 		property {
 			bitmask_vehicle_info: bitmask(1);
@@ -183,5 +187,5 @@ if (PROVIDE_ENGINES) {
 			bitmask_vehicle_info: bitmask(1);
         }
 	}
-    
+
 }

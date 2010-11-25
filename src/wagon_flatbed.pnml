@@ -1,4 +1,4 @@
-/* 
+/*
  * ***************************
  * Flatbed wagon:
  *
@@ -148,7 +148,7 @@ random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, TRIGGER_VE
     1: return 0x316;
     48: CB_FAILED;
 }
- 
+
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     BATT: flatbed_wagon_battery_group;
     BUBL: flatbed_wagon_bubbles_group;

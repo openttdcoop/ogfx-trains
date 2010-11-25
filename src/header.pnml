@@ -4,7 +4,7 @@ grf {
     desc : string(STR_GRF_DESCRIPTION);
     version : REPO_REVISION;
     min_compatible_version: 105;
-    
+
     // Compatibility parameter: remove unneeded default wagon definitions
     param {
 		param_provide {
@@ -30,7 +30,7 @@ grf {
 	}
 }
 
-/* 
+/*
  * ********************************************
  * Handle NewGRF parameters
  * ********************************************
@@ -60,14 +60,14 @@ grf {
 
 #define ALLOW_SHUNTING 0
 
-/* 
+/*
  * ********************************************
  * Vehicles may be 32px wide in the depots
  * ********************************************
  */
 train_width_32_px = 1;
 
-/* 
+/*
  * ********************************************
  * Railtype translation table
  * ********************************************
@@ -77,7 +77,7 @@ railtypetable {
     TRPD
 }
 
-/* 
+/*
  * ********************************************
  * Check for engine pool
  * ********************************************

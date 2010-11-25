@@ -1,11 +1,11 @@
-/* 
+/*
  * ***************************
  * Armoured wagon:
  *
  * valuables
  * ***************************
  */
- 
+
  item(FEAT_TRAINS, monorail_valuables_wagon, 67) {
     property {
         climates_available:             ALL_CLIMATES;
