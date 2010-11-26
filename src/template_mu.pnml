@@ -1,4 +1,4 @@
-#define ENGINE_MU_NOFRILLS(name, filename, eng_template, id) \
+#define ENGINE_MU_NOFRILLS(name, filename, eng_template, id, railtype) \
 spriteset(name ##_engine_set, filename) { \
 	eng_template(0,0) \
 } \
@@ -44,7 +44,7 @@ switch(FEAT_TRAINS, SELF, name ##_reversed_callback_switch, current_callback) { 
     VEH_CB_CAN_ATTACH_WAGON: name ##_can_attach_switch; \
     name ##_engine_reversed_group; \
 } \
-SHUNTING2(name, id) \
+SHUNTING2(name, id, railtype) \
  \
 if (PROVIDE_ENGINES) { \
 	item(FEAT_TRAINS, name, id) { \
@@ -52,12 +52,12 @@ if (PROVIDE_ENGINES) { \
 			sprite_id:                    SPRITE_ID_NEW_TRAIN; \
 			misc_flags:                   bitmask(TRAIN_FLAG_MU); \
 		} \
-    LIVERY_OVERRIDE(name) \
+    LIVERY_OVERRIDE(name, railtype) \
 	} \
 }
 
 
-#define ENGINE_MU(name, filename, eng_template, wagon_template, x, yeng, ypax, ymail, wagon_length, id) \
+#define ENGINE_MU(name, filename, eng_template, wagon_template, x, yeng, ypax, ymail, wagon_length, id, railtype) \
 spriteset(name ##_engine_set, filename) { \
 	eng_template(0,0) \
 } \
@@ -108,7 +108,7 @@ switch(FEAT_TRAINS, SELF, name ##_reversed_callback_switch, current_callback) { 
     VEH_CB_CAN_ATTACH_WAGON: name ##_can_attach_switch; \
     name ##_engine_reversed_group; \
 } \
-SHUNTING2(name, id) \
+SHUNTING2(name, id, railtype) \
 \
 if (PROVIDE_ENGINES) { \
 	item(FEAT_TRAINS, name, id) { \
@@ -116,6 +116,6 @@ if (PROVIDE_ENGINES) { \
 			sprite_id:                    SPRITE_ID_NEW_TRAIN; \
 			misc_flags:                   bitmask(TRAIN_FLAG_MU); \
 		} \
-    LIVERY_OVERRIDE(name) \
+    LIVERY_OVERRIDE(name, railtype) \
 	} \
 }

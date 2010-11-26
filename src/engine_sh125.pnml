@@ -8,4 +8,4 @@
  * SH 125
  * Livery override for passenger and mail wagons
  */
-ENGINE_MU_NOFRILLS(sh125, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 22)
+ENGINE_MU_NOFRILLS(sh125, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 22,)

@@ -5,35 +5,35 @@
  * providing the necessary livery override
  * and graphics definitions for the item entry
  */
-#define LIVERY_OVERRIDE(name) \
+#define LIVERY_OVERRIDE(name, railtype) \
      graphics { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(passenger_wagon) { \
+     livery_override(railtype ##passenger_wagon) { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(mail_wagon) { \
+     livery_override(railtype ##mail_wagon) { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(valuables_wagon) { \
+     livery_override(railtype ##valuables_wagon) { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(livestock_wagon) { \
+     livery_override(railtype ##livestock_wagon) { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(bulk_wagon) { \
+     livery_override(railtype ##bulk_wagon) { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(piecegoods_wagon) { \
+     livery_override(railtype ##piecegoods_wagon) { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(refrigerate_wagon) { \
+     livery_override(railtype ##refrigerate_wagon) { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(tank_wagon) { \
+     livery_override(railtype ##tank_wagon) { \
      	wagon_## name ##_switch; \
      } \
-     livery_override(flatbed_wagon) { \
+     livery_override(railtype ##flatbed_wagon) { \
      	wagon_## name ##_switch; \
      }
 

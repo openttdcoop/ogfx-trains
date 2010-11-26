@@ -8,4 +8,4 @@
  * AsiaStar
  * Livery override for passenger and mail wagons
  */
-ENGINE_MU_NOFRILLS(asiastar, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_high2, 26)
+ENGINE_MU_NOFRILLS(asiastar, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_high2, 26,)
