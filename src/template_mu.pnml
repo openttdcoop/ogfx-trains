@@ -35,7 +35,7 @@ switch(FEAT_TRAINS, SELF, name ##_mail_switch, current_callback) { \
     name ##_mail_group; \
 } \
 \
-CAN_ATTACH_VEHICLE(name, id) \
+CAN_ATTACH_VEHICLE(name, id, railtype) \
 switch(FEAT_TRAINS, SELF, name ##_normal_callback_switch, current_callback) { \
     VEH_CB_CAN_ATTACH_WAGON: name ##_can_attach_switch; \
     name ##_engine_group; \
@@ -99,7 +99,7 @@ switch(FEAT_TRAINS, SELF, name ##_mail_switch, current_callback) { \
     name ##_mail_group; \
 } \
 \
-CAN_ATTACH_VEHICLE(name, id) \
+CAN_ATTACH_VEHICLE(name, id, railtype) \
 switch(FEAT_TRAINS, SELF, name ##_normal_callback_switch, current_callback) { \
     VEH_CB_CAN_ATTACH_WAGON: name ##_can_attach_switch; \
     name ##_engine_group; \

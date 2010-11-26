@@ -48,17 +48,17 @@ switch(FEAT_TRAINS, SELF, shunting_allowed_switch, ALLOW_SHUNTING) {
     return 0xFF;
 }
 
-#define CAN_ATTACH_VEHICLE(name, id) \
+#define CAN_ATTACH_VEHICLE(name, id, railtype) \
 switch(FEAT_TRAINS, SELF, name ## _can_attach_switch, vehicle_type_id) { \
     id :                return 0xFF; \
-    passenger_wagon:    return 0xFF; \
-    mail_wagon:         return 0xFF; \
-    valuables_wagon:    return 0xFF; \
-    livestock_wagon:    return 0xFF; \
-    bulk_wagon:         return 0xFF; \
-    piecegoods_wagon:   return 0xFF; \
-    refrigerate_wagon:  return 0xFF; \
-    tank_wagon:         return 0xFF; \
-    flatbed_wagon:      return 0xFF; \
+    railtype ## passenger_wagon:    return 0xFF; \
+    railtype ## mail_wagon:         return 0xFF; \
+    railtype ## valuables_wagon:    return 0xFF; \
+    railtype ## livestock_wagon:    return 0xFF; \
+    railtype ## bulk_wagon:         return 0xFF; \
+    railtype ## piecegoods_wagon:   return 0xFF; \
+    railtype ## refrigerate_wagon:  return 0xFF; \
+    railtype ## tank_wagon:         return 0xFF; \
+    railtype ## flatbed_wagon:      return 0xFF; \
     shunting_allowed_switch; \
 }

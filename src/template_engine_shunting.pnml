@@ -105,15 +105,15 @@ switch(FEAT_TRAINS, SELF, engine_## name ##_reversed_pos_switch, position_in_con
 } \
 switch(FEAT_TRAINS, PARENT, wagon_## name ##_shunting_switch, vehicle_is_reversed | \
                 (STORE_TEMP(count_veh_id( id ), 3) & 0) | \
-                (STORE_TEMP(count_veh_id(passenger_wagon), 4) & 0) | \
-                (STORE_TEMP(count_veh_id(mail_wagon), 5) & 0) | \
-                (STORE_TEMP(count_veh_id(valuables_wagon), 6) & 0) | \
-                (STORE_TEMP(count_veh_id(livestock_wagon), 7) & 0) | \
-                (STORE_TEMP(count_veh_id(bulk_wagon), 8) & 0) | \
-                (STORE_TEMP(count_veh_id(piecegoods_wagon), 9) & 0) | \
-                (STORE_TEMP(count_veh_id(refrigerate_wagon), 10) & 0) | \
-                (STORE_TEMP(count_veh_id(tank_wagon), 11) & 0) | \
-                (STORE_TEMP(count_veh_id(flatbed_wagon), 12) & 0) \
+                (STORE_TEMP(count_veh_id(railtype ## passenger_wagon), 4) & 0) | \
+                (STORE_TEMP(count_veh_id(railtype ## mail_wagon), 5) & 0) | \
+                (STORE_TEMP(count_veh_id(railtype ## valuables_wagon), 6) & 0) | \
+                (STORE_TEMP(count_veh_id(railtype ## livestock_wagon), 7) & 0) | \
+                (STORE_TEMP(count_veh_id(railtype ## bulk_wagon), 8) & 0) | \
+                (STORE_TEMP(count_veh_id(railtype ## piecegoods_wagon), 9) & 0) | \
+                (STORE_TEMP(count_veh_id(railtype ## refrigerate_wagon), 10) & 0) | \
+                (STORE_TEMP(count_veh_id(railtype ## tank_wagon), 11) & 0) | \
+                (STORE_TEMP(count_veh_id(railtype ## flatbed_wagon), 12) & 0) \
         ) { \
     1: engine_## name ##_reversed_pos_switch; \
     engine_## name ##_normal_pos_switch; \
