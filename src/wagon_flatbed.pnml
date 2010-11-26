@@ -117,12 +117,10 @@ spritegroup flatbed_wagon_woodproducts_group {
 }
 
 // WOOD
-spriteset(flatbed_wagon_wood_empty_set, "src/gfx/flatbed/rail_flatbed_wood_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(flatbed_wagon_wood_full_set, "src/gfx/flatbed/rail_flatbed_wood_temperate.png") { tmpl_railwagon(126, 0) }
-spritegroup flatbed_wagon_wood_group {
-	loaded: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_full_set];
-	loading: [flatbed_wagon_wood_empty_set, flatbed_wagon_wood_full_set];
-}
+SPRITEGROUP_4STAGES_NOLOADING(flatbed_wagon_wood, 
+    "src/gfx/flatbed/wood/WoodFlatbeds1.png", "src/gfx/flatbed/wood/WoodFlatbeds1a.png", 
+    "src/gfx/flatbed/wood/WoodFlatbeds1b.png", "src/gfx/flatbed/wood/WoodFlatbeds1c.png", 
+    tmpl_railwagon, 0, 0, 0, 0, 0)
 
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch, TRIGGER_VEHICLE_NEW_LOAD) {
     3: flatbed_wagon_engineeringsupplies_vehicle1_group;
