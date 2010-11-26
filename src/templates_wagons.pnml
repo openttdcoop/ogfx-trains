@@ -14,6 +14,16 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
 
 #define rail_modern_year 1970
 
+#define WAGON_SINGLE_SET8(name, filename, tmpl, x, y) \
+spriteset(name ##_set, filename) { \
+	tmpl(x, y) tmpl(x, y) \
+} \
+spritegroup name ##_group { \
+	loading: name ##_set; \
+	loaded: name ##_set; \
+}
+
+
 #define WAGON_PROPERTIES_DEFAULT \
         climates_available:             ALL_CLIMATES; \
         sprite_id:                      SPRITE_ID_NEW_TRAIN; \
