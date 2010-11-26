@@ -17,6 +17,30 @@ STR_PARAM_KEEP_ORIGINAL_DESC                                    :This setting is
 STR_PARAM_ALLOW_SHUNTING                                        :Allow shunting
 STR_PARAM_ALLOW_SHUNTING_DESC                                   :Enable shunting behaviour of the default train engines. This disables the possibility to combine within one train with engines or wagons from any other set. This option is pointless, if you disable the engines of this set.
 
+STR_PARAM_RUNNING_COST                                          :Adjust running costs
+STR_PARAM_RUNNING_COST_DESC                                     :Allows to adjust the running costs of the vehicles within this set (e.g, to balance it against others)
+STR_PARAM_PURCHASE_COST                                         :Adjust purchase costs
+STR_PARAM_PURCHASE_COST_DESC                                    :Allows to adjust the purchase costs of the vehicles within this set (e.g, to balance it against others)
+STR_PARAM_COST_AUTOMATICALLY                                    :automatic (default)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 / 128
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :normal
+STR_PARAM_COST_TIMES2                                           :2x
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
+
 STR_ERR_ENGINE_POOL                                             :Enable multiple NewGRF engine sets = on
 STR_ERR_CANNOT_ATTACH                                           :Special livery override feature is active. Only wagons from this set and the very same engine can be attached.
 

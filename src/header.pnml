@@ -28,6 +28,68 @@ grf {
 			def_value: 0;
 		}
 	}
+	param {
+		param_running_cost_mult {
+			type:    int;
+			name:    string(STR_PARAM_RUNNING_COST);
+			desc:    string(STR_PARAM_RUNNING_COST_DESC);
+            min_value: 0;
+            max_value: 18;
+			def_value: 0;
+            names: {
+                0: string(STR_PARAM_COST_AUTOMATICALLY);
+                1: string(STR_PARAM_COST_BY256);
+                2: string(STR_PARAM_COST_BY128);
+                3: string(STR_PARAM_COST_BY64);
+                4: string(STR_PARAM_COST_BY32);
+                5: string(STR_PARAM_COST_BY16);
+                6: string(STR_PARAM_COST_BY8);
+                7: string(STR_PARAM_COST_BY4);
+                8: string(STR_PARAM_COST_BY2);
+                9: string(STR_PARAM_COST_NORMAL);
+                10: string(STR_PARAM_COST_TIMES2);
+                11: string(STR_PARAM_COST_TIMES4);
+                12: string(STR_PARAM_COST_TIMES8);
+                13: string(STR_PARAM_COST_TIMES16);
+                14: string(STR_PARAM_COST_TIMES32);
+                15: string(STR_PARAM_COST_TIMES64);
+                16: string(STR_PARAM_COST_TIMES128);
+                17: string(STR_PARAM_COST_TIMES256);
+                18: string(STR_PARAM_COST_TIMES512);
+            };
+		}
+    }
+	param {
+		param_purchase_cost_mult {
+			type:    int;
+			name:    string(STR_PARAM_PURCHASE_COST);
+			desc:    string(STR_PARAM_PURCHASE_COST_DESC);
+            min_value: 0;
+            max_value: 18;
+			def_value: 0;
+            names: {
+                0: string(STR_PARAM_COST_AUTOMATICALLY);
+                1: string(STR_PARAM_COST_BY256);
+                2: string(STR_PARAM_COST_BY128);
+                3: string(STR_PARAM_COST_BY64);
+                4: string(STR_PARAM_COST_BY32);
+                5: string(STR_PARAM_COST_BY16);
+                6: string(STR_PARAM_COST_BY8);
+                7: string(STR_PARAM_COST_BY4);
+                8: string(STR_PARAM_COST_BY2);
+                9: string(STR_PARAM_COST_NORMAL);
+                10: string(STR_PARAM_COST_TIMES2);
+                11: string(STR_PARAM_COST_TIMES4);
+                12: string(STR_PARAM_COST_TIMES8);
+                13: string(STR_PARAM_COST_TIMES16);
+                14: string(STR_PARAM_COST_TIMES32);
+                15: string(STR_PARAM_COST_TIMES64);
+                16: string(STR_PARAM_COST_TIMES128);
+                17: string(STR_PARAM_COST_TIMES256);
+                18: string(STR_PARAM_COST_TIMES512);
+            };
+		}
+	}
 }
 
 /*
@@ -58,6 +120,46 @@ grf {
 
 #define REMOVE_ORIGINAL (param[1] == 0)
 
+/*
+ * ********************************************
+ * Parameter 3: Running Costs
+ * 0: Automatic (default)
+ * 1: 1/256 
+ * 2: 1/128
+ * ...
+ * 9: 1
+ * ...
+ * 18: 256x
+ * ********************************************
+ */
+
+#define AUTOMATIC_RUNNING_COST (param[2] == 0)
+#define RUNNING_COST_MOD (param[2] - 9)
+
+if AUTOMATIC_RUNNING_COST {
+	param[2] = 9;
+}
+
+/*
+ * ********************************************
+ * Parameter 4: Purchase Costs
+ * 0: Automatic (default)
+ * 1: 1/256 
+ * 2: 1/128
+ * ...
+ * 9: 1
+ * ...
+ * 18: 256x
+ * ********************************************
+ */
+
+#define AUTOMATIC_PURCHASE_COST (param[3] == 0)
+#define PURCHASE_COST_MOD (param[3] - 9)
+
+if AUTOMATIC_PURCHASE_COST {
+	param[3] = 9;
+}
+
 #define ALLOW_SHUNTING 0
 
 /*
@@ -84,5 +186,18 @@ railtypetable {
  */
 if (!dynamic_engines) {
     error(ERROR, USED_WITH, string(STR_ERR_ENGINE_POOL));
+}
+
+/*
+ * ********************************************
+ * Check NewGRFs and adjust base costs
+ * ********************************************
+ */
+basecost { 
+	PR_RUNNING_TRAIN_STEAM:     RUNNING_COST_MOD;
+	PR_RUNNING_TRAIN_DIESEL:    RUNNING_COST_MOD;
+	PR_RUNNING_TRAIN_ELECTRIC:  RUNNING_COST_MOD;
+	PR_BUILD_VEHICLE_TRAIN:     PURCHASE_COST_MOD;
+	PR_BUILD_VEHICLE_WAGON:     PURCHASE_COST_MOD;
 }
 
