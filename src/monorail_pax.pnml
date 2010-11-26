@@ -1,0 +1,19 @@
+/*
+ * ***************************
+ * Passenger wagon:
+ * ***************************
+ */
+
+WAGON_SINGLE_SET8(monorail_passenger, "src/gfx/temperate_monolev.png", tmpl_short_railwagon, 0, 0)
+
+item(FEAT_TRAINS, monorail_passenger_wagon, 57) {
+    property {
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        misc_flags:                     bitmask(TRAIN_FLAG_MU); // We use special sprites for passenger and mail wagons
+        callback_flags:                 bitmask(VEH_CBF_WAGON_LENGTH);
+        REFIT_PROPERTIES_PAX
+    }
+    graphics {
+        monorail_passenger_group;
+    }
+}
