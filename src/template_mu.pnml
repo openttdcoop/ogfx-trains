@@ -28,6 +28,12 @@ spritegroup name ##_mail_group { \
 	loading: name ##_mail_set; \
 	loaded: name ##_mail_set; \
 } \
+switch(FEAT_TRAINS, SELF, name ##_passenger_switch, current_callback) { \
+    name ##_passenger_group; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_mail_switch, current_callback) { \
+    name ##_mail_group; \
+} \
 \
 CAN_ATTACH_VEHICLE(name, id) \
 switch(FEAT_TRAINS, SELF, name ##_normal_callback_switch, current_callback) { \
@@ -40,6 +46,70 @@ switch(FEAT_TRAINS, SELF, name ##_reversed_callback_switch, current_callback) { 
 } \
 SHUNTING2(name, id) \
  \
+if (PROVIDE_ENGINES) { \
+	item(FEAT_TRAINS, name, id) { \
+		property { \
+			sprite_id:                    SPRITE_ID_NEW_TRAIN; \
+			misc_flags:                   bitmask(TRAIN_FLAG_MU); \
+		} \
+    LIVERY_OVERRIDE(name) \
+	} \
+}
+
+
+#define ENGINE_MU(name, filename, eng_template, wagon_template, x, yeng, ypax, ymail, wagon_length, id) \
+spriteset(name ##_engine_set, filename) { \
+	eng_template(0,0) \
+} \
+spriteset(name ##_engine_reversed_set, filename) { \
+	eng_template ##_reversed(x,yeng) \
+} \
+spritegroup name ##_engine_group { \
+	loading: name ##_engine_set; \
+	loaded: name ##_engine_set; \
+} \
+spritegroup name ##_engine_reversed_group { \
+	loading: name ##_engine_reversed_set; \
+	loaded: name ##_engine_reversed_set; \
+} \
+ \
+spriteset(name ##_passenger_set, filename) { \
+	wagon_template(x, ypax) \
+} \
+spriteset(name ##_mail_set, filename) { \
+	wagon_template(x, ymail) \
+} \
+spritegroup name ##_passenger_group { \
+	loading: name ##_passenger_set; \
+	loaded: name ##_passenger_set; \
+} \
+spritegroup name ##_mail_group { \
+	loading: name ##_mail_set; \
+	loaded: name ##_mail_set; \
+} \
+switch(FEAT_TRAINS, PARENT, name ##_wagon_cb_length_switch, vehicle_type_id) { \
+    return wagon_length; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_passenger_switch, current_callback) { \
+    VEH_CB_WAGON_LENGTH: name ##_wagon_cb_length_switch; \
+    name ##_passenger_group; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_mail_switch, current_callback) { \
+    VEH_CB_WAGON_LENGTH: name ##_wagon_cb_length_switch; \
+    name ##_mail_group; \
+} \
+\
+CAN_ATTACH_VEHICLE(name, id) \
+switch(FEAT_TRAINS, SELF, name ##_normal_callback_switch, current_callback) { \
+    VEH_CB_CAN_ATTACH_WAGON: name ##_can_attach_switch; \
+    name ##_engine_group; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_reversed_callback_switch, current_callback) { \
+    VEH_CB_CAN_ATTACH_WAGON: name ##_can_attach_switch; \
+    name ##_engine_reversed_group; \
+} \
+SHUNTING2(name, id) \
+\
 if (PROVIDE_ENGINES) { \
 	item(FEAT_TRAINS, name, id) { \
 		property { \
