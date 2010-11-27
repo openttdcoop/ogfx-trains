@@ -8,6 +8,8 @@ Contents:
 1 About
 2 Quickstart
 3 This NewGRF in detail
+  3.1 Parameters
+  3.2 Rolling stock
 4 Building from source
 5 License
 6 Credits
@@ -40,12 +42,31 @@ Copy the grf in your data dir and activate it.
 3 This NewGRF in detail
 -----------------------
 
-This NewGRF allows you to select via parameter whether only the wagons
-or also the default engines shall be provided. By default all default
-rail vehicles will be provided. The number of wagons has been reduced
-with respect to the default wagons, but they can now be refitted, so that
-for every cargo within the game you'll find at least one wagon which
-supports transporting it:
+3.1 Parameters:
+---------------
+Choice of Rolling stock:
+  This NewGRF allows you to select via parameter whether only the wagons
+  or also the default engines shall be provided. By default all default
+  rail vehicles will be provided.
+
+Purchase and running costs can be configured:
+  You can either manuall select the level of running and purchase costs
+  with respect to the default values or let the NewGRF automatically con-
+  figure these costs. In the presence of other rail NewGRFs it will try
+  to adjust these costs in order to match the other set(s). It will try
+  to match in the following order (last set wins):
+  - NARS2 (North American Renewal Trainset, grfID 44440302)
+  - UKRS2 (UK Renewal Trainset (grfID 44440111)
+  - Tropical Refurbishment Set (grfID 44444040
+  - 2cc Trainset v2 (grfID 27711003)
+  - Japanese Trainset v2 (grfID 535A0D00)
+  - Swedish Trains (grfID 41490006)
+
+3.2 Rolling stock
+----------------
+The number of wagons has been reduced with respect to the default
+wagons, but they can now be refitted, so that for every cargo within
+the game you'll find at least one wagon which supports transporting it:
 
 - passenger wagon:
     passengers and tourists

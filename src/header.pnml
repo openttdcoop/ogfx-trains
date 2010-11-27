@@ -134,11 +134,8 @@ grf {
  */
 
 #define AUTOMATIC_RUNNING_COST (param[2] == 0)
-#define RUNNING_COST_MOD (param[2] - 9)
-
-if AUTOMATIC_RUNNING_COST {
-	param[2] = 9;
-}
+#define RUNNING_COST_MOD param[20]
+RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param[2] - 9;
 
 /*
  * ********************************************
@@ -154,11 +151,8 @@ if AUTOMATIC_RUNNING_COST {
  */
 
 #define AUTOMATIC_PURCHASE_COST (param[3] == 0)
-#define PURCHASE_COST_MOD (param[3] - 9)
-
-if AUTOMATIC_PURCHASE_COST {
-	param[3] = 9;
-}
+#define PURCHASE_COST_MOD param[21]
+PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param[3] - 9;
 
 #define ALLOW_SHUNTING 0
 
@@ -193,6 +187,61 @@ if (!dynamic_engines) {
  * Check NewGRFs and adjust base costs
  * ********************************************
  */
+
+#define GRFID_NARS2 "\44\44\03\02"
+#define RUN_NARS2 2
+#define BUY_NARS2 0
+
+#define GRFID_UKRS3 "\44\44\01\11"
+#define RUN_UKRS3 2
+#define BUY_UKRS3 0
+
+#define GRFID_TROP "\44\44\40\40"
+#define RUN_TROP 2
+#define BUY_TROP 0
+
+#define GRFID_2CC2 "\27\71\10\03"
+#define RUN_2CC2 3
+#define BUY_2CC2 2
+
+#define GRFID_JAP2 "\53\5A\0D\00"
+#define RUN_JAP2 1
+#define BUY_JAP2 0
+
+#define GRFID_SWED "\41\49\00\06"
+#define RUN_SWED 0
+#define BUY_SWED 1
+
+if (grf_future_status(GRFID_NARS2) == 1) {
+    if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_NARS2; }
+    if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_NARS2; }
+}
+
+if (grf_future_status(GRFID_UKRS3) == 1) {
+    if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_UKRS3; }
+    if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_UKRS3; }
+}
+
+if (grf_future_status(GRFID_TROP) == 1) {
+    if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_TROP; }
+    if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_TROP; }
+}
+
+if (grf_future_status(GRFID_2CC2) == 1) {
+    if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_2CC2 + param[GRFID_2CC2, 1] - 2; }
+    if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_2CC2 + param[GRFID_2CC2, 0] - 2; }
+}
+
+if (grf_future_status(GRFID_JAP2) == 1) {
+    if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_JAP2; }
+    if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_JAP2; }
+}
+
+if (grf_future_status(GRFID_SWED) == 1) {
+    if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_SWED; }
+    if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_SWED; }
+}
+
 basecost { 
 	PR_RUNNING_TRAIN_STEAM:     RUNNING_COST_MOD;
 	PR_RUNNING_TRAIN_DIESEL:    RUNNING_COST_MOD;
