@@ -19,7 +19,8 @@ item(FEAT_TRAINS, kirbypaul, 00) {
 }
 
 ENGINE_GRAPHICS_GROUP(mjs250, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_MJS250.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(mjs250)
+ENGINE_GRAPHICS_GROUP(mjs250, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/tropical_MJS250_88.png")
+ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs250)
 item(FEAT_TRAINS, mjs250, 01) {
     property {
     	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -79,7 +80,8 @@ item(FEAT_TRAINS, powernaut_diesel, 06) {
 }
 
 ENGINE_GRAPHICS_GROUP(wills280, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_wills280.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(wills280)
+ENGINE_GRAPHICS_GROUP(wills280, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/tropical_wills280.png")
+ENGINE_GRAPHICS_TROPICAL_SWITCH(wills280)
 item(FEAT_TRAINS, wills280, 07) {
     property {
     	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -162,7 +164,8 @@ item(FEAT_TRAINS, floss47, 15) {
 }
 
 ENGINE_GRAPHICS_GROUP(cs4000, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_cs4000.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(cs4000)
+ENGINE_GRAPHICS_GROUP(cs4000, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/tropical_cs4000_88.png")
+ENGINE_GRAPHICS_TROPICAL_SWITCH(cs4000)
 item(FEAT_TRAINS, cs4000, 16) {
     property {
     	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -172,7 +175,8 @@ item(FEAT_TRAINS, cs4000, 16) {
 }
 
 ENGINE_GRAPHICS_GROUP(cs2400, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_cs2400.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(cs2400)
+ENGINE_GRAPHICS_GROUP(cs2400, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/tropical_cs2400_88.png")
+ENGINE_GRAPHICS_TROPICAL_SWITCH(cs2400)
 item(FEAT_TRAINS, cs2400, 17) {
     property {
     	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -182,7 +186,8 @@ item(FEAT_TRAINS, cs2400, 17) {
 }
 
 ENGINE_GRAPHICS_GROUP(centennial, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_centennial.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(centennial)
+ENGINE_GRAPHICS_GROUP(centennial, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/tropical_centennial_88.png")
+ENGINE_GRAPHICS_TROPICAL_SWITCH(centennial)
 item(FEAT_TRAINS, centennial, 18) {
     property {
     	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -192,7 +197,8 @@ item(FEAT_TRAINS, centennial, 18) {
 }
 
 ENGINE_GRAPHICS_GROUP(kelling3100, default, tmpl_engine_42(0, 0),  "src/gfx/engines/arctic_kelling3100.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(kelling3100)
+ENGINE_GRAPHICS_GROUP(kelling3100, tropical, tmpl_engine_42(0, 0),  "src/gfx/engines/tropical_kelling3100_88.png")
+ENGINE_GRAPHICS_TROPICAL_SWITCH(kelling3100)
 item(FEAT_TRAINS, kelling3100, 19) {
     property {
     	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -209,7 +215,8 @@ item(FEAT_TRAINS, turnerturbo, 20) {
 }
 
 ENGINE_GRAPHICS_GROUP(mjs1000, default, tmpl_engine_42(0, 0),  "src/gfx/engines/arctic_MJS1000.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(mjs1000)
+ENGINE_GRAPHICS_GROUP(mjs1000, tropical, tmpl_engine_42(0, 0),  "src/gfx/engines/tropical_MJS1000_88.png")
+ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs1000)
 item(FEAT_TRAINS, mjs1000, 21) {
     property {
     	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite

@@ -69,12 +69,12 @@ switch(FEAT_TRAINS, SELF, name ## _can_attach_switch, vehicle_type_id) { \
     }
 
 #define ENGINE_GRAPHICS_NOCLIMATE_SWITCH(name) \
-switch (FEAT_TRAINS, SELF, name ## _switch, climate) { \
+switch (FEAT_TRAINS, SELF, name ## _switch, CLIMATE_PARAM) { \
     name ## _default_group; \
 }
-#define ENGINE_GRAPHICS_ARCTIC_SWTICH(name) \
-switch (FEAT_TRAINS, SELF, name ## _switch, climate) { \
-    CLIMATE_ARCTIC: name ## _arctic_group; \
+#define ENGINE_GRAPHICS_TROPICAL_SWITCH(name) \
+switch (FEAT_TRAINS, SELF, name ## _switch, CLIMATE_PARAM) { \
+    CLIMATE_TROPICAL: name ## _tropical_group; \
     name ## _default_group; \
 }
 
