@@ -1,3 +1,7 @@
+Version 0.2.1
+- Fix (r184): Symmetric monorail and maglev engines used the wrong sprite template
+- Fix: Don't translate the URLs...
+
 Version 0.2.0
 -------------
 - Feature: Cargo subtype display for lumber for bulk wagon
