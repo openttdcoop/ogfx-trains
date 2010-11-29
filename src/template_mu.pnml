@@ -20,6 +20,9 @@ spriteset(name ##_passenger_set, filename) { \
 spriteset(name ##_mail_set, filename) { \
 	tmpl_railwagon8_normal(0,54) \
 } \
+spriteset(name ##_valuables_set, filename) { \
+	tmpl_railwagon8_normal(0,80) \
+} \
 spritegroup name ##_passenger_group { \
 	loading: name ##_passenger_set; \
 	loaded: name ##_passenger_set; \
@@ -28,11 +31,18 @@ spritegroup name ##_mail_group { \
 	loading: name ##_mail_set; \
 	loaded: name ##_mail_set; \
 } \
+spritegroup name ##_valuables_group { \
+	loading: name ##_valuables_set; \
+	loaded: name ##_valuables_set; \
+} \
 switch(FEAT_TRAINS, SELF, name ##_passenger_switch, current_callback) { \
     name ##_passenger_group; \
 } \
 switch(FEAT_TRAINS, SELF, name ##_mail_switch, current_callback) { \
     name ##_mail_group; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_valuables_switch, current_callback) { \
+    name ##_valuables_group; \
 } \
 \
 CAN_ATTACH_VEHICLE(name, id, railtype) \
@@ -55,7 +65,7 @@ LIVERY_OVERRIDE(name, railtype) \
 }
 
 
-#define ENGINE_MU(name, filename, eng_template, wagon_template, x, yeng, ypax, ymail, wagon_length, id, railtype) \
+#define ENGINE_MU(name, filename, eng_template, wagon_template, x, yeng, ypax, ymail, yvaluables, wagon_length, id, railtype) \
 spriteset(name ##_engine_set, filename) { \
 	eng_template(0,0) \
 } \
@@ -77,6 +87,9 @@ spriteset(name ##_passenger_set, filename) { \
 spriteset(name ##_mail_set, filename) { \
 	wagon_template(x, ymail) \
 } \
+spriteset(name ##_valuables_set, filename) { \
+	wagon_template(x, yvaluables) \
+} \
 spritegroup name ##_passenger_group { \
 	loading: name ##_passenger_set; \
 	loaded: name ##_passenger_set; \
@@ -84,6 +97,10 @@ spritegroup name ##_passenger_group { \
 spritegroup name ##_mail_group { \
 	loading: name ##_mail_set; \
 	loaded: name ##_mail_set; \
+} \
+spritegroup name ##_valuables_group { \
+	loading: name ##_valuables_set; \
+	loaded: name ##_valuables_set; \
 } \
 switch(FEAT_TRAINS, PARENT, name ##_wagon_cb_length_switch, vehicle_type_id) { \
     return wagon_length; \
@@ -93,6 +110,10 @@ switch(FEAT_TRAINS, SELF, name ##_passenger_switch, current_callback) { \
     name ##_passenger_group; \
 } \
 switch(FEAT_TRAINS, SELF, name ##_mail_switch, current_callback) { \
+    VEH_CB_WAGON_LENGTH: name ##_wagon_cb_length_switch; \
+    name ##_mail_group; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_valuables_switch, current_callback) { \
     VEH_CB_WAGON_LENGTH: name ##_wagon_cb_length_switch; \
     name ##_mail_group; \
 } \

@@ -9,4 +9,4 @@
  * Livery override for passenger and mail wagons
  */
 ENGINE_MU(turbotrain, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", 
-    tmpl_turbotrain_engine, tmpl_turbotrain_wagon, 142, 112, 139, 168, 0x01, 20,)
+    tmpl_turbotrain_engine, tmpl_turbotrain_wagon, 142, 112, 139, 168, 168, 0x01, 20,)

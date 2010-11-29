@@ -121,7 +121,7 @@ switch(FEAT_TRAINS, PARENT, wagon_## name ##_shunting_switch, vehicle_is_reverse
 switch(FEAT_TRAINS, SELF, wagon_## name ##_id_switch, vehicle_type_id) { \
     railtype ## passenger_wagon:    name ##_passenger_switch; \
     railtype ## mail_wagon:         name ##_mail_switch; \
-    railtype ## valuables_wagon:    valuables_wagon_group; \
+    railtype ## valuables_wagon:    name ##_valuables_switch; \
     railtype ## livestock_wagon:    wagon_livestock_group; \
     railtype ## bulk_wagon:         bulk_wagon_switch; \
     railtype ## piecegoods_wagon:   piecegoods_wagon_cb_switch; \

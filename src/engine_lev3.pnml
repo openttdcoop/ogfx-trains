@@ -9,4 +9,4 @@
  * Livery override for passenger and mail wagons
  */
 ENGINE_MU(lev3, "src/gfx/mus/lev3/Lev3LiveryOverride.png",
-    tmpl_railwagon8_normal, tmpl_maglev_wagon_78, 0, 0, 27, 54, 0x01, 86, maglev_)
+    tmpl_railwagon8_normal, tmpl_maglev_wagon_78, 0, 0, 27, 54, 80, 0x01, 86, maglev_)

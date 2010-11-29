@@ -18,6 +18,7 @@ spritegroup valuables_wagon_group {
     property {
         climates_available:             ALL_CLIMATES;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        callback_flags:                 bitmask(VEH_CBF_WAGON_LENGTH);
         REFIT_PROPERTIES_ARMOURED
     }
     graphics {
