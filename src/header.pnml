@@ -103,6 +103,10 @@ grf {
  * ********************************************
  */
 
+#define CLIMATE_PARAM      (param[0] - 2)
+#define RUNNING_COST_MOD   param[20]
+#define PURCHASE_COST_MOD  param[21]
+
 /*
  * ********************************************
  * Parameter 1: Defining Engines
@@ -150,7 +154,6 @@ if (param[0] == 0) { param[0] = climate + 2; }
  */
 
 #define AUTOMATIC_RUNNING_COST (param[2] == 0)
-#define RUNNING_COST_MOD param[20]
 RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param[2] - 9;
 
 /*
@@ -167,7 +170,6 @@ RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param[2] - 9;
  */
 
 #define AUTOMATIC_PURCHASE_COST (param[3] == 0)
-#define PURCHASE_COST_MOD param[21]
 PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param[3] - 9;
 
 #define ALLOW_SHUNTING 0
