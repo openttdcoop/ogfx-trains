@@ -8,10 +8,15 @@ STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Piece goods wag
 STR_NAME_FLATBED_WAGON                                          :Flatbed wagon
 STR_NAME_REFRIGERATOR_WAGON                                     :Refrigerator wagon
 
-STR_PARAM_PROVIDE                                               :Provide:
-STR_PARAM_PROVIDE_DESC                                          :Select which vehicles you want to add
-STR_PARAM_PROVIDE_ENGINES_AND_WAGONS                            :Engines and wagons
-STR_PARAM_PROVIDE_WAGONS_ONLY                                   :Wagons only
+STR_PARAM_ENGINES                                               :Engine climate selection:
+STR_PARAM_ENGINES_DESC                                          :Select which engines you want to add (you could choose another climate or none, if desired. Default will choose the engines which are meant for that climate to appear. 'None' will disable ALL engines.
+STR_PARAM_ENGINES_DEFAULT                                       :Automatic (default)
+STR_PARAM_ENGINES_NONE                                          :None
+STR_PARAM_ENGINES_TEMPERATE                                     :Temperate
+STR_PARAM_ENGINES_ARCTIC                                        :Arctic
+STR_PARAM_ENGINES_TROPICAL                                      :Tropical
+STR_PARAM_ENGINES_TOYLAND                                       :Toyland
+STR_PARAM_ENGINES_ALL                                           :All
 STR_PARAM_KEEP_ORIGINAL                                         :Keep all existing default vehicles
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :This setting is included for debugging purposes. You can use this setting if you want to add this newgrf to a running game with existing default vehicles. This is known to cause problems; enable it at your own risk.
 STR_PARAM_ALLOW_SHUNTING                                        :Allow shunting

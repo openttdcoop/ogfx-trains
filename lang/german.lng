@@ -7,10 +7,6 @@ STR_NAME_COVERED_PIECE_GOODS_WAGON                              :gedeckter Stüc
 STR_NAME_FLATBED_WAGON                                          :Flachbettwaggon
 STR_NAME_REFRIGERATOR_WAGON                                     :Kühlwaggon
 
-STR_PARAM_PROVIDE                                               :Fahrzeuge:
-STR_PARAM_PROVIDE_DESC                                          :Auswählen, welche Fahrzeuge dem Spiel hinzugefügt werden sollen
-STR_PARAM_PROVIDE_ENGINES_AND_WAGONS                            :Lokomotiven und Waggons
-STR_PARAM_PROVIDE_WAGONS_ONLY                                   :nur Waggons
 STR_PARAM_KEEP_ORIGINAL                                         :Alle Standardfahrzeuge beibehalten
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :Diese Einstellung ist nur für Debugging-Zwecke vorhanden. Sie sollte angeschaltet werden, wenn dieses Set während des laufenden Spiels hinzugefügt wird. Dieses Vorgehen kann Probleme verursachen. Nutzung auf eigenes Risiko.
 STR_PARAM_ALLOW_SHUNTING                                        :Rangieren erlauben

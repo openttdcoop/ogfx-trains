@@ -46,14 +46,12 @@ switch(FEAT_TRAINS, SELF, name ##_reversed_callback_switch, current_callback) { 
 } \
 SHUNTING2(name, id, railtype) \
  \
-if (PROVIDE_ENGINES) { \
-	item(FEAT_TRAINS, name, id) { \
-		property { \
-			sprite_id:                    SPRITE_ID_NEW_TRAIN; \
-			misc_flags:                   bitmask(TRAIN_FLAG_MU); \
-		} \
-    LIVERY_OVERRIDE(name, railtype) \
-	} \
+item(FEAT_TRAINS, name, id) { \
+    property { \
+        sprite_id:                    SPRITE_ID_NEW_TRAIN; \
+        misc_flags:                   bitmask(TRAIN_FLAG_MU); \
+    } \
+LIVERY_OVERRIDE(name, railtype) \
 }
 
 
@@ -110,12 +108,10 @@ switch(FEAT_TRAINS, SELF, name ##_reversed_callback_switch, current_callback) { 
 } \
 SHUNTING2(name, id, railtype) \
 \
-if (PROVIDE_ENGINES) { \
-	item(FEAT_TRAINS, name, id) { \
-		property { \
-			sprite_id:                    SPRITE_ID_NEW_TRAIN; \
-			misc_flags:                   bitmask(TRAIN_FLAG_MU); \
-		} \
-    LIVERY_OVERRIDE(name, railtype) \
-	} \
+item(FEAT_TRAINS, name, id) { \
+    property { \
+        sprite_id:                    SPRITE_ID_NEW_TRAIN; \
+        misc_flags:                   bitmask(TRAIN_FLAG_MU); \
+    } \
+LIVERY_OVERRIDE(name, railtype) \
 }

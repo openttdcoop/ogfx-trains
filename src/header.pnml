@@ -9,14 +9,19 @@ grf {
     param {
 		param_provide {
 			type:    int;
-			name:    string(STR_PARAM_PROVIDE);
-			desc:    string(STR_PARAM_PROVIDE_DESC);
+			name:    string(STR_PARAM_ENGINES);
+			desc:    string(STR_PARAM_ENGINES_DESC);
 			min_value: 0;
-			max_value: 1;
+			max_value: 6;
 			def_value: 0;
 			names: {
-				0: string(STR_PARAM_PROVIDE_ENGINES_AND_WAGONS);
-				1: string(STR_PARAM_PROVIDE_WAGONS_ONLY);
+				0: string(STR_PARAM_ENGINES_DEFAULT);
+				1: string(STR_PARAM_ENGINES_NONE);
+                2: string(STR_PARAM_ENGINES_TEMPERATE);
+                3: string(STR_PARAM_ENGINES_ARCTIC);
+                4: string(STR_PARAM_ENGINES_TROPICAL);
+                5: string(STR_PARAM_ENGINES_TOYLAND);
+                6: string(STR_PARAM_ENGINES_ALL);
 			};
 		}
 	}
@@ -102,12 +107,23 @@ grf {
  * ********************************************
  * Parameter 1: Defining Engines
  *
- * 0: Define no train engines
- * 1: (Re)define all engines (default)
+ * 0: Use the default engines (default)
+ * 1: Define no train engines
+ * 2: Use temperate climate vehicles
+ * 3: Use arctic climate vehicles
+ * 4: Use tropical climate vehicles
+ * 5: Use toyland climate vehicles
+ * 6: Use ALL vehicles
  * ********************************************
  */
 
-#define PROVIDE_ENGINES (param[0] == 0)
+if (param[0] == 0) { param[0] = climate + 2; }
+#define USE_CLIMATE_TEMPERATE ((param[0] - 2) == CLIMATE_TEMPERATE)
+#define USE_CLIMATE_ARCTIC    ((param[0] - 2) == CLIMATE_ARCTIC)
+#define USE_CLIMATE_TROPICAL  ((param[0] - 2) == CLIMATE_TROPICAL)
+#define USE_CLIMATE_TOYLAND   ((param[0] - 2) == CLIMATE_TOYLAND)
+#define USE_CLIMATE_ALL       (param[0] == 6)
+
 
 /*
  * ********************************************
