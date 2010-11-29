@@ -1,3 +1,52 @@
+pre 0.2.0
+---------
+- Feature: Cargo subtype display for lumber for bulk wagon
+- Feature: Flatbed wagon didn't support goods, use containers as default cargo sprites
+- Feature: Add cargo subtype display for engineering supplies, containers, fuel oil, vehicles and chemicals on flatbed wagon
+- Feature: Support transporting small amounts of fuel oil (petrol) and refinery products (chemicals) on the flatbed wagon
+- Feature: Enhanced support for engineering supplies, wood, goods vehicles with the flatbed wagon
+- Feature: Livery override for passenger, mail and valuables wagons for AsiaStar, T.I.M, SH125, Dash, Manley-Morel, TurboTrain and Lev3
+- Feature #1919: Adjustable purchase and running costs
+- Feature: Wood with loading stages on flatbed wagon
+- Feature #1919: Allow to auto-adjust base costs in the presence of other NewGRFs
+- Feature: Allow to select the vehicles of a certain climate via parameter
+- Feature: Time-dependent sprite support for bauxite, clay, copper, fruits, grain, gravel, iron ore and sand for the bulk wagon"
+- Feature: Add special sprites for fizzy drinks, cement and milk for the tanker wagon
+- Feature: Dedicated loading sprites for scrap metal and wood products / lumber for the bulk wagon
+- Change: Coal wagon changes 1970 its look; but it has no random look nor climate dependence anymore
+- Change: Add cargo-specific refit capacities to flatbed wagon
+- Change: Add cargo-specific refit capacities to piece goods and bulk wagons (tank and refrigerator wagons don't need it)
+- Change: Add default cargo-dependent wagon weights
+- Change: Adjust some more properties to better reflect the defaults for rail wagons
+- Change: Add required minimum version information
+- Change: Maglev flatbed, tank and piecegoods wagon with new ID and individual cargo capacities
+- Change: Add separate ID for maglev bulk wagon and use separate cargo capcities
+- Change: Define a completely separate livestock wagon
+- Change: New sprites for fuel oil tanker and name things accordingly in the code, too
+- Change: Add special sprites for fizzy drinks and milk for the tanker wagon
+- Change: Unify the cargo transport capabilities of the wagons with those of OpenGFX+RV
+- Change: Support for cement cargo by the bulk and tanker wagons
+- Change: Wagons for TurboTrain and Lev3 are now only 7/8 length (incompatible to previous versions)
+- Change: Move sprites 2px lower in the depot view and add a few comments
+- Change: Add required minimum version information
+- Change: Add separate ID for maglev bulk wagon and use separate cargo capcities
+- Codechange: Define new rail wagons instead of re-defining existing ones
+- Codechange: Unify names a bit more and define also our own graphics for the armoured wagon
+- Fix: [Makefile] Dep check always reported a missing file on clean checkouts
+- Fix (r52): Use the correct languageID
+- Fix: Typo in NewGRF description.
+- Fix: Monorail and maglev piece goods wagon was missing a name
+- Fix: Default properties of all wagons
+- Fix #1830: There were no wagons which could transport lumber. Bulk and flatbed now can
+- Fix #1844: Sprites for paper cargo for flatbed wagon
+- Fix: Wood showed fully loaded wagon as soon as it started loading
+- Add #1669: Vehicle view in depots is 32px
+- Add separate ID for maglev refrigerator wagon
+- Add #1633: Define all engines
+- Add: Use grain graphics for cereals
+- Add: Refit capability for the engines which have cargo capacity
+- Add #1632: Complain, if the engine pool is disabled
+
 0.1.0 - initial release
 -----------------------
 - Feature: Livery override for arctic TurboTrain
