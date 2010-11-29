@@ -261,7 +261,7 @@ item(FEAT_TRAINS, asiastar, 26) {
 
 
 
-ENGINE_GRAPHICS_GROUP(x2001, default, tmpl_engine_88(0, 0),  "src/gfx/engines/monorail_x2001_88.png")
+ENGINE_GRAPHICS_GROUP(x2001, default, tmpl_engine_42(0, 0),  "src/gfx/engines/monorail_x2001_88.png")
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(x2001)
 item(FEAT_TRAINS, x2001, 54) {
     property {
@@ -294,7 +294,7 @@ item(FEAT_TRAINS, wizzowowz99, 56) {
 
 
 
-ENGINE_GRAPHICS_GROUP(lev1, default, tmpl_engine_88(0, 0),  "src/gfx/engines/maglev_lev1_88.png")
+ENGINE_GRAPHICS_GROUP(lev1, default, tmpl_engine_42(0, 0),  "src/gfx/engines/maglev_lev1_88.png")
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(lev1)
 item(FEAT_TRAINS, lev1, 84) {
     property {
@@ -304,7 +304,7 @@ item(FEAT_TRAINS, lev1, 84) {
     ENGINE_GRAPHICS_BLOCK(lev1)
 }
 
-ENGINE_GRAPHICS_GROUP(lev2, default, tmpl_engine_88(0, 0),  "src/gfx/engines/maglev_lev2_88.png")
+ENGINE_GRAPHICS_GROUP(lev2, default, tmpl_engine_42(0, 0),  "src/gfx/engines/maglev_lev2_88.png")
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(lev2)
 item(FEAT_TRAINS, lev2, 85) {
     property {
@@ -331,7 +331,7 @@ item(FEAT_TRAINS, lev4, 87) {
     ENGINE_GRAPHICS_BLOCK(lev4)
 }
 
-ENGINE_GRAPHICS_GROUP(wizzowowrocketeer, default, tmpl_engine_88(0, 0),  "src/gfx/engines/toyland_maglev_WizzowowRocketeer_88.png")
+ENGINE_GRAPHICS_GROUP(wizzowowrocketeer, default, tmpl_engine_42(0, 0),  "src/gfx/engines/toyland_maglev_WizzowowRocketeer_88.png")
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(wizzowowrocketeer)
 item(FEAT_TRAINS, wizzowowrocketeer, 88) {
     property {
