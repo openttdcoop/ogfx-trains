@@ -19,8 +19,6 @@ STR_PARAM_ENGINES_TOYLAND                                       :Toyland
 STR_PARAM_ENGINES_ALL                                           :All
 STR_PARAM_KEEP_ORIGINAL                                         :Keep all existing default vehicles
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :This setting is included for debugging purposes. You can use this setting if you want to add this newgrf to a running game with existing default vehicles. This is known to cause problems; enable it at your own risk.
-STR_PARAM_ALLOW_SHUNTING                                        :Allow shunting
-STR_PARAM_ALLOW_SHUNTING_DESC                                   :Enable shunting behaviour of the default train engines. This disables the possibility to combine within one train with engines or wagons from any other set. This option is pointless, if you disable the engines of this set.
 
 STR_PARAM_RUNNING_COST                                          :Adjust running costs
 STR_PARAM_RUNNING_COST_DESC                                     :Allows to adjust the running costs of the vehicles within this set (e.g, to balance it against others)
