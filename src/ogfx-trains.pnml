@@ -2,7 +2,7 @@
 #include "src/cargo_definitions.pnml"
 
 #include "src/remove_wagons.pnml"
-#include "src/remove_engines.pnml"
+#include "src/redefine_engines.pnml"
 
 #include "src/sprite_templates.pnml"
 #include "src/templates_wagons.pnml"
