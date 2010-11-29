@@ -94,12 +94,12 @@ spritegroup flatbed_wagon_fueloil_group {
 }
 
 // STEL
-spriteset(flatbed_wagon_steel_empty_set, "src/gfx/flatbed/rail_flatbed_steel_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(flatbed_wagon_steel_full_set, "src/gfx/flatbed/rail_flatbed_steel_temperate.png") { tmpl_railwagon(126, 0) }
-spritegroup flatbed_wagon_steel_group {
-	loaded: [flatbed_wagon_steel_empty_set, flatbed_wagon_steel_full_set];
-	loading: [flatbed_wagon_steel_empty_set, flatbed_wagon_steel_full_set];
-}
+SPRITEGROUP_3STAGES_NOLOADING(flatbed_wagon_steel_rolls1, 
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a1.png", 
+    "src/gfx/flatbed/steel/SteelFlatbeds1b1.png", tmpl_railwagon, 0, 0, 0, 0)
+SPRITEGROUP_3STAGES_NOLOADING(flatbed_wagon_steel_rolls2, 
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a2.png", 
+    "src/gfx/flatbed/steel/SteelFlatbeds1b2.png", tmpl_railwagon, 0, 0, 0, 0)
 
 // VEHI (vehicles)
 spriteset(flatbed_wagon_vehicles_empty_set, "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png") { tmpl_railwagon42(0, 7) }
@@ -125,6 +125,11 @@ SPRITEGROUP_4STAGES_NOLOADING(flatbed_wagon_wood,
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch, TRIGGER_VEHICLE_NEW_LOAD) {
     3: flatbed_wagon_engineeringsupplies_vehicle1_group;
     1: flatbed_wagon_engineeringsupplies_vehicle2_group;
+}
+
+random_switch (FEAT_TRAINS, SELF, flatbed_wagon_steel_switch, TRIGGER_VEHICLE_NEW_LOAD) {
+    1: flatbed_wagon_steel_rolls1_group;
+    1: flatbed_wagon_steel_rolls2_group;
 }
 
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, TRIGGER_VEHICLE_NEW_LOAD) {
@@ -157,7 +162,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     PAPR: flatbed_wagon_paper_group;
     PETR: flatbed_wagon_fueloil_group;
     RFPR: flatbed_wagon_refineryproducts_group;
-    STEL: flatbed_wagon_steel_group;
+    STEL: flatbed_wagon_steel_switch;
     VEHI: flatbed_wagon_vehicles_group;
     WDPR: flatbed_wagon_woodproducts_group;
     WOOD: flatbed_wagon_wood_group;
