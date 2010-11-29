@@ -12,11 +12,6 @@
 #include "src/templates_mu.pnml"
 
 /*
- * Make sure that the default engines are present
- */
-#include "src/default_engines.pnml"
-
-/*
  * Declare all rail and elrail wagons here
  */
 
