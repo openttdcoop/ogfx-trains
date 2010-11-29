@@ -1,10 +1,10 @@
-pre 0.2.0
----------
+Version 0.2.0
+-------------
 - Feature: Cargo subtype display for lumber for bulk wagon
 - Feature: Flatbed wagon didn't support goods, use containers as default cargo sprites
 - Feature: Add cargo subtype display for engineering supplies, containers, fuel oil, vehicles and chemicals on flatbed wagon
 - Feature: Support transporting small amounts of fuel oil (petrol) and refinery products (chemicals) on the flatbed wagon
-- Feature: Enhanced support for engineering supplies, wood, goods vehicles with the flatbed wagon
+- Feature: Enhanced support for engineering supplies, wood, steel, goods vehicles with the flatbed wagon
 - Feature: Livery override for passenger, mail and valuables wagons for AsiaStar, T.I.M, SH125, Dash, Manley-Morel, TurboTrain and Lev3
 - Feature #1919: Adjustable purchase and running costs
 - Feature: Wood with loading stages on flatbed wagon
@@ -40,6 +40,7 @@ pre 0.2.0
 - Fix #1830: There were no wagons which could transport lumber. Bulk and flatbed now can
 - Fix #1844: Sprites for paper cargo for flatbed wagon
 - Fix: Wood showed fully loaded wagon as soon as it started loading
+- Add: Provide our own sprites for all engines, making them available when requested (imported from OpenGFX)
 - Add #1669: Vehicle view in depots is 32px
 - Add separate ID for maglev refrigerator wagon
 - Add #1633: Define all engines

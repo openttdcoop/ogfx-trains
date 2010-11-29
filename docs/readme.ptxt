@@ -44,10 +44,11 @@ Copy the grf in your data dir and activate it.
 
 3.1 Parameters:
 ---------------
-Choice of Rolling stock:
-  This NewGRF allows you to select via parameter whether only the wagons
-  or also the default engines shall be provided. By default all default
-  rail vehicles will be provided.
+Choice of rolling stock:
+  This NewGRF allows you to select via parameter which engines shall be
+  provided. You can choose from andy of the four climates, all engines,
+  none or autmatically choosing those which are designed for the map's
+  climate (default).
 
 Purchase and running costs can be configured:
   You can either manuall select the level of running and purchase costs
