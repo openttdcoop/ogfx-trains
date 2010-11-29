@@ -10,20 +10,15 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Kühlwaggon
 
 STR_PARAM_ENGINES                                               :Auswahl der Lokomotiven:
 STR_PARAM_ENGINES_DESC                                          :Auswählen welche Lokomotiven dem Spiel zugefügt werden sollen. Es kann die für jedes Klima bestimmte Zusammenstellung unabhängig vom tatsächlichen Klima ausgewählt werden. Standardmäßig wird die für das jeweilige Klima bestimmte Zusammenstellung genommen. Die Einstellung 'Keine' deaktiviert alle Lokomotiven.
-STR_PARAM_ENGINES_DEFAULT                                       :Automatisch (Vorgabe)
+STR_PARAM_ENGINES_DEFAULT                                       :automatisch nach Klima (standard)
 STR_PARAM_ENGINES_NONE                                          :Keine
-STR_PARAM_ENGINES_TEMPERATE                                     :Gemäßigt
-STR_PARAM_ENGINES_ARCTIC                                        :Arctisch
-STR_PARAM_ENGINES_TROPICAL                                      :Tropisch
+STR_PARAM_ENGINES_TEMPERATE                                     :gemäßigtes Klima
+STR_PARAM_ENGINES_ARCTIC                                        :arktisches Klima
+STR_PARAM_ENGINES_TROPICAL                                      :tropisches Klima
 STR_PARAM_ENGINES_TOYLAND                                       :Spielzeugland
 STR_PARAM_ENGINES_ALL                                           :Alle
 STR_PARAM_KEEP_ORIGINAL                                         :Existierende Fahrzeuge beibehalten
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :Diese Einstellung existiert nur zu Debugging-Zwecken. Sie ist auch sinnvoll, wenn Du dieses Set einem _bestehenden_ Spiel zufügst in welchem schon Züge vorhanden sind. Dies is aber i.A. problematisch und führt zu Problemen. Verwendung auf eigene Gefahr.
-
-STR_PARAM_KEEP_ORIGINAL                                         :Alle Standardfahrzeuge beibehalten
-STR_PARAM_KEEP_ORIGINAL_DESC                                    :Diese Einstellung ist nur für Debugging-Zwecke vorhanden. Sie sollte angeschaltet werden, wenn dieses Set während des laufenden Spiels hinzugefügt wird. Dieses Vorgehen kann Probleme verursachen. Nutzung auf eigenes Risiko.
-STR_PARAM_ALLOW_SHUNTING                                        :Rangieren erlauben
-STR_PARAM_ALLOW_SHUNTING_DESC                                   :Rangieren einschalten für die mitgelieferten Lokomotiven. Dieses macht es unmöglich, sie mit anderen Lokomotiven überhaupt und Waggons anderer Fahrzeugsets zu kombinieren. Diese Einstellung ist wirkungslos, wenn dieses Set keine Lokomotiven bereitstellen soll.
 
 STR_PARAM_RUNNING_COST                                          :Betriebskosten anpassen
 STR_PARAM_RUNNING_COST_DESC                                     :Erlaube die Betriebskosten der Fahrzeuge anzupassen (z.B. um sie anderen Fahrzeugsets gegenüber anzupassen)
