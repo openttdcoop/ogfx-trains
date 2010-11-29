@@ -4,12 +4,12 @@
 #include "src/remove_wagons.pnml"
 #include "src/redefine_engines.pnml"
 
-#include "src/sprite_templates.pnml"
+#include "src/templates_sprites.pnml"
 #include "src/templates_wagons.pnml"
-#include "src/template_engine_shunting.pnml"
-#include "src/template_engine2_shunting.pnml"
+#include "src/templates_engine_shunting.pnml"
+#include "src/templates_engine2_shunting.pnml"
 #include "src/templates_engines.pnml"
-#include "src/template_mu.pnml"
+#include "src/templates_mu.pnml"
 
 /*
  * Make sure that the default engines are present
