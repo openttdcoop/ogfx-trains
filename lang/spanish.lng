@@ -1,7 +1,54 @@
-##grflangid 0x04
+##grflangid 0x01
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} mejora los vehículos de ferrocarril estándar y los extiende con nuevos vagones y locomotoras.{}Diseñado para concordar con el estilo OpenGFX.{}Programación: {SILVER}planetmaker, Terkhen{}{BLACK}Gráficos: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencia: {SILVER}GPL v2{}{BLACK}Página web: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Agradecimientos especiales a {SILVER}Yexo{BLACK} y {SILVER}Ammler{BLACK} por su apoyo y contribuciones
-STR_NAME_BULK_WAGON                                             :Vagón a Granel
-STR_NAME_TANK_WAGON                                             :Vagón Cisterna
-STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Vagón de Mercancías (cubierto)
-STR_NAME_FLATBED_WAGON                                          :Vagón de Plataforma
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} mejora los vehículos de ferrocarril estándar y los extiende con nuevos vagones y locomotoras.{}Diseñado para concordar con el estilo OpenGFX.{}Programación: {SILVER}planetmaker, Terkhen{}{BLACK}Gráficos: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencia: {SILVER}GPL v2{}{BLACK}Página web: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Agradecimientos especiales a {SILVER}Yexo{BLACK} y {SILVER}Ammler{BLACK} por su apoyo y contribuciones.
+
+STR_NAME_BULK_WAGON                                             :Vagón a granel
+STR_NAME_TANK_WAGON                                             :Vagón cisterna
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Vagón de mercancías
+STR_NAME_FLATBED_WAGON                                          :Vagón de plataforma
+STR_NAME_REFRIGERATOR_WAGON                                     :Vagón refrigerado
+
+STR_PARAM_ENGINES                                               :Selección de locomotoras por clima:
+STR_PARAM_ENGINES_DESC                                          :Seleccione las locomotoras que desea emplear. Al seleccionar el valor por defecto se emplearán las locomotoras del clima seleccionado. Seleccionar ninguna desactivará TODAS las locomotoras.
+STR_PARAM_ENGINES_DEFAULT                                       :Automático (por defecto)
+STR_PARAM_ENGINES_NONE                                          :Ninguna
+STR_PARAM_ENGINES_TEMPERATE                                     :Templado
+STR_PARAM_ENGINES_ARCTIC                                        :Ártico
+STR_PARAM_ENGINES_TROPICAL                                      :Tropical
+STR_PARAM_ENGINES_TOYLAND                                       :Juguetelandia
+STR_PARAM_ENGINES_ALL                                           :Todos
+STR_PARAM_KEEP_ORIGINAL                                         :Mantener activos todos los vehículos estándar
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :Esta opción se incluye para ser usada para depurar. Puedes usar esta opción si deseas añadir este newgrf a una partida ya comenzada que contiene vehículos estándar. Esta opción puede causar problemas; actívela bajo su propia responsabilidad.
+
+STR_PARAM_RUNNING_COST                                          :Ajustar costes de operación
+STR_PARAM_RUNNING_COST_DESC                                     :Permite ajustar los costes de operación de este newgrf (para, por ejemplo, equilibrarlos con los de otros newgrfs).
+STR_PARAM_PURCHASE_COST                                         :Ajustar costes de compra
+STR_PARAM_PURCHASE_COST_DESC                                    :Permite ajustar los costes de los vehículos de este newgrf (para, por ejemplo, equilibrarlos con los de otros newgrfs).
+STR_PARAM_COST_AUTOMATICALLY                                    :Automático (por defecto)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 / 128
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :normal
+STR_PARAM_COST_TIMES2                                           :2x
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
+
+STR_ERR_ENGINE_POOL                                             :Permitir múltiples NewGRFs de vehículos = activo
+STR_ERR_CANNOT_ATTACH                                           :Solamente se pueden acoplar vagones de este newgrf y de la misma locomotora.
+
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Trozos de madera)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Barriles)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY                       : (Maquinaria)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER                       : (Contenedores)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        : (Tractores)
