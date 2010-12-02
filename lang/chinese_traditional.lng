@@ -1,4 +1,4 @@
-lang: 0C
+##grflangid 0x0C
 STR_GRF_NAME                                                    :OpenGFX+ 列車 {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ 列車{BLACK} 擴張了原有列車車輛和車卡的種類，{}並根據 OpenGFX 的風格而設計。{}程式編寫： {SILVER}planetmaker, Terkhen{}{BLACK}繪圖： {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}授權條款： {SILVER}GPL v2{}{BLACK}網站： {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}特別鳴謝 {SILVER}Yexo{BLACK} 和 {SILVER}Ammler{BLACK} 的支持和貢獻。
 

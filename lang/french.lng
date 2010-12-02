@@ -1,4 +1,4 @@
-lang: 03
+##grflangid 0x03
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} améliore les véhicules ferroviaires de base et augmente le nombre de cargaison transportable.{}Design correspondant au style OpenGFX.{}Programming: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zephyris, DanMacK, molace, Uzurpator{}{BLACK}License: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Remerciement spécial à {SILVER}Yexo{BLACK} et {SILVER}Ammler{BLACK} pour leur support et leurs contributions. 
 STR_NAME_BULK_WAGON                                             :Wagon tombereau

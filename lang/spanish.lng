@@ -1,4 +1,4 @@
-lang: 04
+##grflangid 0x04
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} mejora los vehículos de ferrocarril estándar y los extiende con nuevos vagones y locomotoras.{}Diseñado para concordar con el estilo OpenGFX.{}Programación: {SILVER}planetmaker, Terkhen{}{BLACK}Gráficos: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencia: {SILVER}GPL v2{}{BLACK}Página web: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Agradecimientos especiales a {SILVER}Yexo{BLACK} y {SILVER}Ammler{BLACK} por su apoyo y contribuciones
 STR_NAME_BULK_WAGON                                             :Vagón a Granel

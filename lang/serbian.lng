@@ -1,4 +1,4 @@
-lang: 0D
+##grflangid 0x0D
 STR_GRF_NAME                                                    :OpenGFX+ Železnica {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Železnica{BLACK} poboljšava postojeća šinska vozila i proširuje vozni park.{}Dizajnirano po uzoru na OpenGFX stil.{}Programiranje: {SILVER}planetmaker, Terkhen{}{BLACK}Grafika: {SILVER}Zephyris, DanMacK, molace, Uzurpator{}{BLACK}Licenca: {SILVER}GPL v2{}{BLACK}Internet stranica: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Posebna zahvalnica za {SILVER}Yexo{BLACK} i {SILVER}Ammler{BLACK} zbog njihove podrške i doprinosa
 STR_NAME_BULK_WAGON                                             :Otvoren vagon

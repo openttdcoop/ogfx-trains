@@ -1,4 +1,4 @@
-lang: 02
+##grflangid 0x02
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} erweitert und ergänzt die üblichen Schienenfahrzeuge.{}Im Design angelehnt an OpenGFX.{}Programmierung: {SILVER}planetmaker, Terkhen{}{BLACK}Grafik: {SILVER}molace, Zephyris, DanMacK, buttercup, Uzurpator{}{BLACK}Licenz: {SILVER}GPL v2{}{BLACK}Webseite: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Besonderen Dank an {SILVER}Yexo{BLACK} und {SILVER}Ammler{BLACK} für ihre Unterstützung und Beiträge
 
