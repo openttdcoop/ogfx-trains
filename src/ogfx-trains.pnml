@@ -16,6 +16,14 @@
 #include "src/redefine_engines.pnml"
 
 /*
+ * IMPORTANT: Don't add or remove single entries
+ * from the following wagon lists - it will screw
+ * up their vehicle IDs and thus compatibility
+ * New vehicles always have to be added at the
+ * bottom of this file
+ */
+
+/*
  * Declare all rail and elrail wagons here
  */
 
@@ -61,7 +69,8 @@
 
 
 /*
- * Declare all engines with new graphics here
+ * Re-declare all engines with new graphics here
+ * (they don't use new vehicleIDs)
  */
 
 #include "src/engine_manley-morel.pnml"
