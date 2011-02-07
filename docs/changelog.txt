@@ -1,4 +1,14 @@
+Version 0.2.2
+-------------
+- Feature: Introduce climate dependent sprites for Kelling3100, CS2400, CS4000, MJS250, MJS1000 and Centennial
+- Fix: Modern bulk wagon changed appearance between empty and fully loaded with stones
+- Fix: Bauxite should not use animated colours
+- Fix: Vehicles, Farm and engineering supply cargos should not contain action colours
+- Fix: Wagons should never expire
+- Add: Translation to traditional Chinese (2006TTD)
+
 Version 0.2.1
+-------------
 - Fix (r184): Symmetric monorail and maglev engines used the wrong sprite template
 - Fix: Don't translate the URLs...
 
