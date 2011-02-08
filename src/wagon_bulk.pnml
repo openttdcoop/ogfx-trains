@@ -11,8 +11,6 @@
  * ***************************
  */
 
-spriteset(bulk_wagon_empty_set, "src/gfx/bulk/rail_coal_temperate.png") { tmpl_railwagon(0,0) }
-
 // AORE
 spriteset(bulk_wagon_bauxite_early_empty_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_bauxite_early_full_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(126, 0) }

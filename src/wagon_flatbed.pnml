@@ -63,11 +63,6 @@ spritegroup flatbed_wagon_goods_1a_group {
 	loaded: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container1_set];
 	loading: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container1_set];
 }
-spriteset(flatbed_wagon_goods_container2_set, "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2b.png") { tmpl_railwagon(0,0) }
-spritegroup flatbed_wagon_goods_1b_group {
-	loaded: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container2_set];
-	loading: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container2_set];
-}
 
 // PAPR
 spriteset(flatbed_wagon_paper_empty_set, "src/gfx/flatbed/rail_flatbed_paper_temperate.png") { tmpl_railwagon(0, 0) }
