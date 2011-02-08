@@ -17,10 +17,6 @@ switch(FEAT_TRAINS, SELF, monorail_refrigerated_graphics_switch, cargo_type_in_v
 	monorail_refrigerated_default_group;
 }
 
-switch(FEAT_TRAINS, SELF, monorail_refrigerated_switch, current_callback) {
-	monorail_refrigerated_graphics_switch;
-}
-
 item(FEAT_TRAINS, monorail_refrigerate_wagon) {
     property {                                                // we keep the name 'food van'
         // We try to simulate the stats of the arctic food wagon
