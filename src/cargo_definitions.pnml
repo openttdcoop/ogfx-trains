@@ -42,7 +42,7 @@ cargotable {                        // cargos needed for special refit orders
 #define REFIT_PROPERTIES_BULK \
         refittable_cargo_classes:       bitmask(CC_BULK); \
         non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_LIQUID, CC_REFRIGERATED, CC_HAZARDOUS); \
-        refittable_cargo_types:         bitmask(SCRP, FRUT, FRVG, RUBR, CMNT);
+        refittable_cargo_types:         bitmask(SCRP, FRUT, FRVG, RUBR);
 
 
 
