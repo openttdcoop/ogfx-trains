@@ -6,6 +6,22 @@
 
 /*
  * Manley-Morel
- * Livery override for passenger and mail wagons
+ * Livery override for passenger, mail and valuables wagons
  */
-ENGINE_MU_NOFRILLS(manley_morel, "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 11,)
+// ENGINE_MU_NOFRILLS(manley_morel, "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 11,)
+
+MU_8SPRITES (manley_morel_engine,    "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
+MU_8SPRITES (manley_morel_passenger, "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
+MU_8SPRITES (manley_morel_mail,      "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 0, 54) 
+MU_8SPRITES (manley_morel_valuables, "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
+
+item(FEAT_TRAINS, manley_morel, 11) {
+	property {
+		sprite_id:                    SPRITE_ID_NEW_TRAIN;
+		misc_flags:                   bitmask(TRAIN_FLAG_MU);
+	}
+	graphics { manley_morel_engine_group; }
+	livery_override (passenger_wagon) { manley_morel_passenger_group; }
+	livery_override (mail_wagon)      { manley_morel_mail_group; }
+	livery_override (valuables_wagon) { manley_morel_valuables_group; }
+}

@@ -8,4 +8,20 @@
  * AsiaStar
  * Livery override for passenger and mail wagons
  */
-ENGINE_MU_NOFRILLS(asiastar, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_high2, 26,)
+// ENGINE_MU_NOFRILLS(asiastar, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_high2, 26,)
+
+MU_8SPRITES (asiastar_engine,    "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
+MU_8SPRITES (asiastar_passenger, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
+MU_8SPRITES (asiastar_mail,      "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 54) 
+MU_8SPRITES (asiastar_valuables, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
+
+item(FEAT_TRAINS, asiastar, 26) {
+	property {
+		sprite_id:                    SPRITE_ID_NEW_TRAIN;
+		misc_flags:                   bitmask(TRAIN_FLAG_MU);
+	}
+	graphics { asiastar_engine_group; }
+	livery_override (passenger_wagon) { asiastar_passenger_group; }
+	livery_override (mail_wagon)      { asiastar_mail_group; }
+	livery_override (valuables_wagon) { asiastar_valuables_group; }
+}

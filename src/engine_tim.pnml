@@ -8,4 +8,20 @@
  * tim
  * Livery override for passenger and mail wagons
  */
-ENGINE_MU_NOFRILLS(tim, "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_high2, 25,)
+// ENGINE_MU_NOFRILLS(tim, "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_high2, 25,)
+
+MU_8SPRITES (tim_engine,    "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
+MU_8SPRITES (tim_passenger, "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
+MU_8SPRITES (tim_mail,      "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_normal, 0, 54) 
+MU_8SPRITES (tim_valuables, "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
+
+item(FEAT_TRAINS, tim, 25) {
+	property {
+		sprite_id:                    SPRITE_ID_NEW_TRAIN;
+		misc_flags:                   bitmask(TRAIN_FLAG_MU);
+	}
+	graphics { tim_engine_group; }
+	livery_override (passenger_wagon) { tim_passenger_group; }
+	livery_override (mail_wagon)      { tim_mail_group; }
+	livery_override (valuables_wagon) { tim_valuables_group; }
+}

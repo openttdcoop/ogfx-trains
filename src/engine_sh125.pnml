@@ -8,4 +8,21 @@
  * SH 125
  * Livery override for passenger and mail wagons
  */
-ENGINE_MU_NOFRILLS(sh125, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 22,)
+// ENGINE_MU_NOFRILLS(sh125, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 22,)
+
+
+MU_8SPRITES (sh125_engine,    "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
+MU_8SPRITES (sh125_passenger, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
+MU_8SPRITES (sh125_mail,      "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 0, 54) 
+MU_8SPRITES (sh125_valuables, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
+
+item(FEAT_TRAINS, sh125, 22) {
+	property {
+		sprite_id:                    SPRITE_ID_NEW_TRAIN;
+		misc_flags:                   bitmask(TRAIN_FLAG_MU);
+	}
+	graphics { sh125_engine_group; }
+	livery_override (passenger_wagon) { sh125_passenger_group; }
+	livery_override (mail_wagon)      { sh125_mail_group; }
+	livery_override (valuables_wagon) { sh125_valuables_group; }
+}
