@@ -174,6 +174,13 @@ PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param[3] - 9;
 
 /*
  * ********************************************
+ * Introduction year for 2nd generation wagons
+ * ********************************************
+ */
+#define rail_modern_year 1970
+
+/*
+ * ********************************************
  * Vehicles may be 32px wide in the depots
  * ********************************************
  */
@@ -279,4 +286,3 @@ basecost {
 	PR_BUILD_VEHICLE_TRAIN:     PURCHASE_COST_MOD;
 	PR_BUILD_VEHICLE_WAGON:     PURCHASE_COST_MOD;
 }
-

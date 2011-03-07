@@ -30,8 +30,6 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
     name ## _modern_group; \
 }
 
-#define rail_modern_year 1970
-
 #define WAGON_SINGLE_SET8(name, filename, tmpl, x, y) \
 spriteset(name ##_set, filename) { \
 	tmpl(x, y) tmpl(x, y) \
