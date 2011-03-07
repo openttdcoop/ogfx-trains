@@ -172,8 +172,6 @@ RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param[2] - 9;
 #define AUTOMATIC_PURCHASE_COST (param[3] == 0)
 PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param[3] - 9;
 
-#define ALLOW_SHUNTING 0
-
 /*
  * ********************************************
  * Vehicles may be 32px wide in the depots

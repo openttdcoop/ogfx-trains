@@ -36,18 +36,6 @@
      livery_override(railtype ##flatbed_wagon) { \
      	wagon_## name ##_switch; \
      }
-
-/* This actually is not a template but a switch used for every vehicle
- * of this set and is called by the following template which checks
- * whether a vehicle can be attached
- * return: error when shunting allowed
- *         allow attaching when shunting not allowed
- */
-switch(FEAT_TRAINS, SELF, shunting_allowed_switch, ALLOW_SHUNTING) {
-    1: return string(STR_ERR_CANNOT_ATTACH);
-    return 0xFF;
-}
-
 #define CAN_ATTACH_VEHICLE(name, id, railtype) \
 switch(FEAT_TRAINS, SELF, name ## _can_attach_switch, vehicle_type_id) { \
     id :                return 0xFF; \

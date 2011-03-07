@@ -3,8 +3,6 @@
 
 #include "src/templates_sprites.pnml"
 #include "src/templates_wagons.pnml"
-#include "src/templates_engine_shunting.pnml"
-#include "src/templates_engine2_shunting.pnml"
 #include "src/templates_engines.pnml"
 #include "src/templates_mu.pnml"
 
