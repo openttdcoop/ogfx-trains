@@ -31,11 +31,10 @@ spritegroup  name ##_group { \
 
 
 
-#define MU_REVERSAL_CHAIN(name, filename, sprite_template, x, y) \
-MU_8SPRITES_REVERSAL(name, filename, sprite_template, x, y) \
-switch (FEAT_TRAINS, SELF, name ## _cb_switch, current_callback) { \
-	VEH_CB_WAGON_LENGTH: name ##_cb_wagonlength_switch; \
-	name ## _reversal_switch;\
+#define MU_LENGTH_SWITCH(name, length_reduction, next_switch) \
+switch (FEAT_TRAINS, SELF, name ## _length_switch, current_callback) { \
+	VEH_CB_WAGON_LENGTH: return length_reduction; \
+	name ##_## next_switch;\
 }
 
 

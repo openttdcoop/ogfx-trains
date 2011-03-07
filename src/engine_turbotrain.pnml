@@ -11,23 +11,23 @@
 // ENGINE_MU(turbotrain, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", 
 //    tmpl_turbotrain_engine, tmpl_turbotrain_wagon, 142, 112, 139, 168, 168, 0x01, 20,)
 
-switch (FEAT_TRAINS, SELF, turbotrain_engine_cb_wagonlength_switch, 0)    { return 0x01; }
-switch (FEAT_TRAINS, SELF, turbotrain_passenger_cb_wagonlength_switch, 0) { return 0x01; }
-switch (FEAT_TRAINS, SELF, turbotrain_mail_cb_wagonlength_switch, 0)      { return 0x01; }
-switch (FEAT_TRAINS, SELF, turbotrain_valuables_cb_wagonlength_switch, 0) { return 0x01; }
+MU_8SPRITES_REVERSAL (turbotrain_engine,    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_engine, 142, 112)
+MU_8SPRITES_REVERSAL (turbotrain_passenger, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 139)
+MU_8SPRITES_REVERSAL (turbotrain_mail,      "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 168) 
+MU_8SPRITES_REVERSAL (turbotrain_valuables, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 168) // same as mail
 
-MU_REVERSAL_CHAIN   (turbotrain_engine,    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_engine, 142, 112)
-MU_NOREVERSAL_CHAIN (turbotrain_passenger, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 139)
-MU_NOREVERSAL_CHAIN (turbotrain_mail,      "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 168) 
-MU_NOREVERSAL_CHAIN (turbotrain_valuables, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 168) // same as mail
+MU_LENGTH_SWITCH (turbotrain_engine,    1, reversal_switch)
+MU_LENGTH_SWITCH (turbotrain_passenger, 1, reversal_switch)
+MU_LENGTH_SWITCH (turbotrain_mail,      1, reversal_switch)
+MU_LENGTH_SWITCH (turbotrain_valuables, 1, reversal_switch)
 
 item(FEAT_TRAINS, turbotrain, 20) {
 	property {
 		sprite_id:                    SPRITE_ID_NEW_TRAIN;
 		misc_flags:                   bitmask(TRAIN_FLAG_MU);
 	}
-	graphics { turbotrain_engine_cb_switch; }
-	livery_override (passenger_wagon) { turbotrain_passenger_cb_switch; }
-	livery_override (mail_wagon)      { turbotrain_mail_cb_switch; }
-	livery_override (valuables_wagon) { turbotrain_valuables_cb_switch; }
+	graphics { turbotrain_engine_length_switch; }
+	livery_override (passenger_wagon) { turbotrain_passenger_length_switch; }
+	livery_override (mail_wagon)      { turbotrain_mail_length_switch; }
+	livery_override (valuables_wagon) { turbotrain_valuables_length_switch; }
 }

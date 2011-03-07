@@ -144,6 +144,7 @@ template tmpl_maglev_wagon_78(x, y) {
 	[176+x, y, 28,10,  -17, -8]
 	[224+x, y, 20,16,   -5, -9]
 }
+template tmpl_maglev_wagon_78_reversed(x, y) { tmpl_maglev_wagon_78(x, y) }
 template tmpl_wagon_78(x, y) {
 	[  0+x, y,  8,21,   -3,-10]
 	[ 16+x, y, 20,15,  -13, -9]
@@ -154,10 +155,13 @@ template tmpl_wagon_78(x, y) {
 	[176+x, y, 28,10,  -16, -6]
 	[224+x, y, 20,16,   -6, -7]
 }
+template tmpl_wagon_78_reversed(x, y) { tmpl_wagon_78(x, y) }
 
 template tmpl_turbotrain_wagon(x, y) {
     tmpl_wagon_78(x, y)
 }
+template tmpl_turbotrain_wagon_reversed(x, y) { tmpl_turbotrain_wagon(x, y) }
+
 template tmpl_turbotrain_engine(x, y) {
 	[142,112,  8,22,   -3,-10]
 	[158,112, 21,15,  -14, -7]
