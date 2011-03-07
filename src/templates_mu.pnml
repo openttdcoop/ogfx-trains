@@ -1,3 +1,53 @@
+#define MU_8SPRITES_REVERSAL(name, filename, sprite_template, x, y) \
+spriteset(name ##_set, filename) { \
+	sprite_template (x, y) \
+} \
+spriteset(name ##_reversed_set, filename) { \
+	sprite_template ##_reversed (x, y) \
+} \
+spritegroup  name ##_group { \
+	loading: name ##_set; \
+	loaded:  name ##_set; \
+} \
+spritegroup  name ##_reversed_group { \
+	loading: name ##_reversed_set; \
+	loaded:  name ##_reversed_set; \
+} \
+switch (FEAT_TRAINS, SELF, name ## _reversal_switch, vehicle_is_reversed) { \
+	1: name ##_reversed_group; \
+	name ##_group; \
+}
+
+
+
+#define MU_8SPRITES(name, filename, sprite_template, x, y) \
+spriteset(name ##_set, filename) { \
+	sprite_template (x, y) \
+} \
+spritegroup  name ##_group { \
+	loading: name ##_set; \
+	loaded:  name ##_set; \
+}
+
+
+
+#define MU_REVERSAL_CHAIN(name, filename, sprite_template, x, y) \
+MU_8SPRITES_REVERSAL(name, filename, sprite_template, x, y) \
+switch (FEAT_TRAINS, SELF, name ## _cb_switch, current_callback) { \
+	VEH_CB_WAGON_LENGTH: name ##_cb_wagonlength_switch; \
+	name ## _reversal_switch;\
+}
+
+
+
+#define MU_NOREVERSAL_CHAIN(name, filename, sprite_template, x, y) \
+MU_8SPRITES(name, filename, sprite_template, x, y) \
+switch (FEAT_TRAINS, SELF, name ## _cb_switch, current_callback) { \
+	VEH_CB_WAGON_LENGTH: name ##_cb_wagonlength_switch; \
+	name ## _group;\
+}
+
+
 #define ENGINE_MU_NOFRILLS(name, filename, eng_template, id, railtype) \
 spriteset(name ##_engine_set, filename) { \
 	eng_template(0,0) \
@@ -55,7 +105,7 @@ switch(FEAT_TRAINS, SELF, name ##_reversed_callback_switch, current_callback) { 
     name ##_engine_reversed_group; \
 } \
 SHUNTING2(name, id, railtype) \
- \
+\
 item(FEAT_TRAINS, name, id) { \
     property { \
         sprite_id:                    SPRITE_ID_NEW_TRAIN; \

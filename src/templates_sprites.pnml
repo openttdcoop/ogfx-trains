@@ -168,3 +168,4 @@ template tmpl_turbotrain_engine(x, y) {
 	[318,112, 32,12,  -16, -8]
 	[366,112, 21,15,   -6, -7]
 }
+template tmpl_turbotrain_engine_reversed(x, y) { tmpl_turbotrain_engine(x, y) }
