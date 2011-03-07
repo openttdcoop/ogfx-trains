@@ -8,7 +8,6 @@
  * Manley-Morel
  * Livery override for passenger, mail and valuables wagons
  */
-// ENGINE_MU_NOFRILLS(manley_morel, "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 11,)
 
 MU_8SPRITES (manley_morel_engine,    "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
 MU_8SPRITES (manley_morel_passenger, "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)

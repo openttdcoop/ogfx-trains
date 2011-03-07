@@ -6,9 +6,8 @@
 
 /*
  * tim
- * Livery override for passenger and mail wagons
+ * Livery override for passenger, mail and valuabes wagons
  */
-// ENGINE_MU_NOFRILLS(tim, "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_high2, 25,)
 
 MU_8SPRITES (tim_engine,    "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
 MU_8SPRITES (tim_passenger, "src/gfx/mus/tim/TIMLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
