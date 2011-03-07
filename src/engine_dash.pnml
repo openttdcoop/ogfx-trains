@@ -8,7 +8,6 @@
  * SH Dash
  * Livery override for passenger and mail wagons
  */
-// ENGINE_MU_NOFRILLS(dash, "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 12,)
 
 MU_8SPRITES (dash_engine,    "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
 MU_8SPRITES (dash_passenger, "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
