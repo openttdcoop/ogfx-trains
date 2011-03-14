@@ -12,8 +12,9 @@ ENGINE_GRAPHICS_GROUP(kirbypaul, default, tmpl_engine_88(0, 0),  "src/gfx/engine
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(kirbypaul)
 item(FEAT_TRAINS, kirbypaul, 00) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(kirbypaul)
 }
@@ -23,8 +24,9 @@ ENGINE_GRAPHICS_GROUP(mjs250, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/
 ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs250)
 item(FEAT_TRAINS, mjs250, 01) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(mjs250)
 }
@@ -33,8 +35,9 @@ ENGINE_GRAPHICS_GROUP(ploddyphut_choochoo, default, tmpl_engine_88(0, 0),  "src/
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(ploddyphut_choochoo)
 item(FEAT_TRAINS, ploddyphut_choochoo, 02) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(ploddyphut_choochoo)
 }
@@ -43,8 +46,9 @@ ENGINE_GRAPHICS_GROUP(powernaut_choochoo, default, tmpl_engine_88(0, 0),  "src/g
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(powernaut_choochoo)
 item(FEAT_TRAINS, powernaut_choochoo, 03) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(powernaut_choochoo)
 }
@@ -53,8 +57,9 @@ ENGINE_GRAPHICS_GROUP(mightymover_choochoo, default, tmpl_engine_88(0, 0),  "src
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(mightymover_choochoo)
 item(FEAT_TRAINS, mightymover_choochoo, 04) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(mightymover_choochoo)
 }
@@ -63,8 +68,9 @@ ENGINE_GRAPHICS_GROUP(ploddyphut_diesel, default, tmpl_engine_88(0, 0),  "src/gf
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(ploddyphut_diesel)
 item(FEAT_TRAINS, ploddyphut_diesel, 05) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(ploddyphut_diesel)
 }
@@ -73,8 +79,9 @@ ENGINE_GRAPHICS_GROUP(powernaut_diesel, default, tmpl_engine_88(0, 0),  "src/gfx
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(powernaut_diesel)
 item(FEAT_TRAINS, powernaut_diesel, 06) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(powernaut_diesel)
 }
@@ -84,8 +91,9 @@ ENGINE_GRAPHICS_GROUP(wills280, tropical, tmpl_engine_88(0, 0),  "src/gfx/engine
 ENGINE_GRAPHICS_TROPICAL_SWITCH(wills280)
 item(FEAT_TRAINS, wills280, 07) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(wills280)
 }
@@ -94,8 +102,9 @@ ENGINE_GRAPHICS_GROUP(chaneyjubilee, default, tmpl_engine_88(0, 0),  "src/gfx/en
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(chaneyjubilee)
 item(FEAT_TRAINS, chaneyjubilee, 08) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(chaneyjubilee)
 }
@@ -104,8 +113,9 @@ ENGINE_GRAPHICS_GROUP(ginzua4, default, tmpl_engine_88(0, 0),  "src/gfx/engines/
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(ginzua4)
 item(FEAT_TRAINS, ginzua4, 09) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(ginzua4)
 }
@@ -114,8 +124,9 @@ ENGINE_GRAPHICS_GROUP(sh8p, default, tmpl_engine_88(0, 0),  "src/gfx/engines/tem
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(sh8p)
 item(FEAT_TRAINS, sh8p, 10) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(sh8p)
 }
@@ -123,13 +134,13 @@ item(FEAT_TRAINS, sh8p, 10) {
 item(FEAT_TRAINS, manleymorel, 11) {
     property {
         // We declare this in a separate file
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 item(FEAT_TRAINS, dash, 12) {
     property {
         // We declare this in a separate file
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 
@@ -137,8 +148,9 @@ ENGINE_GRAPHICS_GROUP(shhendry, default, tmpl_engine_42(0,0),  "src/gfx/engines/
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(shhendry)
 item(FEAT_TRAINS, shhendry, 13) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(shhendry)
 }
@@ -147,8 +159,9 @@ ENGINE_GRAPHICS_GROUP(uu37, default, tmpl_engine_42(0, 0),  "src/gfx/engines/tem
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(uu37)
 item(FEAT_TRAINS, uu37, 14) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(uu37)
 }
@@ -157,8 +170,9 @@ ENGINE_GRAPHICS_GROUP(floss47, default, tmpl_engine_42(0, 0),  "src/gfx/engines/
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(floss47)
 item(FEAT_TRAINS, floss47, 15) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(floss47)
 }
@@ -168,8 +182,9 @@ ENGINE_GRAPHICS_GROUP(cs4000, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/
 ENGINE_GRAPHICS_TROPICAL_SWITCH(cs4000)
 item(FEAT_TRAINS, cs4000, 16) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(cs4000)
 }
@@ -179,8 +194,9 @@ ENGINE_GRAPHICS_GROUP(cs2400, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/
 ENGINE_GRAPHICS_TROPICAL_SWITCH(cs2400)
 item(FEAT_TRAINS, cs2400, 17) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(cs2400)
 }
@@ -190,8 +206,9 @@ ENGINE_GRAPHICS_GROUP(centennial, tropical, tmpl_engine_88(0, 0),  "src/gfx/engi
 ENGINE_GRAPHICS_TROPICAL_SWITCH(centennial)
 item(FEAT_TRAINS, centennial, 18) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(centennial)
 }
@@ -201,8 +218,9 @@ ENGINE_GRAPHICS_GROUP(kelling3100, tropical, tmpl_engine_42(0, 0),  "src/gfx/eng
 ENGINE_GRAPHICS_TROPICAL_SWITCH(kelling3100)
 item(FEAT_TRAINS, kelling3100, 19) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             0; // It's a symmetrical engine. We don't want it to reverse
+        climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(kelling3100)
 }
@@ -210,7 +228,7 @@ item(FEAT_TRAINS, kelling3100, 19) {
 item(FEAT_TRAINS, turnerturbo, 20) {
     property {
         // We define this in a separate file
-        climates_available:		(USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 
@@ -219,8 +237,9 @@ ENGINE_GRAPHICS_GROUP(mjs1000, tropical, tmpl_engine_42(0, 0),  "src/gfx/engines
 ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs1000)
 item(FEAT_TRAINS, mjs1000, 21) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(mjs1000)
 }
@@ -228,7 +247,7 @@ item(FEAT_TRAINS, mjs1000, 21) {
 item(FEAT_TRAINS, sh125, 22) {
     property {
         // We define this in a separate file
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 
@@ -236,8 +255,9 @@ ENGINE_GRAPHICS_GROUP(sh30, default, tmpl_engine_42(0, 0),  "src/gfx/engines/tem
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(sh30)
 item(FEAT_TRAINS, sh30, 23) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(sh30)
 }
@@ -246,8 +266,9 @@ ENGINE_GRAPHICS_GROUP(sh40, default, tmpl_engine_42(0, 0),  "src/gfx/engines/tem
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(sh40)
 item(FEAT_TRAINS, sh40, 24) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(sh40)
 }
@@ -255,13 +276,13 @@ item(FEAT_TRAINS, sh40, 24) {
 item(FEAT_TRAINS, tim, 25) {
     property {
         // We define this in a separate file
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 item(FEAT_TRAINS, asiastar, 26) {
     property {
         // We define this in a separate file
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 
@@ -272,8 +293,9 @@ ENGINE_GRAPHICS_GROUP(x2001, default, tmpl_engine_42(0, 0),  "src/gfx/engines/mo
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(x2001)
 item(FEAT_TRAINS, x2001, 54) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             0; // It's a symmetrical engine. We don't want it to reverse
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(x2001)
 }
@@ -282,8 +304,9 @@ ENGINE_GRAPHICS_GROUP(milleniumz1, default, tmpl_engine_88(0, 0),  "src/gfx/engi
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(milleniumz1)
 item(FEAT_TRAINS, milleniumz1, 55) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(milleniumz1)
 }
@@ -292,8 +315,9 @@ ENGINE_GRAPHICS_GROUP(wizzowowz99, default, tmpl_engine_88(0, 0),  "src/gfx/engi
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(wizzowowz99)
 item(FEAT_TRAINS, wizzowowz99, 56) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(wizzowowz99)
 }
@@ -305,8 +329,9 @@ ENGINE_GRAPHICS_GROUP(lev1, default, tmpl_engine_42(0, 0),  "src/gfx/engines/mag
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(lev1)
 item(FEAT_TRAINS, lev1, 84) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(lev1)
 }
@@ -315,8 +340,9 @@ ENGINE_GRAPHICS_GROUP(lev2, default, tmpl_engine_42(0, 0),  "src/gfx/engines/mag
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(lev2)
 item(FEAT_TRAINS, lev2, 85) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(lev2)
 }
@@ -324,7 +350,7 @@ item(FEAT_TRAINS, lev2, 85) {
 item(FEAT_TRAINS, lev3, 86) {
     property {
         // We define this in a separate file
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 
@@ -332,8 +358,9 @@ ENGINE_GRAPHICS_GROUP(lev4, default, tmpl_engine_88(0, 0),  "src/gfx/engines/mag
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(lev4)
 item(FEAT_TRAINS, lev4, 87) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(lev4)
 }
@@ -342,8 +369,9 @@ ENGINE_GRAPHICS_GROUP(wizzowowrocketeer, default, tmpl_engine_42(0, 0),  "src/gf
 ENGINE_GRAPHICS_NOCLIMATE_SWITCH(wizzowowrocketeer)
 item(FEAT_TRAINS, wizzowowrocketeer, 88) {
     property {
-    	sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        climates_available:		(USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        climates_available:     (USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
     ENGINE_GRAPHICS_BLOCK(wizzowowrocketeer)
 }
