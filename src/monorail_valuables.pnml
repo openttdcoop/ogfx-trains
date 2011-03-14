@@ -6,9 +6,12 @@
  * ***************************
  */
 
- item(FEAT_TRAINS, monorail_valuables_wagon, 67) {
+SPRITEGROUP_1STAGE_LOAD (monorail_valuables, "src/gfx/temperate_monolev.png", tmpl_short_railwagon, 0, 60, 80)
+
+item(FEAT_TRAINS, monorail_valuables_wagon, 67) {
     property {
         climates_available:             ALL_CLIMATES;
         REFIT_PROPERTIES_ARMOURED
     }
+	graphics { monorail_valuables_group; }
 }

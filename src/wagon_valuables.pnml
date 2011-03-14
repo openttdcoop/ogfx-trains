@@ -14,7 +14,7 @@ spritegroup valuables_wagon_group {
 	loaded: valuables_rail_set;
 }
 
- item(FEAT_TRAINS, valuables_wagon, 37) {
+item(FEAT_TRAINS, valuables_wagon, 37) {
     property {
         climates_available:             ALL_CLIMATES;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;

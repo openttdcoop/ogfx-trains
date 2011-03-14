@@ -16,6 +16,14 @@ spritegroup name ##_group { \
     loading: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
 }
 
+#define SPRITEGROUP_1STAGE_LOAD(name, filename, spritetemplate, x, yload, ydrive) \
+spriteset(name ## _open_set, filename) { spritetemplate (x, yload) } \
+spriteset(name ##_closed_set, filename) { spritetemplate (x, ydrive) } \
+spritegroup name ## _group { \
+	loaded: name ## _closed_set; \
+	loading: name ## _open_set; \
+}
+
 #define WAGON_YEARSWITCH_2STAGE(year_for_modern, name) \
 spritegroup name ## _early_group { \
 	loaded: [ name ## _early_empty_set, name ## _early_full_set]; \
