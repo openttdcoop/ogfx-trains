@@ -234,6 +234,7 @@ item(FEAT_TRAINS, flatbed_wagon) {
         weight:                         16;
     }
     graphics {
+        0xFF: flatbed_wagon_container_group;
         flatbed_wagon_cb_switch;
     }
 }

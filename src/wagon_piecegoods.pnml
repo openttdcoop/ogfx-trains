@@ -103,6 +103,7 @@ item(FEAT_TRAINS, piecegoods_wagon) {
         weight:                         21;
     }
     graphics {
+        0xFF: piecegoods_wagon_default_group;
         piecegoods_wagon_cb_switch;
     }
 }

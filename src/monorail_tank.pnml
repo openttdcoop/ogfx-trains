@@ -50,6 +50,7 @@ item(FEAT_TRAINS, monorail_tank_wagon) {
         weight:                         24;
     }
     graphics {
+        0xFF: monorail_tank_oil_climate_switch;
         monorail_tank_switch;
     }
 }

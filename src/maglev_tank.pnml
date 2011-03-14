@@ -41,6 +41,7 @@ item(FEAT_TRAINS, maglev_tank_wagon) {
         weight:                         24;
     }
     graphics {
+        0xFF: monorail_tank_oil_climate_switch;
         maglev_tank_switch;
     }
 }

@@ -66,6 +66,7 @@ item(FEAT_TRAINS, monorail_flatbed_wagon) {
         weight:                         16;
     }
     graphics {
+        0xFF: monorail_flatbed_wood_climate_switch;
         monorail_flatbed_switch;
     }
 }

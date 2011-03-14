@@ -97,6 +97,7 @@ item(FEAT_TRAINS, monorail_bulk_wagon) {
         weight:                         19 ton;
     }
     graphics {
+        0xFF: monorail_bulk_wagon_coal_switch;
         monorail_bulk_wagon_switch;
     }
 }

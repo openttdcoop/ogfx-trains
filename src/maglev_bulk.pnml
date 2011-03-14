@@ -46,6 +46,7 @@ item(FEAT_TRAINS, maglev_bulk_wagon) {
         weight:                         18;
      }
     graphics {
+        0xFF: monorail_bulk_wagon_coal_switch;
         maglev_bulk_wagon_switch;     // we use the same graphics so far
     }
 }

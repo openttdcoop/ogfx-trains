@@ -73,6 +73,7 @@ item(FEAT_TRAINS, monorail_piecegoods_wagon) {
         weight:                         21;
     }
     graphics {
+        0xFF: monorail_piecegoods_default_group;
         monorail_piecegoods_switch;
     }
 }

@@ -211,6 +211,7 @@ item(FEAT_TRAINS, bulk_wagon) {
         weight:                         19 ton;
     }
     graphics {
+        0xFF: bulk_wagon_coal_year_switch;
         bulk_wagon_cb_switch;
     }
 }

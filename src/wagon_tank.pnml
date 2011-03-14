@@ -122,6 +122,7 @@ item(FEAT_TRAINS, tank_wagon) {
         weight:                         24;
     }
     graphics {
+        0xFF: tank_wagon_default_switch;
         tank_wagon_cb_switch;
     }
 }
