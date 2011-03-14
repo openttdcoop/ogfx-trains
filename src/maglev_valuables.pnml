@@ -8,6 +8,7 @@
 
 item(FEAT_TRAINS, maglev_valuables_wagon, 99) {
     property {
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
         climates_available:             ALL_CLIMATES;
         REFIT_PROPERTIES_ARMOURED
     }
