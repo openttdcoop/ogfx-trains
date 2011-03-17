@@ -133,13 +133,13 @@ item(FEAT_TRAINS, sh8p, 10) {
 
 item(FEAT_TRAINS, manleymorel, 11) {
     property {
-        // We declare this in a separate file
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 item(FEAT_TRAINS, dash, 12) {
     property {
-        // We declare this in a separate file
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
@@ -215,14 +215,14 @@ item(FEAT_TRAINS, centennial, 18) {
 
 item(FEAT_TRAINS, kelling3100, 19) {
     property {
-        // We define this in a separate file
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 
 item(FEAT_TRAINS, turnerturbo, 20) {
     property {
-        // We define this in a separate file
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
@@ -241,7 +241,7 @@ item(FEAT_TRAINS, mjs1000, 21) {
 
 item(FEAT_TRAINS, sh125, 22) {
     property {
-        // We define this in a separate file
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
@@ -270,13 +270,13 @@ item(FEAT_TRAINS, sh40, 24) {
 
 item(FEAT_TRAINS, tim, 25) {
     property {
-        // We define this in a separate file
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
 item(FEAT_TRAINS, asiastar, 26) {
     property {
-        // We define this in a separate file
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
@@ -344,7 +344,7 @@ item(FEAT_TRAINS, lev2, 85) {
 
 item(FEAT_TRAINS, lev3, 86) {
     property {
-        // We define this in a separate file
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
 }
