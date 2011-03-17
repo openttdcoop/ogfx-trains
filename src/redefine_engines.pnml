@@ -213,16 +213,11 @@ item(FEAT_TRAINS, centennial, 18) {
     ENGINE_GRAPHICS_BLOCK(centennial)
 }
 
-ENGINE_GRAPHICS_GROUP(kelling3100, default, tmpl_engine_42(0, 0),  "src/gfx/engines/arctic_kelling3100.png")
-ENGINE_GRAPHICS_GROUP(kelling3100, tropical, tmpl_engine_42(0, 0),  "src/gfx/engines/tropical_kelling3100_88.png")
-ENGINE_GRAPHICS_TROPICAL_SWITCH(kelling3100)
 item(FEAT_TRAINS, kelling3100, 19) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             0; // It's a symmetrical engine. We don't want it to reverse
+        // We define this in a separate file
         climates_available:     (USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
-    ENGINE_GRAPHICS_BLOCK(kelling3100)
 }
 
 item(FEAT_TRAINS, turnerturbo, 20) {

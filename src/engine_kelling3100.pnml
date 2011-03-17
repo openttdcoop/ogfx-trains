@@ -1,0 +1,25 @@
+/*
+ * =============================================================================
+ * Kelling 3100
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP(kelling3100, default, tmpl_engine_42(0, 0),  "src/gfx/engines/arctic_kelling3100.png")
+ENGINE_GRAPHICS_GROUP(kelling3100, tropical, tmpl_engine_42(0, 0),  "src/gfx/engines/tropical_kelling3100_88.png")
+ENGINE_GRAPHICS_GROUP(kelling3100_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/arctic_kelling3100.png")
+ENGINE_GRAPHICS_GROUP(kelling3100_depot, tropical, tmpl_engine_88(176, 0), "src/gfx/engines/tropical_kelling3100_88.png")
+ENGINE_GRAPHICS_TROPICAL_SWITCH(kelling3100)
+ENGINE_GRAPHICS_TROPICAL_SWITCH(kelling3100_depot)
+
+switch(FEAT_TRAINS, SELF, kelling3100_indepot_switch, vehicle_is_in_depot) {
+    1: kelling3100_depot_switch;
+    kelling3100_switch;
+}
+
+item(FEAT_TRAINS, kelling3100, 19) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+    }
+    ENGINE_GRAPHICS_BLOCK(kelling3100_indepot)
+}

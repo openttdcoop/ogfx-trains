@@ -78,6 +78,8 @@
 #include "src/engine_asiastar.pnml"
 #include "src/engine_tim.pnml"
 
+#include "src/engine_kelling3100.pnml"
+
 #include "src/engine_milleniumZ1.pnml"
 
 #include "src/engine_lev3.pnml"
