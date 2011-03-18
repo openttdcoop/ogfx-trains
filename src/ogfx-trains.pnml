@@ -65,7 +65,6 @@
 #include "src/maglev_tank.pnml"
 #include "src/maglev_flatbed.pnml"
 
-
 /*
  * Re-declare all engines with new graphics here
  * (they don't use new vehicleIDs)
@@ -85,4 +84,5 @@
 #include "src/engine_milleniumZ1.pnml"
 
 #include "src/engine_lev3.pnml"
+#include "src/engine_wizzowowrocketeer.pnml" // id 88
 
