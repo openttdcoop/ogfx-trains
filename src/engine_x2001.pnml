@@ -1,0 +1,21 @@
+/*
+ * =============================================================================
+ * X2001 Monorail
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP(x2001, default, tmpl_engine_42(0, 0),  "src/gfx/engines/monorail_x2001_88.png")
+ENGINE_GRAPHICS_GROUP(x2001_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/monorail_x2001_88.png")
+
+switch(FEAT_TRAINS, SELF, x2001_indepot_switch, vehicle_is_in_depot) {
+    1: x2001_depot_default_group;
+    x2001_default_group;
+}
+
+item(FEAT_TRAINS, x2001, 54) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+    }
+    ENGINE_GRAPHICS_BLOCK(x2001_indepot)
+}

@@ -271,15 +271,11 @@ item(FEAT_TRAINS, asiastar, 26) {
 
 
 
-ENGINE_GRAPHICS_GROUP(x2001, default, tmpl_engine_42(0, 0),  "src/gfx/engines/monorail_x2001_88.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(x2001)
 item(FEAT_TRAINS, x2001, 54) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             0; // It's a symmetrical engine. We don't want it to reverse
+        // We define this engine in a separate file
         climates_available:     (USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL) ? bitmask(climate) : NO_CLIMATE;
     }
-    ENGINE_GRAPHICS_BLOCK(x2001)
 }
 
 ENGINE_GRAPHICS_GROUP(milleniumz1, default, tmpl_engine_88(0, 0),  "src/gfx/engines/monorail_millenium_88.png")

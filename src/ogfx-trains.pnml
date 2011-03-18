@@ -81,6 +81,7 @@
 #include "src/engine_mjs1000.pnml"      // id 21
 #include "src/engine_sh30_sh40.pnml"	// id 23, 24
 
+#include "src/engine_x2001.pnml"        // id 54
 #include "src/engine_milleniumZ1.pnml"
 
 #include "src/engine_lev3.pnml"
