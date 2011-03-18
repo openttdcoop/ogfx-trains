@@ -1,0 +1,25 @@
+/*
+ * =============================================================================
+ * MJS 1000
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP(mjs1000, default, tmpl_engine_42(0, 0),  "src/gfx/engines/arctic_MJS1000.png")
+ENGINE_GRAPHICS_GROUP(mjs1000, tropical, tmpl_engine_42(0, 0),  "src/gfx/engines/tropical_MJS1000_88.png")      // it's actually unsymmetric and should get changed sprites
+ENGINE_GRAPHICS_GROUP(mjs1000_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/arctic_MJS1000.png")
+ENGINE_GRAPHICS_GROUP(mjs1000_depot, tropical, tmpl_engine_88(176, 0), "src/gfx/engines/tropical_MJS1000_88.png") // it's actually unsymmetric
+ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs1000)
+ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs1000_depot)
+
+switch(FEAT_TRAINS, SELF, mjs1000_indepot_switch, vehicle_is_in_depot) {
+    1: mjs1000_depot_switch;
+    mjs1000_switch;
+}
+
+item(FEAT_TRAINS, mjs1000, 21) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+    }
+    ENGINE_GRAPHICS_BLOCK(mjs1000_indepot)
+}

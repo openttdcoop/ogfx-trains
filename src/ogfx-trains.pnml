@@ -78,8 +78,9 @@
 #include "src/engine_asiastar.pnml"
 #include "src/engine_tim.pnml"
 
-#include "src/engine_sh30_sh40.pnml"
-#include "src/engine_kelling3100.pnml"
+#include "src/engine_kelling3100.pnml"	// id 19
+#include "src/engine_mjs1000.pnml"      // id 21
+#include "src/engine_sh30_sh40.pnml"	// id 23, 24
 
 #include "src/engine_milleniumZ1.pnml"
 
