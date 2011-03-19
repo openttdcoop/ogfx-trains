@@ -76,7 +76,7 @@ the game you'll find at least one wagon which supports transporting it:
 - armoured wagon:
     valuables, gold, diamonds
 - bulk wagon:
-    coal, iron ore, bauxite, copper ore, gravel, sand, clay, grains,
+    coal, iron ore, bauxite, cement, copper ore, gravel, sand, clay, grains,
     maize, wheat, sulphur, fertilizer, scrap metal, fruit, 
     fruit & vegetables, toffee, sugar, cotton candy, sugar beet
     lumber (wood chips), cereal
@@ -200,9 +200,9 @@ check:
 5 License
 ---------
 
-This NewGRF was written by Ingo von Borstel (aka
-planetmaker) and is free to use for anyone under the terms of the GNU
-Pulic License v2 or higher. See license.txt.
+This NewGRF is copyright the authors and graphics artists (see credits
+section) of this set and is free to use for anyone under the terms of
+the GNU Pulic License version 2 or higher. See license.txt.
 
 The source code can be obtained from the #openttdcoop DevZone at
 http://dev.openttdcoop.org/projects/ogfx-trains or via mercurial

@@ -1,3 +1,13 @@
+Version 0.2.3
+-------------
+- Feature: Allow flipping of the non-multi-headed engines
+- Add: Special purchase list sprites for those wagons which have multiple different views
+- Add: Special purchase list and depot sprites for the symmetric engines, indicating flipped state
+- Change: Declare sprites specifically also for the valuables maglev and monorail wagons
+- Fix: random_switch needs bitmask() around the triggers
+- Fix: re randomization uses the (undocumented) callback 0x01 to figure out which bits to randomize. Also re randomization doesn't work nicely with CB_FAILED, return the default value instead
+- Fix: Bulk wagon couldn't carry cement
+
 Version 0.2.2
 -------------
 - Feature: Introduce climate dependent sprites for Kelling3100, CS2400, CS4000, MJS250, MJS1000 and Centennial
