@@ -1,0 +1,29 @@
+/*
+ * =============================================================================
+ * SH/Hengry '25' / Floss '47'
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP(hendry_floss, default, tmpl_engine_42(0, 0),  "src/gfx/engines/temperate_SH_Hendry25_88.png")
+ENGINE_GRAPHICS_GROUP(hendry_floss_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/temperate_SH_Hendry25_88.png")
+
+switch(FEAT_TRAINS, SELF, hendry_floss_indepot_switch, vehicle_is_in_depot) {
+    1: hendry_floss_depot_default_group;
+    hendry_floss_default_group;
+}
+
+item(FEAT_TRAINS, shhendry, 13) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+    }
+    ENGINE_GRAPHICS_BLOCK(hendry_floss_indepot)
+}
+
+item(FEAT_TRAINS, floss47, 15) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+    }
+    ENGINE_GRAPHICS_BLOCK(hendry_floss_indepot)
+}

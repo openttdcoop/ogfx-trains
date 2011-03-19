@@ -77,6 +77,8 @@
 #include "src/engine_asiastar.pnml"
 #include "src/engine_tim.pnml"
 
+#include "src/engine_hendry_floss.pnml" // id 13, 15
+#include "src/engine_uu37.pnml"         // id 14
 #include "src/engine_kelling3100.pnml"	// id 19
 #include "src/engine_mjs1000.pnml"      // id 21
 #include "src/engine_sh30_sh40.pnml"	// id 23, 24
@@ -84,6 +86,8 @@
 #include "src/engine_x2001.pnml"        // id 54
 #include "src/engine_milleniumZ1.pnml"
 
-#include "src/engine_lev3.pnml"
+#include "src/engine_lev1.pnml"         // id 84
+#include "src/engine_lev2.pnml"         // id 85
+#include "src/engine_lev3.pnml"         // id 86
 #include "src/engine_wizzowowrocketeer.pnml" // id 88
 

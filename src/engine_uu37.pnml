@@ -1,0 +1,21 @@
+/*
+ * =============================================================================
+ * UU 37
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP(uu37, default, tmpl_engine_42(0, 0),  "src/gfx/engines/temperate_UU37_88.png")
+ENGINE_GRAPHICS_GROUP(uu37_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/temperate_UU37_88.png")
+
+switch(FEAT_TRAINS, SELF, uu37_indepot_switch, vehicle_is_in_depot) {
+    1: uu37_depot_default_group;
+    uu37_default_group;
+}
+
+item(FEAT_TRAINS, uu37, 14) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+    }
+    ENGINE_GRAPHICS_BLOCK(uu37_indepot)
+}

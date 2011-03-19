@@ -1,0 +1,21 @@
+/*
+ * =============================================================================
+ * Lev2 Maglev
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP(lev2, default, tmpl_engine_42(0, 0),  "src/gfx/engines/maglev_lev2_88.png")
+ENGINE_GRAPHICS_GROUP(lev2_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/maglev_lev2_88.png")
+
+switch(FEAT_TRAINS, SELF, lev2_indepot_switch, vehicle_is_in_depot) {
+    1: lev2_depot_default_group;
+    lev2_default_group;
+}
+
+item(FEAT_TRAINS, lev2, 85) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+    }
+    ENGINE_GRAPHICS_BLOCK(lev2_indepot)
+}
