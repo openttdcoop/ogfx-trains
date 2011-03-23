@@ -1,3 +1,6 @@
+Version 0.2.4
+- Fix: Running and purchase costs were always way too low due to a compilation error
+
 Version 0.2.3
 -------------
 - Feature: Allow flipping of the non-multi-headed engines
