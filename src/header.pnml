@@ -150,11 +150,12 @@ if (param[0] == 0) { param[0] = climate + 2; }
  * 9: 1
  * ...
  * 18: 256x
+ * in NML a value of 0 means: don't change the base costs
  * ********************************************
  */
 
-#define AUTOMATIC_RUNNING_COST (param[2] == 0)
-RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param[2] - 9;
+#define AUTOMATIC_RUNNING_COST (param_running_cost_mult == 0)
+RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param_running_cost_mult - 9;
 
 /*
  * ********************************************
@@ -166,11 +167,12 @@ RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param[2] - 9;
  * 9: 1
  * ...
  * 18: 256x
+ * in NML a value of 0 means: don't change the base costs
  * ********************************************
  */
 
-#define AUTOMATIC_PURCHASE_COST (param[3] == 0)
-PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param[3] - 9;
+#define AUTOMATIC_PURCHASE_COST (param_purchase_cost_mult == 0)
+PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param_purchase_cost_mult - 9;
 
 /*
  * ********************************************
