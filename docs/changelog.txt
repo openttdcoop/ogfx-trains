@@ -1,4 +1,9 @@
+Version 0.2.5
+-------------
+- Fix: Asiastar and TIM were truncated in height in the horizontal view
+
 Version 0.2.4
+-------------
 - Fix: Running and purchase costs were always way too low due to a compilation error
 
 Version 0.2.3
