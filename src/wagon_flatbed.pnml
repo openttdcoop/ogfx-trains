@@ -117,17 +117,17 @@ SPRITEGROUP_4STAGES_NOLOADING(flatbed_wagon_wood,
     "src/gfx/flatbed/wood/WoodFlatbeds1b.png", "src/gfx/flatbed/wood/WoodFlatbeds1c.png", 
     tmpl_railwagon, 0, 0, 0, 0, 0)
 
-random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
     3: flatbed_wagon_engineeringsupplies_vehicle1_group;
     1: flatbed_wagon_engineeringsupplies_vehicle2_group;
 }
 
-random_switch (FEAT_TRAINS, SELF, flatbed_wagon_steel_switch, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+random_switch (FEAT_TRAINS, SELF, flatbed_wagon_steel_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
     1: flatbed_wagon_steel_rolls1_group;
     1: flatbed_wagon_steel_rolls2_group;
 }
 
-random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
     1: return 0x307;
     1: return 0x308;
     1: return 0x309;
