@@ -19,7 +19,7 @@ cargotable {                        // cargos needed for special refit orders
     PAPR, TOFF, SUGR, PLAS,
     PASS, MAIL, BATT, SWET,
     FMSP, ENSP, MNSP, DYES,
-    PLST
+    PLST, LIME
 }
 
 #define REFIT_PROPERTIES_PAX \
