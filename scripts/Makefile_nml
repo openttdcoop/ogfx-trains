@@ -22,7 +22,7 @@ $(TAG_FILENAME): $(REV_FILENAME)
 	$(_V) echo "TITLE    :$(REPO_TITLE)" >> $@
 	$(_V) echo "FILENAME :$(TARGET_FILES)" >> $@
 
-%.grf: %.nml $(REV_FILENAME) $(TAG_FILENAME)
+%.grf: %.nml $(REV_FILENAME) $(TAG_FILENAME) %.gfx.dep
 	$(_E) "[NML] $@"
 	$(_V) $(NML) $(NML_FLAGS) --grf $@ $<
 
