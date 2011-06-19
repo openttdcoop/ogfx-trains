@@ -9,9 +9,11 @@ clean:
 	$(_V)-rm -rf $(patsubst %.grf,%.md5,$(GRF_FILES))
 	$(_V)-rm -rf $(patsubst %.grf,%.nml,$(GRF_FILES))
 	$(_V)-rm -rf $(patsubst %.grf,%.cnfo,$(GRF_FILES)) $(patsubst %.grf,%.nfo,$(GRF_FILES))
-	$(_V) for name in `cat $(GRAPHICS_SOURCE_LIST_FILE) | grep -v '^#' | $(AWK) 'BEGIN { FS="\t+"} ; { print $$1".scm" }'`; do [ -w $$name ] && rm $$name; done
+ifneq ("$(strip $(GRAPHICS_SOURCE_LIST_FILE))", "")
+	$(_V) for name in `cat $(GRAPHICS_SOURCE_LIST_FILE) | grep -v '^#' | $(AWK) 'BEGIN {FS="[\t ]+"} ; { print $$1".scm" }'`; do [ -w $$name ] && rm $$name; done
+endif
 	$(_V)-rm -rf $(DIR_NAME)
-	$(_V)-if [ "$(CLEAN_ADD)" ]; then for i in `ls $(CLEAN_ADD) 2> /dev/null`; do [ "$$i" != "" ] && rm $$i; done; fi
+	$(_V)-if [ "$(CLEAN_ADD)" ]; then for i in `ls $(CLEAN_ADD) 2> /dev/null`; do [ "$$i" != "" ] && rm $$i; done; fi 
 
 # More thoroughly clean the source tree. Should restore the initial
 # state of a tarball (except for manual changes to Makefile.local, of
@@ -85,7 +87,7 @@ test::
 
 docs: $(DOC_FILES)
 
-ifdef GRAPHICS_SOURCE_LIST_FILE
+ifneq ("$(strip $(GRAPHICS_SOURCE_LIST_FILE))", "")
 Makefile_gfx.dep: $(GRAPHICS_SOURCE_LIST_FILE)
 	$(_E) "[GFX DEP]"
 	$(_V) cat $< | grep '^#' \
@@ -108,7 +110,7 @@ endif
 ifdef USE_NML
 	$(_V) echo "$(MAKEFILE_DEP): $(SCRIPT_DIR)/Makefile_nml" >> $(MAKEFILE_DEP)
 endif
-ifdef GRAPHICS_SOURCE_LIST_FILE
+ifneq ("$(strip $GRAPHICS_SOURCE_LIST_FILE)", "")
 ifdef GIMP
 	$(_E) "[DEP] *.scm"
 	$(_V) echo "$(MAKEFILE_DEP): $(SCRIPT_DIR)/gimpscript" >> $(MAKEFILE_DEP)
@@ -119,20 +121,23 @@ endif
 endif
 
 ifeq ($(DEP_CHECK_TYPE),normal)
-%.gfx.dep: %.src.dep $(GRAPHICS_SOURCE_LIST_FILE) $(MAKEFILE_DEP)
+%.gfx.dep: %.src.dep
 	$(_E) "[DEP] $@"
 	$(_V) echo "" > $@
 	$(_V) for i in `cat $<`; do for j in `echo "$$i" | grep -iE "($(FILE_SRC_RE))"`; do if [ -f $$j ]; then for k in `cat $$j | grep -v '^//'| grep -E -o "[-|a-z|A-Z|0-9|_|/|\.]*\.($(FILE_INC_RE))"`; do echo "$(patsubst %.gfx.dep,%.grf,$@): $$k"; done; fi; done; done | sort | uniq >> $@
 	$(_V) touch $@
-ifdef GRAPHICS_SOURCE_LIST_FILE
+ifneq ("$(strip $GRAPHICS_SOURCE_LIST_FILE)", "")
 ifdef GIMP
-	$(_V) cat $(GRAPHICS_SOURCE_LIST_FILE) | grep -v '^#' | $(AWK) '{ print $$1".scm: "$$2 }' >> $@
+	$(_V) for name in $(GRAPHICS_SOURCE_LIST_FILE); do cat $${name} | grep -v '^#' | $(AWK) '{ print $$1".scm: "$$2" "}' >> $@; done
 endif
 endif
 endif
 
-%.png: %.png.scm
-ifdef GRAPHICS_SOURCE_LIST_FILE
+%.scm: scripts/gimpscript
+%.png: Makefile_gfx.dep
+
+%.png: %.scm
+ifneq ("$(strip $GRAPHICS_SOURCE_LIST_FILE)", "")
 ifdef GIMP
 	$(_E) "[GIMP] $@"
 	$(_V) $(GIMP) $(GIMP_FLAGS) $< >/dev/null
