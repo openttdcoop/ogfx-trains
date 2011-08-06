@@ -17,6 +17,7 @@ STR_PARAM_ENGINES_ARCTIC                                        :Arctic
 STR_PARAM_ENGINES_TROPICAL                                      :Tropical
 STR_PARAM_ENGINES_TOYLAND                                       :Toyland
 STR_PARAM_ENGINES_ALL                                           :All
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :All but Toyland
 STR_PARAM_KEEP_ORIGINAL                                         :Keep all existing default vehicles
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :This setting is included for debugging purposes. You can use this setting if you want to add this newgrf to a running game with existing default vehicles. This is known to cause problems; enable it at your own risk.
 

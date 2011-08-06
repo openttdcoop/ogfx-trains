@@ -12,7 +12,7 @@ grf {
 			name:    string(STR_PARAM_ENGINES);
 			desc:    string(STR_PARAM_ENGINES_DESC);
 			min_value: 0;
-			max_value: 6;
+			max_value: 7;
 			def_value: 0;
 			names: {
 				0: string(STR_PARAM_ENGINES_DEFAULT);
@@ -22,6 +22,7 @@ grf {
                 4: string(STR_PARAM_ENGINES_TROPICAL);
                 5: string(STR_PARAM_ENGINES_TOYLAND);
                 6: string(STR_PARAM_ENGINES_ALL);
+				7: string(STR_PARAM_ENGINES_ALL_BUT_TOYLAND);
 			};
 		}
 	}
@@ -122,11 +123,12 @@ grf {
  */
 
 if (param[0] == 0) { param[0] = climate + 2; }
-#define USE_CLIMATE_TEMPERATE ((param[0] - 2) == CLIMATE_TEMPERATE)
-#define USE_CLIMATE_ARCTIC    ((param[0] - 2) == CLIMATE_ARCTIC)
-#define USE_CLIMATE_TROPICAL  ((param[0] - 2) == CLIMATE_TROPICAL)
-#define USE_CLIMATE_TOYLAND   ((param[0] - 2) == CLIMATE_TOYLAND)
-#define USE_CLIMATE_ALL       (param[0] == 6)
+#define USE_CLIMATE_TEMPERATE       ((param_provide - 2) == CLIMATE_TEMPERATE)
+#define USE_CLIMATE_ARCTIC          ((param_provide - 2) == CLIMATE_ARCTIC)
+#define USE_CLIMATE_TROPICAL        ((param_provide - 2) == CLIMATE_TROPICAL)
+#define USE_CLIMATE_TOYLAND         ((param_provide - 2) == CLIMATE_TOYLAND)
+#define USE_CLIMATE_ALL             (param_provide == 6)
+#define USE_CLIMATE_ALL_BUT_TOYLAND (param_provide == 7)
 
 
 /*
