@@ -8,6 +8,7 @@ parsetab.py
 
 # And the description file and the grs which are generated automatically
 # This has to be adopted to the newgrf filename
+ogfx-trains*
 *.grf
 docs/readme.txt
 
