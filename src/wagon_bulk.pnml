@@ -165,6 +165,7 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
     RSGR: return 20;
     RUBR: return 21;
     SWET: return 25;
+    WDPR: return 25;
     CB_FAILED;
 }
 
