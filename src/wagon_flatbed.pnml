@@ -9,6 +9,8 @@
  * ***************************
  */
 
+#define THIS_ID(...) flatbed_wagon ## __VA_ARGS__
+
 // default: container
 spriteset(flatbed_wagon_container_empty_set, "src/gfx/flatbed/rail_flatbed_container_temperate.png") { tmpl_railwagon(0, 8) }
 spriteset(flatbed_wagon_container_full_set, "src/gfx/flatbed/rail_flatbed_container_temperate.png") { tmpl_railwagon(126, 8) }
@@ -234,7 +236,7 @@ item(FEAT_TRAINS, flatbed_wagon) {
         weight:                         16;
     }
     graphics {
-        0xFF: flatbed_wagon_container_group;
+        purchase: flatbed_wagon_container_group;
         flatbed_wagon_cb_switch;
     }
 }

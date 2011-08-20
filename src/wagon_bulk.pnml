@@ -11,6 +11,8 @@
  * ***************************
  */
 
+#define THIS_ID(...) bulk_wagon ## __VA_ARGS__
+
 // AORE
 spriteset(bulk_wagon_bauxite_early_empty_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_bauxite_early_full_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(126, 0) }
@@ -158,7 +160,6 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
-    // default: 30 units
     FICR: return 25;
     FRUT: return 25;
     FRVG: return 25;
@@ -166,11 +167,10 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
     RUBR: return 21;
     SWET: return 25;
     WDPR: return 25;
-    CB_FAILED;
+    return 30;
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_veh) {
-    // default: 19 tons
     COAL: return 18;
     FRUT: return 18;
     FRVG: return 18;
@@ -178,26 +178,13 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_v
     RSGR: return 18;
     SWET: return 21;
     TOFF: return 20;
-    CB_FAILED;
+    return 19;
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_cargo_subtype_switch, cargo_type_in_veh) {
 	WDPR: return string(STR_BULK_WAGON_CARGO_SUBTYPE_WDPR);
     CB_FAILED;
 }
-
-switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_switch, extra_callback_info1) {
-    0x16: bulk_wagon_cb_property_weight_switch;
-    CB_FAILED;
-}
-
-switch (FEAT_TRAINS, SELF, bulk_wagon_cb_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  bulk_wagon_cb_capacity_switch;
-    VEH_CB_VEHICLE_PROPERTIES: bulk_wagon_cb_property_switch;
-	VEH_CB_CARGO_SUFFIX:       bulk_wagon_cb_cargo_subtype_switch;
-    bulk_wagon_switch;
-}
-
 
 item(FEAT_TRAINS, bulk_wagon) {
     property {
@@ -212,7 +199,13 @@ item(FEAT_TRAINS, bulk_wagon) {
         weight:                         19 ton;
     }
     graphics {
-        0xFF: bulk_wagon_coal_year_switch;
-        bulk_wagon_cb_switch;
+		cargo_capacity:     bulk_wagon_cb_capacity_switch;
+		weight:             bulk_wagon_cb_property_weight_switch;
+		cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
+
+        purchase:           bulk_wagon_coal_year_switch;
+        bulk_wagon_switch;
     }
 }
+
+#undef THIS_ID

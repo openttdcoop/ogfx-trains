@@ -78,12 +78,6 @@ switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_graphics_switch, cargo_type_in_veh
     bulk_wagon_switch;                  // default to normal rail wagons
 }
 
-switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  bulk_wagon_cb_capacity_switch; // same behaviour as rail wagons
-    VEH_CB_VEHICLE_PROPERTIES: bulk_wagon_cb_property_switch; // same behaviour as rail wagons
-    monorail_bulk_wagon_graphics_switch;
-}
-
 item(FEAT_TRAINS, monorail_bulk_wagon) {
     property {
         // We try to simulate the stats of the temperate grain wagon
@@ -97,7 +91,10 @@ item(FEAT_TRAINS, monorail_bulk_wagon) {
         weight:                         19 ton;
     }
     graphics {
-        0xFF: monorail_bulk_wagon_coal_switch;
-        monorail_bulk_wagon_switch;
+	    cargo_capacity:   bulk_wagon_cb_capacity_switch;
+		weight:           bulk_wagon_cb_property_weight_switch;
+
+        purchase:         monorail_bulk_wagon_coal_switch;
+        monorail_bulk_wagon_graphics_switch;
     }
 }

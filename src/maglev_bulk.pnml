@@ -22,18 +22,6 @@ switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_capacity_switch, cargo_type_in_v
     CB_FAILED;
 }
 
-switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_property_switch, extra_callback_info1) {
-    0x16: bulk_wagon_cb_property_weight_switch; // same weight for all rail types
-    0x14: maglev_bulk_wagon_cb_capacity_switch; // set weight
-    CB_FAILED;
-}
-
-switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  maglev_bulk_wagon_cb_capacity_switch;
-    VEH_CB_VEHICLE_PROPERTIES: maglev_bulk_wagon_cb_property_switch;
-    monorail_bulk_wagon_graphics_switch;
-}
-
 item(FEAT_TRAINS, maglev_bulk_wagon) {
     property {
         name:                           string(STR_NAME_BULK_WAGON);
@@ -46,7 +34,10 @@ item(FEAT_TRAINS, maglev_bulk_wagon) {
         weight:                         18;
      }
     graphics {
-        0xFF: monorail_bulk_wagon_coal_switch;
-        maglev_bulk_wagon_switch;     // we use the same graphics so far
+        cargo_capacity: maglev_bulk_wagon_cb_capacity_switch;
+        weight:         bulk_wagon_cb_property_weight_switch;
+
+        purchase: monorail_bulk_wagon_coal_switch;
+        monorail_bulk_wagon_graphics_switch;     // we use the same graphics so far
     }
 }
