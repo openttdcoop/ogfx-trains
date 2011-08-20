@@ -130,23 +130,23 @@ random_switch (FEAT_TRAINS, SELF, flatbed_wagon_steel_switch, bitmask(TRIGGER_VE
 }
 
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
-    1: return 0x307;
-    1: return 0x308;
-    1: return 0x309;
-    1: return 0x30A;
-    1: return 0x30B;
-    1: return 0x30C;
-    1: return 0x30D;
-    1: return 0x30E;
-    1: return 0x30F;
-    1: return 0x310;
-    1: return 0x311;
-    1: return 0x312;
-    1: return 0x313;
-    1: return 0x314;
-    1: return 0x315;
-    1: return 0x316;
-    48: return 0x4000;
+    1: return PALETTE_CC_DARK_BLUE;
+    1: return PALETTE_CC_PALE_GREEN;
+    1: return PALETTE_CC_PINK;
+    1: return PALETTE_CC_YELLOW;
+    1: return PALETTE_CC_RED;
+    1: return PALETTE_CC_LIGHT_BLUE;
+    1: return PALETTE_CC_GREEN;
+    1: return PALETTE_CC_DARK_GREEN;
+    1: return PALETTE_CC_BLUE;
+    1: return PALETTE_CC_CREAM;
+    1: return PALETTE_CC_MAUVE;
+    1: return PALETTE_CC_PURPLE;
+    1: return PALETTE_CC_ORANGE;
+    1: return PALETTE_CC_BROWN;
+    1: return PALETTE_CC_GREY;
+    1: return PALETTE_CC_WHITE;
+    48: return CB_FAILED;
 }
 
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
@@ -194,11 +194,6 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_property_weight_switch, cargo_type_i
     return 16;
 }
 
-switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_property_switch, extra_callback_info1) {
-    0x16: flatbed_wagon_cb_property_weight_switch;
-    CB_FAILED;
-}
-
 switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_cargo_suffix_switch, cargo_type_in_veh) {
     FMSP: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS);
     ENSP: return string(STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY);
@@ -214,15 +209,6 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_colour_switch, cargo_type_in_veh) {
     CB_FAILED;
 }
 
-switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  flatbed_wagon_cb_capacity_switch;
-    VEH_CB_VEHICLE_PROPERTIES: flatbed_wagon_cb_property_switch;
-    VEH_CB_CARGO_SUFFIX: flatbed_wagon_cb_cargo_suffix_switch;
-    VEH_CB_COLOUR_MAPPING: flatbed_wagon_cb_colour_switch;
-    0x01: flatbed_wagon_cb_colour_switch;
-    flatbed_wagon_switch;
-}
-
 item(FEAT_TRAINS, flatbed_wagon) {
     property {
         // We try to simulate the stats of the temperate wood wagon
@@ -236,7 +222,13 @@ item(FEAT_TRAINS, flatbed_wagon) {
         weight:                         16;
     }
     graphics {
-        purchase: flatbed_wagon_container_group;
-        flatbed_wagon_cb_switch;
+        cargo_capacity:     flatbed_wagon_cb_capacity_switch;
+        weight:             flatbed_wagon_cb_property_weight_switch;
+        cargo_subtype_text: flatbed_wagon_cb_cargo_suffix_switch;
+        colour_mapping:     flatbed_wagon_cb_colour_switch;
+        random_trigger:     flatbed_wagon_cb_colour_switch;
+
+        purchase:           flatbed_wagon_container_group;
+        flatbed_wagon_switch;
     }
 }

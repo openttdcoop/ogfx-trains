@@ -20,18 +20,6 @@ switch (FEAT_TRAINS, SELF, maglev_flatbed_wagon_cb_capacity_switch, cargo_type_i
     return 37;
 }
 
-switch (FEAT_TRAINS, SELF, maglev_flatbed_wagon_cb_property_switch, extra_callback_info1) {
-    0x16: flatbed_wagon_cb_property_weight_switch; // weight is independent of railtype, use rail wagon
-    0x14: maglev_flatbed_wagon_cb_capacity_switch;
-    CB_FAILED;
-}
-
-switch(FEAT_TRAINS, SELF, maglev_flatbed_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  maglev_flatbed_wagon_cb_capacity_switch;
-    VEH_CB_VEHICLE_PROPERTIES: maglev_flatbed_wagon_cb_property_switch;
-    monorail_flatbed_graphics_switch;                                      // use monorail wagon graphics
-}
-
 item(FEAT_TRAINS, maglev_flatbed_wagon) {
     property {
         name:                           string(STR_NAME_FLATBED_WAGON);
@@ -44,7 +32,13 @@ item(FEAT_TRAINS, maglev_flatbed_wagon) {
         weight:                         16;
     }
     graphics {
-        0xFF: monorail_flatbed_wood_climate_switch;
-        maglev_flatbed_switch;
+        cargo_capacity:     maglev_flatbed_wagon_cb_capacity_switch;
+        weight:             flatbed_wagon_cb_property_weight_switch;
+        cargo_subtype_text: flatbed_wagon_cb_cargo_suffix_switch;
+        colour_mapping:     flatbed_wagon_cb_colour_switch;
+        random_trigger:     flatbed_wagon_cb_colour_switch;
+
+        purchase:           monorail_flatbed_wood_climate_switch;
+        monorail_flatbed_graphics_switch;
     }
 }

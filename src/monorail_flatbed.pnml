@@ -48,12 +48,6 @@ switch(FEAT_TRAINS, SELF, monorail_flatbed_graphics_switch, cargo_type_in_veh) {
 	flatbed_wagon_switch;
 }
 
-switch (FEAT_TRAINS, SELF, monorail_flatbed_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  flatbed_wagon_cb_capacity_switch; // use rail wagon properties
-    VEH_CB_VEHICLE_PROPERTIES: flatbed_wagon_cb_property_switch; // use rail wagon properties
-    monorail_flatbed_graphics_switch;
-}
-
 item(FEAT_TRAINS, monorail_flatbed_wagon) {
     property {
         name:                           string(STR_NAME_FLATBED_WAGON);
@@ -66,7 +60,13 @@ item(FEAT_TRAINS, monorail_flatbed_wagon) {
         weight:                         16;
     }
     graphics {
-        0xFF: monorail_flatbed_wood_climate_switch;
-        monorail_flatbed_switch;
+        cargo_capacity:     flatbed_wagon_cb_capacity_switch;        // same as rail wagon
+        weight:             flatbed_wagon_cb_property_weight_switch; // same as rail wagon
+        cargo_subtype_text: flatbed_wagon_cb_cargo_suffix_switch;    // same as rail wagon
+        colour_mapping:     flatbed_wagon_cb_colour_switch;          // same as rail wagon
+        random_trigger:     flatbed_wagon_cb_colour_switch;          // same as rail wagon
+
+        purchase:           monorail_flatbed_wood_climate_switch;
+        monorail_flatbed_graphics_switch;
     }
 }
