@@ -85,7 +85,7 @@ WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_ironore)
 
 // MAIZ: see CERE
 
-// RSGR
+// RSGR (and SGCN, SGBT)
 spriteset(bulk_wagon_empty_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,500) }
 spriteset(bulk_wagon_rawsugar_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,525) }
 spritegroup bulk_wagon_rawsugar_group {
@@ -149,6 +149,8 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     IORE: bulk_wagon_ironore_year_switch;
     MAIZ: bulk_wagon_grain_year_switch;
     RSGR: bulk_wagon_rawsugar_group;
+	SGCN: bulk_wagon_rawsugar_group;
+	SGBT: bulk_wagon_rawsugar_group;
     SAND: bulk_wagon_sand_year_switch;
     SCRP: bulk_wagon_scrapmetal_year_switch;
     SUGR: bulk_wagon_sugar_group;
@@ -164,6 +166,8 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
     FRUT: return 25;
     FRVG: return 25;
     RSGR: return 20;
+    SGCN: return 20;
+    SGBT: return 20;
     RUBR: return 21;
     SWET: return 25;
     WDPR: return 25;
@@ -176,6 +180,8 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_v
     FRVG: return 18;
     PLAS: return 18;
     RSGR: return 18;
+    SGCN: return 18;
+    SGBT: return 18;
     SWET: return 21;
     TOFF: return 20;
     return 19;
