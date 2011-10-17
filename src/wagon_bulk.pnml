@@ -149,8 +149,8 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     IORE: bulk_wagon_ironore_year_switch;
     MAIZ: bulk_wagon_grain_year_switch;
     RSGR: bulk_wagon_rawsugar_group;
-	SGCN: bulk_wagon_rawsugar_group;
-	SGBT: bulk_wagon_rawsugar_group;
+    SGCN: bulk_wagon_rawsugar_group;
+    SGBT: bulk_wagon_rawsugar_group;
     SAND: bulk_wagon_sand_year_switch;
     SCRP: bulk_wagon_scrapmetal_year_switch;
     SUGR: bulk_wagon_sugar_group;
