@@ -32,12 +32,6 @@ switch(FEAT_TRAINS, SELF, monorail_tank_graphics_switch, cargo_type_in_veh) {
 	tank_wagon_switch;                   // fall back to normal rail tank wagon
 }
 
-switch (FEAT_TRAINS, SELF, monorail_tank_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  tank_wagon_cb_capacity_switch; // use rail wagon properties
-    VEH_CB_VEHICLE_PROPERTIES: tank_wagon_cb_property_switch; // use rail wagon properties
-    monorail_tank_graphics_switch;
-}
-
 item(FEAT_TRAINS, monorail_tank_wagon) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
@@ -50,7 +44,11 @@ item(FEAT_TRAINS, monorail_tank_wagon) {
         weight:                         24;
     }
     graphics {
+		cargo_capacity:     tank_wagon_cb_capacity_switch;
+		weight:             tank_wagon_cb_property_weight_switch;
+        refit_cost:         tank_wagon_refit_cost_switch;
+
         0xFF: monorail_tank_oil_climate_switch;
-        monorail_tank_switch;
+        monorail_tank_graphics_switch;
     }
 }

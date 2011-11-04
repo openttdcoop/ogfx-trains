@@ -96,16 +96,30 @@ switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_weight_switch, cargo_type_in_v
     CB_FAILED;
 }
 
-switch (FEAT_TRAINS, SELF, tank_wagon_cb_property_switch, extra_callback_info1) {
-    0x16: tank_wagon_cb_property_weight_switch;
-    0x14: tank_wagon_cb_capacity_switch;         // also needed as CB_REFITTED_CAPACITY doesn't work for default cargo
-    CB_FAILED;
+switch (FEAT_TRAINS, SELF, tank_wagon_refit_from_clean_switch, extra_callback_info1 & 0xFF) {
+	COLA: return 20 | CB_RESULT_AUTOREFIT;
+	FZDR: return 20 | CB_RESULT_AUTOREFIT;
+	MILK: return 20 | CB_RESULT_AUTOREFIT;
+	WATR: return 20 | CB_RESULT_AUTOREFIT;
+	return 10 | CB_RESULT_AUTOREFIT;
 }
-
-switch (FEAT_TRAINS, SELF, tank_wagon_cb_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  tank_wagon_cb_capacity_switch;
-    VEH_CB_VEHICLE_PROPERTIES: tank_wagon_cb_property_switch;
-    tank_wagon_switch;
+switch (FEAT_TRAINS, SELF, tank_wagon_refit_from_dirty_switch, extra_callback_info1 & 0xFF) {
+	COLA: CB_FAILED;
+	FZDR: CB_FAILED;
+	MILK: CB_FAILED;
+	WATR: CB_FAILED;
+	return 40 | CB_RESULT_AUTOREFIT;
+}
+switch (FEAT_TRAINS, SELF, tank_wagon_refit_cost_switch, cargo_type_in_veh) {
+	CMNT: tank_wagon_refit_from_dirty_switch;
+    COLA: tank_wagon_refit_from_clean_switch;
+    FZDR: tank_wagon_refit_from_clean_switch;
+    MILK: tank_wagon_refit_from_clean_switch;
+    OIL_: tank_wagon_refit_from_dirty_switch;
+    PETR: tank_wagon_refit_from_dirty_switch;
+    RFPR: tank_wagon_refit_from_dirty_switch;
+    WATR: tank_wagon_refit_from_clean_switch;
+    return CB_FAILED;
 }
 
 
@@ -122,7 +136,11 @@ item(FEAT_TRAINS, tank_wagon) {
         weight:                         24;
     }
     graphics {
-        0xFF: tank_wagon_default_switch;
-        tank_wagon_cb_switch;
+		cargo_capacity:     tank_wagon_cb_capacity_switch;
+		weight:             tank_wagon_cb_property_weight_switch;
+        refit_cost:         tank_wagon_refit_cost_switch;
+
+        purchase: tank_wagon_default_switch;
+        tank_wagon_default_switch;
     }
 }
