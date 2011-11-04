@@ -27,9 +27,11 @@ item(FEAT_TRAINS, refrigerate_wagon) {
         callback_flags:                 0;
         cargo_capacity:                 25;
         weight:                         22;
+        cargo_age_period:               372;
     }
     graphics {
         refit_cost:         refrigerate_wagon_refit_cost_switch;
+        additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 
         refrigerate_wagon_default_group;
     }
