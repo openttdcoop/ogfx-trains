@@ -187,6 +187,68 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_v
     return 19;
 }
 
+switch (FEAT_TRAINS, SELF, bulk_wagon_refit_from_dirty_switch, extra_callback_info1 & 0xFF) {
+	// cleaning needs to be done in a depot with default refit costs
+	CERE: return CB_FAILED;
+	CTCD: return CB_FAILED;
+	FRUT: return CB_FAILED;
+	FRVG: return CB_FAILED;
+	GRAI: return CB_FAILED;
+	MAIZ: return CB_FAILED;
+	RSGR: return CB_FAILED;
+	SGCN: return CB_FAILED;
+	SGBT: return CB_FAILED;
+	TOFF: return CB_FAILED;
+	WHEA: return CB_FAILED;
+	// if the wagon is already dirty, and we put in dirty stuff, just do so w/o costs:
+	return 0 | CB_RESULT_AUTOREFIT;
+}
+
+switch (FEAT_TRAINS, SELF, bulk_wagon_refit_from_clean_switch, extra_callback_info1 & 0xFF) {
+	// The wagon is clean, but we want to transport something else. Clean it quickly
+	// in the station with a broom and some water. Allow it at a cost.
+	CERE: return 20 | CB_RESULT_AUTOREFIT;
+	CTCD: return 20 | CB_RESULT_AUTOREFIT;
+	FRUT: return 20 | CB_RESULT_AUTOREFIT;
+	FRVG: return 20 | CB_RESULT_AUTOREFIT;
+	GRAI: return 20 | CB_RESULT_AUTOREFIT;
+	MAIZ: return 20 | CB_RESULT_AUTOREFIT;
+	RSGR: return 20 | CB_RESULT_AUTOREFIT;
+	SGCN: return 20 | CB_RESULT_AUTOREFIT;
+	SGBT: return 20 | CB_RESULT_AUTOREFIT;
+	TOFF: return 20 | CB_RESULT_AUTOREFIT;
+	WHEA: return 20 | CB_RESULT_AUTOREFIT;
+	// the wagon is clean and we want to transport dirty stuff. Just do so w/o costs:
+	return 0 | CB_RESULT_AUTOREFIT;
+}
+
+switch (FEAT_TRAINS, SELF, bulk_wagon_refit_cost_switch, cargo_type_in_veh) {
+	COAL: bulk_wagon_refit_from_dirty_switch;
+	AORE: bulk_wagon_refit_from_dirty_switch;
+	CERE: bulk_wagon_refit_from_clean_switch;
+	CLAY: bulk_wagon_refit_from_dirty_switch;
+	CORE: bulk_wagon_refit_from_dirty_switch;
+	CTCD: bulk_wagon_refit_from_clean_switch;
+	FERT: bulk_wagon_refit_from_dirty_switch;
+	FRUT: bulk_wagon_refit_from_clean_switch;
+	FRVG: bulk_wagon_refit_from_clean_switch;
+	GRAI: bulk_wagon_refit_from_clean_switch;
+	GRVL: bulk_wagon_refit_from_dirty_switch;
+	IORE: bulk_wagon_refit_from_dirty_switch;
+	MAIZ: bulk_wagon_refit_from_clean_switch;
+	RSGR: bulk_wagon_refit_from_clean_switch;
+	SGCN: bulk_wagon_refit_from_clean_switch;
+	SGBT: bulk_wagon_refit_from_clean_switch;
+	SAND: bulk_wagon_refit_from_dirty_switch;
+	SCRP: bulk_wagon_refit_from_dirty_switch;
+	SUGR: bulk_wagon_refit_from_clean_switch;
+	SULP: bulk_wagon_refit_from_dirty_switch;
+	TOFF: bulk_wagon_refit_from_clean_switch;
+	WHEA: bulk_wagon_refit_from_clean_switch;
+	WDPR: bulk_wagon_refit_from_dirty_switch;
+	return CB_FAILED; // use default refit cost, but no autorefit.
+}
+
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_cargo_subtype_switch, cargo_type_in_veh) {
 	WDPR: return string(STR_BULK_WAGON_CARGO_SUBTYPE_WDPR);
     CB_FAILED;
@@ -210,6 +272,7 @@ item(FEAT_TRAINS, bulk_wagon) {
 		cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
 
         purchase:           bulk_wagon_coal_year_switch;
+        refit_cost:         bulk_wagon_refit_cost_switch;
         bulk_wagon_switch;
     }
 }
