@@ -160,6 +160,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     PETR: flatbed_wagon_fueloil_group;
     RFPR: flatbed_wagon_refineryproducts_group;
     STEL: flatbed_wagon_steel_switch;
+    COPR: flatbed_wagon_steel_switch;
     VEHI: flatbed_wagon_vehicles_group;
     WDPR: flatbed_wagon_woodproducts_group;
     WOOD: flatbed_wagon_wood_group;

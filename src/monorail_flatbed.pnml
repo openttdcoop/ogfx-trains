@@ -44,6 +44,7 @@ switch(FEAT_TRAINS, SELF, monorail_flatbed_wood_climate_switch, climate) {
 switch(FEAT_TRAINS, SELF, monorail_flatbed_graphics_switch, cargo_type_in_veh) {
 	PAPR: monorail_flatbed_paper_group;
 	STEL: monorail_flatbed_steel_group;
+	COPR: monorail_flatbed_steel_group;
 	WOOD: monorail_flatbed_wood_climate_switch;
 	flatbed_wagon_switch;
 }
