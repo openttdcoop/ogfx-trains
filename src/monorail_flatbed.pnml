@@ -65,6 +65,7 @@ item(FEAT_TRAINS, monorail_flatbed_wagon) {
         cargo_subtype_text: flatbed_wagon_cb_cargo_suffix_switch;    // same as rail wagon
         colour_mapping:     flatbed_wagon_cb_colour_switch;          // same as rail wagon
         random_trigger:     flatbed_wagon_cb_colour_switch;          // same as rail wagon
+        refit_cost:         flatbed_wagon_refit_cost_switch;
 
         purchase:           monorail_flatbed_wood_climate_switch;
         monorail_flatbed_graphics_switch;

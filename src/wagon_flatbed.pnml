@@ -91,11 +91,11 @@ spritegroup flatbed_wagon_fueloil_group {
 }
 
 // STEL
-SPRITEGROUP_3STAGES_NOLOADING(flatbed_wagon_steel_rolls1, 
-    "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a1.png", 
+SPRITEGROUP_3STAGES_NOLOADING(flatbed_wagon_steel_rolls1,
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
     "src/gfx/flatbed/steel/SteelFlatbeds1b1.png", tmpl_railwagon, 0, 0, 0, 0)
-SPRITEGROUP_3STAGES_NOLOADING(flatbed_wagon_steel_rolls2, 
-    "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a2.png", 
+SPRITEGROUP_3STAGES_NOLOADING(flatbed_wagon_steel_rolls2,
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a2.png",
     "src/gfx/flatbed/steel/SteelFlatbeds1b2.png", tmpl_railwagon, 0, 0, 0, 0)
 
 // VEHI (vehicles)
@@ -114,9 +114,9 @@ spritegroup flatbed_wagon_woodproducts_group {
 }
 
 // WOOD
-SPRITEGROUP_4STAGES_NOLOADING(flatbed_wagon_wood, 
-    "src/gfx/flatbed/wood/WoodFlatbeds1.png", "src/gfx/flatbed/wood/WoodFlatbeds1a.png", 
-    "src/gfx/flatbed/wood/WoodFlatbeds1b.png", "src/gfx/flatbed/wood/WoodFlatbeds1c.png", 
+SPRITEGROUP_4STAGES_NOLOADING(flatbed_wagon_wood,
+    "src/gfx/flatbed/wood/WoodFlatbeds1.png", "src/gfx/flatbed/wood/WoodFlatbeds1a.png",
+    "src/gfx/flatbed/wood/WoodFlatbeds1b.png", "src/gfx/flatbed/wood/WoodFlatbeds1c.png",
     tmpl_railwagon, 0, 0, 0, 0, 0)
 
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
@@ -209,6 +209,38 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_cb_colour_switch, cargo_type_in_veh) {
     CB_FAILED;
 }
 
+// Carrying vehicles needs special equipment. Changing from that to other transport types
+// needs a depot visit. Different vehicle types need no change and are fine to be changed
+// in a station w/o cost and trouble
+switch (FEAT_TRAINS, SELF, flatbed_wagon_refit_from_vehicles, extra_callback_info1 & 0xFF) {
+	FMSP: return 0 | CB_RESULT_AUTOREFIT;
+	ENSP: return 0 | CB_RESULT_AUTOREFIT;
+	VEHI: return 0 | CB_RESULT_AUTOREFIT;
+	return CB_FAILED;
+}
+// Carrying containers requires stakes to be removed. This needs a depot visit. Changing
+// one container for the other incurs no cost nor needs a depot visit.
+switch (FEAT_TRAINS, SELF, flatbed_wagon_refit_from_flat, extra_callback_info1 & 0xFF) {
+	GOOD: return 0 | CB_RESULT_AUTOREFIT;
+	return CB_FAILED;
+}
+// Being a stake wagon is default. Allow refit without trouble and cost. Other versions
+// need a depot visit
+switch (FEAT_TRAINS, SELF, flatbed_wagon_refit_from_stakes, extra_callback_info1 & 0xFF) {
+	FMSP: return CB_FAILED;
+	ENSP: return CB_FAILED;
+	VEHI: return CB_FAILED;
+	GOOD: return CB_FAILED;
+	return 0 | CB_RESULT_AUTOREFIT;
+}
+switch (FEAT_TRAINS, SELF, flatbed_wagon_refit_cost_switch, cargo_type_in_veh) {
+	FMSP: flatbed_wagon_refit_from_vehicles;
+	ENSP: flatbed_wagon_refit_from_vehicles;
+	VEHI: flatbed_wagon_refit_from_vehicles;
+	GOOD: flatbed_wagon_refit_from_flat;
+	flatbed_wagon_refit_from_stakes;
+}
+
 item(FEAT_TRAINS, flatbed_wagon) {
     property {
         // We try to simulate the stats of the temperate wood wagon
@@ -227,6 +259,7 @@ item(FEAT_TRAINS, flatbed_wagon) {
         cargo_subtype_text: flatbed_wagon_cb_cargo_suffix_switch;
         colour_mapping:     flatbed_wagon_cb_colour_switch;
         random_trigger:     flatbed_wagon_cb_colour_switch;
+        refit_cost:         flatbed_wagon_refit_cost_switch;
 
         purchase:           flatbed_wagon_container_group;
         flatbed_wagon_switch;
