@@ -8,7 +8,7 @@
  * ***************************
  */
 
-switch (FEAT_TRAINS, SELF, maglev_piecegoods_wagon_cb_capacity_switch, cargo_type_in_veh) {
+switch (FEAT_TRAINS, SELF, maglev_piecegoods_wagon_capacity_switch, cargo_type_in_veh) {
     // default: 32 units
     FOOD: return 27;
     FRUT: return 27;
@@ -16,18 +16,6 @@ switch (FEAT_TRAINS, SELF, maglev_piecegoods_wagon_cb_capacity_switch, cargo_typ
     PAPR: return 27;
     TOYS: return 27;
     CB_FAILED;
-}
-
-switch (FEAT_TRAINS, SELF, maglev_piecegoods_wagon_cb_property_switch, extra_callback_info1) {
-    0x16: piecegoods_wagon_cb_property_weight_switch;                       // rail wagon weight is the same, use it.
-    0x14: maglev_piecegoods_wagon_cb_capacity_switch;
-    CB_FAILED;
-}
-
-switch (FEAT_TRAINS, SELF, maglev_piecegoods_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  maglev_piecegoods_wagon_cb_capacity_switch;
-    VEH_CB_VEHICLE_PROPERTIES: maglev_piecegoods_wagon_cb_property_switch;
-    monorail_piecegoods_cargo_switch;                                       // re-use graphics from monorail
 }
 
 item(FEAT_TRAINS, maglev_piecegoods_wagon) {
@@ -42,7 +30,11 @@ item(FEAT_TRAINS, maglev_piecegoods_wagon) {
         weight:                         21;
     }
     graphics {
-        0xFF: monorail_piecegoods_default_group;
-        maglev_piecegoods_switch;
+        weight:         piecegoods_wagon_weight_switch;
+        cargo_capacity: maglev_piecegoods_wagon_capacity_switch;
+        refit_cost:     piecegoods_wagon_refit_cost_switch;
+
+        purchase:       monorail_piecegoods_default_group;
+        monorail_piecegoods_cargo_switch;
     }
 }

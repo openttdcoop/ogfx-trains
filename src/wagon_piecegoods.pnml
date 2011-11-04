@@ -58,7 +58,7 @@ switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
     piecegoods_wagon_default_group;
 }
 
-switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_capacity_switch, cargo_type_in_veh) {
+switch (FEAT_TRAINS, SELF, piecegoods_wagon_capacity_switch, cargo_type_in_veh) {
     // default: 25 units
     FOOD: return 20;
     FRUT: return 20;
@@ -68,7 +68,7 @@ switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_capacity_switch, cargo_type_in_ve
     CB_FAILED;
 }
 
-switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+switch (FEAT_TRAINS, SELF, piecegoods_wagon_weight_switch, cargo_type_in_veh) {
     // default: 21 tons
     FOOD: return 22;
     FRUT: return 22;
@@ -79,15 +79,11 @@ switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_property_weight_switch, cargo_typ
     CB_FAILED;
 }
 
-switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_property_switch, extra_callback_info1) {
-    0x16: piecegoods_wagon_cb_property_weight_switch;
-    CB_FAILED;
-}
-
-switch (FEAT_TRAINS, SELF, piecegoods_wagon_cb_switch, current_callback) {
-    VEH_CB_REFITTED_CAPACITY:  piecegoods_wagon_cb_capacity_switch;
-    VEH_CB_VEHICLE_PROPERTIES: piecegoods_wagon_cb_property_switch;
-    piecegoods_wagon_switch;
+// Removing piece goods from a wagon and putting in another piece goods can be done
+// at no extra costs in a station. Fruits etc are packed into convenient boxes when
+// carried in this wagon type.
+switch (FEAT_TRAINS, SELF, piecegoods_wagon_refit_cost_switch, 1) {
+	return 0 | CB_RESULT_AUTOREFIT;
 }
 
 item(FEAT_TRAINS, piecegoods_wagon) {
@@ -103,7 +99,11 @@ item(FEAT_TRAINS, piecegoods_wagon) {
         weight:                         21;
     }
     graphics {
-        0xFF: piecegoods_wagon_default_group;
-        piecegoods_wagon_cb_switch;
+        weight:         piecegoods_wagon_weight_switch;
+        cargo_capacity: piecegoods_wagon_capacity_switch;
+        refit_cost:     piecegoods_wagon_refit_cost_switch;
+
+        purchase:   piecegoods_wagon_default_group;
+        piecegoods_wagon_switch;
     }
 }
