@@ -51,6 +51,7 @@ item(FEAT_TRAINS, passenger_wagon, 27) {
         misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT); // We use special sprites for passenger and mail wagons
         callback_flags:               bitmask(VEH_CBF_WAGON_LENGTH);
         refit_cost:                   0; // refit is free
+        speed:                        160 km/h;
         REFIT_PROPERTIES_PAX
     }
     graphics {

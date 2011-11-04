@@ -97,6 +97,7 @@ item(FEAT_TRAINS, piecegoods_wagon) {
         callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
         cargo_capacity:                 25;
         weight:                         21;
+        speed:                          160 km/h;
     }
     graphics {
         weight:         piecegoods_wagon_weight_switch;

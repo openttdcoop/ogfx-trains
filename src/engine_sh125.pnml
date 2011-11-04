@@ -30,7 +30,13 @@ item(FEAT_TRAINS, sh125, 22) {
 		refit_cost:         sh125_refit_cost_switch;
 		sh125_engine_group;
 	}
-	livery_override (passenger_wagon) { sh125_passenger_group; }
-	livery_override (mail_wagon)      { sh125_mail_group; }
-	livery_override (valuables_wagon) { sh125_valuables_group; }
+	livery_override (passenger_wagon) {
+		sh125_passenger_group;
+	}
+	livery_override (mail_wagon)      {
+		sh125_mail_group;
+	}
+	livery_override (valuables_wagon) {
+		sh125_valuables_group;
+	}
 }

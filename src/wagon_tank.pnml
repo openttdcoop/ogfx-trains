@@ -134,6 +134,7 @@ item(FEAT_TRAINS, tank_wagon) {
         callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
         cargo_capacity:                 30;
         weight:                         24;
+        speed:                          160 km/h;
     }
     graphics {
 		cargo_capacity:     tank_wagon_cb_capacity_switch;

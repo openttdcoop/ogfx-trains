@@ -252,6 +252,7 @@ item(FEAT_TRAINS, flatbed_wagon) {
         cost_factor:                    181;
         callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY, VEH_CBF_CARGO_SUFFIX, VEH_CBF_COLOUR_MAPPING);
         cargo_capacity:                 30; // Usually units of goods which fit onto it.
+        speed:                          160 km/h;
         weight:                         16;
     }
     graphics {

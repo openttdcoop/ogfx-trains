@@ -21,6 +21,7 @@ item(FEAT_TRAINS, valuables_wagon, 37) {
         callback_flags:                 bitmask(VEH_CBF_WAGON_LENGTH);
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT);
         refit_cost:                     0; // free refit between armoured cargos
+        speed:                          160 km/h;
         REFIT_PROPERTIES_ARMOURED
     }
     graphics {
