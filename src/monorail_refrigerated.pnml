@@ -30,6 +30,8 @@ item(FEAT_TRAINS, monorail_refrigerate_wagon) {
         weight:                         22;
     }
     graphics {
+        refit_cost:         refrigerate_wagon_refit_cost_switch;
+
         monorail_refrigerated_graphics_switch;
     }
 }

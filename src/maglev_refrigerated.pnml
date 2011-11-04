@@ -10,10 +10,6 @@ switch(FEAT_TRAINS, SELF, maglev_refrigerated_graphics_switch, cargo_type_in_veh
 	monorail_refrigerated_default_group;
 }
 
-switch(FEAT_TRAINS, SELF, maglev_refrigerated_switch, current_callback) {
-	maglev_refrigerated_graphics_switch;
-}
-
 item(FEAT_TRAINS, maglev_refrigerate_wagon) {
     property {
         // We try to simulate the stats of the arctic food wagon
@@ -27,6 +23,8 @@ item(FEAT_TRAINS, maglev_refrigerate_wagon) {
         weight:                         22;
     }
     graphics {
-        maglev_refrigerated_switch;
+        refit_cost:         refrigerate_wagon_refit_cost_switch;
+
+        maglev_refrigerated_graphics_switch;
     }
 }
