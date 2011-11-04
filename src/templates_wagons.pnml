@@ -60,6 +60,7 @@ spritegroup name ##_group { \
         bitmask_vehicle_info:           0; \
         speed:                          0; \
         refit_cost:                     40; \
+        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT); \
         running_cost_base:              RUNNING_COST_STEAM;
 
 #define WAGON_PROPERTIES_RAIL_DEFAULT \
