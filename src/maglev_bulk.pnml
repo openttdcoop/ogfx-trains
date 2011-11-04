@@ -16,6 +16,7 @@ switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_capacity_switch, cargo_type_in_v
     FICR: return 32;
     FRUT: return 32;
     FRVG: return 32;
+    OLSD: return 32;
     RSGR: return 27;
     RUBR: return 28;
     SWET: return 32;

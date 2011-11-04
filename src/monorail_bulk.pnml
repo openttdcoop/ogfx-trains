@@ -70,6 +70,7 @@ switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_graphics_switch, cargo_type_in_veh
     CORE: monorail_bulk_wagon_copper_group;
     FRUT: monorail_bulk_wagon_fruit_group;
     FRVG: monorail_bulk_wagon_fruit_group;
+    OLSD: monorail_bulk_wagon_fruit_group;
     GRAI: monorail_bulk_wagon_grain_group;
     IORE: monorail_bulk_wagon_ironore_group;
     MAIZ: monorail_bulk_wagon_grain_group;

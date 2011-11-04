@@ -148,6 +148,7 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     GRVL: bulk_wagon_gravel_year_switch;
     IORE: bulk_wagon_ironore_year_switch;
     MAIZ: bulk_wagon_grain_year_switch;
+    OLSD: bulk_wagon_fruits_year_switch;
     RSGR: bulk_wagon_rawsugar_group;
     SGCN: bulk_wagon_rawsugar_group;
     SGBT: bulk_wagon_rawsugar_group;
@@ -195,6 +196,7 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_refit_from_dirty_switch, extra_callback_in
 	FRVG: return CB_FAILED;
 	GRAI: return CB_FAILED;
 	MAIZ: return CB_FAILED;
+	OLSD: return CB_FAILED;
 	RSGR: return CB_FAILED;
 	SGCN: return CB_FAILED;
 	SGBT: return CB_FAILED;
@@ -236,6 +238,7 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_refit_cost_switch, cargo_type_in_veh) {
 	GRVL: bulk_wagon_refit_from_dirty_switch;
 	IORE: bulk_wagon_refit_from_dirty_switch;
 	MAIZ: bulk_wagon_refit_from_clean_switch;
+	OLSD: bulk_wagon_refit_from_clean_switch;
 	RSGR: bulk_wagon_refit_from_clean_switch;
 	SGCN: bulk_wagon_refit_from_clean_switch;
 	SGBT: bulk_wagon_refit_from_clean_switch;
