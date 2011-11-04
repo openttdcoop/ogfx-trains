@@ -48,8 +48,9 @@ switch (FEAT_TRAINS, SELF, normal_passenger_switch, climate) {
 item(FEAT_TRAINS, passenger_wagon, 27) {
     property {
         sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
-        misc_flags:                   bitmask(TRAIN_FLAG_MU); // We use special sprites for passenger and mail wagons
+        misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT); // We use special sprites for passenger and mail wagons
         callback_flags:               bitmask(VEH_CBF_WAGON_LENGTH);
+        refit_cost:                   0; // refit is free
         REFIT_PROPERTIES_PAX
     }
     graphics {
