@@ -270,9 +270,9 @@ item(FEAT_TRAINS, bulk_wagon) {
 		cargo_capacity:     bulk_wagon_cb_capacity_switch;
 		weight:             bulk_wagon_cb_property_weight_switch;
 		cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
+        refit_cost:         bulk_wagon_refit_cost_switch;
 
         purchase:           bulk_wagon_coal_year_switch;
-        refit_cost:         bulk_wagon_refit_cost_switch;
         bulk_wagon_switch;
     }
 }

@@ -36,6 +36,7 @@ item(FEAT_TRAINS, maglev_bulk_wagon) {
     graphics {
         cargo_capacity: maglev_bulk_wagon_cb_capacity_switch;
         weight:         bulk_wagon_cb_property_weight_switch;
+        refit_cost:     bulk_wagon_refit_cost_switch;
 
         purchase: monorail_bulk_wagon_coal_switch;
         monorail_bulk_wagon_graphics_switch;     // we use the same graphics so far
