@@ -16,7 +16,7 @@ MU_8SPRITES (sh125_valuables, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_
 
 // Allow to refit for free between cargos of the same cargo class. Mask out 'express' class as that doesn't require
 // changes to the vehicle and to allow free refit between tourists and passengers
-switch (FEAT_TRAINS, SELF, sh125_refit_cost_switch, (((extra_callback_info & 0xFFFF0000) >> 16) & 0xFFFB) == (cargo_classes_in_consist & 0xFFFB)) {
+switch (FEAT_TRAINS, SELF, sh125_refit_cost_switch, (((extra_callback_info1 & 0xFFFF0000) >> 16) & 0xFFFB) == (cargo_classes_in_consist & 0xFFFB)) {
 	1: return 0 | CB_RESULT_AUTOREFIT;
 	return CB_FAILED;
 }
