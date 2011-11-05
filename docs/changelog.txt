@@ -1,3 +1,18 @@
+trunk r271
+----------
+- Feature: Allow to select all engines except toyland
+- Feature: Allow autorefit for wagons under certain conditions
+- Feature: Age cargos slower in refrigerated wagons so that they become for their specific cargo more interesting than the non-refrigerated versions. Code stolen from OpenGFX+Road Vehicles
+- Change: Decrease the capacity of the bulk wagon for lumber from 30 to 25
+- Change: Display the steel sprites when carrying copper (until better sprites are available) (issue #3036)
+- Change: Give rail wagons a speed limit of 160km/h. This does not apply to MU wagons (issue #1920)
+- Add: Brasilian translation (prppedro)
+- Add: Russian translation (akasoft)
+- Add: Preliminary support for FIRS sugar cane and sugar beet
+- Add: Add oil seeds and copper to CTT and treat oil seeds graphically as fruits (issue #3036)
+- Add: Support limestone as cargo explicitly (issue #2632)
+- Fix: Don't swap container colours when train reverses after load (issue #2654)
+
 Version 0.2.5
 -------------
 - Fix: Asiastar and TIM were truncated in height in the horizontal view

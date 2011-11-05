@@ -49,7 +49,6 @@ spritegroup name ##_group { \
 
 
 #define WAGON_PROPERTIES_DEFAULT \
-        climates_available:             ALL_CLIMATES; \
         sprite_id:                      SPRITE_ID_NEW_TRAIN; \
         retire_early:                   0; \
         vehicle_life:                   20; \
@@ -65,15 +64,18 @@ spritegroup name ##_group { \
 
 #define WAGON_PROPERTIES_RAIL_DEFAULT \
         introduction_date:              date(1925,1,1); \
+        climates_available:             param_provide_rail ? ALL_CLIMATES : NO_CLIMATE; \
         model_life:                     VEHICLE_NEVER_EXPIRES; \
         track_type:                     RAIL;
 
 #define WAGON_PROPERTIES_MONORAIL_DEFAULT \
         introduction_date:              date(1980,1,1); \
+        climates_available:             param_provide_monorail ? ALL_CLIMATES : NO_CLIMATE; \
         model_life:                     VEHICLE_NEVER_EXPIRES; \
         track_type:                     MONO;
 
 #define WAGON_PROPERTIES_MAGLEV_DEFAULT \
         introduction_date:              date(2010,1,1); \
+        climates_available:             param_provide_maglev ? ALL_CLIMATES : NO_CLIMATE; \
         model_life:                     VEHICLE_NEVER_EXPIRES; \
         track_type:                     MGLV;

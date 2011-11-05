@@ -18,8 +18,15 @@ STR_PARAM_ENGINES_TROPICAL                                      :Tropical
 STR_PARAM_ENGINES_TOYLAND                                       :Toyland
 STR_PARAM_ENGINES_ALL                                           :All
 STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :All but Toyland
+
 STR_PARAM_KEEP_ORIGINAL                                         :Keep all existing default vehicles
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :This setting is included for debugging purposes. You can use this setting if you want to add this newgrf to a running game with existing default vehicles. This is known to cause problems; enable it at your own risk.
+STR_PARAM_PROVIDE_RAIL                                          :Provide rail vehicles
+STR_PARAM_PROVIDE_RAIL_DESC                                     :Provide rail vehicles. Disable, if this NewGRF shall not provide any rail vehicles.
+STR_PARAM_PROVIDE_MONORAIL                                      :Provide monorail vehicles
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :Provide monorail vehicles. Disable, if this NewGRF shall not provide any monorail vehicles.
+STR_PARAM_PROVIDE_MAGLEV                                        :Provide maglev vehicles
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Provide maglev vehicles. Disable, if this NewGRF shall not provide any maglev vehicles.
 
 STR_PARAM_RUNNING_COST                                          :Adjust running costs
 STR_PARAM_RUNNING_COST_DESC                                     :Allows to adjust the running costs of the vehicles within this set (e.g, to balance it against others)

@@ -9,6 +9,7 @@ WAGON_SINGLE_SET8(monorail_passenger, "src/gfx/temperate_monolev.png", tmpl_shor
 item(FEAT_TRAINS, monorail_passenger_wagon, 57) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        climates_available:             param_provide_monorail ? ALL_CLIMATES : NO_CLIMATE;
         misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT); // We use special sprites for passenger and mail wagons
         callback_flags:                 bitmask(VEH_CBF_WAGON_LENGTH);
         refit_cost:                     0; // refit is free

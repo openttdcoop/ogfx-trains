@@ -11,7 +11,7 @@ SPRITEGROUP_1STAGE_LOAD (monorail_valuables, "src/gfx/temperate_monolev.png", tm
 item(FEAT_TRAINS, monorail_valuables_wagon, 67) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        climates_available:             ALL_CLIMATES;
+        climates_available:             param_provide_monorail ? ALL_CLIMATES : NO_CLIMATE;
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT);
         refit_cost:                     0; // free refit between armoured cargos
         REFIT_PROPERTIES_ARMOURED

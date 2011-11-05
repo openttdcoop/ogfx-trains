@@ -29,9 +29,31 @@ grf {
 	param {
 		param_keep_original {
 			type:    bool;
+			bit:     0;
 			name:    string(STR_PARAM_KEEP_ORIGINAL);
 			desc:    string(STR_PARAM_KEEP_ORIGINAL_DESC);
 			def_value: 0;
+		}
+		param_provide_rail {
+			type:    bool;
+			bit:     1;
+			name:    string(STR_PARAM_PROVIDE_RAIL);
+			desc:    string(STR_PARAM_PROVIDE_RAIL_DESC);
+			def_value: 1;
+		}
+		param_provide_monorail {
+			type:    bool;
+			bit:     2;
+			name:    string(STR_PARAM_PROVIDE_MONORAIL);
+			desc:    string(STR_PARAM_PROVIDE_MONORAIL_DESC);
+			def_value: 1;
+		}
+		param_provide_maglev {
+			type:    bool;
+			bit:     3;
+			name:    string(STR_PARAM_PROVIDE_MAGLEV);
+			desc:    string(STR_PARAM_PROVIDE_MAGLEV_DESC);
+			def_value: 1;
 		}
 	}
 	param {
@@ -133,20 +155,20 @@ if (param[0] == 0) { param[0] = climate + 2; }
 
 /*
  * ********************************************
- * Parameter 2: Keep original vehicles
+ * Parameter 2: Choice of vehicles
  *
- * 0: Don't keep the original vehicles (default)
- * 1: Keep the original vehicles
+ * bit 0: Keep original vehicles
+ * bit 1: Provide rail vehicles
+ * bit 2: Provide monorail vehicles
+ * bit 3: Provide maglev vehicles
  * ********************************************
  */
-
-#define REMOVE_ORIGINAL (param[1] == 0)
 
 /*
  * ********************************************
  * Parameter 3: Running Costs
  * 0: Automatic (default)
- * 1: 1/256 
+ * 1: 1/256
  * 2: 1/128
  * ...
  * 9: 1
@@ -163,7 +185,7 @@ RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param_running_cost_mult - 9;
  * ********************************************
  * Parameter 4: Purchase Costs
  * 0: Automatic (default)
- * 1: 1/256 
+ * 1: 1/256
  * 2: 1/128
  * ...
  * 9: 1
@@ -283,7 +305,7 @@ if (grf_future_status(GRFID_SWED) == 1) {
     if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_SWED; }
 }
 
-basecost { 
+basecost {
 	PR_RUNNING_TRAIN_STEAM:     RUNNING_COST_MOD;
 	PR_RUNNING_TRAIN_DIESEL:    RUNNING_COST_MOD;
 	PR_RUNNING_TRAIN_ELECTRIC:  RUNNING_COST_MOD;

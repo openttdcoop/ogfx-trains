@@ -4,7 +4,7 @@
  * =============================================================================
  */
 
-if REMOVE_ORIGINAL {
+if (!param_keep_original) {
 	/* Steam / Diesel / Electric wagons */
 	disable_item(FEAT_TRAINS, 29, 53);
 	/* Monorail wagons */
