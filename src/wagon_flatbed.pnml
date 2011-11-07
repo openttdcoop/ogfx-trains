@@ -267,3 +267,5 @@ item(FEAT_TRAINS, flatbed_wagon) {
         flatbed_wagon_switch;
     }
 }
+
+#undef THIS_ID

@@ -9,25 +9,24 @@
  * Livery override for passenger and mail wagons
  */
 
+#define THIS_ID(...) sh125 ## __VA_ARGS__
+
 MU_8SPRITES (sh125_engine,    "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
 MU_8SPRITES (sh125_passenger, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
 MU_8SPRITES (sh125_mail,      "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 0, 54)
 MU_8SPRITES (sh125_valuables, "src/gfx/mus/sh125/sh125LiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
 
-// Allow to refit for free between cargos of the same cargo class. Mask out 'express' class as that doesn't require
-// changes to the vehicle and to allow free refit between tourists and passengers
-switch (FEAT_TRAINS, SELF, sh125_refit_cost_switch, (((extra_callback_info1 & 0xFFFF0000) >> 16) & 0xFFFB) == (cargo_classes_in_consist & 0xFFFB)) {
-	1: return 0 | CB_RESULT_AUTOREFIT;
-	return CB_FAILED;
-}
+#include "template_refit_cost_mu.pnml"
 
 item(FEAT_TRAINS, sh125, 22) {
 	property {
 		sprite_id:                    SPRITE_ID_NEW_TRAIN;
 		misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+		REFIT_PROPERTIES_MU
 	}
 	graphics {
-		refit_cost:         sh125_refit_cost_switch;
+		refit_cost: THIS_ID(refit_cost_switch);
+
 		sh125_engine_group;
 	}
 	livery_override (passenger_wagon) {
@@ -40,3 +39,5 @@ item(FEAT_TRAINS, sh125, 22) {
 		sh125_valuables_group;
 	}
 }
+
+#undef THIS_ID

@@ -9,18 +9,29 @@
  * Livery override for passenger and mail wagons
  */
 
+#define THIS_ID(...) dash ## __VA_ARGS__
+
 MU_8SPRITES (dash_engine,    "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
 MU_8SPRITES (dash_passenger, "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
-MU_8SPRITES (dash_mail,      "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 54) 
+MU_8SPRITES (dash_mail,      "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 54)
 MU_8SPRITES (dash_valuables, "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
+
+#include "template_refit_cost_mu.pnml"
 
 item(FEAT_TRAINS, dash, 12) {
 	property {
-		sprite_id:                    SPRITE_ID_NEW_TRAIN;
-		misc_flags:                   bitmask(TRAIN_FLAG_MU);
+		sprite_id:                      SPRITE_ID_NEW_TRAIN;
+		misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+		REFIT_PROPERTIES_MU
 	}
-	graphics { dash_engine_group; }
+	graphics {
+		refit_cost: THIS_ID(refit_cost_switch);
+
+		dash_engine_group;
+	}
 	livery_override (passenger_wagon) { dash_passenger_group; }
 	livery_override (mail_wagon)      { dash_mail_group; }
 	livery_override (valuables_wagon) { dash_valuables_group; }
 }
+
+#undef THIS_ID

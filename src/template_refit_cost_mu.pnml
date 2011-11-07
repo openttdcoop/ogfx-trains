@@ -1,0 +1,21 @@
+switch (FEAT_TRAINS, SELF, THIS_ID(engine_refit_cost_check_piece),
+			(cargo_classes_in_consist & bitmask(CC_MAIL, CC_PIECE_GOODS) > 0) &&
+			(extra_callback_info1 & (bitmask(CC_MAIL, CC_PIECE_GOODS) << 16) > 0)
+		) {
+	1: return CB_RESULT_AUTOREFIT;
+	return CB_FAILED;
+}
+switch (FEAT_TRAINS, SELF, THIS_ID(engine_refit_cost_check_armour),
+			(cargo_classes_in_consist & bitmask(CC_ARMOURED) > 0) &&
+			(extra_callback_info1 & (bitmask(CC_ARMOURED) << 16) > 0)
+		){
+	1: return CB_RESULT_AUTOREFIT;
+	THIS_ID(engine_refit_cost_check_piece);
+}
+switch (FEAT_TRAINS, SELF, THIS_ID(refit_cost_switch),
+			(cargo_classes_in_consist & bitmask(CC_PASSENGERS) > 0) &&
+			(extra_callback_info1 & (bitmask(CC_PASSENGERS) << 16) > 0)
+		){
+	1: return CB_RESULT_AUTOREFIT;
+	THIS_ID(engine_refit_cost_check_armour);
+}
