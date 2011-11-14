@@ -36,14 +36,14 @@ bundle_xz: $(XZ_FILENAME)
 ################################################################
 # Install targets
 ################################################################
-install: $(DIR_NAME)
+install: $(DIR_NAME).tar
 ifeq ($(INSTALL_DIR),"")
 	$(_E) "No install dir defined! Aborting"
 	$(_V) false
 endif
 	$(_E) "[INSTALL] to $(INSTALL_DIR)"
 	$(_V) install -d $(INSTALL_DIR)
-	$(_V) install -m644 $(TARGET_FILES) $(INSTALL_DIR)
+	$(_V) install -m644 $< $(INSTALL_DIR)
 ifndef DO_NOT_INSTALL_DOCS
 ifneq ($(filter-out $(LICENSE_FILE) $(CHANGELOG_FILE),$(DOC_FILES)),)
 	$(_E) [INSTALL] docs to $(DOCDIR)
