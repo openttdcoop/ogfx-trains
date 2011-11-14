@@ -6,15 +6,14 @@ This version: {{GRF_TITLE}}
 Contents:
 
 1 About
-2 Quickstart
-3 This NewGRF in detail
-  3.1 Parameters
-  3.2 Rolling stock
-4 Building from source
-  4.1 Requirements
-  4.2 Obtaining the source
-5 License
-6 Credits
+2 This NewGRF in detail
+  2.1 Parameters
+  2.2 Rolling stock
+3 Building from source
+  3.1 Requirements
+  3.2 Obtaining the source
+4 License
+5 Credits
 
 
 
@@ -22,8 +21,35 @@ Contents:
 1 About
 -------
 
-OpenGFX+ Trains enhances the rolling stock. Designed to work match
-OpenGFX style
+OpenGFX+ Trains enhances the rolling stock for rail, e-rail, monorail and
+maglev in a design matching OpenGFX style.
+
+* Cargo support:
+	It provides wagons which support all cargos known at the time of
+	writing, many of which have their unique graphics representation.
+
+* Auto-Refit:
+	The wagons allow refitting between different cargos appropriate for
+	the wagon type, depending on the change they can be even refit
+	free-of-charge in a station or at a cost in a depot (i.e. when stakes
+	need adding to a flatbed wagon or thorough cleaning when refitting
+	from oil to water).
+
+* Enhanced graphics:
+	It also provides enhanced graphics support for multiple-unit trains
+	thus that the passenger, mail and valuable wagons match the engine in
+	a common livery for the SH125, Manley-Morel, Dash and Turbotrain.
+
+* Detailed choice of available rolling stock:
+	You can choose independent of the map the rolling stock for every
+	climate as well as selectively enable or disable only certain
+	railtypes. Select your preference in the NewGRF parameters. See
+	section 2.1 for details.
+
+* Adjust costs to match other train NewGRFs:
+	OpenGFX+ Trains tries to match its purchase and running costs to other
+	train NewGRFs found active. You can also set these cost factors
+	manually. See section 2.1 for details.
 
 Name of this Repo:  {{GRF_TITLE}}
 Repository version: {{REPO_REVISION}}
@@ -32,75 +58,106 @@ MD5 sum:            {{GRF_MD5}}
 
 
 
---------------
-2 Quickstart
---------------
-
-Copy the grf in your data dir and activate it.
-
-
-
 -----------------------
-3 This NewGRF in detail
+2 This NewGRF in detail
 -----------------------
 
-3.1 Parameters:
+2.1 Parameters:
 ---------------
+
 Choice of rolling stock:
-  This NewGRF allows you to select via parameter which engines shall be
-  provided. You can choose from andy of the four climates, all engines,
-  none or autmatically choosing those which are designed for the map's
-  climate (default).
+	This NewGRF allows you to select via parameter which engines shall be
+	provided. You can choose from
+	* automatic (choose by climate; default)
+	* temperate
+	* arctic
+	* tropical
+	* toyland
+	* all climates
+	* all climates but toyland
+
+	Further you can choose only some railtypes, each separately selectable.
+	By default all railtypes are activated:
+	* rail+erail
+	* monorail
+	* maglev
 
 Purchase and running costs can be configured:
-  You can either manuall select the level of running and purchase costs
-  with respect to the default values or let the NewGRF automatically con-
-  figure these costs. In the presence of other rail NewGRFs it will try
-  to adjust these costs in order to match the other set(s). It will try
-  to match in the following order (last set wins):
-  - NARS2 (North American Renewal Trainset, grfID 44440302)
-  - UKRS2 (UK Renewal Trainset (grfID 44440111)
-  - Tropical Refurbishment Set (grfID 44444040
-  - 2cc Trainset v2 (grfID 27711003)
-  - Japanese Trainset v2 (grfID 535A0D00)
-  - Swedish Trains (grfID 41490006)
+	You can either manuall select the level of running and purchase costs
+	with respect to the default values or let the NewGRF automatically con-
+	figure these costs. In the presence of other rail NewGRFs it will try
+	to adjust these costs in order to match the other set(s). It will try
+	to match in the following order (last set wins):
 
-3.2 Rolling stock
-----------------
+	- NARS2 (North American Renewal Trainset, grfID 44440302)
+	- UKRS2 (UK Renewal Trainset (grfID 44440111)
+	- Tropical Refurbishment Set (grfID 44444040
+	- 2cc Trainset v2 (grfID 27711003)
+	- Japanese Trainset v2 (grfID 535A0D00)
+	- Swedish Trains (grfID 41490006)
+
+2.2 Rolling stock
+-----------------
+
+2.2.1 Engines
+-------------
+The engines are mostly the same as the default vehicles as shipped with
+OpenTTD's base sets. Differences are:
+
+- Multiple units with special liveries for wagons:
+	SH125, Dash, Manley-Morel, Turbotrain, T.I.M, Asiastar.
+- Turbotrain is shorter than in base sets:
+	its engine and passenger and mail wagons are 7/8 length.
+
+2.2.2 Wagons
+------------
 The number of wagons has been reduced with respect to the default
 wagons, but they can now be refitted, so that for every cargo within
 the game you'll find at least one wagon which supports transporting it:
 
-- passenger wagon:
+- passenger wagon (Refit in station, free):
     passengers and tourists
-- mail wagon:
+- mail wagon (No refit options)
     mail
-- armoured wagon:
+- armoured wagon (Refit in station, free):
     valuables, gold, diamonds
 - bulk wagon:
-    coal, iron ore, bauxite, cement, copper ore, gravel, sand, clay, grains,
-    maize, wheat, sulphur, fertilizer, scrap metal, fruit, 
-    fruit & vegetables, toffee, sugar, cotton candy, sugar beet
-    lumber (wood chips), cereal
-- piece goods wagon:
+    group 1 (Refit in station from any cargo including group 2, free):
+		coal, iron ore, bauxite, cement, copper ore, gravel, sand, clay,
+		sulphur, fertilizer, scrap metal, lumber (wood chips)
+    group 2 (Refit in station at half cost. Refit from group 1 only
+		in depot):
+		grains, maize, wheat, fruit, fruit & vegetables, toffee, sugar,
+		cotton candy, sugar beet, cereal
+- piece goods wagon (Refit in station, free):
     goods, food, paper, fruits, fruit + vegetables, farm supplies,
     engineering supplies, manufacturing supplies, wool
-- lifestock wagon:
+- lifestock wagon (No refit options):
     livestock
-- refrigerator wagon:
+- refrigerator wagon (Refit in station, half cost. Cargo ages slower, thus
+	pays more than when transported in other wagons):
     fish, food, fruits, fruits and vegetables, milk
-- flatbed wagon:
-    wood, lumber, metal, steel, glass, goods, manufacturing supplies,
-    farm supplies, engineering supplies, batteries, fizzy drinks, bubbles
+- flatbed wagon (Refit in station within one group, free, refit in depot
+	between groups):
+	vehicle group:
+		farm supplies, engineering supplies, vehicles
+	stake group:
+		wood, lumber, metal, steel, glass, manufacturing supplies, bubbles,
+		fizzy drinks, batteries
+	flatbed (container):
+		goods
 - tank wagon:
-    oil, fuel oil, water, milk, rubber, dyes, chemicals, cola
+	group 1 (Refit in station from any cargo, including group 2, free):
+		oil, fuel oil, cement, chemicals
+	group 2 (Only refit in station at half costs from within this group):
+		water, milk, rubber, dyes, cola
 
 Some wagons change their look after a certain date, new wagons will look
-  different from the older wagons. By default this transition year is
-  for rail wagons 1970.
+different from the older wagons. By default this transition year is for
+rail wagons 1970.
 
 ----------------------
-4 Building from source
+3 Building from source
 ----------------------
 
 Requirements for running this Makefile successfully:
@@ -196,7 +253,7 @@ check:
 	Check the md5sum of the built newgrf against the supplied md5sum
 	(Intended to be used when building from tar balls)
 
-4.1 Requirements
+3.1 Requirements
 ----------------
 
 In order to build this newgrf from source you need:
@@ -211,7 +268,7 @@ and optionally:
 - tar for creating bundles
 - zip for creating bundles
 
-4.2 Obtaining the source
+3.2 Obtaining the source
 ----------------------
 
 The source code can be obtained from the #openttdcoop DevZone at
@@ -222,36 +279,38 @@ hg clone http://hg.openttdcoop.org/ogfx-trains
 
 
 ---------
-5 License
+4 License
 ---------
 
 OpenGFX+ Trains trainset for OpenTTD and TTDPatch
 Copyright (C) 2010-2011 by the OpenGFX+ Trains team (see below)
 
-This program is free software; you can redistribute it and/or modify it under
-the terms of the GNU General Public License version 2 (or, at your discretion,
-any later version) as published by the Free Software Foundation.
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License version 2 (or, at your
+discretion, any later version) as published by the Free Software Foundation.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 for more details.
 
-You should have received a copy of the GNU General Public License along with
-this program; if not, write to the Free
-Software Foundation, Inc., 1 Franklin Street, Fifth Floor, Boston, MA 02110-1301
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the
+Free Software Foundation, Inc.
+1 Franklin Street, Fifth Floor
+Boston, MA 02110-1301
 USA.
 
 
 
 ---------
-6 Credits
+5 Credits
 ---------
 
-Authors: 
+Authors:
     Lead programmer:            Ingo von Borstel (aka planetmaker)
     General coding:             Terkhen
-Graphics: 
+Graphics:
     Toyland rail wagons:        molace
     Temperate rail wagons:      DanMacK, Uzurpator, Zephyris, molace
     Tropical rail wagons:       DanMacK, Uzurpator, Zephyris, molace
@@ -274,7 +333,7 @@ Translations:
     Russian                     akasoft
     Serbian:                    etran
     Swedish:                    AndersI
-    
+
 Special thanks to #openttdcoop and especially Ammler who provides and
 works a lot on maintaining the Development Zone where this repository is
 hosted and who also frequently gives much valuable input. Thanks also to
