@@ -134,8 +134,9 @@ the game you'll find at least one wagon which supports transporting it:
     engineering supplies, manufacturing supplies, wool
 - lifestock wagon (No refit options):
     livestock
-- refrigerator wagon (Refit in station, half cost. Cargo ages slower, thus
-	pays more than when transported in other wagons):
+- refrigerator wagon (Refit in station, half cost.
+    OpenTTD 1.2.0 or nightlies newer than r22713: Cargo ages slower, thus
+    pays more than when transported in other wagons:
     fish, food, fruits, fruits and vegetables, milk
 - flatbed wagon (Refit in station within one group, free, refit in depot
 	between groups):
