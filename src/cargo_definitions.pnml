@@ -21,6 +21,7 @@ cargotable {                        // cargos needed for special refit orders
     PASS, MAIL, BATT, SWET,
     MNSP, DYES, SGBT, OLSD,
     PLST, LIME, COPR, SGCN,
+    FISH, TOUR
 }
 
 #define REFIT_PROPERTIES_PAX \
