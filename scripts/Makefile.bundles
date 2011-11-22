@@ -3,7 +3,7 @@
 ################################################################
 
 # Bundle directory
-$(DIR_NAME): $(MAKEFILE_DEP) $(BUNDLE_FILES)
+$(DIR_NAME): depend $(BUNDLE_FILES)
 	$(_E) "[BUNDLE]"
 	$(_E) "[ASSEMBLING] $@"
 	$(_V) if [ -e $@ ]; then rm -rf $@; fi
