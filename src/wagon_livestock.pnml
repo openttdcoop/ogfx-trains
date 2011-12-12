@@ -20,7 +20,6 @@ item(FEAT_TRAINS, livestock_wagon, 31) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    192;
-        callback_flags:                 0;
         cargo_capacity:                 25;
         weight:                         20;
     }

@@ -12,7 +12,6 @@
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MAGLEV_DEFAULT
         cost_factor:                    192;
-        callback_flags:                 0;
         cargo_capacity:                 32;
         weight:                         20;
     }

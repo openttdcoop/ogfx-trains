@@ -94,7 +94,6 @@ item(FEAT_TRAINS, piecegoods_wagon) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    190;
-        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
         cargo_capacity:                 25;
         weight:                         21;
     }

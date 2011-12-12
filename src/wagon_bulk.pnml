@@ -265,7 +265,6 @@ item(FEAT_TRAINS, bulk_wagon) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    182;
-        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY, VEH_CBF_CARGO_SUFFIX);
         cargo_capacity:                 30;
         weight:                         19 ton;
     }

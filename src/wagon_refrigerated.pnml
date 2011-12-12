@@ -24,7 +24,6 @@ item(FEAT_TRAINS, refrigerate_wagon) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    191;
-        callback_flags:                 0;
         cargo_capacity:                 25;
         weight:                         22;
     }

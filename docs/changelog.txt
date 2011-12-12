@@ -1,16 +1,20 @@
-trunk r271
+trunk r277
 ----------
+- Feature: Allow to select engines by railtypes, i.e. rail, monorail and maglev separately (issue #3182)
 - Feature: Allow to select all engines except toyland
 - Feature: Allow autorefit for wagons under certain conditions
-- Feature: Age cargos slower in refrigerated wagons so that they become for their specific cargo more interesting than the non-refrigerated versions. Code stolen from OpenGFX+Road Vehicles
+- Feature: Age cargos slower in refrigerated wagons so that they become more interesting for their specific cargo than the non-refrigerated versions. Code stolen from OpenGFX+Road Vehicles
+- Feature: Give rail wagons a speed limit of 160km/h. This does not apply to MU wagons (issue #1920)
+- Change: Update readme to provide useful info in the ingame readme viewer
 - Change: Decrease the capacity of the bulk wagon for lumber from 30 to 25
 - Change: Display the steel sprites when carrying copper (until better sprites are available) (issue #3036)
-- Change: Give rail wagons a speed limit of 160km/h. This does not apply to MU wagons (issue #1920)
+- Change: [Makefile] Install tar so that readme can be viewed ingame
 - Add: Brasilian translation (prppedro)
 - Add: Russian translation (akasoft)
 - Add: Preliminary support for FIRS sugar cane and sugar beet
 - Add: Add oil seeds and copper to CTT and treat oil seeds graphically as fruits (issue #3036)
 - Add: Support limestone as cargo explicitly (issue #2632)
+- Fix: Take care of refit options for MU engines; allow them to basically transport passengers, mail, armoured and express (issue #3208)
 - Fix: Don't swap container colours when train reverses after load (issue #2654)
 
 Version 0.2.5

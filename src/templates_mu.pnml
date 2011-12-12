@@ -28,11 +28,3 @@ spritegroup  name ##_group { \
 	loading: name ##_set; \
 	loaded:  name ##_set; \
 }
-
-
-
-#define MU_LENGTH_SWITCH(name, length_reduction, next_switch) \
-switch (FEAT_TRAINS, SELF, name ## _length_switch, current_callback) { \
-	VEH_CB_WAGON_LENGTH: return length_reduction; \
-	name ##_## next_switch;\
-}

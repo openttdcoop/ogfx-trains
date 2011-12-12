@@ -25,7 +25,6 @@ item(FEAT_TRAINS, monorail_refrigerate_wagon) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MONORAIL_DEFAULT
         cost_factor:                    191;
-        callback_flags:                 0;
         cargo_capacity:                 25;
         weight:                         22;
     }

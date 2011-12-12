@@ -39,7 +39,6 @@ item(FEAT_TRAINS, monorail_tank_wagon) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MONORAIL_DEFAULT
         cost_factor:                    200;
-        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
         cargo_capacity:                 30;
         weight:                         24;
     }

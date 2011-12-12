@@ -30,7 +30,6 @@ item(FEAT_TRAINS, maglev_bulk_wagon) {
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MAGLEV_DEFAULT
         cost_factor:                    176;
-        callback_flags:                 bitmask(VEH_CBF_REFITTED_CAPACITY);
         cargo_capacity:                 37;
         weight:                         18;
      }
