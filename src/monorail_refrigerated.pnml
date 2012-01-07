@@ -27,22 +27,12 @@ item(FEAT_TRAINS, monorail_refrigerate_wagon) {
         cost_factor:                    191;
         cargo_capacity:                 25;
         weight:                         22;
+        cargo_age_period:               372;
     }
     graphics {
         refit_cost:         refrigerate_wagon_refit_cost_switch;
+        additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 
         monorail_refrigerated_graphics_switch;
     }
-}
-
-/* Cargo aging property is only available in OpenTTD 1.2.0, r22713 */
-if (openttd_version > version_openttd(1, 2, 0, 22713)) {
-	item(FEAT_TRAINS, monorail_refrigerate_wagon) {
-		property {
-	        cargo_age_period:               372;
-		}
-		graphics {
-			additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
-		}
-	}
 }
