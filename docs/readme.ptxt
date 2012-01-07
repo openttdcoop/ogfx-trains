@@ -62,6 +62,10 @@ MD5 sum:            {{GRF_MD5}}
 2 This NewGRF in detail
 -----------------------
 
+The minimum required OpenTTD version for this NewGRF is 1.2.0-beta1 or r23670.
+
+
+
 2.1 Parameters:
 ---------------
 
