@@ -9,12 +9,12 @@ Contents:
 2 This NewGRF in detail
   2.1 Parameters
   2.2 Rolling stock
-3 Building from source
-  3.1 Requirements
-  3.2 Obtaining the source
-4 License
-5 Credits
-
+3 License
+4 Credits
+5 Development
+  5.1 Obtaining the source
+  5.2 Requirements
+  5.3 Using the Makefile
 
 
 -------
@@ -161,44 +161,113 @@ Some wagons change their look after a certain date, new wagons will look
 different from the older wagons. By default this transition year is for
 rail wagons 1970.
 
-----------------------
-3 Building from source
-----------------------
 
-Requirements for running this Makefile successfully:
-	NML
-	gcc
-	md5sum (or md5 on Mac)
-	make
-    mercurial (recommended)
-    python (recommended)
-If you want to bundle the grf, you'll need additionally
-	tar
-	zip
-	bzip2
-	unix2dos (optional)
+
+---------
+3 License
+---------
+
+OpenGFX+ Trains trainset for OpenTTD and TTDPatch
+Copyright (C) 2010-2011 by the OpenGFX+ Trains team (see below)
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License version 2 (or, at your
+discretion, any later version) as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the
+Free Software Foundation, Inc.
+1 Franklin Street, Fifth Floor
+Boston, MA 02110-1301
+USA.
+
+
+
+---------
+4 Credits
+---------
+
+Authors:
+    Lead programmer:            Ingo von Borstel (aka planetmaker)
+    General coding:             Terkhen
+Graphics:
+    Toyland rail wagons:        molace
+    Temperate rail wagons:      DanMacK, Uzurpator, Zephyris, molace
+    Tropical rail wagons:       DanMacK, Uzurpator, Zephyris, molace
+    Arctic rail wagons:         DanMacK, Uzurpator, Zephyris, molace
+
+    Single trains and consits:
+        Turner Turbo train:     DanMacK
+        Flatbed wagon ENSP      Zephyris
+    Cargo sprites:
+        ENSP, FMSP, VEHI:       andythenorth
+
+Translations:
+    Chinese (traditional)       2006TTD
+    Croation:                   Voyager1
+    Dutch:                      Hirundo
+    English:                    planetmaker
+    French:                     peetleouf
+    Norwegian Bokmal:           DJNekkid
+    Portuguese (Brazilian)      prppedro
+    Russian                     akasoft
+    Serbian:                    etran
+    Swedish:                    AndersI
+
+Special thanks to #openttdcoop and especially Ammler who provides and
+works a lot on maintaining the Development Zone where this repository is
+hosted and who also frequently gives much valuable input. Thanks also to
+Alberth, Terkhen Yexo, Rubidium and Ammler who frequently give valuable
+input in form of advice and patches to this project. Last but not least
+thanks to all the NewGRF authors whose NewGRFs can be my playground for
+this project.
+
+
+
+-------------
+5 Development
+-------------
+
+5.1 Obtaining the source
+------------------------
+
+The source code can be obtained from the #openttdcoop DevZone at
+http://dev.openttdcoop.org/projects/ogfx-trains or via anonymous
+mercurial checkout
+hg clone http://hg.openttdcoop.org/ogfx-trains
+
+5.2 Requirements
+----------------
+
+In order to build this newgrf from source you need:
+- python 2.5 ... 2.7 with yacc, pil, ply modules installed
+- NML r1789
+- make 3.80+
+- gcc as pre-processor
+- mercurial (recommended)
+- md5sum (or md5 on Mac, recommended)
+- some small shell tools: cat, sed
+
+and optionally:
+- unix2dos possibly for conversion of the documentation files
+- tar for creating bundles
+- zip for creating bundles
+
 Windows only:
 On Windows systems this means that you'll need to install MinGW and MSys
 in order to obtain a posix compatible environment. Then the makefile can
 be called the very same way as it is on linux and mac systems.
-MinGW/MSys contain the above mentioned programmes (except renum and
-grfcodec of course) and can be obtained from http://www.mingw.org/ That
-site also features an excellent walk-through o how to install it.
+MinGW/MSys contain the above mentioned programmes and can be obtained
+from http://www.mingw.org/
+That site also features an excellent walk-through o how to install it.
 
-If you use for OpenTTD data folder a non-default path or Windows with a
-non-English localization make sure to copy Makefile.local.sample to
-Makefile.local and edit the line with
-	INSTALLDIR =
-accordingly so that it shows the full path to your OpenTTD / TTDP data
-directory.
-
-If the Makefile is too slow, you may try different dependency checks or
-skip those completely. Available options for dependency generation are:
-mdep:   uses a python script. Default when used in a hg repository
-normal: uses gcc and bash to scan for dependencies
-none:   disable the dependency generation (mostly)
-Makefile.local allows to choose the method via the declaration of
-DEP_CHECK_TYPE.
+5.3 Using the Makefile
+----------------------
 
 The Makefile offers different targets. A brief overview is given here:
 
@@ -258,91 +327,3 @@ check:
 	Check the md5sum of the built newgrf against the supplied md5sum
 	(Intended to be used when building from tar balls)
 
-3.1 Requirements
-----------------
-
-In order to build this newgrf from source you need:
-- python 2.5+ with yacc, pil modules installed
-- NML r1323 or newer
-- make 3.80+
-- gcc as pre-processor
-- some small shell tools: cat, sed
-
-and optionally:
-- unix2dos possibly for conversion of the documentation files
-- tar for creating bundles
-- zip for creating bundles
-
-3.2 Obtaining the source
-----------------------
-
-The source code can be obtained from the #openttdcoop DevZone at
-http://dev.openttdcoop.org/projects/ogfx-trains or via mercurial
-checkout
-hg clone http://hg.openttdcoop.org/ogfx-trains
-
-
-
----------
-4 License
----------
-
-OpenGFX+ Trains trainset for OpenTTD and TTDPatch
-Copyright (C) 2010-2011 by the OpenGFX+ Trains team (see below)
-
-This program is free software; you can redistribute it and/or modify it
-under the terms of the GNU General Public License version 2 (or, at your
-discretion, any later version) as published by the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
-for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the
-Free Software Foundation, Inc.
-1 Franklin Street, Fifth Floor
-Boston, MA 02110-1301
-USA.
-
-
-
----------
-5 Credits
----------
-
-Authors:
-    Lead programmer:            Ingo von Borstel (aka planetmaker)
-    General coding:             Terkhen
-Graphics:
-    Toyland rail wagons:        molace
-    Temperate rail wagons:      DanMacK, Uzurpator, Zephyris, molace
-    Tropical rail wagons:       DanMacK, Uzurpator, Zephyris, molace
-    Arctic rail wagons:         DanMacK, Uzurpator, Zephyris, molace
-
-    Single trains and consits:
-        Turner Turbo train:     DanMacK
-        Flatbed wagon ENSP      Zephyris
-    Cargo sprites:
-        ENSP, FMSP, VEHI:       andythenorth
-
-Translations:
-    Chinese (traditional)       2006TTD
-    Croation:                   Voyager1
-    Dutch:                      Hirundo
-    English:                    planetmaker
-    French:                     peetleouf
-    Norwegian Bokmal:           DJNekkid
-    Portuguese (Brazilian)      prppedro
-    Russian                     akasoft
-    Serbian:                    etran
-    Swedish:                    AndersI
-
-Special thanks to #openttdcoop and especially Ammler who provides and
-works a lot on maintaining the Development Zone where this repository is
-hosted and who also frequently gives much valuable input. Thanks also to
-Alberth, Terkhen Yexo, Rubidium and Ammler who frequently give valuable
-input in form of advice and patches to this project. Last but not least
-thanks to all the NewGRF authors whose NewGRFs can be my playground for
-this project.
