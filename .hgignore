@@ -5,6 +5,7 @@ syntax: glob
 Makefile.local
 custom_tags.txt
 parsetab.py
+.version
 
 # And the description file and the grs which are generated automatically
 # This has to be adopted to the newgrf filename
