@@ -45,7 +45,6 @@ STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
 
 STR_ERR_ENGINE_POOL                                             :允許載入多個NewGRF車輛組 = 開
-STR_ERR_CANNOT_ATTACH                                           :替代車輛外表設計的功能已開啟，只可以連接本車輛組的列車車輛和車卡。
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (木屑)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (桶)

@@ -46,7 +46,6 @@ STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
 
 STR_ERR_ENGINE_POOL                                             :Включите поддержку нескольких наборов NewGRF с транспортом = да
-STR_ERR_CANNOT_ATTACH                                           :Активен специальный функционал по замене ливреи. Присоединить можно вагоны и локомотивы только из этого набора.
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Древесная стружка)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Бочки)

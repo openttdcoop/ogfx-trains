@@ -1,15 +1,14 @@
 ##grflangid 0x37
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{BLACK}O {ORANGE}OpenGFX+ Trains{BLACK} incrementa os trens padrão e aumenta o material rodante.{}Projetado para ser estilizado conforme o OpenGFX.{}Programação: {SILVER}planetmaker, Terkhen{}{BLACK}Gráficos: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licensa: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Agradecimentos especiais a {SILVER}Yexo{BLACK} e {SILVER}Ammler{BLACK} pelo apoio e contribuição que deram ao projeto. 
-
+STR_GRF_DESCRIPTION                                             :{BLACK}O {ORANGE}OpenGFX+ Trains{BLACK} incrementa os trens padrão e aumenta o material rodante.{}Projetado para ser estilizado conforme o OpenGFX.{}Programação: {SILVER}planetmaker, Terkhen{}{BLACK}Gráficos: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licensa: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Agradecimentos especiais a {SILVER}Yexo{BLACK} e {SILVER}Ammler{BLACK} pelo apoio e contribuição que deram ao projeto.
 STR_NAME_BULK_WAGON                                             :Vagão Granel
 STR_NAME_TANK_WAGON                                             :Vagão Tanque
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Vagão Coberto
 STR_NAME_FLATBED_WAGON                                          :Vagão Prancha
 STR_NAME_REFRIGERATOR_WAGON                                     :Vagão Refrigerado
 
-STR_PARAM_ENGINES                                               :Locomotivas - Seleção de clima: 
-STR_PARAM_ENGINES_DESC                                          :Selecione qual tipo de locomotiva você quer adicionar (você pode escolher outro clima ou nenhum, se desejado. O padrão é utilizar as locomotivas peculiares em cada clima. A opção 'Nenhum' desabilita TODAS as locomotivas. 								
+STR_PARAM_ENGINES                                               :Locomotivas - Seleção de clima:
+STR_PARAM_ENGINES_DESC                                          :Selecione qual tipo de locomotiva você quer adicionar (você pode escolher outro clima ou nenhum, se desejado. O padrão é utilizar as locomotivas peculiares em cada clima. A opção 'Nenhum' desabilita TODAS as locomotivas.
 STR_PARAM_ENGINES_DEFAULT                                       :Automático (padrão)
 STR_PARAM_ENGINES_NONE                                          :Nenhum
 STR_PARAM_ENGINES_TEMPERATE                                     :Temperado
@@ -18,12 +17,12 @@ STR_PARAM_ENGINES_TROPICAL                                      :Tropical
 STR_PARAM_ENGINES_TOYLAND                                       :Toyland
 STR_PARAM_ENGINES_ALL                                           :Todos
 STR_PARAM_KEEP_ORIGINAL                                         :Manter todos os veículos originais existentes
-STR_PARAM_KEEP_ORIGINAL_DESC                                    :Essa opção é incluída para propósitos de depuração (Debug). Você pode usar esta opção se quiser adicionar esta NewGRF a um jogo aberto com os veículos padrão já existentes. {RED}Essa é uma fonte comum de problemas, use por sua própria conta e risco. 
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :Essa opção é incluída para propósitos de depuração (Debug). Você pode usar esta opção se quiser adicionar esta NewGRF a um jogo aberto com os veículos padrão já existentes. {RED}Essa é uma fonte comum de problemas, use por sua própria conta e risco.
 
 STR_PARAM_RUNNING_COST                                          :Ajustar custos de rodagem
-STR_PARAM_RUNNING_COST_DESC                                     :Permite o ajuste do custo de rodagem dos veículos à partir dos valores deste set, para balance-lo com os outros já existentes. 
+STR_PARAM_RUNNING_COST_DESC                                     :Permite o ajuste do custo de rodagem dos veículos à partir dos valores deste set, para balance-lo com os outros já existentes.
 STR_PARAM_PURCHASE_COST                                         :Ajustar custos de compra
-STR_PARAM_PURCHASE_COST_DESC                                    :Permite o ajuste do custo de compra dos veículos à partir dos valores deste set, para balance-lo com os outros já existentes. 
+STR_PARAM_PURCHASE_COST_DESC                                    :Permite o ajuste do custo de compra dos veículos à partir dos valores deste set, para balance-lo com os outros já existentes.
 STR_PARAM_COST_AUTOMATICALLY                                    :Automático (padrão)
 STR_PARAM_COST_BY256                                            :1 / 256
 STR_PARAM_COST_BY128                                            :1 / 128
@@ -44,8 +43,7 @@ STR_PARAM_COST_TIMES128                                         :128x
 STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
 
-STR_ERR_ENGINE_POOL                                             :Você deve habilitar o recurso "Engine Pool" para permitir multiplos NewGRF's de locomotivas. 
-STR_ERR_CANNOT_ATTACH                                           :O opção de pintura especial (Aspecto do vagão compatível com o aspecto da locomotiva) está ligada. Apenas vagões deste set e uma locomotiva igual podem ser engatados. 
+STR_ERR_ENGINE_POOL                                             :Você deve habilitar o recurso "Engine Pool" para permitir multiplos NewGRF's de locomotivas.
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Serragem)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Barrís)
