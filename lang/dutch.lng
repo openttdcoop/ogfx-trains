@@ -1,8 +1,64 @@
 ##grflangid 0x1F
 STR_GRF_NAME                                                    :OpenGFX+ Treinen {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Treinen{BLACK} verbetert de standaard railvoertuigen en breidt het wagenpark uit.{}Ontworpen om te passen bij de stijl van OpenGFX.{}Programmeren: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zephyris, DanMacK, molace, Uzurpator{}{BLACK}Licentie: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Met dank aan {SILVER}Yexo{BLACK} en{SILVER}Ammler{BLACK} voor hun ondersteuning en bijdragen
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Treinen{BLACK} verbetert de standaard railvoertuigen en breidt het wagenpark uit.{}Ontworpen om te passen bij de stijl van OpenGFX.{}Programmeren: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licentie: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Met dank aan {SILVER}Yexo{BLACK} en {SILVER}Ammler{BLACK} voor hun ondersteuning en bijdragen
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
+
 STR_NAME_BULK_WAGON                                             :Open wagen
 STR_NAME_TANK_WAGON                                             :Ketelwagen
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Gesloten wagen
 STR_NAME_FLATBED_WAGON                                          :Platte wagen
 STR_NAME_REFRIGERATOR_WAGON                                     :Koelwagen
+
+STR_PARAM_ENGINES                                               :Trein landschap selectie:
+STR_PARAM_ENGINES_DESC                                          :Selecteer uit welk landschap je treinen wilt (je kan een ander landschap keizen of "geen". Standaard zullen de treinen uit het landschap dat je speelt gebruikt worden. "Geen" zal alle treinen uitschakelen.
+STR_PARAM_ENGINES_DEFAULT                                       :Automatisch (standaard)
+STR_PARAM_ENGINES_NONE                                          :Geen
+STR_PARAM_ENGINES_TEMPERATE                                     :Gematigd
+STR_PARAM_ENGINES_ARCTIC                                        :Subarctisch
+STR_PARAM_ENGINES_TROPICAL                                      :Subtropisch
+STR_PARAM_ENGINES_TOYLAND                                       :Speelgoedlandschap
+STR_PARAM_ENGINES_ALL                                           :Alle treinen
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Alle treinen behalve uit het speelgoedlandschap
+
+STR_PARAM_KEEP_ORIGINAL                                         :Behoud alle standaard treinen
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :Deze instelling is alleen bedoeld om te debuggen. Je kan dit ook gebruiken als je deze NewGRF toevoegd aan een bestaand spel waarin de standaard treinen al gebruikt worden. Gebruik op eigen risico, dit levert vaak problemen op.
+STR_PARAM_PROVIDE_RAIL                                          :Bied railvoertuigen
+STR_PARAM_PROVIDE_RAIL_DESC                                     :Bied railvoertuigen. Schakel uit als deze NewGRF geen railvoertuigen zou moeten geven.
+STR_PARAM_PROVIDE_MONORAIL                                      :Bied monorailvoertuigen
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :Bied monorailrailvoertuigen. Schakel uit als deze NewGRF geen monorailrailvoertuigen zou moeten geven.
+STR_PARAM_PROVIDE_MAGLEV                                        :Bied magneetzweeftreinen
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Bied magneetzweeftreinen. Schakel uit als deze NewGRF geen magneetzweeftreinen zou moeten geven.
+
+STR_PARAM_RUNNING_COST                                          :Verander onderhoudskosten
+STR_PARAM_RUNNING_COST_DESC                                     :Hiermee kun je de onderhoudskosten van de voertuigen instellen (bijv. om ze ongeveer gelijk te maken aan andere sets)
+STR_PARAM_PURCHASE_COST                                         :Verander aanschafkosten
+STR_PARAM_PURCHASE_COST_DESC                                    :Hiermee kun je de aanschafkosten van de voertuigen instellen (bijv. om ze ongeveer gelijk te maken aan andere sets)
+STR_PARAM_COST_AUTOMATICALLY                                    :Automatisch (standaard)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 / 128
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :Normaal
+STR_PARAM_COST_TIMES2                                           :2x
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
+
+STR_ERR_ENGINE_POOL                                             :Maak het mogelijk om meerdere NewGRF-voertuigsets te gebruiken = aan
+
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :Vracht in dit voertuig wordt langer vers gehouden dan in andere voertuigen.
+
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Houtsnippers)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Tonnen)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY                       : (Machinerie)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER                       : (Container)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        : (Tractors)
