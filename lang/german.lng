@@ -1,6 +1,7 @@
 ##grflangid 0x02
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} erweitert und ergänzt die üblichen Schienenfahrzeuge.{}Im Design angelehnt an OpenGFX.{}Programmierung: {SILVER}planetmaker, Terkhen{}{BLACK}Grafik: {SILVER}molace, Zephyris, DanMacK, buttercup, Uzurpator{}{BLACK}Licenz: {SILVER}GPL v2{}{BLACK}Webseite: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Besonderen Dank an {SILVER}Yexo{BLACK} und {SILVER}Ammler{BLACK} für ihre Unterstützung und Beiträge
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} erweitert und ergänzt die üblichen Schienenfahrzeuge.{}Im Design angelehnt an OpenGFX.{}Programmierung: {SILVER}planetmaker, Terkhen{}{BLACK}Grafik: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licenz: {SILVER}GPL v2{}{BLACK}Webseite: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Besonderen Dank an {SILVER}Yexo{BLACK} und {SILVER}Ammler{BLACK} für ihre Unterstützung und Beiträge
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Schüttgutwaggon
 STR_NAME_TANK_WAGON                                             :Kesselwaggon
@@ -17,8 +18,16 @@ STR_PARAM_ENGINES_ARCTIC                                        :arktisches Klim
 STR_PARAM_ENGINES_TROPICAL                                      :tropisches Klima
 STR_PARAM_ENGINES_TOYLAND                                       :Spielzeugland
 STR_PARAM_ENGINES_ALL                                           :Alle
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Alle außer Spielzeugland
+
 STR_PARAM_KEEP_ORIGINAL                                         :Existierende Fahrzeuge beibehalten
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :Diese Einstellung existiert nur zu Debugging-Zwecken. Sie ist auch sinnvoll, wenn Du dieses Set einem _bestehenden_ Spiel zufügst in welchem schon Züge vorhanden sind. Dies is aber i.A. problematisch und führt zu Problemen. Verwendung auf eigene Gefahr.
+STR_PARAM_PROVIDE_RAIL                                          :Eisenbahn
+STR_PARAM_PROVIDE_RAIL_DESC                                     :Fahrzeuge für "normale" Schienen bereitstellen. Wenn deaktiviert, werden keine Fahrzeuge für "normale" Schienen bereitgestellt.
+STR_PARAM_PROVIDE_MONORAIL                                      :Einschienenbahn
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :Fahrzeuge für Einschienenbahn bereitstellen. Wenn deaktiviert, werden keine Fahrzeuge für Einschienenbahn bereitgestellt.
+STR_PARAM_PROVIDE_MAGLEV                                        :Magnetschwebebahn
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Fahrzeuge für Magnetschwebebahn bereitstellen. Wenn deaktiviert, werden keine Fahrzeuge für die Magnetschwebebahn bereitgestellt
 
 STR_PARAM_RUNNING_COST                                          :Betriebskosten anpassen
 STR_PARAM_RUNNING_COST_DESC                                     :Erlaube die Betriebskosten der Fahrzeuge anzupassen (z.B. um sie anderen Fahrzeugsets gegenüber anzupassen)
