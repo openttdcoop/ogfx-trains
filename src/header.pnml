@@ -4,7 +4,7 @@ grf {
     desc : string(STR_GRF_DESCRIPTION);
     url : string(STR_GRF_URL);
     version : REPO_REVISION;
-    min_compatible_version: 178;
+    min_compatible_version: 285;
 
     // Compatibility parameter: remove unneeded default wagon definitions
     param {

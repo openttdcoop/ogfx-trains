@@ -6,7 +6,7 @@
  * ***************************
  */
 
-SPRITEGROUP_1STAGE_LOAD (monorail_valuables, "src/gfx/temperate_monolev.png", tmpl_short_railwagon, 0, 60, 80)
+SPRITEGROUP_1STAGE_LOAD (monorail_valuables, "src/gfx/temperate_monolev.png", tmpl_short_railwagon2, 0, 60, 80)
 
 item(FEAT_TRAINS, monorail_valuables_wagon, 67) {
     property {

@@ -14,5 +14,8 @@ item(FEAT_TRAINS, maglev_valuables_wagon, 99) {
         refit_cost:                     0; // free refit between armoured cargos
         REFIT_PROPERTIES_ARMOURED
     }
-	graphics { monorail_valuables_group; }
+	graphics {
+		shorten_vehicle:        return SHORTEN_TO_7_8;
+		monorail_valuables_group;
+	}
 }

@@ -4,7 +4,7 @@
  * ***************************
  */
 
-WAGON_SINGLE_SET8(monorail_mail, "src/gfx/temperate_monolev.png", tmpl_short_railwagon, 0, 20)
+WAGON_SINGLE_SET8(monorail_mail, "src/gfx/temperate_monolev.png", tmpl_short_railwagon2, 0, 20)
 
 item(FEAT_TRAINS, monorail_mail_wagon, 58) {
     property {
