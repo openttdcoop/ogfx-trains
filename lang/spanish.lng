@@ -1,6 +1,7 @@
 ##grflangid 0x04
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} mejora los vehículos de ferrocarril estándar y los extiende con nuevos vagones y locomotoras.{}Diseñado para concordar con el estilo OpenGFX.{}Programación: {SILVER}planetmaker, Terkhen{}{BLACK}Gráficos: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencia: {SILVER}GPL v2{}{BLACK}Página web: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Agradecimientos especiales a {SILVER}Yexo{BLACK} y {SILVER}Ammler{BLACK} por su apoyo y contribuciones.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Vagón a granel
 STR_NAME_TANK_WAGON                                             :Vagón cisterna
@@ -17,8 +18,16 @@ STR_PARAM_ENGINES_ARCTIC                                        :Ártico
 STR_PARAM_ENGINES_TROPICAL                                      :Tropical
 STR_PARAM_ENGINES_TOYLAND                                       :Juguetelandia
 STR_PARAM_ENGINES_ALL                                           :Todos
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Todos menos Juguetelandia
+
 STR_PARAM_KEEP_ORIGINAL                                         :Mantener activos todos los vehículos estándar
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :Esta opción se incluye para ser usada para depurar. Puedes usar esta opción si deseas añadir este newgrf a una partida ya comenzada que contiene vehículos estándar. Esta opción puede causar problemas; actívela bajo su propia responsabilidad.
+STR_PARAM_PROVIDE_RAIL                                          :Activar vehículos de raíl
+STR_PARAM_PROVIDE_RAIL_DESC                                     :Permite usar vehículos de raíl. Deshabilitar en caso de que no se desee usar vehículos de raíl.
+STR_PARAM_PROVIDE_MONORAIL                                      :Activar vehículos de monorraíl
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :Permite usar vehículos de monorraíl. Deshabilitar en caso de que no se desee usar vehículos de monorraíl.
+STR_PARAM_PROVIDE_MAGLEV                                        :Activar vehículos de maglev
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Permite usar vehículos de maglev. Deshabilitar en caso de que no se desee usar vehículos de maglev.
 
 STR_PARAM_RUNNING_COST                                          :Ajustar costes de operación
 STR_PARAM_RUNNING_COST_DESC                                     :Permite ajustar los costes de operación de este newgrf (para, por ejemplo, equilibrarlos con los de otros newgrfs).
@@ -45,6 +54,8 @@ STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
 
 STR_ERR_ENGINE_POOL                                             :Permitir múltiples NewGRFs de vehículos = activo
+
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :La carga transportada en este vehículo se mantiene fresca por más tiempo que con otros vehículos.
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Trozos de madera)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Barriles)
