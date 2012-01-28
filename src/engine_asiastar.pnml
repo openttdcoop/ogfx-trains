@@ -16,8 +16,9 @@ MU_8SPRITES (asiastar_valuables, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.pn
 
 item(FEAT_TRAINS, asiastar, 26) {
 	property {
-		sprite_id:                    SPRITE_ID_NEW_TRAIN;
-		misc_flags:                   bitmask(TRAIN_FLAG_MU);
+		sprite_id:                      SPRITE_ID_NEW_TRAIN;
+		misc_flags:                     bitmask(TRAIN_FLAG_MU);
+        track_type:                     EL_RAIL;
 	}
 	graphics { asiastar_engine_group; }
 	livery_override (passenger_wagon) { asiastar_passenger_group; }

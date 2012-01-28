@@ -22,6 +22,7 @@ item(FEAT_TRAINS, manley_morel, 11) {
 	property {
 		sprite_id:                      SPRITE_ID_NEW_TRAIN;
 		misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+        track_type:                     NORMAL_RAIL;
 		REFIT_PROPERTIES_MU
 	}
 	graphics {

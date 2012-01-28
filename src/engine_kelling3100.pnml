@@ -18,8 +18,9 @@ switch(FEAT_TRAINS, SELF, kelling3100_indepot_switch, vehicle_is_in_depot) {
 
 item(FEAT_TRAINS, kelling3100, 19) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP);
+        track_type:                     NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(kelling3100_indepot)
 }

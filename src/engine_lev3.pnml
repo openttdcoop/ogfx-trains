@@ -19,6 +19,7 @@ item(FEAT_TRAINS, lev3, 86) {
 	property {
 		sprite_id:                    SPRITE_ID_NEW_TRAIN;
 		misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP);
+        track_type:                   MAGLEV;
 	}
 	graphics {
 		shorten_vehicle:        return SHORTEN_TO_7_8;

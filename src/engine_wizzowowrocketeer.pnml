@@ -14,8 +14,9 @@ switch(FEAT_TRAINS, SELF, wizzowowrocketeer_indepot_switch, vehicle_is_in_depot)
 
 item(FEAT_TRAINS, wizzowowrocketeer, 88) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP);
+        track_type:                     MONORAIL;
     }
     ENGINE_GRAPHICS_BLOCK(wizzowowrocketeer_indepot)
 }

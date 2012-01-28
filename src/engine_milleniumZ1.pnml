@@ -1,6 +1,7 @@
 // Millenium Z1
 item(FEAT_TRAINS, milleniumz1, 55) {
     property {
+        track_type:                     MONORAIL;
         REFIT_PROPERTIES_PAX
     }
 }

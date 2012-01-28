@@ -14,8 +14,9 @@ switch(FEAT_TRAINS, SELF, hendry_floss_indepot_switch, vehicle_is_in_depot) {
 
 item(FEAT_TRAINS, shhendry, 13) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP);
+        track_type:                     NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(hendry_floss_indepot)
 }

@@ -15,6 +15,7 @@ item(FEAT_TRAINS, kirbypaul, 00) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(kirbypaul)
 }
@@ -27,6 +28,7 @@ item(FEAT_TRAINS, mjs250, 01) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(mjs250)
 }
@@ -38,6 +40,7 @@ item(FEAT_TRAINS, ploddyphut_choochoo, 02) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(ploddyphut_choochoo)
 }
@@ -49,6 +52,7 @@ item(FEAT_TRAINS, powernaut_choochoo, 03) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(powernaut_choochoo)
 }
@@ -60,6 +64,7 @@ item(FEAT_TRAINS, mightymover_choochoo, 04) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(mightymover_choochoo)
 }
@@ -71,6 +76,7 @@ item(FEAT_TRAINS, ploddyphut_diesel, 05) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(ploddyphut_diesel)
 }
@@ -82,6 +88,7 @@ item(FEAT_TRAINS, powernaut_diesel, 06) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(powernaut_diesel)
 }
@@ -94,6 +101,7 @@ item(FEAT_TRAINS, wills280, 07) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(wills280)
 }
@@ -105,6 +113,7 @@ item(FEAT_TRAINS, chaneyjubilee, 08) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(chaneyjubilee)
 }
@@ -116,6 +125,7 @@ item(FEAT_TRAINS, ginzua4, 09) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(ginzua4)
 }
@@ -127,6 +137,7 @@ item(FEAT_TRAINS, sh8p, 10) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(sh8p)
 }
@@ -135,12 +146,14 @@ item(FEAT_TRAINS, manleymorel, 11) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 item(FEAT_TRAINS, dash, 12) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 
@@ -148,6 +161,7 @@ item(FEAT_TRAINS, shhendry, 13) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 
@@ -155,6 +169,7 @@ item(FEAT_TRAINS, uu37, 14) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 
@@ -162,6 +177,7 @@ item(FEAT_TRAINS, floss47, 15) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 
@@ -173,6 +189,7 @@ item(FEAT_TRAINS, cs4000, 16) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(cs4000)
 }
@@ -185,6 +202,7 @@ item(FEAT_TRAINS, cs2400, 17) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(cs2400)
 }
@@ -197,6 +215,7 @@ item(FEAT_TRAINS, centennial, 18) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(centennial)
 }
@@ -205,6 +224,7 @@ item(FEAT_TRAINS, kelling3100, 19) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 
@@ -212,6 +232,7 @@ item(FEAT_TRAINS, turnerturbo, 20) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 
@@ -219,6 +240,7 @@ item(FEAT_TRAINS, mjs1000, 21) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 
@@ -226,6 +248,7 @@ item(FEAT_TRAINS, sh125, 22) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
     }
 }
 
@@ -233,6 +256,7 @@ item(FEAT_TRAINS, sh30, 23) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             EL_RAIL;
     }
 }
 
@@ -240,6 +264,7 @@ item(FEAT_TRAINS, sh40, 24) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             EL_RAIL;
     }
 }
 
@@ -247,12 +272,14 @@ item(FEAT_TRAINS, tim, 25) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             EL_RAIL;
     }
 }
 item(FEAT_TRAINS, asiastar, 26) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             EL_RAIL;
     }
 }
 
@@ -263,6 +290,7 @@ item(FEAT_TRAINS, x2001, 54) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_monorail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MONORAIL;
     }
 }
 
@@ -273,6 +301,7 @@ item(FEAT_TRAINS, milleniumz1, 55) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_monorail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MONORAIL;
     }
     ENGINE_GRAPHICS_BLOCK(milleniumz1)
 }
@@ -284,6 +313,7 @@ item(FEAT_TRAINS, wizzowowz99, 56) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_monorail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MONORAIL;
     }
     ENGINE_GRAPHICS_BLOCK(wizzowowz99)
 }
@@ -295,6 +325,7 @@ item(FEAT_TRAINS, lev1, 84) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_maglev) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MAGLEV;
     }
 }
 
@@ -302,6 +333,7 @@ item(FEAT_TRAINS, lev2, 85) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_maglev) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MAGLEV;
     }
 }
 
@@ -309,6 +341,7 @@ item(FEAT_TRAINS, lev3, 86) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_maglev) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MAGLEV;
     }
 }
 
@@ -319,6 +352,7 @@ item(FEAT_TRAINS, lev4, 87) {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:             bitmask(TRAIN_FLAG_FLIP);
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_maglev) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MAGLEV;
     }
     ENGINE_GRAPHICS_BLOCK(lev4)
 }
@@ -327,6 +361,7 @@ item(FEAT_TRAINS, wizzowowrocketeer, 88) {
     property {
         // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_maglev) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MAGLEV;
     }
 }
 

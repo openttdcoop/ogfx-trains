@@ -14,8 +14,9 @@ switch(FEAT_TRAINS, SELF, lev1_indepot_switch, vehicle_is_in_depot) {
 
 item(FEAT_TRAINS, lev1, 84) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                   bitmask(TRAIN_FLAG_FLIP);
+        track_type:                   MAGLEV;
     }
     ENGINE_GRAPHICS_BLOCK(lev1_indepot)
 }

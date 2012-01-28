@@ -219,8 +219,10 @@ train_width_32_px = 1;
  * ********************************************
  */
 railtypetable {
-    RAIL, ELRL, MONO, MGLV,
-    TRPD
+    NORMAL_RAIL: [RAIL, _040, RLOW, RMED, RHIG, NGRL, MTRO, DBNN, FRNN, NLOW],
+    EL_RAIL:     [ELRL, E040, ELOW, EMED, EHIG, HSTR, ELNG, DBNE, DBHE, DBHS, FRCN, FMGV, ENLW, ENHI],
+    MONORAIL:    [MONO, MTRO, "3RDC"],
+    MAGLEV:      [MGLV, TRPD]
 }
 
 /*
