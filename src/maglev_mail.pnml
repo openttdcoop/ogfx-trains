@@ -15,7 +15,7 @@ item(FEAT_TRAINS, maglev_mail_wagon, 90) {
         REFIT_PROPERTIES_MAIL
     }
     graphics {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		maglev_mail_group;
     }
 }

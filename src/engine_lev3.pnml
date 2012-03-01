@@ -22,19 +22,19 @@ item(FEAT_TRAINS, lev3, 86) {
         track_type:                   MAGLEV;
 	}
 	graphics {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		lev3_engine_group;
 	}
 	livery_override (maglev_passenger_wagon) {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		lev3_passenger_group;
 	}
 	livery_override (maglev_mail_wagon)      {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		lev3_mail_group;
 	}
 	livery_override (maglev_valuables_wagon) {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		lev3_valuables_group;
 	}
 }

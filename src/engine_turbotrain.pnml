@@ -21,19 +21,19 @@ item(FEAT_TRAINS, turbotrain, 20) {
         track_type:                     NORMAL_RAIL;
 	}
 	graphics {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		turbotrain_engine_reversal_switch;
 	}
 	livery_override (passenger_wagon) {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		turbotrain_passenger_reversal_switch;
 	}
 	livery_override (mail_wagon)      {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		turbotrain_mail_reversal_switch;
 	}
 	livery_override (valuables_wagon) {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		turbotrain_valuables_reversal_switch;
 	}
 }

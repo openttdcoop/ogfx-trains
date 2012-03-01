@@ -15,7 +15,7 @@ item(FEAT_TRAINS, maglev_passenger_wagon, 89) {
         REFIT_PROPERTIES_PAX
     }
     graphics {
-		shorten_vehicle:        return SHORTEN_TO_7_8;
+		length:        return 7;
 		maglev_passenger_group;
     }
 }
