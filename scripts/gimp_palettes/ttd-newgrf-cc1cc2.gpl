@@ -1,0 +1,22 @@
+GIMP Palette
+Name: ttd-newgrf-cc1cc2
+Columns: 16
+#
+ 16  16  16	Index 1
+252 244 236	Index 169
+  8  52   0	Index 80
+ 16  64   0	Index 81
+ 32  80   4	Index 82
+ 48  96   4	Index 83
+ 64 112  12	Index 84
+ 84 132  20	Index 85
+104 148  28	Index 86
+128 168  44	Index 87
+  8  24  88	Index 198
+ 12  36 104	Index 199
+ 20  52 124	Index 200
+ 28  68 140	Index 201
+ 40  92 164	Index 202
+ 56 120 188	Index 203
+ 72 152 216	Index 204
+100 172 224	Index 205
