@@ -886,6 +886,6 @@ func_gimp_scale $LINENO "$DSTPCHS/*$INS$I1X*.$EXT" $SCALE1X $SCALE1X $E_SCALE_10
 
 # Cleanup
 func_echo_spin $LINENO $V_MODERATE "Removing temporary files ..."
-#func_remove $LINENO $TMP $E_RM_TMP
+func_remove $LINENO $TMP $E_RM_TMP
 
 func_echo_spin $LINENO $V_STOP "Done."
