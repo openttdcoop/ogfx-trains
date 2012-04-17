@@ -9,6 +9,44 @@
 spriteset(temperate_passenger_rail_set, "src/gfx/temperate_railwagons.png") {
 	tmpl_railwagon(0,0) tmpl_railwagon(0,0)               // 8 views needed for livery override by turbotrain
 }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(temperate_passenger_rail_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "passenger", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(temperate_passenger_rail_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "passenger", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(temperate_passenger_rail_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "passenger", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(temperate_passenger_rail_set_gui, "src/gfx/temperate_railwagons.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)               // 8 views needed for livery override by turbotrain
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(temperate_passenger_rail_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("passenger")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup temperate_passenger_rail_group_gui {
+	loading: temperate_passenger_rail_set_gui;
+	loaded: temperate_passenger_rail_set_gui;
+}
+
 spritegroup temperate_passenger_rail_group {
 	loading: temperate_passenger_rail_set;
 	loaded: temperate_passenger_rail_set;
@@ -38,18 +76,29 @@ spritegroup toyland_passenger_rail_group {
 	loaded: toyland_passenger_rail_set;
 }
 
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, normal_passenger_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: temperate_passenger_rail_group_gui;
+    0x11: temperate_passenger_rail_group_gui;
+    0x12: temperate_passenger_rail_group_gui;
+    0x20: temperate_passenger_rail_group_gui;
+    0x21: temperate_passenger_rail_group_gui;
+    temperate_passenger_rail_group;
+}
+
 switch (FEAT_TRAINS, SELF, normal_passenger_switch, climate) {
     CLIMATE_TROPICAL: tropic_passenger_rail_group;
     CLIMATE_ARCTIC: arctic_passenger_rail_group;
     CLIMATE_TOYLAND: toyland_passenger_rail_group;
-    temperate_passenger_rail_group;
+    normal_passenger_switch_gui;
 }
 
 item(FEAT_TRAINS, passenger_wagon, 27) {
     property {
         sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
         climates_available:           param_provide_rail ? ALL_CLIMATES : NO_CLIMATE;
-        misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT); // We use special sprites for passenger and mail wagons
+        misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
         refit_cost:                   0; // refit is free
         REFIT_PROPERTIES_PAX
     }
