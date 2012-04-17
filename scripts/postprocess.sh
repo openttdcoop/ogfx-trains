@@ -84,8 +84,6 @@ E_MK_POSTMSK8=21
 E_MK_POSTMSK32=22
 E_MK_SRCMASK32=23
 E_MK_DST8=24
-E_MK_DSTMSK8CC1=25
-E_MK_DSTMSK8CC2=26
 E_MK_DST32=27
 E_MK_DSTMSK32=28
 E_MK_DSTPCHS=29
@@ -547,13 +545,13 @@ function func_gimp_cc1()
     func_param_check $1 $FUNCNAME $# 2
 
     if [ $# -gt 2 ]; then
-        func_gimp_indexed_cc1 $LINENO $2 $3
-        func_gimp_to_rgb $LINENO $2 $3
-        func_gimp_indexed_dos $LINENO $2 $3
+        func_gimp_indexed_cc1 $LINENO "$2" $3
+        func_gimp_to_rgb $LINENO "$2" $3
+        func_gimp_indexed_dos $LINENO "$2" $3
     else
-        func_gimp_indexed_cc1 $LINENO $2
-        func_gimp_to_rgb $LINENO $2
-        func_gimp_indexed_dos $LINENO $2
+        func_gimp_indexed_cc1 $LINENO "$2"
+        func_gimp_to_rgb $LINENO "$2"
+        func_gimp_indexed_dos $LINENO "$2"
     fi
 }
 
@@ -566,13 +564,13 @@ function func_gimp_cc2()
     func_param_check $1 $FUNCNAME $# 2
 
     if [ $# -gt 2 ]; then
-        func_gimp_indexed_cc2 $LINENO $2 $3
-        func_gimp_to_rgb $LINENO $2 $3
-        func_gimp_indexed_dos $LINENO $2 $3
+        func_gimp_indexed_cc2 $LINENO "$2" $3
+        func_gimp_to_rgb $LINENO "$2" $3
+        func_gimp_indexed_dos $LINENO "$2" $3
     else
-        func_gimp_indexed_cc2 $LINENO $2
-        func_gimp_to_rgb $LINENO $2
-        func_gimp_indexed_dos $LINENO $2
+        func_gimp_indexed_cc2 $LINENO "$2"
+        func_gimp_to_rgb $LINENO "$2"
+        func_gimp_indexed_dos $LINENO "$2"
     fi
 }
 
@@ -639,17 +637,17 @@ function func_gimp_indexed_dos_noaction()
     func_param_check $1 $FUNCNAME $# 2
 
     if [ $# -gt 2 ]; then
-        func_gimp_indexed_dos $LINENO $2 $3
-        func_gimp_to_rgb $LINENO $2 $3
-        func_gimp_indexed_noaction $LINENO $2 $3
-        func_gimp_to_rgb $LINENO $2 $3
-        func_gimp_indexed_dos $LINENO $2 $3
+        func_gimp_indexed_dos $LINENO "$2" $3
+        func_gimp_to_rgb $LINENO "$2" $3
+        func_gimp_indexed_noaction $LINENO "$2" $3
+        func_gimp_to_rgb $LINENO "$2" $3
+        func_gimp_indexed_dos $LINENO "$2" $3
     else
-        func_gimp_indexed_dos $LINENO $2
-        func_gimp_to_rgb $LINENO $2
-        func_gimp_indexed_noaction $LINENO $2
-        func_gimp_to_rgb $LINENO $2
-        func_gimp_indexed_dos $LINENO $2
+        func_gimp_indexed_dos $LINENO "$2"
+        func_gimp_to_rgb $LINENO "$2"
+        func_gimp_indexed_noaction $LINENO "$2"
+        func_gimp_to_rgb $LINENO "$2"
+        func_gimp_indexed_dos $LINENO "$2"
     fi
 }
 
@@ -748,10 +746,6 @@ func_concat_path $LINENO SRCPCHS $SRC "32bpp_no_shadow"
 
 func_concat_path $LINENO DST8 $DST "8bpp"
 func_mkdir $LINENO $DST8 $E_MK_DST8
-func_concat_path $LINENO DSTMSK8CC1 $TMP "8bpp_1cc_mask"
-func_mkdir $LINENO $DSTMSK8CC1 $E_MK_DSTMSK8CC1
-func_concat_path $LINENO DSTMSK8CC2 $TMP "8bpp_2cc_mask"
-func_mkdir $LINENO $DSTMSK8CC2 $E_MK_DSTMSK8CC2
 
 func_concat_path $LINENO DST32 $DST "32bpp"
 func_mkdir $LINENO $DST32 $E_MK_DST32
@@ -838,7 +832,7 @@ func_echo_spin $LINENO $V_MODERATE "Merge 8bpp masks ..."
 for ((COUNT=1; COUNT<=$SPRITES; COUNT++))
 do
         func_format_name $LINENO NAME $COUNT
-        func_gimp_merge $LINENO "$DST8/$NAME$INS$I4X.$EXT" "$POSTMSK8/$NAME$INS$I4X$MASK.$EXT" $E_MG_8BPP
+        func_gimp_flatten $LINENO "$DST8/$NAME$INS$I4X.$EXT" "$POSTMSK8/$NAME$INS$I4X$MASK.$EXT" $E_MG_8BPP
 done
 
 func_echo_spin $LINENO $V_MODERATE "Convert to 8 bit files ..."
@@ -892,6 +886,6 @@ func_gimp_scale $LINENO "$DSTPCHS/*$INS$I1X*.$EXT" $SCALE1X $SCALE1X $E_SCALE_10
 
 # Cleanup
 func_echo_spin $LINENO $V_MODERATE "Removing temporary files ..."
-func_remove $LINENO $TMP $E_RM_TMP
+#func_remove $LINENO $TMP $E_RM_TMP
 
 func_echo_spin $LINENO $V_STOP "Done."
