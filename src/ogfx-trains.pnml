@@ -5,6 +5,7 @@
 #include "src/templates_wagons.pnml"
 #include "src/templates_engines.pnml"
 #include "src/templates_mu.pnml"
+#include "src/templates_32bpp.pnml"
 
 /*
  * Redefine the default engines
@@ -93,4 +94,3 @@
 #include "src/engine_lev2.pnml"         // id 85
 #include "src/engine_lev3.pnml"         // id 86
 #include "src/engine_wizzowowrocketeer.pnml" // id 88
-
