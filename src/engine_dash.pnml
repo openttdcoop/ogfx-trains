@@ -168,6 +168,58 @@ switch(FEAT_TRAINS, SELF, sw_dash_mail_group_gui, (extra_callback_info1 & 0xFF))
     dash_mail_group;
 }
 
+/*
+ * Livery override for 32bpp armoured van
+ */
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(dash_valuables_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "armoured", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(dash_valuables_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "armoured", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(dash_valuables_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "armoured", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(dash_valuables_set_gui, "src/gfx/mus/dash/DashLiveryOverride.png") {
+	tmpl_railwagon8_normal(0, 80)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(dash_valuables_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("armoured")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup dash_valuables_group_gui {
+	loading: dash_valuables_set_gui;
+	loaded: dash_valuables_set_gui;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, sw_dash_valuables_group_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: dash_valuables_group_gui;
+    0x11: dash_valuables_group_gui;
+    0x12: dash_valuables_group_gui;
+    0x20: dash_valuables_group_gui;
+    0x21: dash_valuables_group_gui;
+    dash_valuables_group;
+}
+
 #include "template_refit_cost_mu.pnml"
 
 item(FEAT_TRAINS, dash, 12) {
@@ -184,7 +236,7 @@ item(FEAT_TRAINS, dash, 12) {
 	}
 	livery_override (passenger_wagon) { sw_dash_passenger_group_gui; }
 	livery_override (mail_wagon)      { sw_dash_mail_group_gui; }
-	livery_override (valuables_wagon) { dash_valuables_group; }
+	livery_override (valuables_wagon) { sw_dash_valuables_group_gui; }
 }
 
 #undef THIS_ID

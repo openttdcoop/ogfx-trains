@@ -7,11 +7,60 @@
  */
 
 spriteset(valuables_rail_set, "src/gfx/temperate_railwagons.png") {
-	tmpl_railwagon(0,375)
+	tmpl_railwagon(0,375) tmpl_railwagon(0,375)               // 8 views needed for 32bpp replacements
 }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(valuables_rail_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "armoured", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(valuables_rail_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "armoured", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(valuables_rail_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "armoured", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(valuables_rail_set_gui, "src/gfx/temperate_railwagons.png") {
+	tmpl_railwagon(0,375) tmpl_railwagon(0,375)               // 8 views needed for 32bpp replacements
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(valuables_rail_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("armoured")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup valuables_wagon_group_gui {
+	loading: valuables_rail_set_gui;
+	loaded: valuables_rail_set_gui;
+}
+
 spritegroup valuables_wagon_group {
 	loading: valuables_rail_set;
 	loaded: valuables_rail_set;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, valuables_wagon_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: valuables_wagon_group_gui;
+    0x11: valuables_wagon_group_gui;
+    0x12: valuables_wagon_group_gui;
+    0x20: valuables_wagon_group_gui;
+    0x21: valuables_wagon_group_gui;
+    valuables_wagon_group;
 }
 
 item(FEAT_TRAINS, valuables_wagon, 37) {
@@ -23,6 +72,6 @@ item(FEAT_TRAINS, valuables_wagon, 37) {
         REFIT_PROPERTIES_ARMOURED
     }
     graphics {
-        valuables_wagon_group;
+        valuables_wagon_switch_gui;
     }
 }

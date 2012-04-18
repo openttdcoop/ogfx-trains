@@ -168,6 +168,58 @@ switch(FEAT_TRAINS, SELF, sw_sh125_mail_group_gui, (extra_callback_info1 & 0xFF)
     sh125_mail_group;
 }
 
+/*
+ * Livery override for 32bpp armoured van
+ */
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(sh125_valuables_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "armoured", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(sh125_valuables_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "armoured", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(sh125_valuables_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "armoured", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(sh125_valuables_set_gui, "src/gfx/mus/sh125/sh125LiveryOverride.png") {
+	tmpl_railwagon8_normal(0, 80)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(sh125_valuables_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("armoured")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup sh125_valuables_group_gui {
+	loading: sh125_valuables_set_gui;
+	loaded: sh125_valuables_set_gui;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, sw_sh125_valuables_group_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: sh125_valuables_group_gui;
+    0x11: sh125_valuables_group_gui;
+    0x12: sh125_valuables_group_gui;
+    0x20: sh125_valuables_group_gui;
+    0x21: sh125_valuables_group_gui;
+    sh125_valuables_group;
+}
+
 #include "template_refit_cost_mu.pnml"
 
 item(FEAT_TRAINS, sh125, 22) {
@@ -189,7 +241,7 @@ item(FEAT_TRAINS, sh125, 22) {
 		sw_sh125_mail_group_gui;
 	}
 	livery_override (valuables_wagon) {
-		sh125_valuables_group;
+		sw_sh125_valuables_group_gui;
 	}
 }
 
