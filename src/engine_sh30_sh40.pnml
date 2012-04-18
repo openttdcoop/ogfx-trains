@@ -12,7 +12,6 @@ switch(FEAT_TRAINS, SELF, sh30_sh40_indepot_switch, vehicle_is_in_depot) {
     sh30_sh40_default_group;
 }
 
-/*
 item(FEAT_TRAINS, sh30, 23) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -21,7 +20,6 @@ item(FEAT_TRAINS, sh30, 23) {
     }
     ENGINE_GRAPHICS_BLOCK(sh30_sh40_indepot)
 }
-*/
 
 item(FEAT_TRAINS, sh40, 24) {
     property {
