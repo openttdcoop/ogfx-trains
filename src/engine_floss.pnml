@@ -1,0 +1,66 @@
+/*
+ * =============================================================================
+ * Floss '47'
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP(floss, default, tmpl_engine_42(0, 0) tmpl_engine_42(0, 0),  "src/gfx/engines/temperate_SH_Hendry25_88.png")
+ENGINE_GRAPHICS_GROUP(floss_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/temperate_SH_Hendry25_88.png")
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(floss_default_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "floss47", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(floss_default_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "floss47", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(floss_default_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "floss47", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(floss_depot_default_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("floss47")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup floss_engine_group_gui {
+	loading: floss_depot_default_set;
+	loaded: floss_depot_default_set;
+}
+
+switch(FEAT_TRAINS, SELF, floss_indepot_switch, vehicle_is_in_depot) {
+    1: floss_depot_default_group;
+    floss_default_group;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, floss_engine_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: floss_engine_group_gui;
+    0x11: floss_engine_group_gui;
+    0x12: floss_engine_group_gui;
+    0x20: floss_engine_group_gui;
+    0x21: floss_engine_group_gui;
+    floss_indepot_switch;
+}
+
+item(FEAT_TRAINS, shfloss, 15) {
+    property {
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        track_type:                     NORMAL_RAIL;
+    }
+    graphics {
+        floss_engine_switch_gui;
+    }
+}

@@ -12,7 +12,6 @@ switch(FEAT_TRAINS, SELF, hendry_floss_indepot_switch, vehicle_is_in_depot) {
     hendry_floss_default_group;
 }
 
-/*
 item(FEAT_TRAINS, shhendry, 13) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -21,7 +20,6 @@ item(FEAT_TRAINS, shhendry, 13) {
     }
     ENGINE_GRAPHICS_BLOCK(hendry_floss_indepot)
 }
-*/
 
 item(FEAT_TRAINS, floss47, 15) {
     property {
