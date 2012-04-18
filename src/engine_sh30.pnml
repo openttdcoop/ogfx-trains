@@ -1,0 +1,66 @@
+/*
+ * =============================================================================
+ * SH30
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP(sh30, default, tmpl_engine_42(0, 0) tmpl_engine_42(0, 0),  "src/gfx/engines/temperate_SH30_SH40_88.png")
+ENGINE_GRAPHICS_GROUP(sh30_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/temperate_SH30_SH40_88.png")
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(sh30_default_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "sh30", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(sh30_default_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "sh30", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(sh30_default_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "sh30", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(sh30_depot_default_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("sh30")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup sh30_engine_group_gui {
+	loading: sh30_depot_default_set;
+	loaded: sh30_depot_default_set;
+}
+
+switch(FEAT_TRAINS, SELF, sh30_indepot_switch, vehicle_is_in_depot) {
+    1: sh30_depot_default_group;
+    sh30_default_group;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, sh30_engine_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: sh30_engine_group_gui;
+    0x11: sh30_engine_group_gui;
+    0x12: sh30_engine_group_gui;
+    0x20: sh30_engine_group_gui;
+    0x21: sh30_engine_group_gui;
+    sh30_indepot_switch;
+}
+
+item(FEAT_TRAINS, sh30, 23) {
+    property {
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        track_type:                     EL_RAIL;
+    }
+    graphics {
+        sh30_engine_switch_gui;
+    }
+}
