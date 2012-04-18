@@ -80,6 +80,7 @@
 
 // rail engines
 #include "src/engine_hendry_floss.pnml" // id 13, 15
+#include "src/engine_sh25.pnml"         // id 13
 #include "src/engine_uu37.pnml"         // id 14
 #include "src/engine_kelling3100.pnml"	// id 19
 #include "src/engine_mjs1000.pnml"      // id 21
