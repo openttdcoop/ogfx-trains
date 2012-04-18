@@ -10,20 +10,69 @@
 spriteset(normal_mail_set, "src/gfx/temperate_railwagons.png") {
 	tmpl_railwagon(0,50) tmpl_railwagon(0,50)             // 8 views needed for livery override by turbotrain
 }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(normal_mail_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "mail", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(normal_mail_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "mail", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(normal_mail_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "mail", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(normal_mail_set_gui, "src/gfx/temperate_railwagons.png") {
+	tmpl_railwagon(0,50) tmpl_railwagon(0,50)             // 8 views needed for livery override by turbotrain
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(normal_mail_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("mail")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup mail_wagon_group_gui {
+	loading: normal_mail_set_gui;
+	loaded: normal_mail_set_gui;
+}
+
 spritegroup mail_wagon_group {
 	loading: normal_mail_set;
 	loaded: normal_mail_set;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, mail_wagon_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: mail_wagon_group_gui;
+    0x11: mail_wagon_group_gui;
+    0x12: mail_wagon_group_gui;
+    0x20: mail_wagon_group_gui;
+    0x21: mail_wagon_group_gui;
+    mail_wagon_group;
 }
 
 item(FEAT_TRAINS, mail_wagon, 28) {
     property {
         sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
         climates_available:           param_provide_rail ? ALL_CLIMATES : NO_CLIMATE;
-        misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT); // We use special sprites for passenger and mail wagons
+        misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
         refit_cost:                   0; // refit is free
         REFIT_PROPERTIES_MAIL
     }
     graphics {
-        mail_wagon_group;
+        mail_wagon_switch_gui;
     }
 }

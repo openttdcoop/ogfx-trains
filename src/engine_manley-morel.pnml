@@ -65,7 +65,7 @@ switch(FEAT_TRAINS, SELF, manley_morel_engine_switch_gui, (extra_callback_info1 
 }
 
 /*
- * Livery override for 32bpp passenger, mail and valuables wagons
+ * Livery override for 32bpp passenger wagons
  */
 
 /* OpenGFX+ */
@@ -116,6 +116,58 @@ switch(FEAT_TRAINS, SELF, sw_manley_morel_passenger_group_gui, (extra_callback_i
     manley_morel_passenger_group;
 }
 
+/*
+ * Livery override for 32bpp mail wagons
+ */
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(manley_morel_mail_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "mail", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(manley_morel_mail_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "mail", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(manley_morel_mail_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "mail", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(manley_morel_mail_set_gui, "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png") {
+	tmpl_railwagon8_normal(0, 54)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(manley_morel_mail_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("mail")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup manley_morel_mail_group_gui {
+	loading: manley_morel_mail_set_gui;
+	loaded: manley_morel_mail_set_gui;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, sw_manley_morel_mail_group_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: manley_morel_mail_group_gui;
+    0x11: manley_morel_mail_group_gui;
+    0x12: manley_morel_mail_group_gui;
+    0x20: manley_morel_mail_group_gui;
+    0x21: manley_morel_mail_group_gui;
+    manley_morel_mail_group;
+}
+
 #include "template_refit_cost_mu.pnml"
 
 item(FEAT_TRAINS, manley_morel, 11) {
@@ -131,7 +183,7 @@ item(FEAT_TRAINS, manley_morel, 11) {
 		manley_morel_engine_switch_gui;
 	}
 	livery_override (passenger_wagon) { sw_manley_morel_passenger_group_gui; }
-	livery_override (mail_wagon)      { manley_morel_mail_group; }
+	livery_override (mail_wagon)      { sw_manley_morel_mail_group_gui; }
 	livery_override (valuables_wagon) { manley_morel_valuables_group; }
 }
 
