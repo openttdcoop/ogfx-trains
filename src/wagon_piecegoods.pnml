@@ -8,7 +8,46 @@
  * ***************************
  */
 
-spriteset(piecegoods_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,125) }
+
+spriteset(piecegoods_wagon_default_set, "src/gfx/temperate_railwagons.png") { tmpl_railwagon(0,125) tmpl_railwagon(0,125) } // 8 views needed for 32bpp
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(piecegoods_wagon_default_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "goods", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(piecegoods_wagon_default_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "goods", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(piecegoods_wagon_default_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "goods", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(piecegoods_wagon_default_set_gui, "src/gfx/temperate_railwagons.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,125)               // 8 views needed for 32bpp
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(piecegoods_wagon_default_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("goods")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup piecegoods_wagon_default_group_gui {
+	loading: piecegoods_wagon_default_set_gui;
+	loaded: piecegoods_wagon_default_set_gui;
+}
+
 spritegroup piecegoods_wagon_default_group {
 	loaded: piecegoods_wagon_default_set;
 	loading: piecegoods_wagon_default_set;
@@ -47,6 +86,18 @@ spritegroup piecegoods_wagon_toys_group {
 	loading: piecegoods_wagon_toys_open_set;
 }
 
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, piecegoods_wagon_default_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: piecegoods_wagon_default_group_gui;
+    0x11: piecegoods_wagon_default_group_gui;
+    0x12: piecegoods_wagon_default_group_gui;
+    0x20: piecegoods_wagon_default_group_gui;
+    0x21: piecegoods_wagon_default_group_gui;
+    piecegoods_wagon_default_group;
+}
+
 switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
     BATT: piecegoods_wagon_toyland_group;
     FRUT: piecegoods_wagon_fruit_group;
@@ -55,7 +106,7 @@ switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
     PAPR: piecegoods_wagon_paper_group;
     SWET: piecegoods_wagon_toyland_group;
     TOYS: piecegoods_wagon_toys_group;
-    piecegoods_wagon_default_group;
+    piecegoods_wagon_default_switch_gui;
 }
 
 switch (FEAT_TRAINS, SELF, piecegoods_wagon_capacity_switch, cargo_type_in_veh) {
@@ -96,13 +147,14 @@ item(FEAT_TRAINS, piecegoods_wagon) {
         cost_factor:                    190;
         cargo_capacity:                 25;
         weight:                         21;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
         weight:         piecegoods_wagon_weight_switch;
         cargo_capacity: piecegoods_wagon_capacity_switch;
         refit_cost:     piecegoods_wagon_refit_cost_switch;
 
-        purchase:   piecegoods_wagon_default_group;
+        purchase:   piecegoods_wagon_default_switch_gui;
         piecegoods_wagon_switch;
     }
 }
