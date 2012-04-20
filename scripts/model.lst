@@ -1,7 +1,6 @@
 #**************************************************************************
 # Blender Model List
-# Version 1
-# 2012-04-16
+# 2012-04-20
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
@@ -28,3 +27,4 @@ flatbed_timber
 flatbed_steel
 flatbed_paper
 flatbed_oil
+flatbed_refinery
