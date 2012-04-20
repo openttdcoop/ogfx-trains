@@ -88,7 +88,7 @@ bundle_src: bundle_gsrc
 bundle_bsrc: $(DIR_NAME_SRC).tar.bz2
 bundle_gsrc: $(DIR_NAME_SRC).tar.gz
 bundle_xsrc: $(DIR_NAME_SRC).tar.xz
-bundle_zsrc: $(DIR_NAME_SRC).zip
+bundle_zsrc: $(DIR_NAME_SRC).tar.zip
 
 # Addition to config for tar releases
 Makefile.dist: $(REV_FILENAME) $(SCRIPT_DIR)/Makefile.bundles
@@ -105,13 +105,17 @@ Makefile.dist: $(REV_FILENAME) $(SCRIPT_DIR)/Makefile.bundles
 	$(_V) echo 'DEP_CHECK_TYPE := normal' >> $@
 	$(_V) echo 'FROM_TAR := 1' >> $@
 
+$(DIR_NAME_SRC): $(REV_FILENAME) $(MD5_SRC_FILENAME) Makefile.dist
+	$(_V) mkdir -p $@
+	$(_V) for i in $^; do cp $(CP_FLAGS) $$i $@; done
+
 ifneq ("$(strip $(HG))",":")
-$(DIR_NAME_SRC): $(shell $(HG) status -m -a -d -c -n) $(REV_FILENAME) $(MD5_SRC_FILENAME) Makefile.dist
-	$(_E) "[ASSEMBLING] $(DIR_NAME_SRC)"
+$(DIR_NAME_SRC).tar: $(DIR_NAME_SRC)
+	$(_E) "[ASSEMBLING] $@"
+	$(_E) "Warning! This will ship an *unmodified* archive!"
 	$(_V)-rm -rf $@
-	$(_V) for i in $(shell $(HG) status -m -a -d -c -n | grep -v -E '$(RE_FILES_NO_SRC_BUNDLE)'); do mkdir -p $@/`dirname $$i`; cp $(CP_FLAGS) $$i $@/$$i; done
-	$(_V) cp $(CP_FLAGS) $(MD5_SRC_FILENAME) $(DIR_NAME_SRC)
-	$(_V) cat Makefile.dist >> $(DIR_NAME_SRC)/Makefile.local
+	$(_V) hg archive $(RE_FILES_NO_SRC_BUNDLE) -t tar $@
+	$(_V) tar -rf $@ $(DIR_NAME_SRC)
 else
 $(DIR_NAME_SRC):
 	$(_E) "Source releases can only be made from a hg checkout."

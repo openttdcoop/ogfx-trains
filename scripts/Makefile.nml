@@ -16,7 +16,7 @@ LANG_FILES := $(shell ls $(LANG_DIR)/*.$(LANG_EXTENSION))
 	$(_E) "[DEP] $@"
 	$(_V) $(CC) -C -M -MF $@ -E -MT $@ - < $<
 
-%.nml: %.pnml %.src.dep $(REV_FILENAME) $(TAG_FILENAME)
+%.nml: $(SRC_DIR)/%.pnml $(REV_FILENAME) $(TAG_FILENAME)
 	$(_E) "[CPP] $@"
 	$(_V) $(CC) -D REPO_REVISION=$(REPO_REVISION) $(CC_FLAGS) $< > $@
 
@@ -24,7 +24,7 @@ LANG_FILES := $(shell ls $(LANG_DIR)/*.$(LANG_EXTENSION))
 	$(_E) "[DEP] $@"
 	$(_V) $(NML) -M --MF $@ $<
 
-%.grf: %.nml %.gfx.dep $(TAG_FILENAME) $(LANG_FILES) $(MAKEFILE_DEP)
+%.grf: %.nml $(TAG_FILENAME) $(LANG_FILES)
 	$(_E) "[NML] $@"
 	$(_V) $(NML) $(NML_FLAGS) --grf $@ $<
 
@@ -48,5 +48,3 @@ clean::
 test::
 	$(_E) "nml:                          $(NML) $(NML_FLAGS)"
 	$(_E) "Language files:               $(LANG_FILES)"
-
-depend:: Makefile.dep $(patsubst %.grf,%.src.dep,$(GRF_FILES)) $(patsubst %.grf,%.gfx.dep,$(GRF_FILES))
