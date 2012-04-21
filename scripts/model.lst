@@ -6,6 +6,7 @@
 # http://www.gnu.org/licenses/gpl-2.0.html
 #**************************************************************************
 
+# Temperate Trains
 dmu
 dash
 sh25
@@ -13,16 +14,17 @@ floss47
 sh125
 sh30
 sh40
+uu37
+# Temperate Wagons
 passenger
 mail
 armoured
-uu37
 goods
 livestock
 tank
+# Temperate Wagons: Multi-load
 flatbed
 flatbed_container
-flatbed_vehicles
 flatbed_sides
 flatbed_oil_stage1
 flatbed_oil_stage2
@@ -43,3 +45,5 @@ flatbed_steel_full
 flatbed_timber_stage1
 flatbed_timber_stage2
 flatbed_timber_full
+flatbed_vehicles_full
+flatbed_vehicles_stage1
