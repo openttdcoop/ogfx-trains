@@ -5,7 +5,6 @@
 
 # Default search paths
 VPATH =
-VPATH = $(shell echo "`for i in $(shell $(HG) status -m -a -d -c -n | grep -v -E "$(RE_FILES_NO_SRC_BUNDLE)"); do dirname $$i; done`" | sort | uniq)
 
 # For source distributions
 ifdef DIST_DIRS
@@ -87,7 +86,6 @@ test::
 	$(_E) "Dirs (build/src/base):        $(DIR_NAME) / $(DIR_NAME_SRC) / $(DIR_BASE)"
 	$(_E) "Dependency check type:        $(DEP_CHECK_TYPE)"
 	$(_E) "Excluded from source bundle:  $(RE_FILES_NO_SRC_BUNDLE)"
-	$(_E) "Repository dirs (= VPATH):    $(VPATH)"
 # uncomment the following two lines in order to get a list of all files which are considered to be part of the repo
 # and the sub-list of those which are considered for the source bundle (for bundle_src)
 #	$(_E) "Bundled files:                $(BUNDLE_FILES)"

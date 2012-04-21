@@ -66,9 +66,9 @@ endif
 
 # Regular expression which excludes files from source bundle
 ifndef RE_FILES_NO_SRC_BUNDLE
-RE_FILES_NO_SRC_BUNDLE = ^.devzone|^.hg
+RE_FILES_NO_SRC_BUNDLE = -X .devzone
 else
-RE_FILES_NO_SRC_BUNDLE = $(RE_FILES_NO_SRC_BUNDLE)|^.devzone|^.hg
+RE_FILES_NO_SRC_BUNDLE = $(RE_FILES_NO_SRC_BUNDLE) -X .devzone
 endif
 
 ################################################################

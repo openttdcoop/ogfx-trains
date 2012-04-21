@@ -1,6 +1,9 @@
 # Generic NewGRF Makefile
 
 # Necessary defines unique to this NewGRF
+ifeq "$(shell [ -e .hg ] && echo 'hg' || echo 'tar')" "hg"
+include Makefile.dist
+endif
 -include Makefile.local
 include Makefile.config
 
