@@ -230,7 +230,7 @@ fi
 # Get URI of blend file
 func_concat_path $LINENO BLENDFILE $BLENDS $1.blend $E_BLENDFILE
 # Check the file exists
-func_chkfile $LINENO $DST "File does not exist:$BLENDFILE" $E_BLENDFILE
+func_chkfile $LINENO $BLENDFILE "File does not exist:$BLENDFILE" $E_BLENDFILE
 
 # Get URI of rendered directory
 func_concat_path $LINENO RENDERED $BLENDS "rendered" $E_RENDERED
