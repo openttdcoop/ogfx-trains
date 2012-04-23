@@ -10,8 +10,14 @@
 #**************************************************************************
 
 BLENDS="$PWD/sprite_source/blender/"
-RENDERED="$PWD/sprite_source/blender/rendered"
-
+# If you want more or less information then set VERBOSE to one of the following:
+# 0 - quiet, 1 - moderate, 2 - noisy, 3 - max
+# Do not change the values of V_XXXX, just set VERBOSE to the one you want
+V_QUIET=0
+V_MODERATE=1
+V_NOISY=2
+V_MAX=3
+VERBOSE=$V_QUIET
 # Exit codes
 # An exit status of zero indicates success, and a nonzero value indicates failure.
 E_USAGE=1
@@ -20,13 +26,20 @@ E_DESTINATION=3
 E_PARAMETERS=4
 E_GIMP=5
 E_BLENDS=6
-E_ENGINES=7
+E_BLENDFILE=7
 E_RENDERED=8
-E_BLENDFILE=9
+E_MK_RENDERED=9
 E_RM_DST=10
-E_MK_DST=11
+E_RM_DST=11
+E_MK_DST=12
 # Internal variable for holding the model name
 T_MODEL=$1
+# Enable verbose command switch depending on user setting
+if [ $VERBOSE -ge $V_MAX ]; then
+    SWITCH_V="-v"
+else
+    SWITCH_V=""
+fi
 
 # Function: func_param_check
 # Parameters: <line number> <function name> <param count> <min params>
@@ -145,7 +158,6 @@ function func_exit_on_error()
 function func_remove()
 {
     func_param_check $1 $FUNCNAME $# 2
-    func_echo_spin $LINENO $V_NOISY "Removing: $2"
     rm --preserve-root -rf $SWITCH_V $2
     local EXIT_VAL=$?
     local ERR_TXT="Failed to remove:$2"
@@ -165,7 +177,6 @@ function func_mkdir()
 {
     func_param_check $1 $FUNCNAME $# 2
     if [ ! -d $2 ]; then
-        func_echo_spin $LINENO $V_NOISY "Creating directory: $2"
         mkdir $SWITCH_V $2
         local EXIT_VAL=$?
         local ERR_TXT="Failed to create directory:$2"
@@ -194,17 +205,83 @@ function func_chkdir()
     fi
 }
 
+
+#**************************************************************************
+# Function: func_chkfile
+# Parameters: <line number> <file> <error text> [<user exit number>]
+#**************************************************************************
+function func_chkfile()
+{
+    func_param_check $1 $FUNCNAME $# 2
+    if [ ! -f $2 ]; then
+        if [ $# -gt 3 ]; then
+            func_exit_on_error $LINENO 1 "$3" $4
+        else
+            func_exit_on_error $LINENO 1 "$3"
+        fi
+    fi
+}
+
 # Check that a model name has been provided as a parameter to the script
 if [ $# -eq 0 ]; then
     func_exit_on_error $LINENO 1 "Usage:$0 <model-name>" $E_USAGE
 fi
 
-# Render the model
+# Get URI of blend file
 func_concat_path $LINENO BLENDFILE $BLENDS $1.blend $E_BLENDFILE
+# Check the file exists
+func_chkfile $LINENO $DST "File does not exist:$BLENDFILE" $E_BLENDFILE
 
+# Get URI of rendered directory
+func_concat_path $LINENO RENDERED $BLENDS "rendered" $E_RENDERED
+# Create rendered directory
+func_mkdir $LINENO $RENDERED $E_MK_RENDERED
+# Check rendered directory exists
+func_chkdir $LINENO $RENDERED "Rendered directory does not exist:$RENDERED" $E_RENDERED
+
+# Get URI of rendered model directory
 func_concat_path $LINENO DST $RENDERED $1 $E_DST
+# Delete rendered model directory and contents
 func_remove $LINENO $DST $E_RM_DST
+# Create rendered model directory
 func_mkdir $LINENO $DST $E_MK_DST
+# Check rendered model directory exists
 func_chkdir $LINENO $DST "DST directory does not exist:$DST" $E_DST
 
+# Get URI of sub-directory
+func_concat_path $LINENO DST8NS $DST "8bpp_no_shadow"
+# Create sub-directory
+func_mkdir $LINENO $DST8NS
+# Check sub-directory exists
+func_chkdir $LINENO $DST8NS "DST8NS directory does not exist:$DST8NS"
+
+# Get URI of sub-directory
+func_concat_path $LINENO DST1CC $DST "1cc_mask"
+# Create sub-directory
+func_mkdir $LINENO $DST1CC
+# Check sub-directory exists
+func_chkdir $LINENO $DST1CC "DST1CC directory does not exist:$DST1CC"
+
+# Get URI of sub-directory
+func_concat_path $LINENO DST2CC $DST "2cc_mask"
+# Create sub-directory
+func_mkdir $LINENO $DST2CC
+# Check sub-directory exists
+func_chkdir $LINENO $DST2CC "DST2CC directory does not exist:$DST2CC"
+
+# Get URI of sub-directory
+func_concat_path $LINENO DST32S $DST "32bpp_shadow"
+# Create sub-directory
+func_mkdir $LINENO $DST32S
+# Check sub-directory exists
+func_chkdir $LINENO $DST32S "DST32S directory does not exist:$DST32S"
+
+# Get URI of sub-directory
+func_concat_path $LINENO DST32NS $DST "32bpp_no_shadow"
+# Create sub-directory
+func_mkdir $LINENO $DST32NS
+# Check sub-directory exists
+func_chkdir $LINENO $DST32NS "DST8NS directory does not exist:$DST32NS"
+
+# Render the model
 blender -b $BLENDFILE -a
