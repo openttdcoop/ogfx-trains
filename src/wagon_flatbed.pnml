@@ -616,12 +616,277 @@ spritegroup flatbed_wagon_fueloil_group_gui {
 }
 
 // STEL
-SPRITEGROUP_3STAGES_NOLOADING(flatbed_wagon_steel_rolls1,
+SPRITEGROUP_4STAGES_NOLOADING(flatbed_wagon_steel_rolls1,
     "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
-    "src/gfx/flatbed/steel/SteelFlatbeds1b1.png", tmpl_railwagon, 0, 0, 0, 0)
-SPRITEGROUP_3STAGES_NOLOADING(flatbed_wagon_steel_rolls2,
+    "src/gfx/flatbed/steel/SteelFlatbeds1a1.png", "src/gfx/flatbed/steel/SteelFlatbeds1b1.png",
+    tmpl_railwagon, 0, 0, 0, 0, 0)
+
+/* Empty */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_steel_rolls1_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_retainers", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls1_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_retainers", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls1_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_retainers", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_steel_rolls1_empty_set_gui, "src/gfx/flatbed/steel/SteelFlatbeds1.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_steel_rolls1_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_retainers")
+}
+
+/* Stage 1 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_steel_rolls1_full13_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_steel_stage1", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls1_full13_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_steel_stage1", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls1_full13_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_steel_stage1", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_steel_rolls1_full13_set_gui, "src/gfx/flatbed/steel/SteelFlatbeds1a1.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_steel_rolls1_full13_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_steel_stage1")
+}
+
+/* Stage 2 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_steel_rolls1_full23_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_steel_stage2", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls1_full23_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_steel_stage2", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls1_full23_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_steel_stage2", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_steel_rolls1_full23_set_gui, "src/gfx/flatbed/steel/SteelFlatbeds1a1.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_steel_rolls1_full23_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_steel_stage2")
+}
+
+/* Stage 3 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_steel_rolls1_full33_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_steel_full", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls1_full33_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_steel_full", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls1_full33_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_steel_full", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_steel_rolls1_full33_set_gui, "src/gfx/flatbed/steel/SteelFlatbeds1b1.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_steel_rolls1_full33_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_steel_full")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup flatbed_wagon_steel_rolls1_group_gui {
+	loaded: [flatbed_wagon_steel_rolls1_empty_set_gui, flatbed_wagon_steel_rolls1_full13_set_gui, flatbed_wagon_steel_rolls1_full23_set_gui, flatbed_wagon_steel_rolls1_full33_set_gui];
+	loading: [flatbed_wagon_steel_rolls1_empty_set_gui, flatbed_wagon_steel_rolls1_full13_set_gui, flatbed_wagon_steel_rolls1_full23_set_gui, flatbed_wagon_steel_rolls1_full33_set_gui];
+}
+
+SPRITEGROUP_4STAGES_NOLOADING(flatbed_wagon_steel_rolls2,
     "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a2.png",
-    "src/gfx/flatbed/steel/SteelFlatbeds1b2.png", tmpl_railwagon, 0, 0, 0, 0)
+    "src/gfx/flatbed/steel/SteelFlatbeds1a2.png", "src/gfx/flatbed/steel/SteelFlatbeds1b2.png",
+    tmpl_railwagon, 0, 0, 0, 0, 0)
+
+/* Empty */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_steel_rolls2_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_retainers", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls2_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_retainers", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls2_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_retainers", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_steel_rolls2_empty_set_gui, "src/gfx/flatbed/steel/SteelFlatbeds1.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_steel_rolls2_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_retainers")
+}
+
+/* Stage 1 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_steel_rolls2_full13_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_steel_stage1", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls2_full13_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_steel_stage1", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls2_full13_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_steel_stage1", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_steel_rolls2_full13_set_gui, "src/gfx/flatbed/steel/SteelFlatbeds1a2.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_steel_rolls2_full13_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_steel_stage1")
+}
+
+/* Stage 2 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_steel_rolls2_full23_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_steel_stage2", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls2_full23_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_steel_stage2", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls2_full23_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_steel_stage2", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_steel_rolls2_full23_set_gui, "src/gfx/flatbed/steel/SteelFlatbeds1a2.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_steel_rolls2_full23_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_steel_stage2")
+}
+
+/* Stage 3 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_steel_rolls2_full33_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_steel_full", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls2_full33_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_steel_full", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_steel_rolls2_full33_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_steel_full", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_steel_rolls2_full33_set_gui, "src/gfx/flatbed/steel/SteelFlatbeds1b2.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_steel_rolls2_full33_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_steel_full")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup flatbed_wagon_steel_rolls2_group_gui {
+	loaded: [flatbed_wagon_steel_rolls2_empty_set_gui, flatbed_wagon_steel_rolls2_full13_set_gui, flatbed_wagon_steel_rolls2_full23_set_gui, flatbed_wagon_steel_rolls2_full33_set_gui];
+	loading: [flatbed_wagon_steel_rolls2_empty_set_gui, flatbed_wagon_steel_rolls2_full13_set_gui, flatbed_wagon_steel_rolls2_full23_set_gui, flatbed_wagon_steel_rolls2_full33_set_gui];
+}
 
 // VEHI (vehicles)
 spriteset(flatbed_wagon_vehicles_empty_set, "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png") { tmpl_railwagon42(0, 7) }
@@ -630,6 +895,7 @@ spritegroup flatbed_wagon_vehicles_group {
 	loaded: [flatbed_wagon_vehicles_empty_set, flatbed_wagon_vehicles_full_set];
 	loading: [flatbed_wagon_vehicles_empty_set, flatbed_wagon_vehicles_full_set];
 }
+
 // WDPR
 SPRITEGROUP_4STAGES_NOLOADING_2STAGE_COMPAT(flatbed_wagon_woodproducts,
     "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png",
@@ -909,9 +1175,31 @@ random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch, bitm
     1: flatbed_wagon_engineeringsupplies_vehicle2_group;
 }
 
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, flatbed_wagon_steel_rolls1_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: flatbed_wagon_steel_rolls1_group_gui;
+    0x11: flatbed_wagon_steel_rolls1_group_gui;
+    0x12: flatbed_wagon_steel_rolls1_group_gui;
+    0x20: flatbed_wagon_steel_rolls1_group_gui;
+    0x21: flatbed_wagon_steel_rolls1_group_gui;
+    flatbed_wagon_steel_rolls1_group;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, flatbed_wagon_steel_rolls2_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: flatbed_wagon_steel_rolls2_group_gui;
+    0x11: flatbed_wagon_steel_rolls2_group_gui;
+    0x12: flatbed_wagon_steel_rolls2_group_gui;
+    0x20: flatbed_wagon_steel_rolls2_group_gui;
+    0x21: flatbed_wagon_steel_rolls2_group_gui;
+    flatbed_wagon_steel_rolls2_group;
+}
+
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_steel_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
-    1: flatbed_wagon_steel_rolls1_group;
-    1: flatbed_wagon_steel_rolls2_group;
+    1: flatbed_wagon_steel_rolls1_switch_gui;
+    1: flatbed_wagon_steel_rolls2_switch_gui;
 }
 
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
