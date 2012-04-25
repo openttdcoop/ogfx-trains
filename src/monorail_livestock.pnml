@@ -16,6 +16,6 @@
         weight:                         20;
     }
     graphics {
-        wagon_livestock_group;
+        temperate_livestock_rail_switch_gui;
     }
 }
