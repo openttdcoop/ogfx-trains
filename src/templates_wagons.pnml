@@ -1,8 +1,8 @@
 #define SPRITEGROUP_4STAGES_NOLOADING(name, file_empty, file_1, file_2, file_3, tmpl, x, yempty, y1, y2, y3) \
-spriteset(name ##_empty_set, file_empty) { tmpl(x, yempty) } \
-spriteset(name ##_full13_set, file_1) { tmpl(x, y1) } \
-spriteset(name ##_full23_set, file_2) { tmpl(x, y2) } \
-spriteset(name ##_full33_set, file_3) { tmpl(x, y3) } \
+spriteset(name ##_empty_set, file_empty) { tmpl(x, yempty) tmpl(x, yempty) } \
+spriteset(name ##_full13_set, file_1) { tmpl(x, y1) tmpl(x, y1) } \
+spriteset(name ##_full23_set, file_2) { tmpl(x, y2) tmpl(x, y2) } \
+spriteset(name ##_full33_set, file_3) { tmpl(x, y3) tmpl(x, y3) } \
 spritegroup name ##_group { \
     loaded: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
     loading: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
