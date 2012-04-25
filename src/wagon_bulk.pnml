@@ -23,9 +23,8 @@ WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_bauxite)
 // CERE, GRAI, MAIZ, WHEA
 spriteset(bulk_wagon_grain_early_empty_set, "src/gfx/bulk/rail_grain_temperate.png") { tmpl_railwagon(0, 6) }
 spriteset(bulk_wagon_grain_early_full_set, "src/gfx/bulk/rail_grain_temperate.png") { tmpl_railwagon(126, 6) }
-spriteset(bulk_wagon_grain_modern_empty_set, "src/gfx/bulk/rail_grain_temperate.png") { tmpl_railwagon(0, 38) }
-spriteset(bulk_wagon_grain_modern_full_set, "src/gfx/bulk/rail_grain_temperate.png") { tmpl_railwagon(126, 38) }
-WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_grain)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_grain, "bulk", "bulk_grain", "src/gfx/bulk/rail_grain_temperate.png", 0, 38, 126, 38)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_grain)
 
 // CLAY
 spriteset(bulk_wagon_clay_early_empty_set, "src/gfx/bulk/rail_clay_temperate.png") { tmpl_railwagon(0, 4) }
