@@ -16,9 +16,8 @@
 // AORE
 spriteset(bulk_wagon_bauxite_early_empty_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_bauxite_early_full_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(126, 0) }
-spriteset(bulk_wagon_bauxite_modern_empty_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(0, 32) }
-spriteset(bulk_wagon_bauxite_modern_full_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(126, 32) }
-WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_bauxite)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_bauxite, "bulk", "bulk_bauxite", "src/gfx/bulk/rail_bauxite_temperate.png", 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_bauxite)
 
 // CERE, GRAI, MAIZ, WHEA
 spriteset(bulk_wagon_grain_early_empty_set, "src/gfx/bulk/rail_grain_temperate.png") { tmpl_railwagon(0, 6) }
