@@ -84,8 +84,8 @@ spritegroup flatbed_wagon_container_group {
 /* OpenGFX+ */
 /* Define the sprite group for the GUI menus */
 spritegroup flatbed_wagon_container_group_gui {
-	loading: [flatbed_wagon_container_empty_set_gui, flatbed_wagon_container_full_set_gui];
 	loaded: [flatbed_wagon_container_empty_set_gui, flatbed_wagon_container_full_set_gui];
+	loading: [flatbed_wagon_container_empty_set_gui, flatbed_wagon_container_full_set_gui];
 }
 
 // BATT
@@ -128,11 +128,80 @@ spritegroup flatbed_wagon_fizzy_group {
 }
 
 // GOOD (container)
-spriteset(flatbed_wagon_goods_empty_set, "src/gfx/flatbed/container/rail_flatbed_container_empty_NoWagonCC_2.png") { tmpl_railwagon(0,0) }
-spriteset(flatbed_wagon_goods_container1_set, "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2a.png") { tmpl_railwagon(0,0) }
+spriteset(flatbed_wagon_goods_empty_set, "src/gfx/flatbed/container/rail_flatbed_container_empty_NoWagonCC_2.png") { tmpl_railwagon(0,0) tmpl_railwagon(0,0) }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_goods_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_goods_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_goods_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_goods_empty_set_gui, "src/gfx/flatbed/container/rail_flatbed_container_empty_NoWagonCC_2.png") {
+	tmpl_railwagon(0, 0) tmpl_railwagon(0, 0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_goods_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed")
+}
+
+spriteset(flatbed_wagon_goods_container1_set, "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2a.png") { tmpl_railwagon(0,0) tmpl_railwagon(0,0) }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_goods_container1_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_container", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_goods_container1_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_container", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_goods_container1_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_container", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_goods_container1_set_gui, "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2a.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_goods_container1_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_container")
+}
+
 spritegroup flatbed_wagon_goods_1a_group {
 	loaded: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container1_set];
 	loading: [flatbed_wagon_goods_empty_set, flatbed_wagon_goods_container1_set];
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup flatbed_wagon_goods_1a_group_gui {
+	loaded: [flatbed_wagon_goods_empty_set_gui, flatbed_wagon_goods_container1_set_gui];
+	loading: [flatbed_wagon_goods_empty_set_gui, flatbed_wagon_goods_container1_set_gui];
 }
 
 // PAPR
@@ -229,13 +298,24 @@ switch(FEAT_TRAINS, SELF, flatbed_wagon_container_switch_gui, (extra_callback_in
     flatbed_wagon_container_group;
 }
 
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, flatbed_wagon_goods_1a_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: flatbed_wagon_goods_1a_group_gui;
+    0x11: flatbed_wagon_goods_1a_group_gui;
+    0x12: flatbed_wagon_goods_1a_group_gui;
+    0x20: flatbed_wagon_goods_1a_group_gui;
+    0x21: flatbed_wagon_goods_1a_group_gui;
+    flatbed_wagon_goods_1a_group;
+}
+
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     BATT: flatbed_wagon_battery_group;
     BUBL: flatbed_wagon_bubbles_group;
     ENSP: flatbed_wagon_engineeringsupplies_switch;
     FMSP: flatbed_wagon_vehicles_group;
     FZDR: flatbed_wagon_fizzy_group;
-    GOOD: flatbed_wagon_goods_1a_group;
+    GOOD: flatbed_wagon_goods_1a_switch_gui;
     PAPR: flatbed_wagon_paper_group;
     PETR: flatbed_wagon_fueloil_group;
     RFPR: flatbed_wagon_refineryproducts_group;
@@ -332,6 +412,7 @@ item(FEAT_TRAINS, flatbed_wagon) {
         cost_factor:                    181;
         cargo_capacity:                 30; // Usually units of goods which fit onto it.
         weight:                         16;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
         cargo_capacity:     flatbed_wagon_cb_capacity_switch;
@@ -341,7 +422,7 @@ item(FEAT_TRAINS, flatbed_wagon) {
         random_trigger:     flatbed_wagon_cb_colour_switch;
         refit_cost:         flatbed_wagon_refit_cost_switch;
 
-        purchase:           flatbed_wagon_container_group_gui;
+        purchase:           flatbed_wagon_container_switch_gui;
         flatbed_wagon_switch;
     }
 }
