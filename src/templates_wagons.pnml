@@ -24,7 +24,14 @@ spritegroup name ##_group { \
     loaded: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
     loading: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
 }
-
+#define SPRITEGROUP_3STAGES_NOLOADING_1STAGE_COMPAT(name, file_empty, file_1, file_2, tmpl, x1, x2, yempty, y1, y2) \
+spriteset(name ##_empty_set, file_empty) { tmpl(x1, yempty) tmpl(x1, yempty) } \
+spriteset(name ##_full12_set, file_1) { tmpl(x1, y1) tmpl(x1, y1) } \
+spriteset(name ##_full22_set, file_2) { tmpl(x2, y2) tmpl(x2, y2) } \
+spritegroup name ##_group { \
+    loaded: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
+    loading: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
+}
 #define SPRITEGROUP_1STAGE_LOAD(name, filename, spritetemplate, x, yload, ydrive) \
 spriteset(name ## _open_set, filename) { spritetemplate (x, yload) } \
 spriteset(name ##_closed_set, filename) { spritetemplate (x, ydrive) } \
