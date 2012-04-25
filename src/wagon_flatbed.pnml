@@ -213,11 +213,141 @@ spritegroup flatbed_wagon_paper_group {
 }
 
 // RFPR (barrels)
-spriteset(flatbed_wagon_refineryproducts_empty_set, "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png") { tmpl_railwagon(0, 10) }
-spriteset(flatbed_wagon_refineryproducts_full_set, "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png") { tmpl_railwagon(126, 10) }
-spritegroup flatbed_wagon_refineryproducts_group {
-	loaded: [flatbed_wagon_refineryproducts_empty_set, flatbed_wagon_refineryproducts_full_set];
-	loading: [flatbed_wagon_refineryproducts_empty_set, flatbed_wagon_refineryproducts_full_set];
+SPRITEGROUP_4STAGES_NOLOADING_2STAGE_COMPAT(flatbed_wagon_refineryproducts,
+    "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
+    tmpl_railwagon, 0, 126, 0, 0, 0, 0)
+
+
+/* Empty */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_refineryproducts_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_sides", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_refineryproducts_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_sides", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_refineryproducts_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_sides", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_refineryproducts_empty_set_gui, "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_refineryproducts_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_sides")
+}
+
+/* Stage 1 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_refineryproducts_full13_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_refinery_stage1", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_refineryproducts_full13_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_refinery_stage1", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_refineryproducts_full13_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_refinery_stage1", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_refineryproducts_full13_set_gui, "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png") {
+	tmpl_railwagon(0,0) tmpl_railwagon(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_refineryproducts_full13_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_refinery_stage1")
+}
+
+/* Stage 2 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_refineryproducts_full23_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_refinery_stage2", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_refineryproducts_full23_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_refinery_stage2", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_refineryproducts_full23_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_refinery_stage2", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_refineryproducts_full23_set_gui, "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png") {
+	tmpl_railwagon(126,0) tmpl_railwagon(126,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_refineryproducts_full23_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_refinery_stage2")
+}
+
+/* Stage 3 */
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_refineryproducts_full33_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_refinery_full", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_refineryproducts_full33_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_refinery_full", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_refineryproducts_full33_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_refinery_full", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_refineryproducts_full33_set_gui, "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png") {
+	tmpl_railwagon(126,0) tmpl_railwagon(126,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_refineryproducts_full33_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_refinery_full")
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup flatbed_wagon_refineryproducts_group_gui {
+	loaded: [flatbed_wagon_refineryproducts_empty_set_gui, flatbed_wagon_refineryproducts_full13_set_gui, flatbed_wagon_refineryproducts_full23_set_gui, flatbed_wagon_refineryproducts_full33_set_gui];
+	loading: [flatbed_wagon_refineryproducts_empty_set_gui, flatbed_wagon_refineryproducts_full13_set_gui, flatbed_wagon_refineryproducts_full23_set_gui, flatbed_wagon_refineryproducts_full33_set_gui];
 }
 
 // PETR (barrels)
@@ -591,6 +721,17 @@ switch(FEAT_TRAINS, SELF, flatbed_wagon_fueloil_switch_gui, (extra_callback_info
     flatbed_wagon_fueloil_group;
 }
 
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, flatbed_wagon_refineryproducts_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: flatbed_wagon_refineryproducts_group_gui;
+    0x11: flatbed_wagon_refineryproducts_group_gui;
+    0x12: flatbed_wagon_refineryproducts_group_gui;
+    0x20: flatbed_wagon_refineryproducts_group_gui;
+    0x21: flatbed_wagon_refineryproducts_group_gui;
+    flatbed_wagon_refineryproducts_group;
+}
+
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     BATT: flatbed_wagon_battery_group;
     BUBL: flatbed_wagon_bubbles_group;
@@ -600,7 +741,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     GOOD: flatbed_wagon_goods_1a_switch_gui;
     PAPR: flatbed_wagon_paper_group;
     PETR: flatbed_wagon_fueloil_switch_gui;
-    RFPR: flatbed_wagon_refineryproducts_group;
+    RFPR: flatbed_wagon_refineryproducts_switch_gui;
     STEL: flatbed_wagon_steel_switch;
     COPR: flatbed_wagon_steel_switch;
     VEHI: flatbed_wagon_vehicles_group;
