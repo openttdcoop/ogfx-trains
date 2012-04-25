@@ -48,31 +48,31 @@ spriteset(flatbed_wagon_container_full_set, "src/gfx/flatbed/rail_flatbed_contai
 
 /* OpenGFX+ */
 /* Define the 32bpp sprite set for normal zoom */
-alternative_sprites(temperate_livestock_rail_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+alternative_sprites(flatbed_wagon_container_full_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
     template_train_opengfxp32(1, "flatbed_container", "1")
 }
 
 /* OpenGFX+ */
 /* Define the 32bpp sprite set for 2X zoom in */
-alternative_sprites(temperate_livestock_rail_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+alternative_sprites(flatbed_wagon_container_full_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
     template_train_opengfxp32(2, "flatbed_container", "2")
 }
 
 /* OpenGFX+ */
 /* Define the 32bpp sprite set for 4X zoom in */
-alternative_sprites(temperate_livestock_rail_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+alternative_sprites(flatbed_wagon_container_full_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_train_opengfxp32(4, "flatbed_container", "4")
 }
 
 /* OpenGFX+ */
 /* Define the 8bpp sprite set for the GUI menus */
-spriteset(flatbed_wagon_container_full_set, "src/gfx/flatbed/rail_flatbed_container_temperate.png") {
+spriteset(flatbed_wagon_container_full_set_gui, "src/gfx/flatbed/rail_flatbed_container_temperate.png") {
 	tmpl_railwagon(126, 8) tmpl_railwagon(126, 8)
 }
 
 /* OpenGFX+ */
 /* Define the 32bpp sprite set for the GUI menus */
-alternative_sprites(temperate_livestock_rail_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+alternative_sprites(flatbed_wagon_container_full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
     template_train_gui_opengfxp32("flatbed_container")
 }
 
