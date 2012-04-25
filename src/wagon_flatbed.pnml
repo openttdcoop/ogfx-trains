@@ -106,15 +106,155 @@ spritegroup flatbed_wagon_bubbles_group {
 
 // ENSP (vehicles)
 spriteset(flatbed_wagon_engineeringsupplies_empty_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png") { tmpl_railwagon8_normal(0,0) }
-spriteset(flatbed_wagon_engineeringsupplies_vehicle1_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1a.png") { tmpl_railwagon8_normal(0,0) }
-spritegroup flatbed_wagon_engineeringsupplies_vehicle1_group {
-	loaded: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle1_set];
-	loading: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle1_set];
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_engineeringsupplies_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed", "1")
 }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_engineeringsupplies_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_engineeringsupplies_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_engineeringsupplies_empty_set_gui, "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png") {
+	tmpl_railwagon8_normal(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_engineeringsupplies_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed")
+}
+
+spriteset(flatbed_wagon_engineeringsupplies_vehicle1_full12_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png") { tmpl_railwagon8_normal(0,0) }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle1_full12_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_vehicles_stage1", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle1_full12_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_vehicles_stage1", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle1_full12_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_vehicles_stage1", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_engineeringsupplies_vehicle1_full12_set_gui, "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png") {
+	tmpl_railwagon8_normal(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle1_full12_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_vehicles_stage1")
+}
+
+spriteset(flatbed_wagon_engineeringsupplies_vehicle1_full22_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1a.png") { tmpl_railwagon8_normal(0,0) }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle1_full22_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_vehicles_full", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle1_full22_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_vehicles_full", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle1_full22_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_vehicles_full", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_engineeringsupplies_vehicle1_full22_set_gui, "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1a.png") {
+	tmpl_railwagon8_normal(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle1_full22_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_vehicles_full")
+}
+
+spritegroup flatbed_wagon_engineeringsupplies_vehicle1_group {
+	loaded: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle1_full12_set, flatbed_wagon_engineeringsupplies_vehicle1_full22_set];
+	loading: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle1_full12_set, flatbed_wagon_engineeringsupplies_vehicle1_full22_set];
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup flatbed_wagon_engineeringsupplies_vehicle1_group_gui {
+	loaded: [flatbed_wagon_engineeringsupplies_empty_set_gui, flatbed_wagon_engineeringsupplies_vehicle1_full12_set_gui, flatbed_wagon_engineeringsupplies_vehicle1_full22_set_gui];
+	loading: [flatbed_wagon_engineeringsupplies_empty_set_gui, flatbed_wagon_engineeringsupplies_vehicle1_full12_set_gui, flatbed_wagon_engineeringsupplies_vehicle1_full22_set_gui];
+}
+
 spriteset(flatbed_wagon_engineeringsupplies_vehicle2_set, "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1b.png") { tmpl_railwagon8_normal(0,0) }
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for normal zoom */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle2_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(1, "flatbed_vehicles3_full", "1")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 2X zoom in */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle2_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(2, "flatbed_vehicles3_full", "2")
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for 4X zoom in */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle2_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    template_train_opengfxp32(4, "flatbed_vehicles3_full", "4")
+}
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite set for the GUI menus */
+spriteset(flatbed_wagon_engineeringsupplies_vehicle2_set_gui, "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1b.png") {
+	 tmpl_railwagon8_normal(0,0)
+}
+
+/* OpenGFX+ */
+/* Define the 32bpp sprite set for the GUI menus */
+alternative_sprites(flatbed_wagon_engineeringsupplies_vehicle2_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    template_train_gui_opengfxp32("flatbed_vehicles3_full")
+}
+
 spritegroup flatbed_wagon_engineeringsupplies_vehicle2_group {
 	loaded: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle2_set];
 	loading: [flatbed_wagon_engineeringsupplies_empty_set, flatbed_wagon_engineeringsupplies_vehicle2_set];
+}
+
+/* OpenGFX+ */
+/* Define the sprite group for the GUI menus */
+spritegroup flatbed_wagon_engineeringsupplies_vehicle2_group_gui {
+	loaded: [flatbed_wagon_engineeringsupplies_empty_set_gui, flatbed_wagon_engineeringsupplies_vehicle2_set_gui];
+	loading: [flatbed_wagon_engineeringsupplies_empty_set_gui, flatbed_wagon_engineeringsupplies_vehicle2_set_gui];
 }
 
 // FMSP: see VEHI
@@ -1269,9 +1409,31 @@ spritegroup flatbed_wagon_wood_group_gui {
 	loading: [flatbed_wagon_wood_empty_set_gui, flatbed_wagon_wood_full13_set_gui, flatbed_wagon_wood_full23_set_gui, flatbed_wagon_wood_full33_set_gui];
 }
 
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_vehicle1_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: flatbed_wagon_engineeringsupplies_vehicle1_group_gui;
+    0x11: flatbed_wagon_engineeringsupplies_vehicle1_group_gui;
+    0x12: flatbed_wagon_engineeringsupplies_vehicle1_group_gui;
+    0x20: flatbed_wagon_engineeringsupplies_vehicle1_group_gui;
+    0x21: flatbed_wagon_engineeringsupplies_vehicle1_group_gui;
+    flatbed_wagon_engineeringsupplies_vehicle1_group;
+}
+
+/* OpenGFX+ */
+/* Define the switch for the GUI menus */
+switch(FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_vehicle2_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: flatbed_wagon_engineeringsupplies_vehicle2_group_gui;
+    0x11: flatbed_wagon_engineeringsupplies_vehicle2_group_gui;
+    0x12: flatbed_wagon_engineeringsupplies_vehicle2_group_gui;
+    0x20: flatbed_wagon_engineeringsupplies_vehicle2_group_gui;
+    0x21: flatbed_wagon_engineeringsupplies_vehicle2_group_gui;
+    flatbed_wagon_engineeringsupplies_vehicle2_group;
+}
+
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_engineeringsupplies_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
-    3: flatbed_wagon_engineeringsupplies_vehicle1_group;
-    1: flatbed_wagon_engineeringsupplies_vehicle2_group;
+    3: flatbed_wagon_engineeringsupplies_vehicle1_switch_gui;
+    1: flatbed_wagon_engineeringsupplies_vehicle2_switch_gui;
 }
 
 /* OpenGFX+ */
