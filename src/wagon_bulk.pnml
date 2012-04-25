@@ -28,9 +28,8 @@ WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_grain)
 // CLAY
 spriteset(bulk_wagon_clay_early_empty_set, "src/gfx/bulk/rail_clay_temperate.png") { tmpl_railwagon(0, 4) }
 spriteset(bulk_wagon_clay_early_full_set, "src/gfx/bulk/rail_clay_temperate.png") { tmpl_railwagon(126, 4) }
-spriteset(bulk_wagon_clay_modern_empty_set, "src/gfx/bulk/rail_clay_temperate.png") { tmpl_railwagon(0, 36) }
-spriteset(bulk_wagon_clay_modern_full_set, "src/gfx/bulk/rail_clay_temperate.png") { tmpl_railwagon(126, 36) }
-WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_clay)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_clay, "bulk", "bulk_clay", "src/gfx/bulk/rail_clay_temperate.png", 0, 36, 126, 36)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_clay)
 
 // COAL
 spriteset(bulk_wagon_coal_early_empty_set, "src/gfx/bulk/rail_coal_temperate.png") { tmpl_railwagon(0, 0) }
