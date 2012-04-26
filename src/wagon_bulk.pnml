@@ -56,9 +56,8 @@ spritegroup bulk_wagon_cottoncandy_group {
 // FRUT, FRVG
 spriteset(bulk_wagon_fruits_early_empty_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_fruits_early_full_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(126, 0) }
-spriteset(bulk_wagon_fruits_modern_empty_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(0, 32) }
-spriteset(bulk_wagon_fruits_modern_full_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(126, 32) }
-WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_fruits)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_fruits, "bulk", "bulk_fruit_veg", "src/gfx/bulk/rail_fruits_temperate.png", 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_fruits)
 
 // FRVG: see FRUT
 
