@@ -55,12 +55,12 @@ spritegroup name ##_group_gui { \
 spritegroup  name ##_group { \
 	loading: name ##_set; \
 	loaded:  name ##_set; \
-}
-switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) {
-    0x10: name ##_group_gui;
-    0x11: name ##_group_gui;
-    0x12: name ##_group_gui;
-    0x20: name ##_group_gui;
-    0x21: name ##_group_gui;
-    name ##_group;
+} \
+switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ##_group_gui; \
+    0x11: name ##_group_gui; \
+    0x12: name ##_group_gui; \
+    0x20: name ##_group_gui; \
+    0x21: name ##_group_gui; \
+    name ##_group; \
 }
