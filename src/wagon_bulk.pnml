@@ -123,9 +123,8 @@ spritegroup bulk_wagon_toffee_group {
 // WDPR
 spriteset(bulk_wagon_woodproducts_early_empty_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_woodproducts_early_full_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(126, 0) }
-spriteset(bulk_wagon_woodproducts_modern_empty_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(0, 32) }
-spriteset(bulk_wagon_woodproducts_modern_full_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(126, 32) }
-WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_woodproducts)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_woodproducts, "bulk", "bulk_woodproducts", "src/gfx/bulk/rail_woodproducts_temperate.png", 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_woodproducts)
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     AORE: bulk_wagon_bauxite_year_switch;
