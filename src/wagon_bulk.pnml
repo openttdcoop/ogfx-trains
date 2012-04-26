@@ -95,9 +95,8 @@ WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_sand)
 // SCRP
 spriteset(bulk_wagon_scrapmetal_early_empty_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_scrapmetal_early_full_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(126, 0) }
-spriteset(bulk_wagon_scrapmetal_modern_empty_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(0, 32) }
-spriteset(bulk_wagon_scrapmetal_modern_full_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(126, 32) }
-WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_scrapmetal)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_scrapmetal, "bulk", "bulk_coal", "src/gfx/bulk/rail_scrapmetal_temperate.png", 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_scrapmetal)
 
 // SUGR
 spriteset(bulk_wagon_sugar_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,100) }
