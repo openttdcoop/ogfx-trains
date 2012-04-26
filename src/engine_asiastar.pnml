@@ -9,19 +9,19 @@
  * Livery override for passenger, mail and valuables wagons
  */
 
-MU_8SPRITES (asiastar_engine,    "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_high2, 0, 0)
-MU_8SPRITES (asiastar_passenger, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
-MU_8SPRITES (asiastar_mail,      "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 54)
-MU_8SPRITES (asiastar_valuables, "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
+MU_8SPRITES_32BPP (asiastar_engine, "asia_star", "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_high2, 0, 0)
+MU_8SPRITES_32BPP (asiastar_passenger, "passenger_asia_star", "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
+MU_8SPRITES_32BPP (asiastar_mail, "mail_asia_star", "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 54)
+MU_8SPRITES_32BPP (asiastar_valuables, "armoured_asia_star", "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
 
 item(FEAT_TRAINS, asiastar, 26) {
 	property {
 		sprite_id:                      SPRITE_ID_NEW_TRAIN;
-		misc_flags:                     bitmask(TRAIN_FLAG_MU);
-        track_type:                     EL_RAIL;
+		misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_2CC);
+                track_type:                     EL_RAIL;
 	}
-	graphics { asiastar_engine_group; }
-	livery_override (passenger_wagon) { asiastar_passenger_group; }
-	livery_override (mail_wagon)      { asiastar_mail_group; }
-	livery_override (valuables_wagon) { asiastar_valuables_group; }
+	graphics { asiastar_engine_switch_gui; }
+	livery_override (passenger_wagon) { asiastar_passenger_switch_gui; }
+	livery_override (mail_wagon)      { asiastar_mail_switch_gui; }
+	livery_override (valuables_wagon) { asiastar_valuables_switch_gui; }
 }

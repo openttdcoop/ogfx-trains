@@ -1,6 +1,6 @@
 #**************************************************************************
 # Blender Model List
-# 2012-04-20
+# 2012-04-26
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,10 +15,14 @@ sh125
 sh30
 sh40
 uu37
+asia_star
 # Temperate Wagons
 passenger
+passenger_asia_star
 mail
+mail_asia_star
 armoured
+armoured__asia_star
 goods
 livestock
 tank
