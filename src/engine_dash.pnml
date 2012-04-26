@@ -11,214 +11,10 @@
 
 #define THIS_ID(...) dash ## __VA_ARGS__
 
-MU_8SPRITES (dash_engine,    "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
-MU_8SPRITES (dash_passenger, "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
-MU_8SPRITES (dash_mail,      "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 54)
-MU_8SPRITES (dash_valuables, "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for normal zoom */
-alternative_sprites(dash_engine_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(1, "dash", "1")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 2X zoom in */
-alternative_sprites(dash_engine_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(2, "dash", "2")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 4X zoom in */
-alternative_sprites(dash_engine_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(4, "dash", "4")
-}
-
-/* OpenGFX+ */
-/* Define the 8bpp sprite set for the GUI menus */
-spriteset(dash_engine_set_gui, "src/gfx/mus/dash/DashLiveryOverride.png") {
-    tmpl_railwagon8_normal (0, 0)
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for the GUI menus */
-alternative_sprites(dash_engine_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_gui_opengfxp32("dash")
-}
-
-/* OpenGFX+ */
-/* Define the sprite group for the GUI menus */
-spritegroup dash_engine_group_gui {
-	loading: dash_engine_set_gui;
-	loaded: dash_engine_set_gui;
-}
-
-/* OpenGFX+ */
-/* Define the switch for the GUI menus */
-switch(FEAT_TRAINS, SELF, dash_engine_switch_gui, (extra_callback_info1 & 0xFF)) {
-    0x10: dash_engine_group_gui;
-    0x11: dash_engine_group_gui;
-    0x12: dash_engine_group_gui;
-    0x20: dash_engine_group_gui;
-    0x21: dash_engine_group_gui;
-    dash_engine_group;
-}
-
-/*
- * Livery override for 32bpp passenger wagons
- */
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for normal zoom */
-alternative_sprites(dash_passenger_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(1, "passenger", "1")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 2X zoom in */
-alternative_sprites(dash_passenger_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(2, "passenger", "2")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 4X zoom in */
-alternative_sprites(dash_passenger_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(4, "passenger", "4")
-}
-
-/* OpenGFX+ */
-/* Define the 8bpp sprite set for the GUI menus */
-spriteset(dash_passenger_set_gui, "src/gfx/mus/dash/DashLiveryOverride.png") {
-	tmpl_railwagon8_normal(0, 27)
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for the GUI menus */
-alternative_sprites(dash_passenger_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_gui_opengfxp32("passenger")
-}
-
-/* OpenGFX+ */
-/* Define the sprite group for the GUI menus */
-spritegroup dash_passenger_group_gui {
-	loading: dash_passenger_set_gui;
-	loaded: dash_passenger_set_gui;
-}
-
-/* OpenGFX+ */
-/* Define the switch for the GUI menus */
-switch(FEAT_TRAINS, SELF, sw_dash_passenger_group_gui, (extra_callback_info1 & 0xFF)) {
-    0x10: dash_passenger_group_gui;
-    0x11: dash_passenger_group_gui;
-    0x12: dash_passenger_group_gui;
-    0x20: dash_passenger_group_gui;
-    0x21: dash_passenger_group_gui;
-    dash_passenger_group;
-}
-
-/*
- * Livery override for 32bpp mail wagons
- */
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for normal zoom */
-alternative_sprites(dash_mail_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(1, "mail", "1")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 2X zoom in */
-alternative_sprites(dash_mail_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(2, "mail", "2")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 4X zoom in */
-alternative_sprites(dash_mail_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(4, "mail", "4")
-}
-
-/* OpenGFX+ */
-/* Define the 8bpp sprite set for the GUI menus */
-spriteset(dash_mail_set_gui, "src/gfx/mus/dash/DashLiveryOverride.png") {
-	tmpl_railwagon8_normal(0, 54)
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for the GUI menus */
-alternative_sprites(dash_mail_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_gui_opengfxp32("mail")
-}
-
-/* OpenGFX+ */
-/* Define the sprite group for the GUI menus */
-spritegroup dash_mail_group_gui {
-	loading: dash_mail_set_gui;
-	loaded: dash_mail_set_gui;
-}
-
-/* OpenGFX+ */
-/* Define the switch for the GUI menus */
-switch(FEAT_TRAINS, SELF, sw_dash_mail_group_gui, (extra_callback_info1 & 0xFF)) {
-    0x10: dash_mail_group_gui;
-    0x11: dash_mail_group_gui;
-    0x12: dash_mail_group_gui;
-    0x20: dash_mail_group_gui;
-    0x21: dash_mail_group_gui;
-    dash_mail_group;
-}
-
-/*
- * Livery override for 32bpp armoured van
- */
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for normal zoom */
-alternative_sprites(dash_valuables_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(1, "armoured", "1")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 2X zoom in */
-alternative_sprites(dash_valuables_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(2, "armoured", "2")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 4X zoom in */
-alternative_sprites(dash_valuables_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(4, "armoured", "4")
-}
-
-/* OpenGFX+ */
-/* Define the 8bpp sprite set for the GUI menus */
-spriteset(dash_valuables_set_gui, "src/gfx/mus/dash/DashLiveryOverride.png") {
-	tmpl_railwagon8_normal(0, 80)
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for the GUI menus */
-alternative_sprites(dash_valuables_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_gui_opengfxp32("armoured")
-}
-
-/* OpenGFX+ */
-/* Define the sprite group for the GUI menus */
-spritegroup dash_valuables_group_gui {
-	loading: dash_valuables_set_gui;
-	loaded: dash_valuables_set_gui;
-}
-
-/* OpenGFX+ */
-/* Define the switch for the GUI menus */
-switch(FEAT_TRAINS, SELF, sw_dash_valuables_group_gui, (extra_callback_info1 & 0xFF)) {
-    0x10: dash_valuables_group_gui;
-    0x11: dash_valuables_group_gui;
-    0x12: dash_valuables_group_gui;
-    0x20: dash_valuables_group_gui;
-    0x21: dash_valuables_group_gui;
-    dash_valuables_group;
-}
+MU_8SPRITES_32BPP (dash_engine, "dash", "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
+MU_8SPRITES_32BPP (dash_passenger, "passenger", "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 27)
+MU_8SPRITES_32BPP (dash_mail, "mail", "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 54)
+MU_8SPRITES_32BPP (dash_valuables, "armoured", "src/gfx/mus/dash/DashLiveryOverride.png", tmpl_railwagon8_normal, 0, 80)
 
 #include "template_refit_cost_mu.pnml"
 
@@ -226,7 +22,7 @@ item(FEAT_TRAINS, dash, 12) {
 	property {
 		sprite_id:                      SPRITE_ID_NEW_TRAIN;
 		misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
-        track_type:                     NORMAL_RAIL;
+                track_type:                     NORMAL_RAIL;
 		REFIT_PROPERTIES_MU
 	}
 	graphics {
@@ -234,9 +30,9 @@ item(FEAT_TRAINS, dash, 12) {
 
 		dash_engine_switch_gui;
 	}
-	livery_override (passenger_wagon) { sw_dash_passenger_group_gui; }
-	livery_override (mail_wagon)      { sw_dash_mail_group_gui; }
-	livery_override (valuables_wagon) { sw_dash_valuables_group_gui; }
+	livery_override (passenger_wagon) { dash_passenger_switch_gui; }
+	livery_override (mail_wagon)      { dash_mail_switch_gui; }
+	livery_override (valuables_wagon) { dash_valuables_switch_gui; }
 }
 
 #undef THIS_ID

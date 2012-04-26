@@ -28,3 +28,39 @@ spritegroup  name ##_group { \
 	loading: name ##_set; \
 	loaded:  name ##_set; \
 }
+
+#define MU_8SPRITES_32BPP(name, model, filename, sprite_template, x, y) \
+spriteset(name ##_set, filename) { \
+	sprite_template (x, y) \
+} \
+alternative_sprites(name ##_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model, "1") \
+} \
+alternative_sprites(name ##_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model, "2") \
+} \
+alternative_sprites(name ##_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model, "4") \
+} \
+spriteset(name ##_set_gui, filename) { \
+    sprite_template (x, y) \
+} \
+alternative_sprites(name ##_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model) \
+} \
+spritegroup name ##_group_gui { \
+	loading: name ##_set_gui; \
+	loaded: name ##_set_gui; \
+} \
+spritegroup  name ##_group { \
+	loading: name ##_set; \
+	loaded:  name ##_set; \
+}
+switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) {
+    0x10: name ##_group_gui;
+    0x11: name ##_group_gui;
+    0x12: name ##_group_gui;
+    0x20: name ##_group_gui;
+    0x21: name ##_group_gui;
+    name ##_group;
+}
