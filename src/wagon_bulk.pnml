@@ -90,9 +90,8 @@ spritegroup bulk_wagon_rawsugar_group {
 // SAND, SULP
 spriteset(bulk_wagon_sand_early_empty_set, "src/gfx/bulk/rail_sand_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_sand_early_full_set, "src/gfx/bulk/rail_sand_temperate.png") { tmpl_railwagon(126, 0) }
-spriteset(bulk_wagon_sand_modern_empty_set, "src/gfx/bulk/rail_sand_temperate.png") { tmpl_railwagon(0, 32) }
-spriteset(bulk_wagon_sand_modern_full_set, "src/gfx/bulk/rail_sand_temperate.png") { tmpl_railwagon(126, 32) }
-WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_sand)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_sand, "bulk", "bulk_sand", "src/gfx/bulk/rail_sand_temperate.png", 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_sand)
 
 // SCRP
 spriteset(bulk_wagon_scrapmetal_early_empty_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(0, 0) }
