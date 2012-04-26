@@ -67,9 +67,8 @@ WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_fruits)
 // GRVL, FERT
 spriteset(bulk_wagon_gravel_early_empty_set, "src/gfx/bulk/rail_gravel_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_gravel_early_full_set, "src/gfx/bulk/rail_gravel_temperate.png") { tmpl_railwagon(126, 0) }
-spriteset(bulk_wagon_gravel_modern_empty_set, "src/gfx/bulk/rail_gravel_temperate.png") { tmpl_railwagon(0, 31) }
-spriteset(bulk_wagon_gravel_modern_full_set, "src/gfx/bulk/rail_gravel_temperate.png") { tmpl_railwagon(126, 31) }
-WAGON_YEARSWITCH_2STAGE(rail_modern_year, bulk_wagon_gravel)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_gravel, "bulk", "bulk_gravel", "src/gfx/bulk/rail_gravel_temperate.png", 0, 31, 126, 31)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_gravel)
 
 // IORE
 spriteset(bulk_wagon_ironore_early_empty_set, "src/gfx/bulk/rail_ironore_temperate.png") { tmpl_railwagon(0, 0) }
