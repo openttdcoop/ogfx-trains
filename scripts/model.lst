@@ -16,13 +16,17 @@ sh30
 sh40
 uu37
 asia_star
+tim
 # Temperate Wagons
 passenger
 passenger_asia_star
+passenger_tim
 mail
 mail_asia_star
+mail_tim
 armoured
-armoured__asia_star
+armoured_asia_star
+armoured_tim
 goods
 livestock
 tank
