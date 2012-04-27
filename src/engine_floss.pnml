@@ -4,7 +4,7 @@
  * =============================================================================
  */
 
-ENGINE_GRAPHICS_GROUP(floss, default, tmpl_engine_42(0, 0) tmpl_engine_42(0, 0),  "src/gfx/engines/temperate_SH_Hendry25_88.png")
+ENGINE_GRAPHICS_GROUP(floss, default, tmpl_engine8_42(0, 0),  "src/gfx/engines/temperate_SH_Hendry25_88.png")
 ENGINE_GRAPHICS_GROUP(floss_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/temperate_SH_Hendry25_88.png")
 
 /* OpenGFX+ */
