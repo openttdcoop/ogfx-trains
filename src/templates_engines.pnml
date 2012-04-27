@@ -35,6 +35,14 @@ spritegroup name ## _ ## climate ## _group { \
     loaded: name ## _ ## climate ## _set; \
     loading: name ## _ ## climate ## _set; \
 } \
+spriteset(name ## _ ## climate ## _set_gui, filename) { template1(x1, y1) } \
+alternative_sprites(name ## _ ## climate ## _set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model) \
+} \
+spritegroup name ## _ ## climate ## _group_gui { \
+    loaded: name ## _ ## climate ## _set_gui; \
+    loading: name ## _ ## climate ## _set_gui; \
+} \
 spriteset(name ## _depot_ ## climate ## _set, filename) { template2(x2, y2) } \
 alternative_sprites(name ## _depot_ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_gui_opengfxp32(model) \
@@ -44,11 +52,11 @@ spritegroup name ## _depot_ ## climate ## _group { \
     loading: name ## _depot_ ## climate ## _set; \
 } \
 switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _depot_ ## climate ## _group; \
-    0x11: name ## _depot_ ## climate ## _group; \
-    0x12: name ## _depot_ ## climate ## _group; \
-    0x20: name ## _depot_ ## climate ## _group; \
-    0x21: name ## _depot_ ## climate ## _group; \
+    0x10: name ## _ ## climate ## _group_gui; \
+    0x11: name ## _ ## climate ## _group_gui; \
+    0x12: name ## _ ## climate ## _group_gui; \
+    0x20: name ## _ ## climate ## _group_gui; \
+    0x21: name ## _ ## climate ## _group_gui; \
     name ## _ ## climate ## _group; \
 } \
 switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _indepot_switch, vehicle_is_in_depot) { \
