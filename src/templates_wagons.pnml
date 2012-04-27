@@ -1,3 +1,48 @@
+#define SPRITEGROUP_2STAGES_NOLOADING_32BPP(name, empty_model, full_model, file1, file2, tmpl, x1, y1, x2, y2) \
+spriteset(name ##_empty_set, file1) { tmpl(x1, y1) } \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, empty_model, "1") \
+} \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, empty_model, "2") \
+} \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, empty_model, "4") \
+} \
+spriteset(name ##_empty_set_gui, file1) { tmpl(x1, y1) } \
+alternative_sprites(name ##_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(empty_model) \
+} \
+spriteset(name ##_full_set, file2) { tmpl(x1, y1) } \
+alternative_sprites(name ##_full_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, full_model, "1") \
+} \
+alternative_sprites(name ##_full_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, full_model, "2") \
+} \
+alternative_sprites(name ##_full_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, full_model, "4") \
+} \
+spriteset(name ##_full_set_gui, file2) { tmpl(x1, y1) } \
+alternative_sprites(name ##_full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(full_model) \
+} \
+spritegroup name ##_group { \
+	loaded: [name ##_empty_set, name ##_full_set]; \
+	loading: [name ##_empty_set, name ##_full_set]; \
+} \
+spritegroup name ##_group_gui { \
+	loaded: [name ##_empty_set_gui, name ##_full_set_gui]; \
+	loading: [name ##_empty_set_gui, name ##_full_set_gui]; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ##_group_gui; \
+    0x11: name ##_group_gui; \
+    0x12: name ##_group_gui; \
+    0x20: name ##_group_gui; \
+    0x21: name ##_group_gui; \
+    name ##_group; \
+}
 #define SPRITEGROUP_4STAGES_NOLOADING(name, file_empty, file_1, file_2, file_3, tmpl, x, yempty, y1, y2, y3) \
 spriteset(name ##_empty_set, file_empty) { tmpl(x, yempty) tmpl(x, yempty) } \
 spriteset(name ##_full13_set, file_1) { tmpl(x, y1) tmpl(x, y1) } \
@@ -7,14 +52,78 @@ spritegroup name ##_group { \
     loaded: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
     loading: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
 }
-#define SPRITEGROUP_4STAGES_NOLOADING_2STAGE_COMPAT(name, file_empty, file_1, file_2, file_3, tmpl, x1, x2, yempty, y1, y2, y3) \
-spriteset(name ##_empty_set, file_empty) { tmpl(x1, yempty) tmpl(x1, yempty) } \
-spriteset(name ##_full13_set, file_1) { tmpl(x1, y1) tmpl(x1, y1) } \
-spriteset(name ##_full23_set, file_2) { tmpl(x2, y2) tmpl(x2, y2) } \
-spriteset(name ##_full33_set, file_3) { tmpl(x2, y3) tmpl(x2, y3) } \
+#define SPRITEGROUP_4STAGES_NOLOADING_32BPP(name, model_empty, model_13, model_23, model_33, file_empty, file_1, file_2, file_3, tmpl, x1, y1, x2, y2, x3, y3, x4, y4) \
+spriteset(name ##_empty_set, file_empty) { tmpl(x1, y1) } \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_empty, "1") \
+} \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_empty, "2") \
+} \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_empty, "4") \
+} \
+spriteset(name ##_empty_set_gui, file_empty) { tmpl(x1, y1) } \
+alternative_sprites(name ##_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_empty) \
+} \
+spriteset(name ##_full13_set, file_1) { tmpl(x2, y2) } \
+alternative_sprites(name ##_full13_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_13, "1") \
+} \
+alternative_sprites(name ##_full13_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_13, "2") \
+} \
+alternative_sprites(name ##_full13_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_13, "4") \
+} \
+spriteset(name ##_full13_set_gui, file_1) { tmpl(x2, y2) } \
+alternative_sprites(name ##_full13_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_13) \
+} \
+spriteset(name ##_full23_set, file_2) { tmpl(x3, y3) } \
+alternative_sprites(name ##_full23_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_23, "1") \
+} \
+alternative_sprites(name ##_full23_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_23, "2") \
+} \
+alternative_sprites(name ##_full23_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_23, "4") \
+} \
+spriteset(name ##_full23_set_gui, file_2) { tmpl(x3, y3) } \
+alternative_sprites(name ##_full23_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_23) \
+} \
+spriteset(name ##_full33_set, file_3) { tmpl(x4, y4) } \
+alternative_sprites(name ##_full33_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_33, "1") \
+} \
+alternative_sprites(name ##_full33_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_33, "2") \
+} \
+alternative_sprites(name ##_full33_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_33, "4") \
+} \
+spriteset(name ##_full33_set_gui, file_3) { tmpl(x4, y4) } \
+alternative_sprites(name ##_full33_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_33) \
+} \
 spritegroup name ##_group { \
     loaded: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
     loading: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
+} \
+spritegroup name ##_group_gui { \
+	loaded: [name ##_empty_set_gui, name ##_full13_set_gui, name ##_full23_set_gui, name ##_full33_set_gui]; \
+	loading: [name ##_empty_set_gui, name ##_full13_set_gui, name ##_full23_set_gui, name ##_full33_set_gui]; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ##_group_gui; \
+    0x11: name ##_group_gui; \
+    0x12: name ##_group_gui; \
+    0x20: name ##_group_gui; \
+    0x21: name ##_group_gui; \
+    name ##_group; \
 }
 #define SPRITEGROUP_3STAGES_NOLOADING(name, file_empty, file_1, file_2, tmpl, x, yempty, y1, y2) \
 spriteset(name ##_empty_set, file_empty) { tmpl(x, yempty) } \
@@ -24,13 +133,64 @@ spritegroup name ##_group { \
     loaded: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
     loading: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
 }
-#define SPRITEGROUP_3STAGES_NOLOADING_1STAGE_COMPAT(name, file_empty, file_1, file_2, tmpl, x1, x2, yempty, y1, y2) \
-spriteset(name ##_empty_set, file_empty) { tmpl(x1, yempty) tmpl(x1, yempty) } \
-spriteset(name ##_full12_set, file_1) { tmpl(x1, y1) tmpl(x1, y1) } \
-spriteset(name ##_full22_set, file_2) { tmpl(x2, y2) tmpl(x2, y2) } \
+#define SPRITEGROUP_3STAGES_NOLOADING_32BPP(name, model_empty, model_12, model_22, file_empty, file_1, file_2, tmpl, x1, y1, x2, y2, x3, y3) \
+spriteset(name ##_empty_set, file_empty) { tmpl(x1, y1) } \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_empty, "1") \
+} \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_empty, "2") \
+} \
+alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_empty, "4") \
+} \
+spriteset(name ##_empty_set_gui, file_empty) { tmpl(x1, y1) } \
+alternative_sprites(name ##_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_empty) \
+} \
+spriteset(name ##_full12_set, file_1) { tmpl(x2, y2) } \
+alternative_sprites(name ##_full12_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_12, "1") \
+} \
+alternative_sprites(name ##_full12_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_12, "2") \
+} \
+alternative_sprites(name ##_full12_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_12, "4") \
+} \
+spriteset(name ##_full12_set_gui, file_1) { tmpl(x2, y2) } \
+alternative_sprites(name ##_full12_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_12) \
+} \
+spriteset(name ##_full22_set, file_2) { tmpl(x3, y3) } \
+alternative_sprites(name ##_full22_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_22, "1") \
+} \
+alternative_sprites(name ##_full22_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_22, "2") \
+} \
+alternative_sprites(name ##_full22_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_22, "4") \
+} \
+spriteset(name ##_full22_set_gui, file_2) { tmpl(x3, y3) } \
+alternative_sprites(name ##_full22_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_22) \
+} \
 spritegroup name ##_group { \
     loaded: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
     loading: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
+} \
+spritegroup name ##_group_gui { \
+	loaded: [name ##_empty_set_gui, name ##_full12_set_gui, name ##_full22_set_gui]; \
+	loading: [name ##_empty_set_gui, name ##_full12_set_gui, name ##_full22_set_gui]; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ##_group_gui; \
+    0x11: name ##_group_gui; \
+    0x12: name ##_group_gui; \
+    0x20: name ##_group_gui; \
+    0x21: name ##_group_gui; \
+    name ##_group; \
 }
 #define SPRITEGROUP_1STAGE_LOAD(name, filename, spritetemplate, x, yload, ydrive) \
 spriteset(name ## _open_set, filename) { spritetemplate (x, yload) } \
