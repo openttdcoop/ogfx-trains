@@ -76,7 +76,7 @@ SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_refineryproducts,
     "flatbed_refinery_stage2", "flatbed_refinery_full",
     "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
     "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
-    tmpl_railwagon42, 0, 0, 0, 0, 126, 0, 126, 0)
+    tmpl_railwagon42, 0, 10, 0, 10, 126, 10, 126, 10)
 
 // PETR (barrels)
 SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_fueloil,
