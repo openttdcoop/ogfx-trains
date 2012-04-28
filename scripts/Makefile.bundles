@@ -117,7 +117,7 @@ $(DIR_NAME_SRC).tar: $(DIR_NAME_SRC)
 	$(_V) hg archive $(RE_FILES_NO_SRC_BUNDLE) -t tar $@
 	$(_V) tar -rf $@ $(DIR_NAME_SRC)
 else
-$(DIR_NAME_SRC):
+$(DIR_NAME_SRC).tar:
 	$(_E) "Source releases can only be made from a hg checkout."
 	$(_V) false
 endif
