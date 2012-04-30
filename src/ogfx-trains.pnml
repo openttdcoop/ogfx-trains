@@ -79,6 +79,7 @@
 #include "src/engine_tim.pnml"
 
 // rail engines
+#include "src/engine_ginzu.pnml"        // id 09
 #include "src/engine_sh25.pnml"         // id 13
 #include "src/engine_uu37.pnml"         // id 14
 #include "src/engine_floss.pnml"        // id 15

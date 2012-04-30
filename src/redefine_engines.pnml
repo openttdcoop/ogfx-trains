@@ -118,16 +118,12 @@ item(FEAT_TRAINS, chaneyjubilee, 08) {
     ENGINE_GRAPHICS_BLOCK(chaneyjubilee)
 }
 
-ENGINE_GRAPHICS_GROUP(ginzua4, default, tmpl_engine_88(0, 0),  "src/gfx/engines/temperate_GinzuA4_88.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(ginzua4)
 item(FEAT_TRAINS, ginzua4, 09) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL;
     }
-    ENGINE_GRAPHICS_BLOCK(ginzua4)
 }
 
 ENGINE_GRAPHICS_GROUP(sh8p, default, tmpl_engine_88(0, 0),  "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png")
@@ -364,5 +360,3 @@ item(FEAT_TRAINS, wizzowowrocketeer, 88) {
         track_type:             MAGLEV;
     }
 }
-
-
