@@ -2,8 +2,8 @@
 
 #**************************************************************************
 # Post-process rendered blender images into NewGRF sprites
-# Version 1
-# 2012-04-16
+# Version 2
+# 2012-05-02
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
@@ -54,10 +54,10 @@ SCALE1X=16
 # You should not need to change these values unless you re-render with a different scale
 # and if you do then the nml offset will need recalculating.
 # x1=720 y1=496 x2=592 y2=1316
-CROPX1=720
-CROPY1=496
-CROPX2=592
-CROPY2=1316
+#CROPX1=720
+#CROPY1=496
+#CROPX2=592
+#CROPY2=1316
 # Exit codes
 # An exit status of zero indicates success, and a nonzero value indicates failure.
 E_USAGE=1
@@ -788,11 +788,11 @@ func_copy $LINENO "$PCS/blank*.$EXT" "$DSTPCHS/"
 func_echo_spin $LINENO $V_MODERATE "Crop to normal dimensions..."
 
 # Crop all
-func_gimp_crop $LINENO "$DST8/*$INS$I4X.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_1
-func_gimp_crop $LINENO "$POSTCC1/*$INS$I4X$MASK.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_2
-func_gimp_crop $LINENO "$POSTCC2/*$INS$I4X$MASK.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_3
-func_gimp_crop $LINENO "$DST32/*$INS$I4X.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_4
-func_gimp_crop $LINENO "$DSTPCHS/*$INS32$INS$I1X.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_5
+#func_gimp_crop $LINENO "$DST8/*$INS$I4X.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_1
+#func_gimp_crop $LINENO "$POSTCC1/*$INS$I4X$MASK.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_2
+#func_gimp_crop $LINENO "$POSTCC2/*$INS$I4X$MASK.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_3
+#func_gimp_crop $LINENO "$DST32/*$INS$I4X.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_4
+#func_gimp_crop $LINENO "$DSTPCHS/*$INS32$INS$I1X.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_5
 
 func_echo_spin $LINENO $V_MODERATE "Convert cc1 masks ..."
 
