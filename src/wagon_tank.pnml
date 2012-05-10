@@ -30,50 +30,8 @@ spritegroup tank_wagon_milk_group {
 }
 
 // OIL_
-spriteset(tank_wagon_default_temperate_set, "src/gfx/tank/rail_oil_temperate.png") { tmpl_railwagon(0, 0) tmpl_railwagon(0, 0) }
+MU_8SPRITES_32BPP(tank_wagon_default_temperate, "tank", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 spriteset(tank_wagon_default_tropic_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,75) }
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for normal zoom */
-alternative_sprites(tank_wagon_default_temperate_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(1, "tank", "1")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 2X zoom in */
-alternative_sprites(tank_wagon_default_temperate_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(2, "tank", "2")
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for 4X zoom in */
-alternative_sprites(tank_wagon_default_temperate_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_train_opengfxp32(4, "tank", "4")
-}
-
-/* OpenGFX+ */
-/* Define the 8bpp sprite set for the GUI menus */
-spriteset(tank_wagon_default_temperate_set_gui, "src/gfx/tank/rail_oil_temperate.png") {
-	tmpl_railwagon(0, 0) tmpl_railwagon(0, 0)               // 8 views needed for livery override by turbotrain
-}
-
-/* OpenGFX+ */
-/* Define the 32bpp sprite set for the GUI menus */
-alternative_sprites(tank_wagon_default_temperate_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
-    template_train_gui_opengfxp32("tank")
-}
-
-/* OpenGFX+ */
-/* Define the sprite group for the GUI menus */
-spritegroup tank_wagon_default_temperate_group_gui {
-	loading: tank_wagon_default_temperate_set_gui;
-	loaded: tank_wagon_default_temperate_set_gui;
-}
-
-spritegroup tank_wagon_default_temperate_group {
-	loaded: tank_wagon_default_temperate_set;
-	loading: tank_wagon_default_temperate_set;
-}
 spritegroup tank_wagon_default_tropic_group {
 	loaded: tank_wagon_default_tropic_set;
 	loading: tank_wagon_default_tropic_set;
@@ -100,21 +58,9 @@ spritegroup tank_wagon_water_group {
 	loading: tank_wagon_water_set;
 }
 
-
-/* OpenGFX+ */
-/* Define the switch for the GUI menus */
-switch(FEAT_TRAINS, SELF, tank_wagon_default_switch_gui, (extra_callback_info1 & 0xFF)) {
-    0x10: tank_wagon_default_temperate_group_gui;
-    0x11: tank_wagon_default_temperate_group_gui;
-    0x12: tank_wagon_default_temperate_group_gui;
-    0x20: tank_wagon_default_temperate_group_gui;
-    0x21: tank_wagon_default_temperate_group_gui;
-    tank_wagon_default_temperate_group;
-}
-
 switch(FEAT_TRAINS, SELF, tank_wagon_default_switch, climate) {
     CLIMATE_TROPICAL: tank_wagon_default_tropic_group;
-    tank_wagon_default_switch_gui;
+    tank_wagon_default_temperate_switch_gui;
 }
 
 switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
@@ -186,8 +132,8 @@ item(FEAT_TRAINS, tank_wagon) {
         misc_flags:                     bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
-		cargo_capacity:     tank_wagon_cb_capacity_switch;
-		weight:             tank_wagon_cb_property_weight_switch;
+	cargo_capacity:     tank_wagon_cb_capacity_switch;
+	weight:             tank_wagon_cb_property_weight_switch;
         refit_cost:         tank_wagon_refit_cost_switch;
 
         purchase: tank_wagon_default_switch;
