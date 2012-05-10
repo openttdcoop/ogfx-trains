@@ -537,6 +537,42 @@ function func_gimp_indexed_cc2()
 }
 
 #**************************************************************************
+# Function: func_gimp_indexed_32bpp_cc1
+# Parameters: <line number> <files> [<user exit number>]
+#**************************************************************************
+function func_gimp_indexed_32bpp_cc1()
+{
+    func_param_check $1 $FUNCNAME $# 2
+    local GIMP_OUTPUT="$(gimp -i -g $TMP/$GIMPRC -b "(batch-image-convert-indexed \"$2\" \"ttd-newgrf-32cc1only\")" -b "(gimp-quit 0)" 2>&1)"
+    local EXIT_VAL=$?
+    local ERR_TXT="Failed Index CC1:$2"
+
+    if [ $# -gt 2 ]; then
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT" $3
+    else
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT"
+    fi
+}
+
+#**************************************************************************
+# Function: func_gimp_indexed_32bpp_cc2
+# Parameters: <line number> <files> [<user exit number>]
+#**************************************************************************
+function func_gimp_indexed_32bpp_cc2()
+{
+    func_param_check $1 $FUNCNAME $# 2
+    local GIMP_OUTPUT="$(gimp -i -g $TMP/$GIMPRC -b "(batch-image-convert-indexed \"$2\" \"ttd-newgrf-32cc2only\")" -b "(gimp-quit 0)" 2>&1)"
+    local EXIT_VAL=$?
+    local ERR_TXT="Failed Index CC2:$2"
+
+    if [ $# -gt 2 ]; then
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT" $3
+    else
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT"
+    fi
+}
+
+#**************************************************************************
 # Function: func_gimp_cc1
 # Parameters: <line number> <files> [<user exit number>]
 #**************************************************************************
@@ -569,6 +605,44 @@ function func_gimp_cc2()
         func_gimp_indexed_dos $LINENO "$2" $3
     else
         func_gimp_indexed_cc2 $LINENO "$2"
+        func_gimp_to_rgb $LINENO "$2"
+        func_gimp_indexed_dos $LINENO "$2"
+    fi
+}
+
+#**************************************************************************
+# Function: func_gimp_32bpp_cc1
+# Parameters: <line number> <files> [<user exit number>]
+#**************************************************************************
+function func_gimp_32bpp_cc1()
+{
+    func_param_check $1 $FUNCNAME $# 2
+
+    if [ $# -gt 2 ]; then
+        func_gimp_indexed_32bpp_cc1 $LINENO "$2" $3
+        func_gimp_to_rgb $LINENO "$2" $3
+        func_gimp_indexed_dos $LINENO "$2" $3
+    else
+        func_gimp_indexed_32bpp_cc1 $LINENO "$2"
+        func_gimp_to_rgb $LINENO "$2"
+        func_gimp_indexed_dos $LINENO "$2"
+    fi
+}
+
+#**************************************************************************
+# Function: func_gimp_32bpp_cc2
+# Parameters: <line number> <files> [<user exit number>]
+#**************************************************************************
+function func_gimp_32bpp_cc2()
+{
+    func_param_check $1 $FUNCNAME $# 2
+
+    if [ $# -gt 2 ]; then
+        func_gimp_indexed_32bpp_cc2 $LINENO "$2" $3
+        func_gimp_to_rgb $LINENO "$2" $3
+        func_gimp_indexed_dos $LINENO "$2" $3
+    else
+        func_gimp_indexed_32bpp_cc2 $LINENO "$2"
         func_gimp_to_rgb $LINENO "$2"
         func_gimp_indexed_dos $LINENO "$2"
     fi
@@ -730,6 +804,11 @@ func_mkdir $LINENO $POSTCC1 $E_MK_POSTCC1
 func_concat_path $LINENO POSTCC2 $TMP "2cc_mask"
 func_mkdir $LINENO $POSTCC2 $E_MK_POSTCC2
 
+func_concat_path $LINENO POST32CC1 $TMP "32bpp_1cc_mask"
+func_mkdir $LINENO $POST32CC1 $E_MK_POSTCC1
+func_concat_path $LINENO POST32CC2 $TMP "32bpp_2cc_mask"
+func_mkdir $LINENO $POST32CC2 $E_MK_POSTCC2
+
 func_concat_path $LINENO POSTMSK8 $TMP "8bpp_mask"
 func_mkdir $LINENO $POSTMSK8 $E_MK_POSTMSK8
 func_concat_path $LINENO POSTMSK32 $TMP "32bpp_mask"
@@ -774,7 +853,9 @@ do
 	func_copy $LINENO "$SRCIMG8/$NAME.$EXT" "$DST8/$NAME$INS$I4X.$EXT" $E_CP_REN_1
 	# Copy to 8 bit mask files
 	func_copy $LINENO "$SRCMSK8CC1/$NAME.$EXT" "$POSTCC1/$NAME$INS$I4X$MASK.$EXT" $E_CP_REN_2
+        func_copy $LINENO "$SRCMSK8CC1/$NAME.$EXT" "$POST32CC1/$NAME$INS$I4X$MASK.$EXT" $E_CP_REN_2
 	func_copy $LINENO "$SRCMSK8CC2/$NAME.$EXT" "$POSTCC2/$NAME$INS$I4X$MASK.$EXT" $E_CP_REN_3
+        func_copy $LINENO "$SRCMSK8CC2/$NAME.$EXT" "$POST32CC2/$NAME$INS$I4X$MASK.$EXT" $E_CP_REN_3
 	# Copy to 32 bit files
 	func_copy $LINENO "$SRCIMG32/$NAME.$EXT" "$DST32/$NAME$INS$I4X.$EXT" $E_CP_REN_4
 	# Copy to purchase files
@@ -785,7 +866,7 @@ done
 
 func_copy $LINENO "$PCS/blank*.$EXT" "$DSTPCHS/"
 
-func_echo_spin $LINENO $V_MODERATE "Crop to normal dimensions..."
+#func_echo_spin $LINENO $V_MODERATE "Crop to normal dimensions..."
 
 # Crop all
 #func_gimp_crop $LINENO "$DST8/*$INS$I4X.$EXT" $CROPX1 $CROPY1 $CROPX2 $CROPY2 $E_CROP_1
@@ -798,11 +879,13 @@ func_echo_spin $LINENO $V_MODERATE "Convert cc1 masks ..."
 
 # Convert 8 bit mask files to OTTD 8 bit cc1 palette
 func_gimp_cc1 $LINENO "$POSTCC1/*$INS$I4X$MASK.$EXT" $E_CC1
+func_gimp_32bpp_cc1 $LINENO "$POST32CC1/*$INS$I4X$MASK.$EXT" $E_CC1
 
 func_echo_spin $LINENO $V_MODERATE "Convert cc2 masks ..."
 
 # Convert 8 bit mask files to OTTD 8 bit cc2 palette
 func_gimp_cc2 $LINENO "$POSTCC2/*$INS$I4X$MASK.$EXT" $E_CC2
+func_gimp_32bpp_cc2 $LINENO "$POST32CC2/*$INS$I4X$MASK.$EXT" $E_CC2
 
 func_echo_spin $LINENO $V_MODERATE "Merge cc1 & cc2 masks ..."
 
@@ -817,13 +900,14 @@ done
 
 func_echo_spin $LINENO $V_MODERATE "Merge 32bpp masks ..."
 
-# Merge 8 bit cc1 mask with 8 bit cc2 mask
+# Merge 8 bit cc1 mask with 8 bit cc2 mask for 32bpp
 
 for ((COUNT=1; COUNT<=$SPRITES; COUNT++))
 do
         func_format_name $LINENO NAME $COUNT
 	func_copy $LINENO "$PCS/magic.$EXT" "$POSTMSK32/$NAME$INS$I4X$MASK.$EXT" $E_CP_MAGIC
-        func_gimp_merge $LINENO "$POSTMSK32/$NAME$INS$I4X$MASK.$EXT" "$POSTMSK8/$NAME$INS$I4X$MASK.$EXT" $E_MG_MASK32
+        func_gimp_merge $LINENO "$POSTMSK32/$NAME$INS$I4X$MASK.$EXT" "$POST32CC1/$NAME$INS$I4X$MASK.$EXT" $E_MG_MASK32
+        func_gimp_merge $LINENO "$POSTMSK32/$NAME$INS$I4X$MASK.$EXT" "$POST32CC2/$NAME$INS$I4X$MASK.$EXT" $E_MG_MASK32
 done
 
 func_echo_spin $LINENO $V_MODERATE "Merge 8bpp masks ..."
