@@ -14,6 +14,7 @@
         cost_factor:                    192;
         cargo_capacity:                 32;
         weight:                         20;
+        misc_flags:                     bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
         temperate_livestock_rail_switch_gui;
