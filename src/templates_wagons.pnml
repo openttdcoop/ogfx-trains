@@ -1,3 +1,10 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #define SPRITEGROUP_2STAGES_NOLOADING_32BPP(name, empty_model, full_model, file1, file2, tmpl, x1, y1, x2, y2) \
 spriteset(name ##_empty_set, file1) { tmpl(x1, y1) } \
 alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
