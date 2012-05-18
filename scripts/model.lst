@@ -7,8 +7,8 @@
 #**************************************************************************
 
 # Temperate Trains
-gresley
-gresley_tender
+ginzua4
+ginzua4_tender
 dmu
 dash
 sh25
@@ -37,6 +37,7 @@ livestock
 tank
 # Temperate Wagons: Multi-load
 flatbed
+flatbed_nocc
 flatbed_container
 flatbed_sides
 flatbed_oil_stage1
