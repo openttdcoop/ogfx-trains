@@ -201,6 +201,19 @@ PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param_purchase_cost_mult - 9;
 
 /*
  * ********************************************
+ * Parameter 5: Tenders
+ * 0: None
+ * 1: articulates (default)
+ * ********************************************
+ */
+
+param_tender = 0;
+
+#define TENDER_NONE        0
+#define TENDER_ARTICULATED 1
+
+/*
+ * ********************************************
  * Introduction year for 2nd generation wagons
  * ********************************************
  */
