@@ -20,7 +20,7 @@
 
 // default: container
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(flatbed_wagon_container,
-    "flatbed", "flatbed_container",
+    "flatbed_nocc", "flatbed_container",
     "src/gfx/flatbed/rail_flatbed_container_temperate.png", "src/gfx/flatbed/rail_flatbed_container_temperate.png",
     tmpl_railwagon42, 0, 8, 126, 8)
 
@@ -65,7 +65,7 @@ spritegroup flatbed_wagon_fizzy_group {
 
 // GOOD (container)
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(flatbed_wagon_goods,
-    "flatbed", "flatbed_container",
+    "flatbed_nocc", "flatbed_container",
     "src/gfx/flatbed/container/rail_flatbed_container_empty_NoWagonCC_2.png", "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2a.png",
     tmpl_railwagon42, 0, 0, 0, 0)
 
