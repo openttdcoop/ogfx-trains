@@ -6,29 +6,23 @@
  */
 
 /*
- * =============================================================================
- * Ginzu 'A4'
- * =============================================================================
+ * Chaney 'Jubilee' steam engine
  */
 
-ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "gresley", default,
-    "src/gfx/engines/temperate_GinzuA4_88.png",
-    tmpl_engine_88, 0, 0,
-    tmpl_engine_88, 0, 0)
-
-item(FEAT_TRAINS, ginzua4) {
-    property {
-        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
-        track_type:                     NORMAL_RAIL;
-    }
-    graphics {
-        default: ginzua4_default_indepot_switch;
-    }
+ENGINE_GRAPHICS_GROUP(chaneyjubilee, default, tmpl_engine_88(0, 0),  "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png")
+ENGINE_GRAPHICS_NOCLIMATE_SWITCH(chaneyjubilee)
+item(FEAT_TRAINS, chaneyjubilee) {
+	property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+	}
+	graphics {
+		default: chaneyjubilee_switch;
+	}
 }
 
 if (param_tender != TENDER_NONE) {
-	item(FEAT_TRAINS, ginzua4) {
+	item(FEAT_TRAINS, chaneyjubilee) {
 		graphics {
 			articulated_part: tender_articulated_cb;
 		}

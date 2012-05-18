@@ -1,4 +1,11 @@
 /*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
  * =============================================================================
  * Redefine climate availability for  default engines
  * =============================================================================
@@ -8,16 +15,12 @@
  * Steam / Diesel / Electric wagons.
  * ================================================== */
 
-ENGINE_GRAPHICS_GROUP(kirbypaul, default, tmpl_engine_88(0, 0),  "src/gfx/engines/temperate_kirbypaul_88.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(kirbypaul)
 item(FEAT_TRAINS, kirbypaul, 00) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL;
     }
-    ENGINE_GRAPHICS_BLOCK(kirbypaul)
 }
 
 ENGINE_GRAPHICS_GROUP(mjs250, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_MJS250.png")
@@ -33,40 +36,28 @@ item(FEAT_TRAINS, mjs250, 01) {
     ENGINE_GRAPHICS_BLOCK(mjs250)
 }
 
-ENGINE_GRAPHICS_GROUP(ploddyphut_choochoo, default, tmpl_engine_88(0, 0),  "src/gfx/engines/toyland_ploddyphut.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(ploddyphut_choochoo)
 item(FEAT_TRAINS, ploddyphut_choochoo, 02) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL;
     }
-    ENGINE_GRAPHICS_BLOCK(ploddyphut_choochoo)
 }
 
-ENGINE_GRAPHICS_GROUP(powernaut_choochoo, default, tmpl_engine_88(0, 0),  "src/gfx/engines/toyland_powernaut.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(powernaut_choochoo)
 item(FEAT_TRAINS, powernaut_choochoo, 03) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL;
     }
-    ENGINE_GRAPHICS_BLOCK(powernaut_choochoo)
 }
 
-ENGINE_GRAPHICS_GROUP(mightymover_choochoo, default, tmpl_engine_88(0, 0),  "src/gfx/engines/toyland_mightymover.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(mightymover_choochoo)
 item(FEAT_TRAINS, mightymover_choochoo, 04) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TOYLAND || USE_CLIMATE_ALL) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL;
     }
-    ENGINE_GRAPHICS_BLOCK(mightymover_choochoo)
 }
 
 ENGINE_GRAPHICS_GROUP(ploddyphut_diesel, default, tmpl_engine_88(0, 0),  "src/gfx/engines/toyland_ploddyphut_diesel.png")
@@ -93,29 +84,20 @@ item(FEAT_TRAINS, powernaut_diesel, 06) {
     ENGINE_GRAPHICS_BLOCK(powernaut_diesel)
 }
 
-ENGINE_GRAPHICS_GROUP(wills280, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_wills280.png")
-ENGINE_GRAPHICS_GROUP(wills280, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/tropical_wills280.png")
-ENGINE_GRAPHICS_TROPICAL_SWITCH(wills280)
 item(FEAT_TRAINS, wills280, 07) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL;
     }
-    ENGINE_GRAPHICS_BLOCK(wills280)
 }
 
-ENGINE_GRAPHICS_GROUP(chaneyjubilee, default, tmpl_engine_88(0, 0),  "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(chaneyjubilee)
 item(FEAT_TRAINS, chaneyjubilee, 08) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL;
     }
-    ENGINE_GRAPHICS_BLOCK(chaneyjubilee)
 }
 
 item(FEAT_TRAINS, ginzua4, 09) {
@@ -126,16 +108,12 @@ item(FEAT_TRAINS, ginzua4, 09) {
     }
 }
 
-ENGINE_GRAPHICS_GROUP(sh8p, default, tmpl_engine_88(0, 0),  "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(sh8p)
 item(FEAT_TRAINS, sh8p, 10) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL;
     }
-    ENGINE_GRAPHICS_BLOCK(sh8p)
 }
 
 item(FEAT_TRAINS, manleymorel, 11) {

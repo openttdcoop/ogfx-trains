@@ -1,3 +1,10 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "src/header.pnml"
 #include "src/cargo_definitions.pnml"
 
@@ -67,6 +74,11 @@
 #include "src/maglev_flatbed.pnml"
 
 /*
+ * Non-default vehicles here
+ */
+#include "src/tender.pnml"              // Tender for steam engines
+
+/*
  * Re-declare all engines with new graphics here
  * (they don't use new vehicleIDs)
  */
@@ -79,14 +91,21 @@
 #include "src/engine_tim.pnml"
 
 // rail engines
-#include "src/engine_ginzu.pnml"        // id 09
-#include "src/engine_sh25.pnml"         // id 13
-#include "src/engine_uu37.pnml"         // id 14
-#include "src/engine_floss.pnml"        // id 15
-#include "src/engine_kelling3100.pnml"	// id 19
-#include "src/engine_mjs1000.pnml"      // id 21
-#include "src/engine_sh30.pnml"  	// id 23
-#include "src/engine_sh40.pnml"  	// id 24
+#include "src/engine_kirby_paul.pnml"    // id 00
+#include "src/engine_ploddyphut.pnml"    // id 02
+#include "src/engine_powernaut.pnml"     // id 03
+#include "src/engine_mightymover.pnml"   // id 04
+#include "src/engine_wills280.pnml"      // id 07
+#include "src/engine_chaneyjubilee.pnml" // id 08
+#include "src/engine_ginzu.pnml"         // id 09
+#include "src/engine_sh8p.pnml"          // id 10
+#include "src/engine_sh25.pnml"          // id 13
+#include "src/engine_uu37.pnml"          // id 14
+#include "src/engine_floss.pnml"         // id 15
+#include "src/engine_kelling3100.pnml" 	 // id 19
+#include "src/engine_mjs1000.pnml"       // id 21
+#include "src/engine_sh30.pnml"          // id 23
+#include "src/engine_sh40.pnml"          // id 24
 
 // monorail
 #include "src/engine_x2001.pnml"        // id 54
