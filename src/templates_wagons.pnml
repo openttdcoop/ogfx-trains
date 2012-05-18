@@ -310,7 +310,7 @@ spritegroup name ##_group { \
         climates_available:             param_provide_rail ? ALL_CLIMATES : NO_CLIMATE; \
         speed:                          160 km/h; \
         model_life:                     VEHICLE_NEVER_EXPIRES; \
-        track_type:                     NORMAL_RAIL;
+        track_type:                     NORMAL_RAIL10;
 
 #define WAGON_PROPERTIES_MONORAIL_DEFAULT \
         introduction_date:              date(1980,1,1); \

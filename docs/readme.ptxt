@@ -196,19 +196,22 @@ Authors:
     Lead programmer:            Ingo von Borstel (aka planetmaker)
     General coding:             Graham Fairweather (aka Xotic750)
                                 Terkhen
+    Single contributions:
+        Railtype table:         Based on Jasper Vries' (Foobar's) code from DutchTrainset
+
 Graphics:
     Toyland rail wagons:        molace
     Temperate rail wagons:      DanMacK, Uzurpator, Zephyris, molace
     Tropical rail wagons:       DanMacK, Uzurpator, Zephyris, molace
     Arctic rail wagons:         DanMacK, Uzurpator, Zephyris, molace
 
+    32bpp models & renders:     Xotic750
+
     Single trains and consits:
         Turner Turbo train:     DanMacK
         Flatbed wagon ENSP      Zephyris
     Cargo sprites:
         ENSP, FMSP, VEHI:       andythenorth
-
-    32bpp models & renders:     Xotic750
 
 Translations:
     Chinese (traditional)       2006TTD
