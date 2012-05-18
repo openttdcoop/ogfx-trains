@@ -194,7 +194,8 @@ USA.
 
 Authors:
     Lead programmer:            Ingo von Borstel (aka planetmaker)
-    General coding:             Terkhen
+    General coding:             Graham Fairweather (aka Xotic750)
+                                Terkhen
 Graphics:
     Toyland rail wagons:        molace
     Temperate rail wagons:      DanMacK, Uzurpator, Zephyris, molace
@@ -206,6 +207,8 @@ Graphics:
         Flatbed wagon ENSP      Zephyris
     Cargo sprites:
         ENSP, FMSP, VEHI:       andythenorth
+
+    32bpp models & renders:     Xotic750
 
 Translations:
     Chinese (traditional)       2006TTD

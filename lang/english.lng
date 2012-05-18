@@ -1,6 +1,6 @@
 ##grflangid 0x01
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} enhances default rail vehicles and extends the rolling stock.{}Designed to fit OpenGFX style.{}Programming: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}License: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Special thanks to {SILVER}Yexo{BLACK} and {SILVER}Ammler{BLACK} for their support and contributions
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} enhances default rail vehicles and extends the rolling stock.{}Designed to fit OpenGFX style.{}Programming: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Graphics: {SILVER} Xotic750, Zephyris,DanMacK, buttercup, molace, Uzurpator{}{BLACK}License: {SILVER}GPL v2{}{BLACK}{BLACK}Special thanks to {SILVER}Yexo{BLACK} and {SILVER}Ammler{BLACK} for their support and contributions
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Bulk wagon
