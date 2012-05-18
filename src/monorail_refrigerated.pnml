@@ -37,7 +37,7 @@ item(FEAT_TRAINS, monorail_refrigerate_wagon) {
         cargo_age_period:               372;
     }
     graphics {
-        refit_cost:         refrigerate_wagon_refit_cost_switch;
+        refit_cost:         refrigerated_refit_cost_switch;
         additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 
         monorail_refrigerated_graphics_switch;

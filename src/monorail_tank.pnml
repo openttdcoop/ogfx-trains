@@ -52,7 +52,7 @@ item(FEAT_TRAINS, monorail_tank_wagon) {
     graphics {
 		cargo_capacity:     tank_wagon_cb_capacity_switch;
 		weight:             tank_wagon_cb_property_weight_switch;
-        refit_cost:         tank_wagon_refit_cost_switch;
+        refit_cost:         tank_refit_cost_switch;
 
         0xFF: monorail_tank_oil_climate_switch;
         monorail_tank_graphics_switch;

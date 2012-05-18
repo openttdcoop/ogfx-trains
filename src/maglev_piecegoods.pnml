@@ -38,7 +38,7 @@ item(FEAT_TRAINS, maglev_piecegoods_wagon) {
     graphics {
         weight:         piecegoods_wagon_weight_switch;
         cargo_capacity: maglev_piecegoods_wagon_capacity_switch;
-        refit_cost:     piecegoods_wagon_refit_cost_switch;
+        refit_cost:     piecegoods_refit_cost_switch;
 
         purchase:       monorail_piecegoods_default_group;
         monorail_piecegoods_cargo_switch;

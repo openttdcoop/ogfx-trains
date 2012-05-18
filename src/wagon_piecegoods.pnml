@@ -78,13 +78,6 @@ switch (FEAT_TRAINS, SELF, piecegoods_wagon_weight_switch, cargo_type_in_veh) {
     CB_FAILED;
 }
 
-// Removing piece goods from a wagon and putting in another piece goods can be done
-// at no extra costs in a station. Fruits etc are packed into convenient boxes when
-// carried in this wagon type.
-switch (FEAT_TRAINS, SELF, piecegoods_wagon_refit_cost_switch, 1) {
-	return 0 | CB_RESULT_AUTOREFIT;
-}
-
 item(FEAT_TRAINS, piecegoods_wagon) {
     property {
         // We try to simulate the stats of the temperate goods wagon
@@ -100,7 +93,7 @@ item(FEAT_TRAINS, piecegoods_wagon) {
     graphics {
         weight:         piecegoods_wagon_weight_switch;
         cargo_capacity: piecegoods_wagon_capacity_switch;
-        refit_cost:     piecegoods_wagon_refit_cost_switch;
+        refit_cost:     piecegoods_refit_cost_switch;
 
         purchase:   piecegoods_wagon_default_switch_gui;
         piecegoods_wagon_switch;

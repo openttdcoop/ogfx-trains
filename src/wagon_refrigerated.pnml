@@ -19,10 +19,6 @@ spritegroup refrigerate_wagon_default_group {
 	loading: refrigerate_wagon_default_set;
 }
 
-switch (FEAT_TRAINS, SELF, refrigerate_wagon_refit_cost_switch, 1) {
-	return 20 | CB_RESULT_AUTOREFIT;
-}
-
 item(FEAT_TRAINS, refrigerate_wagon) {
     property {
         // We try to simulate the stats of the arctic food wagon
@@ -36,7 +32,7 @@ item(FEAT_TRAINS, refrigerate_wagon) {
         cargo_age_period:               372;
     }
     graphics {
-        refit_cost:         refrigerate_wagon_refit_cost_switch;
+        refit_cost:         refrigerated_refit_cost_switch;
         additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 
         refrigerate_wagon_default_group;
