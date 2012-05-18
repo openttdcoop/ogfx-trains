@@ -11,7 +11,7 @@
  * =============================================================================
  */
 
-ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "gresley", default,
+ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", default,
     "src/gfx/engines/temperate_GinzuA4_88.png",
     tmpl_engine_88, 0, 0,
     tmpl_engine_88, 0, 0)
