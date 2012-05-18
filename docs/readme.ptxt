@@ -119,43 +119,81 @@ The number of wagons has been reduced with respect to the default
 wagons, but they can now be refitted, so that for every cargo within
 the game you'll find at least one wagon which supports transporting it:
 
-- passenger wagon (Refit in station, free):
-    passengers and tourists
-- mail wagon (No refit options)
-    mail
-- armoured wagon (Refit in station, free):
-    valuables, gold, diamonds
-- bulk wagon:
-    group 1 (Refit in station from any cargo including group 2, free):
-		coal, iron ore, bauxite, cement, copper ore, gravel, sand, clay,
-		sulphur, fertilizer, scrap metal, lumber (wood chips)
-    group 2 (Refit in station at half cost. Refit from group 1 only
-		in depot):
-		grains, maize, wheat, fruit, fruit & vegetables, toffee, sugar,
-		cotton candy, sugar beet, cereal
-- piece goods wagon (Refit in station, free):
-    goods, food, paper, fruits, fruit + vegetables, farm supplies,
-    engineering supplies, manufacturing supplies, wool
-- lifestock wagon (No refit options):
-    livestock
-- refrigerator wagon (Refit in station, half cost.
-    OpenTTD 1.2.0 or nightlies newer than r22713: Cargo ages slower, thus
-    pays more than when transported in other wagons:
-    fish, food, fruits, fruits and vegetables, milk
-- flatbed wagon (Refit in station within one group, free, refit in depot
-	between groups):
-	vehicle group:
-		farm supplies, engineering supplies, vehicles
-	stake group:
-		wood, lumber, metal, steel, glass, manufacturing supplies, bubbles,
-		fizzy drinks, batteries
-	flatbed (container):
-		goods
-- tank wagon:
-	group 1 (Refit in station from any cargo, including group 2, free):
-		oil, fuel oil, cement, chemicals
-	group 2 (Only refit in station at half costs from within this group):
-		water, milk, rubber, dyes, cola
+Passenger wagons:
+ • Refit: free at stations and depots
+ • Cargos:
+     Passengers and tourists.
+
+Mail wagons:
+ • Refit: None available
+ • Cargos:
+     Mail
+
+Armoured wagons:
+ • Refit: free at stations and depots
+ • Cargos:
+     Mail, gold, diamonds, and valuables
+
+Bulk wagon:
+ • Refit:
+     • To cargos in the same group at stations and depots
+     • To cargos in different groups in depots at normal costs
+ • Cargos:
+     • Dirty group:
+       Bauxite, cement, clay, coal, copper ore, fertiliser, gravel, iron ore,
+       limestone, lumber, recyclables, rubber, sand, scrap metal and sulphur.
+       Refits in stops are free.
+     • Clean group:
+       Cereal, cotton candy, fibre crops, fruit, fruit and vegetables, grain,
+       maize, oil seeds, sugar, sugar beet, sugar cane, toffee and wheat.
+       Refits in stops cost half.
+
+Flatbed wagons:
+ • Refit:
+     • To cargos in the same group at stations and depots for free.
+     • To cargos in different groups at depots at normal cost.
+ • Cargos:
+     • Vehicles group:
+       Engineering supplies, farm supplies and vehicles.
+     • Containers group:
+       Building materials, bricks, dyes, fertiliser, glass, goods,
+       manufacturing supplies, sweets.
+     • Stakes group:
+       Batteries, bubbles, copper, fizzy drinks, lumber, metal, paper,
+       petrol, plastic, refined products, steel, and wood.
+
+Livestock wagon:
+ • Refit: None available
+ • Cargo:
+     Livestock.
+
+Piece goods wagon:
+ • Refit: Free at stations and depots.
+ • Cargos:
+     Alcohol, batteries, copper, dyes, engineering supplies, farm supplies,
+     fizzy drinks, food, fruit, fruit and vegetables, goods, lumber,
+     manufacturing supplies, paper, plastic, sweets, toys and wool.
+
+Refrigerator wagon:
+ • Special:
+     Cargo carried by this vehicle ages more slowly, and therefore is paid
+     better after long trips.
+ • Refit: Half of the normal cost at stations and depots.
+ • Cargo:
+     Fish, food, fruits, fruits and vegetables, and milk.
+
+Tank wagon:
+ • Refit:
+    • Free refit to cargos in the same group at stations and depots.
+    • Refit to cargos in different groups at depots at normal cost.
+ • Cargos:
+     • Dirty group:
+       Cement, chemicals, fuel oil, oil, plastic, refined products, rubber.
+       Refits in stations have normal cost.
+     • Clean group:
+       Alcohol, Cola, dyes, fizzy drinks, milk, water.
+       Refits in stations are at cost half. Can be refitted in stops to
+       dirty cargos by a quarter of the normal cost.
 
 Some wagons change their look after a certain date, new wagons will look
 different from the older wagons. By default this transition year is for
@@ -167,7 +205,7 @@ rail wagons 1970.
 3 License
 ---------
 
-OpenGFX+ Trains trainset for OpenTTD and TTDPatch
+OpenGFX+ Trains trainset for OpenTTD
 Copyright (C) 2010-2011 by the OpenGFX+ Trains team (see below)
 
 This program is free software; you can redistribute it and/or modify it
