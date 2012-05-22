@@ -14,12 +14,13 @@
  * cola
  * ***************************
  */
+
+// DEFAULT
+MU_8SPRITES_32BPP(tank_wagon_default_temperate, "tank", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_default_tropic, "tank", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 75) // 8 views needed
+
 // CMNT:
-spriteset(tank_wagon_cement_set, "src/gfx/tank/rail_cement_temperate.png") { tmpl_railwagon(0, 0) }
-spritegroup tank_wagon_cement_group {
-	loaded: tank_wagon_cement_set;
-	loading: tank_wagon_cement_set;
-}
+MU_8SPRITES_32BPP(tank_wagon_cement, "tank", "src/gfx/tank/rail_cement_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
 // COLA
 spriteset(tank_wagon_cola_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,220) }
@@ -30,62 +31,46 @@ spritegroup tank_wagon_cola_group {
 }
 
 // MILK:
-spriteset(tank_wagon_milk_set, "src/gfx/tank/rail_milk_temperate.png") { tmpl_railwagon(0, 0) }
-spritegroup tank_wagon_milk_group {
-	loaded: tank_wagon_milk_set;
-	loading: tank_wagon_milk_set;
-}
+MU_8SPRITES_32BPP(tank_wagon_milk, "tank_milk", "src/gfx/tank/rail_milk_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
 // OIL_
-MU_8SPRITES_32BPP(tank_wagon_default_temperate, "tank", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
-spriteset(tank_wagon_default_tropic_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0,75) }
-spritegroup tank_wagon_default_tropic_group {
-	loaded: tank_wagon_default_tropic_set;
-	loading: tank_wagon_default_tropic_set;
-}
+MU_8SPRITES_32BPP(tank_wagon_oil, "tank_oil", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
 // PETR
-spriteset(tank_wagon_fueloil_set, "src/gfx/tank/rail_fueloil_temperate.png") { tmpl_railwagon(0, 0) }
-spritegroup tank_wagon_fueloil_group {
-	loaded: tank_wagon_fueloil_set;
-	loading: tank_wagon_fueloil_set;
-}
+MU_8SPRITES_32BPP(tank_wagon_fueloil, "tank_petrol", "src/gfx/tank/rail_fueloil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
 // RFPR:
-spriteset(tank_wagon_refineryproducts_set, "src/gfx/tank/rail_refineryproducts_temperate.png") { tmpl_railwagon(0, 4) }
-spritegroup tank_wagon_refineryproducts_group {
-	loaded: tank_wagon_refineryproducts_set;
-	loading: tank_wagon_refineryproducts_set;
-}
+MU_8SPRITES_32BPP(tank_wagon_refineryproducts, "tank_refinery", "src/gfx/tank/rail_refineryproducts_temperate.png", tmpl_railwagon42, 0, 4) // 8 views needed
 
 // WATR
-spriteset(tank_wagon_water_set, "src/gfx/tank/rail_water_temperate.png") { tmpl_railwagon(0, 0) }
-spritegroup tank_wagon_water_group {
-	loaded: tank_wagon_water_set;
-	loading: tank_wagon_water_set;
-}
+MU_8SPRITES_32BPP(tank_wagon_water, "tank_water", "src/gfx/tank/rail_water_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
-switch(FEAT_TRAINS, SELF, tank_wagon_default_switch, climate) {
-    CLIMATE_TROPICAL: tank_wagon_default_tropic_group;
+switch(FEAT_TRAINS, SELF, tank_wagon_default_climate_switch, climate) {
+    CLIMATE_TROPICAL: tank_wagon_default_tropic_switch_gui;
     tank_wagon_default_temperate_switch_gui;
 }
 
+switch(FEAT_TRAINS, SELF, tank_wagon_oil_climate_switch, climate) {
+    CLIMATE_TROPICAL: tank_wagon_default_tropic_switch_gui;
+    tank_wagon_oil_switch_gui;
+}
+
 switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
-	CMNT: tank_wagon_cement_group;
+    CMNT: tank_wagon_cement_switch_gui;
     COLA: tank_wagon_cola_group;
-    FZDR: tank_wagon_default_switch;
-    MILK: tank_wagon_milk_group;
-    OIL_: tank_wagon_default_switch;
-    PETR: tank_wagon_fueloil_group;
-    RFPR: tank_wagon_refineryproducts_group;
-    WATR: tank_wagon_water_group;
-    tank_wagon_default_switch;
+    FZDR: tank_wagon_default_climate_switch;
+    MILK: tank_wagon_milk_switch_gui;
+    OIL_: tank_wagon_oil_climate_switch;
+    PETR: tank_wagon_fueloil_switch_gui;
+    RFPR: tank_wagon_refineryproducts_switch_gui;
+    WATR: tank_wagon_water_switch_gui;
+    tank_wagon_default_climate_switch;
 }
 
 switch (FEAT_TRAINS, SELF, tank_wagon_cb_capacity_switch, cargo_type_in_veh) {
     // default 30.000l
     COLA: return 25;
-	CMNT: return 15;
+    CMNT: return 15;
     FZDR: return 25;
     MILK: return 25;
     WATR: return 25;
@@ -116,7 +101,7 @@ item(FEAT_TRAINS, tank_wagon) {
         weight:             tank_wagon_cb_property_weight_switch;
         refit_cost:         tank_refit_cost_switch;
 
-        purchase: tank_wagon_default_switch;
-        tank_wagon_default_switch;
+        purchase: tank_wagon_default_climate_switch;
+        tank_wagon_switch;
     }
 }
