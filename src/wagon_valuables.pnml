@@ -19,7 +19,7 @@ item(FEAT_TRAINS, valuables_wagon, 37) {
     property {
         climates_available:             param_provide_rail ? ALL_CLIMATES : NO_CLIMATE;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT);
+        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
         refit_cost:                     0; // free refit between armoured cargos
         REFIT_PROPERTIES_ARMOURED
     }
