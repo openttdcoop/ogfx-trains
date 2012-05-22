@@ -102,8 +102,8 @@ SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_steel_rolls1,
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
 
 SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_steel_rolls2,
-    "flatbed_retainers", "flatbed_steel_stage1",
-    "flatbed_steel_stage2", "flatbed_steel_full",
+    "flatbed_retainers", "flatbed_steel2_stage1",
+    "flatbed_steel2_stage2", "flatbed_steel2_full",
     "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a2.png",
     "src/gfx/flatbed/steel/SteelFlatbeds1a2.png", "src/gfx/flatbed/steel/SteelFlatbeds1b2.png",
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
