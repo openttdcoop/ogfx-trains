@@ -1,6 +1,6 @@
 #**************************************************************************
 # Blender Model List
-# 2012-04-26
+# 2012-05-22
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,14 +24,17 @@ passenger
 passenger_asia_star
 passenger_tim
 passenger_dash
+passenger_dmu
 mail
 mail_asia_star
 mail_tim
 mail_dash
+mail_dmu
 armoured
 armoured_asia_star
 armoured_tim
 armoured_dash
+armoured_dmu
 goods
 livestock
 tank
