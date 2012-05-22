@@ -51,6 +51,14 @@ V_STOP=-2
 SCALE4X=4
 SCALE2X=8
 SCALE1X=16
+# Interpolation method used by GIMP during scaling
+# INTERPOLATION-NONE (0)
+# INTERPOLATION-LINEAR (1)
+# INTERPOLATION-CUBIC (2)
+# INTERPOLATION-LANCZOS (3)
+METHOD4X=3
+METHOD2X=3
+METHOD1X=3
 # You should not need to change these values unless you re-render with a different scale
 # and if you do then the nml offset will need recalculating.
 # x1=720 y1=496 x2=592 y2=1316
@@ -58,6 +66,7 @@ SCALE1X=16
 #CROPY1=496
 #CROPX2=592
 #CROPY2=1316
+
 # Exit codes
 # An exit status of zero indicates success, and a nonzero value indicates failure.
 E_USAGE=1
@@ -124,6 +133,13 @@ E_SCALE_7=63
 E_SCALE_8=64
 E_SCALE_9=65
 E_SCALE_10=66
+E_SHARPEN_1=67
+E_SHARPEN_2=68
+E_SHARPEN_3=69
+E_LEVELS_1=69
+E_LEVELS_2=70
+E_LEVELS_3=71
+
 # Internal variable for holding the model name
 T_MODEL=$1
 # Enable verbose command switch depending on user setting
@@ -726,18 +742,57 @@ function func_gimp_indexed_dos_noaction()
 }
 
 #**************************************************************************
-# Function: func_param_check
+# Function: func_gimp_scale
 # Parameters: <line number> <files> <x divisor> <y divisor> [<user exit number>]
 #**************************************************************************
 function func_gimp_scale()
 {
-    func_param_check $1 $FUNCNAME $# 4
-    local GIMP_OUTPUT="$(gimp -i -g $TMP/$GIMPRC -b "(batch-image-scale-full \"$2\" $3 $4)" -b "(gimp-quit 0)" 2>&1)"
+    func_param_check $1 $FUNCNAME $# 5
+    local GIMP_OUTPUT="$(gimp -i -g $TMP/$GIMPRC -b "(batch-image-scale-full \"$2\" $3 $4 $5)" -b "(gimp-quit 0)" 2>&1)"
     local EXIT_VAL=$?
     local ERR_TXT="Failed Scale:\$2 $3 $4"
 
-    if [ $# -gt 4 ]; then
-        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT" $5
+    if [ $# -gt 5 ]; then
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT" $6
+    else
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT"
+    fi
+}
+
+#**************************************************************************
+# Function: func_gimp_sharpen
+# Parameters: <line number> <files> [<user exit number>]
+#**************************************************************************
+function func_gimp_sharpen()
+{
+    func_param_check $1 $FUNCNAME $# 2
+    local RADIUS=5
+    local AMOUNT=0.5
+    local THRESHOLD=0
+    local GIMP_OUTPUT="$(gimp -i -g $TMP/$GIMPRC -b "(batch-sharpen \"$2\" $RADIUS $AMOUNT $THRESHOLD)" -b "(gimp-quit 0)" 2>&1)"
+    local EXIT_VAL=$?
+    local ERR_TXT="Failed Sharpen:\$2 $RADIUS $AMOUNT $THRESHOLD"
+
+    if [ $# -gt 2 ]; then
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT" $3
+    else
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT"
+    fi
+}
+
+#**************************************************************************
+# Function: func_gimp_levels_stretch
+# Parameters: <line number> <files> [<user exit number>]
+#**************************************************************************
+function func_gimp_levels_stretch()
+{
+    func_param_check $1 $FUNCNAME $# 2
+    local GIMP_OUTPUT="$(gimp -i -g $TMP/$GIMPRC -b "(batch-sharpen \"$2\")" -b "(gimp-quit 0)" 2>&1)"
+    local EXIT_VAL=$?
+    local ERR_TXT="Failed Levels Stretch:\$2"
+
+    if [ $# -gt 2 ]; then
+        func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT" $3
     else
         func_exit_on_gimp_script_error $LINENO $EXIT_VAL "$ERR_TXT" "$GIMP_OUTPUT"
     fi
@@ -955,18 +1010,25 @@ done
 func_echo_spin $LINENO $V_MODERATE "Scale all zoom levels ..."
 
 # Scale the 8 bit zoom files
-func_gimp_scale $LINENO "$DST8/*$INS$I4X.$EXT" $SCALE4X $SCALE4X $E_SCALE_1
-func_gimp_scale $LINENO "$DST8/*$INS$I2X.$EXT" $SCALE2X $SCALE2X $E_SCALE_2
-func_gimp_scale $LINENO "$DST8/*$INS$I1X.$EXT" $SCALE1X $SCALE1X $E_SCALE_3
+func_gimp_scale $LINENO "$DST8/*$INS$I4X.$EXT" $SCALE4X $SCALE4X $METHOD4X $E_SCALE_1
+func_gimp_scale $LINENO "$DST8/*$INS$I2X.$EXT" $SCALE2X $SCALE2X $METHOD2X $E_SCALE_2
+func_gimp_scale $LINENO "$DST8/*$INS$I1X.$EXT" $SCALE1X $SCALE1X $METHOD1X $E_SCALE_3
+func_gimp_sharpen $LINENO "$DST8/*$INS$I1X.$EXT" $E_SHARPEN_1
+#func_gimp_levels_stretch $LINENO "$DST8/*$INS$I1X.$EXT" $E_LEVELS_1
 # Scale the 32 bit zoom files
-func_gimp_scale $LINENO "$DST32/*$INS$I4X.$EXT" $SCALE4X $SCALE4X $E_SCALE_4
-func_gimp_scale $LINENO "$DSTMSK32/*$INS$I4X$MASK.$EXT" $SCALE4X $SCALE4X $E_SCALE_5
-func_gimp_scale $LINENO "$DST32/*$INS$I2X.$EXT" $SCALE2X $SCALE2X $E_SCALE_6
-func_gimp_scale $LINENO "$DSTMSK32/*$INS$I2X$MASK.$EXT" $SCALE2X $SCALE2X $E_SCALE_7
-func_gimp_scale $LINENO "$DST32/*$INS$I1X.$EXT" $SCALE1X $SCALE1X $E_SCALE_8
-func_gimp_scale $LINENO "$DSTMSK32/*$INS$I1X$MASK.$EXT" $SCALE1X $SCALE1X $E_SCALE_9
+func_gimp_scale $LINENO "$DST32/*$INS$I4X.$EXT" $SCALE4X $SCALE4X $METHOD4X $E_SCALE_4
+func_gimp_scale $LINENO "$DSTMSK32/*$INS$I4X$MASK.$EXT" $SCALE4X $SCALE4X $METHOD4X $E_SCALE_5
+func_gimp_scale $LINENO "$DST32/*$INS$I2X.$EXT" $SCALE2X $SCALE2X $METHOD2X $E_SCALE_6
+func_gimp_scale $LINENO "$DSTMSK32/*$INS$I2X$MASK.$EXT" $SCALE2X $SCALE2X $METHOD2X $E_SCALE_7
+func_gimp_scale $LINENO "$DST32/*$INS$I1X.$EXT" $SCALE1X $SCALE1X $METHOD1X $E_SCALE_8
+func_gimp_scale $LINENO "$DSTMSK32/*$INS$I1X$MASK.$EXT" $SCALE1X $SCALE1X $METHOD1X $E_SCALE_9
+func_gimp_sharpen $LINENO "$DST32/*$INS$I1X.$EXT" $E_SHARPEN_2
+#func_gimp_levels_stretch $LINENO "$DST32/*$INS$I1X.$EXT" $E_LEVELS_2
 # Scale the purchase sprites
-func_gimp_scale $LINENO "$DSTPCHS/*$INS$I1X*.$EXT" $SCALE1X $SCALE1X $E_SCALE_10
+func_gimp_scale $LINENO "$DSTPCHS/*$INS$I1X.$EXT" $SCALE1X $SCALE1X $METHOD1X $E_SCALE_10
+func_gimp_scale $LINENO "$DSTPCHS/*$INS$I1X$MASK.$EXT" $SCALE1X $SCALE1X $METHOD1X $E_SCALE_10
+func_gimp_sharpen $LINENO "$DSTPCHS/*$INS$I1X.$EXT" $E_SHARPEN_3
+#func_gimp_levels_stretch $LINENO "$DSTPCHS/*$INS$I1X.$EXT" $E_LEVELS_3
 
 # Cleanup
 func_echo_spin $LINENO $V_MODERATE "Removing temporary files ..."
