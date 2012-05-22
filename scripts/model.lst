@@ -39,6 +39,11 @@ goods
 refrigerated
 livestock
 tank
+tank_water
+tank_milk
+tank_oil
+tank_petrol
+tank_refinery
 # Temperate Wagons: Multi-load
 flatbed
 flatbed_nocc
