@@ -1013,7 +1013,7 @@ func_echo_spin $LINENO $V_MODERATE "Scale all zoom levels ..."
 func_gimp_scale $LINENO "$DST8/*$INS$I4X.$EXT" $SCALE4X $SCALE4X $METHOD4X $E_SCALE_1
 func_gimp_scale $LINENO "$DST8/*$INS$I2X.$EXT" $SCALE2X $SCALE2X $METHOD2X $E_SCALE_2
 func_gimp_scale $LINENO "$DST8/*$INS$I1X.$EXT" $SCALE1X $SCALE1X $METHOD1X $E_SCALE_3
-func_gimp_sharpen $LINENO "$DST8/*$INS$I1X.$EXT" $E_SHARPEN_1
+#func_gimp_sharpen $LINENO "$DST8/*$INS$I1X.$EXT" $E_SHARPEN_1
 #func_gimp_levels_stretch $LINENO "$DST8/*$INS$I1X.$EXT" $E_LEVELS_1
 # Scale the 32 bit zoom files
 func_gimp_scale $LINENO "$DST32/*$INS$I4X.$EXT" $SCALE4X $SCALE4X $METHOD4X $E_SCALE_4
