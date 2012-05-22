@@ -49,7 +49,7 @@ SPRITEGROUP_3STAGES_NOLOADING_32BPP(flatbed_wagon_engineeringsupplies_vehicle1,
     tmpl_railwagon8_normal, 0, 0, 0, 0, 0, 0)
 
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(flatbed_wagon_engineeringsupplies_vehicle2,
-    "flatbed", "flatbed_vehicles_full",
+    "flatbed", "flatbed_vehicles3_full",
     "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png", "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1b.png",
     tmpl_railwagon8_normal, 0, 0, 0, 0)
 
@@ -111,8 +111,8 @@ SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_steel_rolls2,
 // VEHI (vehicles)
 
 SPRITEGROUP_3STAGES_NOLOADING_32BPP(flatbed_wagon_vehicles,
-    "flatbed_retainers", "flatbed_steel_stage1",
-    "flatbed_steel_full",
+    "flatbed_retainers", "flatbed_vehicles2_stage1",
+    "flatbed_vehicles2l_full",
     "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png", "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
     "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
     tmpl_railwagon42, 0, 7, 0, 7, 126, 7)
