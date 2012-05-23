@@ -234,7 +234,6 @@ item(FEAT_TRAINS, flatbed_wagon) {
         cost_factor:                    181;
         cargo_capacity:                 30; // Usually units of goods which fit onto it.
         weight:                         16;
-        misc_flags:                     bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
         cargo_capacity:     flatbed_wagon_cb_capacity_switch;

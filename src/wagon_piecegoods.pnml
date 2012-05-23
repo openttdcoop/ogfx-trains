@@ -88,7 +88,6 @@ item(FEAT_TRAINS, piecegoods_wagon) {
         cost_factor:                    190;
         cargo_capacity:                 25;
         weight:                         21;
-        misc_flags:                     bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
         weight:         piecegoods_wagon_weight_switch;

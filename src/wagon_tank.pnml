@@ -94,7 +94,6 @@ item(FEAT_TRAINS, tank_wagon) {
         cost_factor:                    200;
         cargo_capacity:                 30;
         weight:                         24;
-        misc_flags:                     bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
         cargo_capacity:     tank_wagon_cb_capacity_switch;

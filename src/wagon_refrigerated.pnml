@@ -26,7 +26,6 @@ item(FEAT_TRAINS, refrigerate_wagon) {
         cargo_capacity:                 25;
         weight:                         22;
         cargo_age_period:               372;
-        misc_flags:                     bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
         refit_cost:         refrigerated_refit_cost_switch;
