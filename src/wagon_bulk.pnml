@@ -148,6 +148,7 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     SGBT: bulk_wagon_rawsugar_year_switch;
     SAND: bulk_wagon_sand_year_switch;
     SCRP: bulk_wagon_scrapmetal_year_switch;
+    SCMT: bulk_wagon_scrapmetal_year_switch;
     SUGR: bulk_wagon_sugar_group;
     SULP: bulk_wagon_sand_year_switch;
     TOFF: bulk_wagon_toffee_group;
