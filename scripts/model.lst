@@ -45,6 +45,12 @@ tank_milk
 tank_oil
 tank_petrol
 tank_refinery
+mono_tank
+mono_tank_water
+mono_tank_milk
+mono_tank_oil
+mono_tank_petrol
+mono_tank_refinery
 flatbed
 flatbed_nocc
 flatbed_container
