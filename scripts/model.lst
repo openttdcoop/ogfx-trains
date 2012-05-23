@@ -38,6 +38,9 @@ armoured_dmu
 goods
 refrigerated
 livestock
+mono_goods
+mono_refrigerated
+mono_livestock
 # Temperate Wagons: Multi-load
 tank
 tank_water
