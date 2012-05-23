@@ -44,9 +44,11 @@ include $(SCRIPT_DIR)/Makefile_def
 
 # target 'all'
 include $(SCRIPT_DIR)/Makefile_all
+ifeq "$(findstring clean,$(MAKECMDGOALS))" ""
 # target 'depend' (not implemented)
 # include $(SCRIPT_DIR)/Makefile_dep
 -include Makefile_gfx.dep
+endif
 
 # target nml
 include $(SCRIPT_DIR)/Makefile_nml

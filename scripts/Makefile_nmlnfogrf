@@ -10,7 +10,7 @@
 
 nfo: nml lng
 	$(_E) "[NML] $(patsubst %.grf, %.nfo, $(GRF_FILE))"
-	$(_E) $(NML) $(NML_FLAGS) --nfo $(patsubst %.grf, %.nfo, $(GRF_FILE)) $(NML_FILE)
+	$(_V) $(NML) $(NML_FLAGS) --nfo $(patsubst %.grf, %.nfo, $(GRF_FILE)) $(NML_FILE)
 
 grf $(GRF_FILE): nfo gfx
 	$(_E) "[GRFCODEC] $(GRF_FILE)"
@@ -28,6 +28,7 @@ clean::
 	$(_E) "[CLEAN GRF]"
 	$(_V)-rm -rf $(GRF_FILE)
 	$(_V)-rm -rf $(patsubst %.grf, %.nfo, $(GRF_FILE))
+	$(_V)-rm -rf $(patsubst %.grf, %.new, $(GRF_FILE))
 	$(_V)-rm -rf parsetab.py
 	$(_V)-rm -rf $(MD5_FILENAME)
 

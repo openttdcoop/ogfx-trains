@@ -20,13 +20,15 @@
 	$(_E) "[GIMP] $@"
 	$(_V) $(GIMP) $(GIMP_FLAGS) $< >/dev/null
 
-# ifdef $(GFX_LIST_FILES)
 Makefile_gfx.dep: $(GFX_LIST_FILES) $(SCRIPT_DIR)/Makefile_gimp
 	$(_E) "[GFX-DEP] $@"
 	$(_V) echo "" > $@
+ifdef $(GFX_LIST_FILES)
 	$(_V) for j in $(GFX_LIST_FILES); do for i in `cat $$j | grep "\([pP][cCnN][xXgG]\)" | cut -d\  -f1 | sed "s/\.\([pP][cCnN][xXgG]\)//"`; do echo "$$i.scm: $$j" >> $@; echo "gfx: $$i.png" >> $@; done; done
 	$(_V) cat $(GFX_LIST_FILES) | grep "\([pP][cCnN][xXgG]\)" | sed "s/[ ] */ /g" | cut -d\  -f1-2 | sed "s/ /: /g" >> $@
-# endif
+else
+	$(_E) echo "gfx:" >> $@
+endif
 
 maintainer-clean::
 	$(_E) "[MAINTAINER CLEAN GFX]"
