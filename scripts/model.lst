@@ -1,6 +1,6 @@
 #**************************************************************************
 # Blender Model List
-# 2012-05-22
+# 2012-05-23
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,13 +38,13 @@ armoured_dmu
 goods
 refrigerated
 livestock
+# Temperate Wagons: Multi-load
 tank
 tank_water
 tank_milk
 tank_oil
 tank_petrol
 tank_refinery
-# Temperate Wagons: Multi-load
 flatbed
 flatbed_nocc
 flatbed_container
@@ -89,3 +89,16 @@ bulk_gravel
 bulk_scrap_metal
 bulk_fruit_veg
 bulk_sugar_beet
+mono_bulk
+mono_bulk_coal
+mono_bulk_iron_ore
+mono_bulk_grain
+mono_bulk_bauxite
+mono_bulk_clay
+mono_bulk_copper_ore
+mono_bulk_sand
+mono_bulk_woodproducts
+mono_bulk_gravel
+mono_bulk_scrap_metal
+mono_bulk_fruit_veg
+mono_bulk_sugar_beet
