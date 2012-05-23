@@ -1,82 +1,73 @@
-# Generic NewGRF Makefile
+#
+# This file is part of the NML build framework
+# NML build framework is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+# NML build framework is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with NML build framework. If not, see <http://www.gnu.org/licenses/>.
+#
 
-# Necessary defines unique to this NewGRF
-ifeq "$(shell [ -e .hg ] && echo 'hg' || echo 'tar')" "hg"
-include Makefile.dist
-endif
--include Makefile.local
-include Makefile.config
+# Definition of the grfs
+GRF_FILE            := ogfx-trains.grf
+MAIN_SRC_FILE       := src/ogfx-trains.pnml
+# Uncomment, if there are sprites which are generated in the 'gfx' block
+# See Makefile_gimp for an example how to work that with gimp
+# GFX_LIST_FILES      := src/gfx/png_source_list
 
-# Necessary defines common to all NewGRFs
-include scripts/Makefile.def
+# Directory structure
+SRC_DIR             := src
+DOC_DIR             := docs
+SCRIPT_DIR          := scripts
+LANG_DIR            := lang
 
-# most important build targets for users
-all:
-	$(_V) $(MAKE) $(MAKE_FLAGS) depend
-	$(_V) $(MAKE) $(MAKE_FLAGS) $(TARGET_FILES) $(DOC_FILES)
+# Documentation files:
+DOC_FILES = docs/readme.txt docs/license.txt docs/changelog.txt
 
-docs: $(DOC_FILES)
+# List of all files which will get shipped
+# DOC_FILES = readme, changelog and license
+# GRF_FILENAME = MAIN_FILENAME_SRC with the extention .grf
+# Add any additional, not usual files here, too, including
+# their relative path to the root of the repository
+BUNDLE_FILES           = $(GRF_FILE) $(DOC_FILES)
 
-grf: $(GRF_FILES)
+# Replacement strings in the source and in the documentation
+# You may only change the values, not add new definitions
+# (unless you know where to add them in other places, too)
+REPLACE_TITLE       := {{GRF_TITLE}}
+REPLACE_GRFID       := {{GRF_ID}}
+REPLACE_REVISION    := {{REPO_REVISION}}
+REPLACE_FILENAME    := {{FILENAME}}
+REPLACE_MD5SUM      := {{GRF_MD5}}
 
-bundle: $(DIR_NAME)
 
-clean::
-	$(_E) "[CLEAN]"
+# general definitions (no rules!)
+-include Makefile_dist
+include $(SCRIPT_DIR)/Makefile_def
 
-remake:
-	$(_V) $(MAKE) $(MAKE_FLAGS) clean
-	$(_V) $(MAKE) $(MAKE_FLAGS) all
+# target 'all'
+include $(SCRIPT_DIR)/Makefile_all
+# target 'depend' (not implemented)
+# include $(SCRIPT_DIR)/Makefile_dep
+-include Makefile_gfx.dep
 
-distclean:: clean
-	$(_E) "[DISTCLEAN]"
+# target nml
+include $(SCRIPT_DIR)/Makefile_nml
+# target 'gfx' which builds all needed sprites
+# Only a special gfx target for gimp exists so far
+include $(SCRIPT_DIR)/Makefile_gimp
+# target 'lng' which builds the lang/*.lng files
+include $(SCRIPT_DIR)/Makefile_lng
+# target 'grf' which builds the grf from the nml
+include $(SCRIPT_DIR)/Makefile_grf
+# include $(SCRIPT_DIR)/Makefile_nmlnfogrf
+# target 'doc' which builds the docs
+include $(SCRIPT_DIR)/Makefile_doc
 
-# Include custom rules
--include scripts/Makefile.in
+# target 'bundle' and bundle_xxx which builds the distribution files
+# and the distribution bundles like bundle_tar, bundle_zip, ...
+include $(SCRIPT_DIR)/Makefile_bundle
+# target 'bundle_src which builds source bundle
+include $(SCRIPT_DIR)/Makefile_bundlesrc
+# target 'install' which installs the grf
+include $(SCRIPT_DIR)/Makefile_install
 
-# Do not include the dependencies when we're cleaning
-#    or going to call make recursively again
-ifeq "$(MAKECMDGOALS)" ""
-NODEP = 1
-endif
-ifeq "$(MAKECMDGOALS)" "clean"
-NODEP = 1
-endif
-ifeq "$(MAKECMDGOALS)" "distclean"
-NODEP = 1
-endif
-ifeq "$(MAKECMDGOALS)" "remake"
-NODEP = 1
-endif
-ifeq "$(MAKECMDGOALS)" "mrproper"
-NODEP = 1
-endif
-ifeq "$(MAKECMDGOALS)" "maintainer-clean"
-NODEP = 1
-endif
-ifeq "$(MAKECMDGOALS)" "all"
-NODEP = 1
-endif
-ifeq "$(MAKECMDGOALS)" "depend"
-NODEP = 1
-endif
-ifeq "$(MAKECMDGOALS)" "test"
-NODEP = 1
-endif
-
-ifndef NODEP
--include Makefile.dep
--include $(patsubst %.grf,%.src.dep,$(GRF_FILES))
--include $(patsubst %.grf,%.gfx.dep,$(GRF_FILES))
-endif
-
-# Stuff common to all NewGRFs
-include scripts/Makefile.common
-
-# Include the language - specific makefile
--include scripts/Makefile.nml
--include scripts/Makefile.nfo
-
-# Include bundles etc
-include scripts/Makefile.bundles
-
+# misc. convenience targets like 'langcheck'
+-include $(SCRIPT_DIR)/Makefile_misc

@@ -3,10 +3,10 @@ syntax: glob
 
 # The local makefile should be ignored:
 Makefile.local
-Makefile.dist
+Makefile.fordist
+Makefile_gfx.dep
 custom_tags.txt
 parsetab.py
-.version
 
 # And the description file and the grs which are generated automatically
 # This has to be adopted to the newgrf filename
@@ -17,11 +17,6 @@ docs/readme.txt
 # Ignore intermediate files created by the Makefile:
 *.nfo
 # Dependency files:
-Makefile.dep
-*.src.dep
-*.gfx.dep
-*.cnfo
-*.REV
 *.md5
 *.scm
 
@@ -29,9 +24,6 @@ Makefile.dep
 # Has to be adjusted to the newgrf-name
 ogfx-trains-*
 ogfx-trains.nml
-
-#The .renum dir
-.nforenum
 
 # Ignore frequent development left-overs like
 # editor backups, patches, rejects etc. pp
