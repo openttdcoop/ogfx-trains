@@ -23,9 +23,9 @@ MU_8SPRITES_REVERSAL (turbotrain_valuables, "src/gfx/mus/turbotrain/TurboTrainLi
 
 item(FEAT_TRAINS, turbotrain, 20) {
 	property {
-		sprite_id:                      SPRITE_ID_NEW_TRAIN;
-		misc_flags:                     bitmask(TRAIN_FLAG_MU);
-        track_type:                     NORMAL_RAIL;
+                sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                misc_flags:                     bitmask(TRAIN_FLAG_MU);
+                track_type:                     NORMAL_RAIL;
 	}
 	graphics {
 		length:        return 7;
