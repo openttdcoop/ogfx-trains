@@ -13,7 +13,11 @@
  * ***************************
  */
 
-MU_8SPRITES_32BPP(normal_mail, "mail", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 50) // 8 views needed for livery override by turbotrain
+MU_8SPRITES_LOADING_32BPP(mail_wagon, "mail", "mail", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 50, 0, 50) // 8 views needed for 32bpp
+
+switch(FEAT_TRAINS, SELF, mail_wagon_graphics_switch, cargo_type_in_veh) {
+	mail_wagon_switch_gui;
+}
 
 item(FEAT_TRAINS, mail_wagon, 28) {
     property {
@@ -24,6 +28,6 @@ item(FEAT_TRAINS, mail_wagon, 28) {
         REFIT_PROPERTIES_MAIL
     }
     graphics {
-        normal_mail_switch_gui;
+        mail_wagon_graphics_switch;
     }
 }

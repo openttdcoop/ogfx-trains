@@ -13,7 +13,11 @@
  * ***************************
  */
 
-MU_8SPRITES_32BPP(valuables_rail, "armoured", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 375) // 8 views needed for 32bpp replacements
+MU_8SPRITES_LOADING_32BPP(valuables_wagon, "armoured", "armoured", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 375, 0, 375) // 8 views needed for 32bpp
+
+switch(FEAT_TRAINS, SELF, valuables_wagon_graphics_switch, cargo_type_in_veh) {
+	valuables_wagon_switch_gui;
+}
 
 item(FEAT_TRAINS, valuables_wagon, 37) {
     property {
@@ -24,6 +28,6 @@ item(FEAT_TRAINS, valuables_wagon, 37) {
         REFIT_PROPERTIES_ARMOURED
     }
     graphics {
-        valuables_rail_switch_gui;
+        valuables_wagon_graphics_switch;
     }
 }

@@ -13,7 +13,11 @@
  * ***************************
  */
 
-MU_8SPRITES_32BPP(temperate_livestock_rail, "livestock", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100) // 8 views needed for livery override by turbotrain
+MU_8SPRITES_LOADING_32BPP(livestock_wagon_default, "livestock", "livestock", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+
+switch(FEAT_TRAINS, SELF, livestock_wagon_graphics_switch, cargo_type_in_veh) {
+	livestock_wagon_default_switch_gui;
+}
 
 item(FEAT_TRAINS, livestock_wagon, 31) {
     property {
@@ -25,6 +29,6 @@ item(FEAT_TRAINS, livestock_wagon, 31) {
         weight:                         20;
     }
     graphics {
-        temperate_livestock_rail_switch_gui;
+        livestock_wagon_graphics_switch;
     }
 }
