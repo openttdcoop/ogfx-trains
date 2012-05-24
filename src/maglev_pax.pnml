@@ -11,7 +11,9 @@
  * ***************************
  */
 
-WAGON_SINGLE_SET8(maglev_passenger, "src/gfx/temperate_monolev.png", tmpl_short_railwagon2, 0, 0)
+switch(FEAT_TRAINS, SELF, maglev_passenger_wagon_graphics_switch, cargo_type_in_veh) {
+	monorail_passenger_wagon_switch_gui;
+}
 
 item(FEAT_TRAINS, maglev_passenger_wagon, 89) {
     property {
@@ -22,7 +24,7 @@ item(FEAT_TRAINS, maglev_passenger_wagon, 89) {
         REFIT_PROPERTIES_PAX
     }
     graphics {
-		length:        return 7;
-		maglev_passenger_group;
+	length:        return 7;
+	maglev_passenger_wagon_graphics_switch;
     }
 }

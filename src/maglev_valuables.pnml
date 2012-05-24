@@ -13,6 +13,10 @@
  * ***************************
  */
 
+switch(FEAT_TRAINS, SELF, maglev_valuables_wagon_graphics_switch, cargo_type_in_veh) {
+	monorail_valuables_wagon_switch_gui;
+}
+
 item(FEAT_TRAINS, maglev_valuables_wagon, 99) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
@@ -21,8 +25,8 @@ item(FEAT_TRAINS, maglev_valuables_wagon, 99) {
         refit_cost:                     0; // free refit between armoured cargos
         REFIT_PROPERTIES_ARMOURED
     }
-	graphics {
-		length:        return 7;
-		monorail_valuables_group;
-	}
+    graphics {
+        length:        return 7;
+        maglev_valuables_wagon_graphics_switch;
+    }
 }

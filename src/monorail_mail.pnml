@@ -11,7 +11,11 @@
  * ***************************
  */
 
-WAGON_SINGLE_SET8(monorail_mail, "src/gfx/temperate_monolev.png", tmpl_short_railwagon2, 0, 20)
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+
+switch(FEAT_TRAINS, SELF, monorail_mail_wagon_graphics_switch, cargo_type_in_veh) {
+	monorail_mail_wagon_switch_gui;
+}
 
 item(FEAT_TRAINS, monorail_mail_wagon, 58) {
     property {
@@ -22,6 +26,6 @@ item(FEAT_TRAINS, monorail_mail_wagon, 58) {
         REFIT_PROPERTIES_MAIL
     }
     graphics {
-        monorail_mail_group;
+        monorail_mail_wagon_graphics_switch;
     }
 }

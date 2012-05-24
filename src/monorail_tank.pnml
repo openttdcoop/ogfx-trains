@@ -5,38 +5,71 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-spriteset(monorail_tank_oil_arctic_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,140) }
-spriteset(monorail_tank_oil_tropic_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,100) }
-spriteset(monorail_tank_oil_temperate_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,140) }
-spritegroup monorail_tank_oil_temperate_group {
-	loaded: monorail_tank_oil_temperate_set;
-	loading: monorail_tank_oil_temperate_set;
-}
-spritegroup monorail_tank_oil_tropic_group {
-	loaded: monorail_tank_oil_tropic_set;
-	loading: monorail_tank_oil_tropic_set;
-}
-spritegroup monorail_tank_oil_arctic_group {
-	loaded: monorail_tank_oil_arctic_set;
-	loading: monorail_tank_oil_arctic_set;
+/*
+ * ***************************
+ * Tank wagon:
+ *
+ * oil, fuel oil, water, milk,
+ * rubber, dyes, chemicals,
+ * cola
+ * ***************************
+ */
+
+// DEFAULT
+MU_8SPRITES_32BPP(monorail_tank_wagon_default_temperate, "mono_tank", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+MU_8SPRITES_32BPP(monorail_tank_wagon_default_tropic, "mono_tank", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 100) // 8 views needed
+MU_8SPRITES_32BPP(monorail_tank_wagon_default_arctic, "mono_tank", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// CMNT:
+MU_8SPRITES_32BPP(monorail_tank_wagon_cement, "mono_tank", "src/gfx/tank/rail_cement_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+
+// COLA
+spriteset(monorail_tank_wagon_cola_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,220) }
+spriteset(monorail_tank_wagon_cola_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,240) }
+spritegroup monorail_tank_wagon_cola_group {
+	loaded: [monorail_tank_wagon_cola_empty_set, monorail_tank_wagon_cola_full_set];
+	loading: [monorail_tank_wagon_cola_empty_set, monorail_tank_wagon_cola_full_set];
 }
 
-spriteset(monorail_tank_water_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,140) }
-spritegroup monorail_tank_water_group {
-	loaded: monorail_tank_water_set;
-	loading: monorail_tank_water_set;
+// MILK:
+MU_8SPRITES_32BPP(monorail_tank_wagon_milk, "mono_tank_milk", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// OIL_
+MU_8SPRITES_32BPP(monorail_tank_wagon_oil_temperate, "mono_tank_oil", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+MU_8SPRITES_32BPP(monorail_tank_wagon_oil_tropic, "mono_tank_oil", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 100) // 8 views needed
+MU_8SPRITES_32BPP(monorail_tank_wagon_oil_arctic, "mono_tank_oil", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// PETR
+MU_8SPRITES_32BPP(monorail_tank_wagon_fueloil, "mono_tank_petrol", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// RFPR:
+MU_8SPRITES_32BPP(monorail_tank_wagon_refineryproducts, "mono_tank_refinery", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+// WATR
+MU_8SPRITES_32BPP(monorail_tank_wagon_water, "mono_tank_water", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
+
+switch(FEAT_TRAINS, SELF, monorail_tank_wagon_default_climate_switch, climate) {
+    CLIMATE_TROPICAL: monorail_tank_wagon_default_tropic_switch_gui;
+    CLIMATE_ARCTIC: monorail_tank_wagon_default_arctic_switch_gui;
+    monorail_tank_wagon_default_temperate_switch_gui;
 }
 
-switch(FEAT_TRAINS, SELF, monorail_tank_oil_climate_switch, climate) {
-	CLIMATE_ARCTIC: monorail_tank_oil_arctic_group;
-	CLIMATE_TROPIC: monorail_tank_oil_tropic_group;
-	monorail_tank_oil_temperate_group;
+switch(FEAT_TRAINS, SELF, monorail_tank_wagon_oil_climate_switch, climate) {
+    CLIMATE_TROPICAL: monorail_tank_wagon_oil_tropic_switch_gui;
+    CLIMATE_ARCTIC: monorail_tank_wagon_oil_arctic_switch_gui;
+    monorail_tank_wagon_oil_temperate_switch_gui;
 }
 
-switch(FEAT_TRAINS, SELF, monorail_tank_graphics_switch, cargo_type_in_veh) {
-	OIL_: monorail_tank_oil_climate_switch;
-	WATR: monorail_tank_water_group;
-	tank_wagon_switch;                   // fall back to normal rail tank wagon
+switch(FEAT_TRAINS, SELF, monorail_tank_wagon_switch, cargo_type_in_veh) {
+    CMNT: monorail_tank_wagon_cement_switch_gui;
+    COLA: monorail_tank_wagon_cola_group;
+    FZDR: monorail_tank_wagon_default_climate_switch;
+    MILK: monorail_tank_wagon_milk_switch_gui;
+    OIL_: monorail_tank_wagon_oil_climate_switch;
+    PETR: monorail_tank_wagon_fueloil_switch_gui;
+    RFPR: monorail_tank_wagon_refineryproducts_switch_gui;
+    WATR: monorail_tank_wagon_water_switch_gui;
+    monorail_tank_wagon_default_climate_switch;
 }
 
 item(FEAT_TRAINS, monorail_tank_wagon) {
@@ -50,11 +83,11 @@ item(FEAT_TRAINS, monorail_tank_wagon) {
         weight:                         24;
     }
     graphics {
-		cargo_capacity:     tank_wagon_cb_capacity_switch;
-		weight:             tank_wagon_cb_property_weight_switch;
+	cargo_capacity:     tank_wagon_cb_capacity_switch;
+	weight:             tank_wagon_cb_property_weight_switch;
         refit_cost:         tank_refit_cost_switch;
 
-        0xFF: monorail_tank_oil_climate_switch;
-        monorail_tank_graphics_switch;
+        purchase:           monorail_tank_wagon_default_climate_switch;
+        monorail_tank_wagon_switch;
     }
 }

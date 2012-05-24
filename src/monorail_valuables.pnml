@@ -13,7 +13,11 @@
  * ***************************
  */
 
-SPRITEGROUP_1STAGE_LOAD (monorail_valuables, "src/gfx/temperate_monolev.png", tmpl_short_railwagon2, 0, 60, 80)
+MU_8SPRITES_LOADING_32BPP(monorail_valuables_wagon, "armoured", "armoured", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 60, 0, 80) // 8 views needed for 32bpp
+
+switch(FEAT_TRAINS, SELF, monorail_valuables_wagon_graphics_switch, cargo_type_in_veh) {
+	monorail_valuables_wagon_switch_gui;
+}
 
 item(FEAT_TRAINS, monorail_valuables_wagon, 67) {
     property {
@@ -23,5 +27,7 @@ item(FEAT_TRAINS, monorail_valuables_wagon, 67) {
         refit_cost:                     0; // free refit between armoured cargos
         REFIT_PROPERTIES_ARMOURED
     }
-	graphics { monorail_valuables_group; }
+    graphics {
+        monorail_valuables_wagon_graphics_switch;
+    }
 }

@@ -7,7 +7,7 @@
  */
 
 switch(FEAT_TRAINS, SELF, maglev_refrigerated_graphics_switch, cargo_type_in_veh) {
-	monorail_refrigerated_default_group;
+	monorail_refrigerate_wagon_graphics_switch;
 }
 
 item(FEAT_TRAINS, maglev_refrigerate_wagon) {

@@ -11,7 +11,11 @@
  * ***************************
  */
 
-WAGON_SINGLE_SET8(monorail_passenger, "src/gfx/temperate_monolev.png", tmpl_short_railwagon2, 0, 0)
+MU_8SPRITES_LOADING_32BPP(monorail_passenger_wagon, "mono_passenger", "mono_passenger", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 0, 0, 0) // 8 views needed for 32bpp
+
+switch(FEAT_TRAINS, SELF, monorail_passenger_wagon_graphics_switch, cargo_type_in_veh) {
+	monorail_passenger_wagon_switch_gui;
+}
 
 item(FEAT_TRAINS, monorail_passenger_wagon, 57) {
     property {
@@ -22,6 +26,6 @@ item(FEAT_TRAINS, monorail_passenger_wagon, 57) {
         REFIT_PROPERTIES_PAX
     }
     graphics {
-        monorail_passenger_group;
+        monorail_passenger_wagon_graphics_switch;
     }
 }

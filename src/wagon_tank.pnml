@@ -18,6 +18,7 @@
 // DEFAULT
 MU_8SPRITES_32BPP(tank_wagon_default_temperate, "tank", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 MU_8SPRITES_32BPP(tank_wagon_default_tropic, "tank", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 75) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_default_arctic, "tank", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
 // CMNT:
 MU_8SPRITES_32BPP(tank_wagon_cement, "tank", "src/gfx/tank/rail_cement_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
@@ -34,7 +35,9 @@ spritegroup tank_wagon_cola_group {
 MU_8SPRITES_32BPP(tank_wagon_milk, "tank_milk", "src/gfx/tank/rail_milk_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
 // OIL_
-MU_8SPRITES_32BPP(tank_wagon_oil, "tank_oil", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_oil_temperate, "tank_oil", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_oil_tropic, "tank_oil", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 75) // 8 views needed
+MU_8SPRITES_32BPP(tank_wagon_oil_arctic, "tank_oil", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
 // PETR
 MU_8SPRITES_32BPP(tank_wagon_fueloil, "tank_petrol", "src/gfx/tank/rail_fueloil_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
@@ -47,12 +50,14 @@ MU_8SPRITES_32BPP(tank_wagon_water, "tank_water", "src/gfx/tank/rail_water_tempe
 
 switch(FEAT_TRAINS, SELF, tank_wagon_default_climate_switch, climate) {
     CLIMATE_TROPICAL: tank_wagon_default_tropic_switch_gui;
+    CLIMATE_ARCTIC: tank_wagon_default_arctic_switch_gui;
     tank_wagon_default_temperate_switch_gui;
 }
 
 switch(FEAT_TRAINS, SELF, tank_wagon_oil_climate_switch, climate) {
-    CLIMATE_TROPICAL: tank_wagon_default_tropic_switch_gui;
-    tank_wagon_oil_switch_gui;
+    CLIMATE_TROPICAL: tank_wagon_oil_tropic_switch_gui;
+    CLIMATE_ARCTIC: tank_wagon_oil_arctic_switch_gui;
+    tank_wagon_oil_temperate_switch_gui;
 }
 
 switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
@@ -100,7 +105,7 @@ item(FEAT_TRAINS, tank_wagon) {
         weight:             tank_wagon_cb_property_weight_switch;
         refit_cost:         tank_refit_cost_switch;
 
-        purchase: tank_wagon_default_climate_switch;
+        purchase:           tank_wagon_default_climate_switch;
         tank_wagon_switch;
     }
 }

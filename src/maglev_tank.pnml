@@ -15,9 +15,10 @@
  * ***************************
  */
 
-switch (FEAT_TRAINS, SELF, maglev_tank_wagon_capacity_switch, cargo_type_in_veh) {
+switch (FEAT_TRAINS, SELF, maglev_tank_wagon_cb_capacity_switch, cargo_type_in_veh) {
     // default 37.000l
     COLA: return 32;
+    CMNT: return 22;
     FZDR: return 32;
     MILK: return 32;
     WATR: return 32;
@@ -35,11 +36,11 @@ item(FEAT_TRAINS, maglev_tank_wagon) {
         weight:                         24;
     }
     graphics {
-		cargo_capacity:     maglev_tank_wagon_capacity_switch;
-		weight:             tank_wagon_cb_property_weight_switch;
+	cargo_capacity:     maglev_tank_wagon_cb_capacity_switch;
+	weight:             tank_wagon_cb_property_weight_switch;
         refit_cost:         tank_refit_cost_switch;
 
-        purchase:           monorail_tank_oil_climate_switch;
-        monorail_tank_graphics_switch;
+        purchase:           monorail_tank_wagon_default_climate_switch;
+        monorail_tank_wagon_switch;
     }
 }
