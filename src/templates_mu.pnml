@@ -71,3 +71,57 @@ switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
     0x21: name ##_group_gui; \
     name ##_group; \
 }
+
+#define MU_8SPRITES_LOADING_32BPP(name, model1, model2, filename, sprite_template, x1, y1, x2, y2) \
+spriteset(name ##_closed_set, filename) { \
+	sprite_template (x1, y1) \
+} \
+alternative_sprites(name ##_closed_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model1, "1") \
+} \
+alternative_sprites(name ##_closed_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model1, "2") \
+} \
+alternative_sprites(name ##_closed_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model1, "4") \
+} \
+spriteset(name ##_closed_set_gui, filename) { \
+    sprite_template (x1, y1) \
+} \
+alternative_sprites(name ##_closed_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model1) \
+} \
+spriteset(name ##_open_set, filename) { \
+	sprite_template (x2, y2) \
+} \
+alternative_sprites(name ##_open_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model2, "1") \
+} \
+alternative_sprites(name ##_open_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model2, "2") \
+} \
+alternative_sprites(name ##_open_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model2, "4") \
+} \
+spriteset(name ##_open_set_gui, filename) { \
+    sprite_template (x1, y1) \
+} \
+alternative_sprites(name ##_open_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model2) \
+} \
+spritegroup name ##_group_gui { \
+	loading: name ##_open_set_gui; \
+	loaded: name ##_closed_set_gui; \
+} \
+spritegroup  name ##_group { \
+	loading: name ##_open_set; \
+	loaded:  name ##_closed_set; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ##_group_gui; \
+    0x11: name ##_group_gui; \
+    0x12: name ##_group_gui; \
+    0x20: name ##_group_gui; \
+    0x21: name ##_group_gui; \
+    name ##_group; \
+}
