@@ -18,6 +18,8 @@
  * ***************************
  */
 
+#define THIS_ID(...) maglev_bulk_wagon ## __VA_ARGS__
+
 switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
     // default: 37 units
     FICR: return 32;
@@ -41,11 +43,14 @@ item(FEAT_TRAINS, maglev_bulk_wagon) {
         weight:                         18;
      }
     graphics {
-        cargo_capacity: maglev_bulk_wagon_cb_capacity_switch;
-        weight:         bulk_wagon_cb_property_weight_switch;
-        refit_cost:     bulk_refit_cost_switch;
+        cargo_capacity:     maglev_bulk_wagon_cb_capacity_switch;
+        weight:             bulk_wagon_cb_property_weight_switch;
+        cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
+        refit_cost:         bulk_refit_cost_switch;
 
-        purchase: monorail_bulk_wagon_coal_switch;
-        monorail_bulk_wagon_graphics_switch;     // we use the same graphics so far
+        purchase:           monorail_bulk_wagon_coal_climate_switch;
+        monorail_bulk_wagon_switch;
     }
 }
+
+#undef THIS_ID

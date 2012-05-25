@@ -13,37 +13,21 @@
  * ***************************
  */
 
-MU_8SPRITES_32BPP(temperate_passenger_rail, "passenger", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 0) // 8 views needed for livery override by turbotrain
+#define THIS_ID(...) passenger_wagon ## __VA_ARGS__
 
-spriteset(tropic_passenger_rail_set, "src/gfx/tropic_railwagons.png") {
-	tmpl_railwagon(0,0) tmpl_railwagon(0,0)               // 8 views needed for livery override by turbotrain
-}
-spritegroup tropic_passenger_rail_group {
-	loading: tropic_passenger_rail_set;
-	loaded: tropic_passenger_rail_set;
-}
+MU_8SPRITES_LOADING_32BPP(passenger_wagon_temperate, "passenger", "passenger", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
 
-spriteset(arctic_passenger_rail_set, "src/gfx/arctic_railwagons.png") {
-	tmpl_railwagon(0,0) tmpl_railwagon(0,0)               // 8 views needed for livery override by turbotrain
-}
-spritegroup arctic_passenger_rail_group {
-	loading: arctic_passenger_rail_set;
-	loaded: arctic_passenger_rail_set;
-}
+MU_8SPRITES_LOADING_32BPP(passenger_wagon_tropic, "passenger", "passenger", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
 
-spriteset(toyland_passenger_rail_set, "src/gfx/toyland_railwagons.png") {
-	tmpl_short_railwagon(0,0) tmpl_short_railwagon(0,0)   // 8 views needed for livery override by turbotrain
-}
-spritegroup toyland_passenger_rail_group {
-	loading: toyland_passenger_rail_set;
-	loaded: toyland_passenger_rail_set;
-}
+MU_8SPRITES_LOADING_32BPP(passenger_wagon_arctic, "passenger", "passenger", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
 
-switch (FEAT_TRAINS, SELF, normal_passenger_switch, climate) {
-    CLIMATE_TROPICAL: tropic_passenger_rail_group;
-    CLIMATE_ARCTIC: arctic_passenger_rail_group;
-    CLIMATE_TOYLAND: toyland_passenger_rail_group;
-    temperate_passenger_rail_switch_gui;
+MU_8SPRITES_LOADING_32BPP(passenger_wagon_toyland, "passenger", "passenger", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
+
+switch (FEAT_TRAINS, SELF, passenger_wagon_climate_switch, climate) {
+    CLIMATE_TROPICAL: passenger_wagon_tropic_switch_gui;
+    CLIMATE_ARCTIC: passenger_wagon_arctic_switch_gui;
+    CLIMATE_TOYLAND: passenger_wagon_toyland_switch_gui;
+    passenger_wagon_temperate_switch_gui;
 }
 
 item(FEAT_TRAINS, passenger_wagon, 27) {
@@ -55,6 +39,8 @@ item(FEAT_TRAINS, passenger_wagon, 27) {
         REFIT_PROPERTIES_PAX
     }
     graphics {
-        normal_passenger_switch;
+        passenger_wagon_climate_switch;
     }
 }
+
+#undef THIS_ID

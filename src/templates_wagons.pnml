@@ -221,7 +221,7 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
 }
 #define WAGON_BULK_MODERN_32BPP(name, name_empty, name_full, file, x1, y1, x2, y2) \
 spriteset(name ## _modern_empty_set, file) { \
-	tmpl_railwagon(x1, y1) tmpl_railwagon(x1, y1) \
+	tmpl_railwagon42(x1, y1) \
 } \
 alternative_sprites(name ## _modern_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_opengfxp32(1, name_empty, "1") \
@@ -239,7 +239,7 @@ alternative_sprites(name ## _modern_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_
     template_train_gui_opengfxp32(name_empty) \
 } \
 spriteset(name ## _modern_full_set, file) { \
-	tmpl_railwagon(x1, y1) tmpl_railwagon(x2, y2) \
+	tmpl_railwagon42(x1, y1) \
 } \
 alternative_sprites(name ## _modern_full_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_opengfxp32(1, "bulk_coal", "1") \
@@ -251,7 +251,7 @@ alternative_sprites(name ## _modern_full_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP)
     template_train_opengfxp32(4, name_full, "4") \
 } \
 spriteset(name ## _modern_full_set_gui, file) { \
-	tmpl_railwagon(x1, y1) tmpl_railwagon(x2, y2) \
+	tmpl_railwagon42(x1, y1) \
 } \
 alternative_sprites(name ## _modern_full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_gui_opengfxp32(name_full) \
@@ -281,6 +281,7 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
     1: name ## _early_group; \
     name ## _switch_gui; \
 }
+
 
 #define WAGON_SINGLE_SET8(name, filename, tmpl, x, y) \
 spriteset(name ##_set, filename) { \

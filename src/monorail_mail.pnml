@@ -11,10 +11,21 @@
  * ***************************
  */
 
-MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+#define THIS_ID(...) monorail_mail_wagon ## __VA_ARGS__
 
-switch(FEAT_TRAINS, SELF, monorail_mail_wagon_graphics_switch, cargo_type_in_veh) {
-	monorail_mail_wagon_switch_gui;
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_temperate, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_arctic, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_tropic, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_toyland, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+
+switch (FEAT_TRAINS, SELF, monorail_mail_wagon_climate_switch, climate) {
+    CLIMATE_TROPICAL: monorail_mail_wagon_tropic_switch_gui;
+    CLIMATE_ARCTIC: monorail_mail_wagon_arctic_switch_gui;
+    CLIMATE_TOYLAND: monorail_mail_wagon_toyland_switch_gui;
+    monorail_mail_wagon_temperate_switch_gui;
 }
 
 item(FEAT_TRAINS, monorail_mail_wagon, 58) {
@@ -26,6 +37,8 @@ item(FEAT_TRAINS, monorail_mail_wagon, 58) {
         REFIT_PROPERTIES_MAIL
     }
     graphics {
-        monorail_mail_wagon_graphics_switch;
+        monorail_mail_wagon_climate_switch;
     }
 }
+
+#undef THIS_ID

@@ -15,6 +15,8 @@
  * ***************************
  */
 
+#define THIS_ID(...) monorail_tank_wagon ## __VA_ARGS__
+
 // DEFAULT
 MU_8SPRITES_32BPP(monorail_tank_wagon_default_temperate, "mono_tank", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 140) // 8 views needed
 MU_8SPRITES_32BPP(monorail_tank_wagon_default_tropic, "mono_tank", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 100) // 8 views needed
@@ -91,3 +93,5 @@ item(FEAT_TRAINS, monorail_tank_wagon) {
         monorail_tank_wagon_switch;
     }
 }
+
+#undef THIS_ID

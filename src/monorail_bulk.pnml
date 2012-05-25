@@ -14,76 +14,106 @@
  * sulphur, fertilizer, scrap metal,
  * fruit, fruit & vegetables, toffee,
  * sugar, cotton candy, sugar beet
- * lumber (wood chips)
+ * lumber (wood chips), cereal
  * ***************************
  */
 
-spriteset(monorail_bulk_empty_coal_arctic_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,100) }
-spriteset(monorail_bulk_full_coal_arctic_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,120) }
-spritegroup monorail_bulk_wagon_coal_arctic_group {
-	loaded: [monorail_bulk_empty_coal_arctic_set, monorail_bulk_full_coal_arctic_set];
-	loading: [monorail_bulk_empty_coal_arctic_set, monorail_bulk_full_coal_arctic_set];
+#define THIS_ID(...) monorail_bulk_wagon ## __VA_ARGS__
+
+// AORE
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_bauxite, "mono_bulk", "mono_bulk_bauxite", "src/gfx/bulk/rail_bauxite_temperate.png", "src/gfx/bulk/rail_bauxite_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+
+// CERE, GRAI, MAIZ, WHEA
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_grain, "mono_bulk", "mono_bulk_grain", "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 240, 0, 260)
+
+// CLAY
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_clay, "mono_bulk", "mono_bulk_clay", "src/gfx/bulk/rail_clay_temperate.png", "src/gfx/bulk/rail_clay_temperate.png", tmpl_railwagon42, 0, 36, 126, 36)
+
+// COAL
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_coal_temperate, "mono_bulk", "mono_bulk_coal", "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 100, 0, 120)
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_coal_arctic, "mono_bulk", "mono_bulk_coal", "src/gfx/arctic_monolev.png", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 100, 0, 120)
+
+// CORE
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_copper, "mono_bulk", "mono_bulk_copper_ore", "src/gfx/tropic_monolev.png", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 280, 0, 300)
+
+// CTCD
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_cottoncandy, "mono_bulk", "mono_bulk_coal", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 140, 0, 160)
+
+// FERT: see GRVL
+
+// FRUT, FRVG
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_fruits, "mono_bulk", "mono_bulk_fruit_veg", "src/gfx/tropic_monolev.png", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 340, 0, 360)
+
+// FRVG: see FRUT
+
+// GRAI: see CERE
+
+// GRVL, FERT
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_gravel, "mono_bulk", "mono_bulk_gravel", "src/gfx/bulk/rail_gravel_temperate.png", "src/gfx/bulk/rail_gravel_temperate.png", tmpl_railwagon42, 0, 31, 126, 31)
+
+// IORE
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_ironore, "mono_bulk", "mono_bulk_iron_ore", "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 360, 0, 380)
+
+// MAIZ: see CERE
+
+// RSGR (and SGCN, SGBT)
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_rawsugar, "mono_bulk", "mono_bulk_sugar_beet", "src/gfx/tropic_railwagons.png", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 500, 0, 525)
+
+// SAND, SULP
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_sand, "mono_bulk", "mono_bulk_sand", "src/gfx/bulk/rail_sand_temperate.png", "src/gfx/bulk/rail_sand_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+
+// SCRP
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_scrapmetal, "mono_bulk", "mono_bulk_scrap_metal", "src/gfx/bulk/rail_scrapmetal_temperate.png", "src/gfx/bulk/rail_scrapmetal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+
+// SUGR
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_sugar, "mono_bulk", "mono_bulk_coal", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 100, 0, 120)
+
+// SULP: see SAND
+
+// TOFF
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_toffee, "mono_bulk", "mono_bulk_coal", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 180, 0, 200)
+
+// WHEA: see CERE
+
+// WDPR
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_woodproducts, "mono_bulk", "mono_bulk_woodproducts", "src/gfx/bulk/rail_woodproducts_temperate.png", "src/gfx/bulk/rail_woodproducts_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+
+// RUBR
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_rubber, "mono_bulk", "mono_bulk_coal", "src/gfx/tropic_monolev.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 380, 0, 400)
+
+switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_coal_climate_switch, climate) {
+    CLIMATE_ARCTIC: monorail_bulk_wagon_coal_arctic_switch_gui;
+    monorail_bulk_wagon_coal_temperate_switch_gui;
 }
 
-spriteset(monorail_bulk_empty_coal_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,100) }
-spriteset(monorail_bulk_full_coal_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,120) }
-spritegroup monorail_bulk_wagon_coal_group {
-	loaded: [monorail_bulk_empty_coal_set, monorail_bulk_full_coal_set];
-	loading: [monorail_bulk_empty_coal_set, monorail_bulk_full_coal_set];
-}
-
-spriteset(monorail_bulk_empty_grain_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0, 240) }
-spriteset(monorail_bulk_full_grain_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0, 260) }
-spritegroup monorail_bulk_wagon_grain_group {
-	loaded: [monorail_bulk_empty_grain_set, monorail_bulk_full_grain_set];
-	loading: [monorail_bulk_empty_grain_set, monorail_bulk_full_grain_set];
-}
-
-spriteset(monorail_bulk_empty_ironore_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0, 360) }
-spriteset(monorail_bulk_full_ironore_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0, 380) }
-spritegroup monorail_bulk_wagon_ironore_group {
-	loaded: [monorail_bulk_empty_ironore_set, monorail_bulk_full_ironore_set];
-	loading: [monorail_bulk_empty_ironore_set, monorail_bulk_full_ironore_set];
-}
-
-spriteset(monorail_bulk_empty_copper_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 280) }
-spriteset(monorail_bulk_full_copper_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 300) }
-spritegroup monorail_bulk_wagon_copper_group {
-	loaded: [monorail_bulk_empty_copper_set, monorail_bulk_full_copper_set];
-	loading: [monorail_bulk_empty_copper_set, monorail_bulk_full_copper_set];
-}
-
-spriteset(monorail_bulk_empty_fruit_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 340) }
-spriteset(monorail_bulk_full_fruit_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 360) }
-spritegroup monorail_bulk_wagon_fruit_group {
-	loaded: [monorail_bulk_empty_fruit_set, monorail_bulk_full_fruit_set];
-	loading: [monorail_bulk_empty_fruit_set, monorail_bulk_full_fruit_set];
-}
-
-spriteset(monorail_bulk_empty_rubber_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 380) }
-spriteset(monorail_bulk_full_rubber_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0, 400) }
-spritegroup monorail_bulk_wagon_rubber_group {
-	loaded: [monorail_bulk_empty_rubber_set, monorail_bulk_full_rubber_set];
-	loading: [monorail_bulk_empty_rubber_set, monorail_bulk_full_rubber_set];
-}
-
-switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_coal_switch, climate) {
-    CLIMATE_ARCTIC: monorail_bulk_wagon_coal_arctic_group;
-    monorail_bulk_wagon_coal_group;
-}
-
-switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_graphics_switch, cargo_type_in_veh) {
-    COAL: monorail_bulk_wagon_coal_switch;
-    CORE: monorail_bulk_wagon_copper_group;
-    FRUT: monorail_bulk_wagon_fruit_group;
-    FRVG: monorail_bulk_wagon_fruit_group;
-    OLSD: monorail_bulk_wagon_fruit_group;
-    GRAI: monorail_bulk_wagon_grain_group;
-    IORE: monorail_bulk_wagon_ironore_group;
-    MAIZ: monorail_bulk_wagon_grain_group;
-    RUBR: monorail_bulk_wagon_rubber_group;
-    WHEA: monorail_bulk_wagon_grain_group;
-    bulk_wagon_switch;                  // default to normal rail wagons
+switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_switch, cargo_type_in_veh) {
+    AORE: monorail_bulk_wagon_bauxite_switch_gui;
+    CERE: monorail_bulk_wagon_grain_switch_gui;
+    CLAY: monorail_bulk_wagon_clay_switch_gui;
+    COAL: monorail_bulk_wagon_coal_climate_switch;
+    CORE: monorail_bulk_wagon_copper_switch_gui;
+    CTCD: monorail_bulk_wagon_cottoncandy_switch_gui;
+    FERT: monorail_bulk_wagon_gravel_switch_gui;
+    FRUT: monorail_bulk_wagon_fruits_switch_gui;
+    FRVG: monorail_bulk_wagon_fruits_switch_gui;
+    GRAI: monorail_bulk_wagon_grain_switch_gui;
+    GRVL: monorail_bulk_wagon_gravel_switch_gui;
+    IORE: monorail_bulk_wagon_ironore_switch_gui;
+    MAIZ: monorail_bulk_wagon_grain_switch_gui;
+    OLSD: monorail_bulk_wagon_fruits_switch_gui;
+    RSGR: monorail_bulk_wagon_rawsugar_switch_gui;
+    SGCN: monorail_bulk_wagon_rawsugar_switch_gui;
+    SGBT: monorail_bulk_wagon_rawsugar_switch_gui;
+    SAND: monorail_bulk_wagon_sand_switch_gui;
+    SCRP: monorail_bulk_wagon_scrapmetal_switch_gui;
+    SCMT: monorail_bulk_wagon_scrapmetal_switch_gui;
+    SUGR: monorail_bulk_wagon_sugar_switch_gui;
+    SULP: monorail_bulk_wagon_sand_switch_gui;
+    TOFF: monorail_bulk_wagon_toffee_switch_gui;
+    WHEA: monorail_bulk_wagon_grain_switch_gui;
+    WDPR: monorail_bulk_wagon_woodproducts_switch_gui;
+    RUBR: monorail_bulk_wagon_rubber_switch_gui;
+    monorail_bulk_wagon_coal_climate_switch;                // default to coal; also waste (WSTE)
 }
 
 item(FEAT_TRAINS, monorail_bulk_wagon) {
@@ -98,11 +128,14 @@ item(FEAT_TRAINS, monorail_bulk_wagon) {
         weight:                         19 ton;
     }
     graphics {
-        cargo_capacity:   bulk_wagon_cb_capacity_switch;
-        weight:           bulk_wagon_cb_property_weight_switch;
-        refit_cost:       bulk_refit_cost_switch;
+        cargo_capacity:     bulk_wagon_cb_capacity_switch;
+        weight:             bulk_wagon_cb_property_weight_switch;
+        cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
+        refit_cost:         bulk_refit_cost_switch;
 
-        purchase:         monorail_bulk_wagon_coal_switch;
-        monorail_bulk_wagon_graphics_switch;
+        purchase:           monorail_bulk_wagon_coal_climate_switch;
+        monorail_bulk_wagon_switch;
     }
 }
+
+#undef THIS_ID

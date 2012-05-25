@@ -11,9 +11,7 @@
  * ***************************
  */
 
-switch(FEAT_TRAINS, SELF, maglev_passenger_wagon_graphics_switch, cargo_type_in_veh) {
-	monorail_passenger_wagon_switch_gui;
-}
+#define THIS_ID(...) maglev_passenger_wagon ## __VA_ARGS__
 
 item(FEAT_TRAINS, maglev_passenger_wagon, 89) {
     property {
@@ -25,6 +23,8 @@ item(FEAT_TRAINS, maglev_passenger_wagon, 89) {
     }
     graphics {
 	length:        return 7;
-	maglev_passenger_wagon_graphics_switch;
+	monorail_passenger_wagon_climate_switch;
     }
 }
+
+#undef THIS_ID

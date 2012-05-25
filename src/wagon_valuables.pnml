@@ -13,10 +13,21 @@
  * ***************************
  */
 
-MU_8SPRITES_LOADING_32BPP(valuables_wagon, "armoured", "armoured", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 375, 0, 375) // 8 views needed for 32bpp
+#define THIS_ID(...) tank_wagon ## __VA_ARGS__
 
-switch(FEAT_TRAINS, SELF, valuables_wagon_graphics_switch, cargo_type_in_veh) {
-	valuables_wagon_switch_gui;
+MU_8SPRITES_LOADING_32BPP(valuables_wagon_temperate, "armoured", "armoured", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 375, 0, 375) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(valuables_wagon_arctic, "armoured", "armoured", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 375, 0, 375) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(valuables_wagon_tropic, "armoured", "armoured", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 375, 0, 375) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(valuables_wagon_toyland, "armoured", "armoured", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 375, 0, 375) // 8 views needed for 32bpp
+
+switch (FEAT_TRAINS, SELF, valuables_wagon_climate_switch, climate) {
+    CLIMATE_TROPICAL: valuables_wagon_tropic_switch_gui;
+    CLIMATE_ARCTIC: valuables_wagon_arctic_switch_gui;
+    CLIMATE_TOYLAND: valuables_wagon_toyland_switch_gui;
+    valuables_wagon_temperate_switch_gui;
 }
 
 item(FEAT_TRAINS, valuables_wagon, 37) {
@@ -28,6 +39,8 @@ item(FEAT_TRAINS, valuables_wagon, 37) {
         REFIT_PROPERTIES_ARMOURED
     }
     graphics {
-        valuables_wagon_graphics_switch;
+        valuables_wagon_climate_switch;
     }
 }
+
+#undef THIS_ID

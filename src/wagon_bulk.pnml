@@ -99,7 +99,7 @@ WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_sand)
 // SCRP
 spriteset(bulk_wagon_scrapmetal_early_empty_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(0, 0) }
 spriteset(bulk_wagon_scrapmetal_early_full_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_scrapmetal, "bulk", "bulk_coal", "src/gfx/bulk/rail_scrapmetal_temperate.png", 0, 32, 126, 32)
+WAGON_BULK_MODERN_32BPP(bulk_wagon_scrapmetal, "bulk", "bulk_scrap_metal", "src/gfx/bulk/rail_scrapmetal_temperate.png", 0, 32, 126, 32)
 WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_scrapmetal)
 
 // SUGR
@@ -128,6 +128,12 @@ spriteset(bulk_wagon_woodproducts_early_full_set, "src/gfx/bulk/rail_woodproduct
 WAGON_BULK_MODERN_32BPP(bulk_wagon_woodproducts, "bulk", "bulk_woodproducts", "src/gfx/bulk/rail_woodproducts_temperate.png", 0, 32, 126, 32)
 WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_woodproducts)
 
+// RUBR
+spriteset(bulk_wagon_rubber_early_empty_set, "src/gfx/bulk/rail_coal_temperate.png") { tmpl_railwagon(0, 0) }
+spriteset(bulk_wagon_rubber_early_full_set, "src/gfx/bulk/rail_coal_temperate.png") { tmpl_railwagon(126, 0) }
+WAGON_BULK_MODERN_32BPP(bulk_wagon_rubber, "bulk", "bulk_coal", "src/gfx/bulk/rail_coal_temperate.png", 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_rubber)
+
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     AORE: bulk_wagon_bauxite_year_switch;
     CERE: bulk_wagon_grain_year_switch;
@@ -154,6 +160,7 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     TOFF: bulk_wagon_toffee_group;
     WHEA: bulk_wagon_grain_year_switch;
     WDPR: bulk_wagon_woodproducts_year_switch;
+    RUBR: bulk_wagon_rubber_year_switch;
     bulk_wagon_coal_year_switch;                // default to coal; also waste (WSTE)
 }
 
@@ -184,7 +191,7 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_v
 }
 
 switch (FEAT_TRAINS, SELF, bulk_wagon_cb_cargo_subtype_switch, cargo_type_in_veh) {
-	WDPR: return string(STR_BULK_WAGON_CARGO_SUBTYPE_WDPR);
+    WDPR: return string(STR_BULK_WAGON_CARGO_SUBTYPE_WDPR);
     CB_FAILED;
 }
 
@@ -200,9 +207,9 @@ item(FEAT_TRAINS, bulk_wagon) {
         weight:                         19 ton;
     }
     graphics {
-		cargo_capacity:     bulk_wagon_cb_capacity_switch;
-		weight:             bulk_wagon_cb_property_weight_switch;
-		cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
+        cargo_capacity:     bulk_wagon_cb_capacity_switch;
+        weight:             bulk_wagon_cb_property_weight_switch;
+        cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
         refit_cost:         bulk_refit_cost_switch;
 
         purchase:           bulk_wagon_coal_year_switch;

@@ -13,10 +13,21 @@
  * ***************************
  */
 
-MU_8SPRITES_LOADING_32BPP(refrigerate_wagon_default, "refrigerated", "refrigerated", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed for 32bpp
+#define THIS_ID(...) refrigerate_wagon ## __VA_ARGS__
 
-switch(FEAT_TRAINS, SELF, refrigerate_wagon_graphics_switch, cargo_type_in_veh) {
-	refrigerate_wagon_default_switch_gui;
+MU_8SPRITES_LOADING_32BPP(refrigerate_wagon_temperate, "refrigerated", "refrigerated", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(refrigerate_wagon_arctic, "refrigerated", "refrigerated", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(refrigerate_wagon_tropic, "refrigerated", "refrigerated", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(refrigerate_wagon_toyland, "refrigerated", "refrigerated", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed for 32bpp
+
+switch (FEAT_TRAINS, SELF, refrigerate_wagon_climate_switch, climate) {
+    CLIMATE_TROPICAL: refrigerate_wagon_tropic_switch_gui;
+    CLIMATE_ARCTIC: refrigerate_wagon_arctic_switch_gui;
+    CLIMATE_TOYLAND: refrigerate_wagon_toyland_switch_gui;
+    refrigerate_wagon_temperate_switch_gui;
 }
 
 item(FEAT_TRAINS, refrigerate_wagon) {
@@ -35,6 +46,8 @@ item(FEAT_TRAINS, refrigerate_wagon) {
         refit_cost:         refrigerated_refit_cost_switch;
         additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 
-        refrigerate_wagon_graphics_switch;
+        refrigerate_wagon_climate_switch;
     }
 }
+
+#undef THIS_ID

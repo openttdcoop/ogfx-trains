@@ -6,9 +6,7 @@
  * ***************************
  */
 
-switch(FEAT_TRAINS, SELF, maglev_refrigerated_graphics_switch, cargo_type_in_veh) {
-	monorail_refrigerate_wagon_graphics_switch;
-}
+#define THIS_ID(...) maglev_refrigerate_wagon ## __VA_ARGS__
 
 item(FEAT_TRAINS, maglev_refrigerate_wagon) {
     property {
@@ -26,6 +24,8 @@ item(FEAT_TRAINS, maglev_refrigerate_wagon) {
         refit_cost:         refrigerated_refit_cost_switch;
         additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 
-        maglev_refrigerated_graphics_switch;
+        monorail_refrigerate_wagon_climate_switch;
     }
 }
+
+#undef THIS_ID

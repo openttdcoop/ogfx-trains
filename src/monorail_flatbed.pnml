@@ -16,48 +16,166 @@
  * ***************************
  */
 
-spriteset(monorail_flatbed_paper_empty_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,320) }
-spriteset(monorail_flatbed_paper_full_set, "src/gfx/arctic_monolev.png") { tmpl_short_railwagon(0,340) }
-spritegroup monorail_flatbed_paper_group {
-	loaded: [monorail_flatbed_paper_empty_set, monorail_flatbed_paper_full_set];
-	loading: [monorail_flatbed_paper_empty_set, monorail_flatbed_paper_full_set];
+#define THIS_ID(...) monorail_flatbed_wagon ## __VA_ARGS__
+
+// default: container
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_container,
+    "mono_flatbed_nocc", "mono_flatbed_container",
+    "src/gfx/flatbed/rail_flatbed_container_temperate.png", "src/gfx/flatbed/rail_flatbed_container_temperate.png",
+    tmpl_railwagon42, 0, 8, 126, 8)
+
+// BATT
+spriteset(monorail_flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,400) }
+spriteset(monorail_flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,380) }
+spritegroup monorail_flatbed_wagon_battery_group {
+	loaded: [monorail_flatbed_wagon_battery_empty_set, monorail_flatbed_wagon_battery_set];
+	loading: [monorail_flatbed_wagon_battery_empty_set, monorail_flatbed_wagon_battery_set];
 }
 
-spriteset(monorail_flatbed_wood_empty_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,280) }
-spriteset(monorail_flatbed_wood_full_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,300) }
-spritegroup monorail_flatbed_wood_group {
-	loaded: [monorail_flatbed_wood_empty_set, monorail_flatbed_wood_full_set];
-	loading: [monorail_flatbed_wood_empty_set, monorail_flatbed_wood_full_set];
-}
-spriteset(monorail_flatbed_tropicwood_empty_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,200) }
-spriteset(monorail_flatbed_tropicwood_full_set, "src/gfx/tropic_monolev.png") { tmpl_short_railwagon(0,220) }
-spritegroup monorail_flatbed_tropicwood_group {
-	loaded: [monorail_flatbed_tropicwood_empty_set, monorail_flatbed_tropicwood_full_set];
-	loading: [monorail_flatbed_tropicwood_empty_set, monorail_flatbed_tropicwood_full_set];
+// BUBL
+spriteset(monorail_flatbed_wagon_bubbles_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,80) }
+spriteset(monorail_flatbed_wagon_bubbles_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,60) }
+spritegroup monorail_flatbed_wagon_bubbles_group {
+	loaded: [monorail_flatbed_wagon_bubbles_empty_set, monorail_flatbed_wagon_bubbles_set];
+	loading: [monorail_flatbed_wagon_bubbles_empty_set, monorail_flatbed_wagon_bubbles_set];
 }
 
-spriteset(monorail_flatbed_steel_empty_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,320) }
-spriteset(monorail_flatbed_steel_full_set, "src/gfx/temperate_monolev.png") { tmpl_short_railwagon(0,340) }
-spritegroup monorail_flatbed_steel_group {
-	loaded: [monorail_flatbed_steel_empty_set, monorail_flatbed_steel_full_set];
-	loading: [monorail_flatbed_steel_empty_set, monorail_flatbed_steel_full_set];
+// ENSP (vehicles)
+SPRITEGROUP_3STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_engineeringsupplies_vehicle1,
+    "mono_flatbed", "mono_flatbed_vehicles_stage1",
+    "mono_flatbed_vehicles_full",
+    "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png", "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png",
+    "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1a.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0, 0, 0)
+
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_engineeringsupplies_vehicle2,
+    "mono_flatbed", "mono_flatbed_vehicles3_full",
+    "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png", "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1b.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0)
+
+// FMSP: see VEHI
+
+// FZDR
+spriteset(monorail_flatbed_wagon_fizzy_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
+spriteset(monorail_flatbed_wagon_fizzy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
+spritegroup monorail_flatbed_wagon_fizzy_group {
+	loaded: [monorail_flatbed_wagon_fizzy_empty_set, monorail_flatbed_wagon_fizzy_set];
+	loading: [monorail_flatbed_wagon_fizzy_empty_set, monorail_flatbed_wagon_fizzy_set];
 }
+
+// GOOD (container)
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_goods,
+    "mono_flatbed_nocc", "mono_flatbed_container",
+    "src/gfx/flatbed/container/rail_flatbed_container_empty_NoWagonCC_2.png", "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2a.png",
+    tmpl_railwagon42, 0, 0, 0, 0)
+
+// PAPR
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_paper,
+    "mono_flatbed_retainers", "mono_flatbed_paper_stage1",
+    "mono_flatbed_paper_stage2", "mono_flatbed_paper_full",
+    "src/gfx/arctic_monolev.png", "src/gfx/arctic_monolev.png",
+    "src/gfx/arctic_monolev.png", "src/gfx/arctic_monolev.png",
+    tmpl_short_railwagon42, 0, 320, 0, 320, 0, 340, 0, 340)
+
+// RFPR (barrels)
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_refineryproducts,
+    "mono_flatbed_sides", "mono_flatbed_refinery_stage1",
+    "mono_flatbed_refinery_stage2", "mono_flatbed_refinery_full",
+    "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
+    tmpl_railwagon42, 0, 10, 0, 10, 126, 10, 126, 10)
+
+// PETR (barrels)
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_fueloil,
+    "mono_flatbed_sides", "mono_flatbed_oil_stage1",
+    "mono_flatbed_oil_stage2", "mono_flatbed_oil_full",
+    "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png", "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png", "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 126, 0, 126, 0)
+
+// STEL
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_steel_rolls1,
+    "mono_flatbed_retainers", "mono_flatbed_steel_stage1",
+    "mono_flatbed_steel_stage2", "mono_flatbed_steel_full",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 320, 0, 320, 0, 340, 0, 340)
+
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_steel_rolls2,
+    "mono_flatbed_retainers", "mono_flatbed_steel2_stage1",
+    "mono_flatbed_steel2_stage2", "mono_flatbed_steel2_full",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 320, 0, 320, 0, 340, 0, 340)
+
+// VEHI (vehicles)
+
+SPRITEGROUP_3STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_vehicles,
+    "mono_flatbed_retainers", "mono_flatbed_vehicles2_stage1",
+    "mono_flatbed_vehicles2_full",
+    "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png", "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
+    tmpl_railwagon42, 0, 7, 0, 7, 126, 7)
+
+// WDPR
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_woodproducts,
+    "mono_flatbed_retainers", "mono_flatbed_timber_stage1",
+    "mono_flatbed_timber_stage2", "mono_flatbed_timber_full",
+    "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png", "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
+// WOOD
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_wood_temerate,
+    "mono_flatbed_retainers", "mono_flatbed_wood_stage1",
+    "mono_flatbed_wood_stage2", "mono_flatbed_wood_full",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 280, 0, 280, 0, 300, 0, 300)
+
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_wood_tropical,
+    "mono_flatbed_retainers", "mono_flatbed_wood_stage1",
+    "mono_flatbed_wood_stage2", "mono_flatbed_wood_full",
+    "src/gfx/tropic_monolev.png", "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png", "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 200, 0, 200, 0, 220, 0, 220)
 
 switch(FEAT_TRAINS, SELF, monorail_flatbed_wood_climate_switch, climate) {
-	CLIMATE_TROPIC: monorail_flatbed_tropicwood_group;
-	monorail_flatbed_wood_group;
+    CLIMATE_TROPIC: monorail_flatbed_wagon_wood_tropical_switch_gui;
+    monorail_flatbed_wagon_wood_temerate_switch_gui;
 }
 
-switch(FEAT_TRAINS, SELF, monorail_flatbed_graphics_switch, cargo_type_in_veh) {
-	PAPR: monorail_flatbed_paper_group;
-	STEL: monorail_flatbed_steel_group;
-	COPR: monorail_flatbed_steel_group;
-	WOOD: monorail_flatbed_wood_climate_switch;
-	flatbed_wagon_switch;
+random_switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_engineeringsupplies_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
+    3: monorail_flatbed_wagon_engineeringsupplies_vehicle1_switch_gui;
+    1: monorail_flatbed_wagon_engineeringsupplies_vehicle2_switch_gui;
+}
+
+random_switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_steel_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
+    1: monorail_flatbed_wagon_steel_rolls1_switch_gui;
+    1: monorail_flatbed_wagon_steel_rolls2_switch_gui;
+}
+
+switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_switch, cargo_type_in_veh) {
+    BATT: monorail_flatbed_wagon_battery_group;
+    BUBL: monorail_flatbed_wagon_bubbles_group;
+    ENSP: monorail_flatbed_wagon_engineeringsupplies_switch;
+    FMSP: monorail_flatbed_wagon_vehicles_group;
+    FZDR: monorail_flatbed_wagon_fizzy_group;
+    GOOD: monorail_flatbed_wagon_goods_switch_gui;
+    PAPR: monorail_flatbed_wagon_paper_switch_gui;
+    PETR: monorail_flatbed_wagon_fueloil_switch_gui;
+    RFPR: monorail_flatbed_wagon_refineryproducts_switch_gui;
+    STEL: monorail_flatbed_wagon_steel_switch;
+    COPR: monorail_flatbed_wagon_steel_switch;
+    VEHI: monorail_flatbed_wagon_vehicles_switch_gui;
+    WDPR: monorail_flatbed_wagon_woodproducts_switch_gui;
+    WOOD: monorail_flatbed_wood_climate_switch;
+    monorail_flatbed_wagon_container_switch_gui;
 }
 
 item(FEAT_TRAINS, monorail_flatbed_wagon) {
     property {
+        // We try to simulate the stats of the temperate wood wagon
         name:                           string(STR_NAME_FLATBED_WAGON);
         REFIT_PROPERTIES_FLATBED
         WAGON_PROPERTIES_DEFAULT
@@ -67,14 +185,16 @@ item(FEAT_TRAINS, monorail_flatbed_wagon) {
         weight:                         16;
     }
     graphics {
-        cargo_capacity:     flatbed_wagon_cb_capacity_switch;        // same as rail wagon
-        weight:             flatbed_wagon_cb_property_weight_switch; // same as rail wagon
-        cargo_subtype_text: flatbed_wagon_cb_cargo_suffix_switch;    // same as rail wagon
-        colour_mapping:     flatbed_wagon_cb_colour_switch;          // same as rail wagon
-        random_trigger:     flatbed_wagon_cb_colour_switch;          // same as rail wagon
+        cargo_capacity:     flatbed_wagon_cb_capacity_switch;
+        weight:             flatbed_wagon_cb_property_weight_switch;
+        cargo_subtype_text: flatbed_wagon_cb_cargo_suffix_switch;
+        colour_mapping:     flatbed_wagon_cb_colour_switch;
+        random_trigger:     flatbed_wagon_cb_colour_switch;
         refit_cost:         flatbed_refit_cost_switch;
 
-        purchase:           monorail_flatbed_wood_climate_switch;
-        monorail_flatbed_graphics_switch;
+        purchase:           monorail_flatbed_wagon_container_switch_gui;
+        monorail_flatbed_wagon_switch;
     }
 }
+
+#undef THIS_ID

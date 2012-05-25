@@ -13,10 +13,21 @@
  * ***************************
  */
 
-MU_8SPRITES_LOADING_32BPP(mail_wagon, "mail", "mail", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 50, 0, 50) // 8 views needed for 32bpp
+#define THIS_ID(...) mail_wagon ## __VA_ARGS__
 
-switch(FEAT_TRAINS, SELF, mail_wagon_graphics_switch, cargo_type_in_veh) {
-	mail_wagon_switch_gui;
+MU_8SPRITES_LOADING_32BPP(mail_wagon_temperate, "mail", "mail", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 50, 0, 50) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(mail_wagon_arctic, "mail", "mail", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 50, 0, 50) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(mail_wagon_tropic, "mail", "mail", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 50, 0, 50) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(mail_wagon_toyland, "mail", "mail", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 50, 0, 50) // 8 views needed for 32bpp
+
+switch (FEAT_TRAINS, SELF, mail_wagon_climate_switch, climate) {
+    CLIMATE_TROPICAL: mail_wagon_tropic_switch_gui;
+    CLIMATE_ARCTIC: mail_wagon_arctic_switch_gui;
+    CLIMATE_TOYLAND: mail_wagon_toyland_switch_gui;
+    mail_wagon_temperate_switch_gui;
 }
 
 item(FEAT_TRAINS, mail_wagon, 28) {
@@ -28,6 +39,8 @@ item(FEAT_TRAINS, mail_wagon, 28) {
         REFIT_PROPERTIES_MAIL
     }
     graphics {
-        mail_wagon_graphics_switch;
+        mail_wagon_climate_switch;
     }
 }
+
+#undef THIS_ID

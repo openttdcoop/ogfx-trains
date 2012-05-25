@@ -15,6 +15,8 @@
  * ***************************
  */
 
+#define THIS_ID(...) maglev_piecegoods_wagon ## __VA_ARGS__
+
 switch (FEAT_TRAINS, SELF, maglev_piecegoods_wagon_capacity_switch, cargo_type_in_veh) {
     // default: 32 units
     FOOD: return 27;
@@ -40,7 +42,9 @@ item(FEAT_TRAINS, maglev_piecegoods_wagon) {
         cargo_capacity: maglev_piecegoods_wagon_capacity_switch;
         refit_cost:     piecegoods_refit_cost_switch;
 
-        purchase:       monorail_piecegoods_default_group;
-        monorail_piecegoods_cargo_switch;
+        purchase:       monorail_piecegoods_wagon_climate_switch;
+        monorail_piecegoods_wagon_switch;
     }
 }
+
+#undef THIS_ID

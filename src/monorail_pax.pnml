@@ -11,10 +11,21 @@
  * ***************************
  */
 
-MU_8SPRITES_LOADING_32BPP(monorail_passenger_wagon, "mono_passenger", "mono_passenger", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 0, 0, 0) // 8 views needed for 32bpp
+#define THIS_ID(...) monorail_passenger_wagon ## __VA_ARGS__
 
-switch(FEAT_TRAINS, SELF, monorail_passenger_wagon_graphics_switch, cargo_type_in_veh) {
-	monorail_passenger_wagon_switch_gui;
+MU_8SPRITES_LOADING_32BPP(monorail_passenger_wagon_temperate, "mono_passenger", "mono_passenger", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 0, 0, 0) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(monorail_passenger_wagon_tropic, "mono_passenger", "mono_passenger", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 0, 0, 0) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(monorail_passenger_wagon_arctic, "mono_passenger", "mono_passenger", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 0, 0, 0) // 8 views needed for 32bpp
+
+MU_8SPRITES_LOADING_32BPP(monorail_passenger_wagon_toyland, "mono_passenger", "mono_passenger", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 0, 0, 0) // 8 views needed for 32bpp
+
+switch (FEAT_TRAINS, SELF, monorail_passenger_wagon_climate_switch, climate) {
+    CLIMATE_TROPICAL: monorail_passenger_wagon_tropic_switch_gui;
+    CLIMATE_ARCTIC: monorail_passenger_wagon_arctic_switch_gui;
+    CLIMATE_TOYLAND: monorail_passenger_wagon_toyland_switch_gui;
+    monorail_passenger_wagon_temperate_switch_gui;
 }
 
 item(FEAT_TRAINS, monorail_passenger_wagon, 57) {
@@ -26,6 +37,8 @@ item(FEAT_TRAINS, monorail_passenger_wagon, 57) {
         REFIT_PROPERTIES_PAX
     }
     graphics {
-        monorail_passenger_wagon_graphics_switch;
+        monorail_passenger_wagon_climate_switch;
     }
 }
+
+#undef THIS_ID
