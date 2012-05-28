@@ -1027,7 +1027,7 @@ func_gimp_sharpen $LINENO "$DST32/*$INS$I1X.$EXT" $E_SHARPEN_2
 # Scale the purchase sprites
 func_gimp_scale $LINENO "$DSTPCHS/*$INS$I1X.$EXT" $SCALE1X $SCALE1X $METHOD1X $E_SCALE_10
 func_gimp_scale $LINENO "$DSTPCHS/*$INS$I1X$MASK.$EXT" $SCALE1X $SCALE1X $METHOD1X $E_SCALE_10
-func_gimp_sharpen $LINENO "$DSTPCHS/*$INS$I1X.$EXT" $E_SHARPEN_3
+#func_gimp_sharpen $LINENO "$DSTPCHS/*$INS$I1X.$EXT" $E_SHARPEN_3
 #func_gimp_levels_stretch $LINENO "$DSTPCHS/*$INS$I1X.$EXT" $E_LEVELS_3
 
 # Cleanup
