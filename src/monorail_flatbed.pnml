@@ -111,7 +111,7 @@ SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_steel_rolls2,
 // VEHI (vehicles)
 
 SPRITEGROUP_3STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_vehicles,
-    "mono_flatbed_retainers", "mono_flatbed_vehicles2_stage1",
+    "mono_flatbed", "mono_flatbed_vehicles2_stage1",
     "mono_flatbed_vehicles2_full",
     "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png", "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
     "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
