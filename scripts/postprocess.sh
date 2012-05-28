@@ -18,7 +18,7 @@
 # Define variables
 RENDERED="$PWD/sprite_source/blender/rendered"
 PCS="$PWD/sprite_source/blender/rendered/processing"
-ENGINES="$PWD/src/gfx/engines"
+ENGINES="$PWD/src/gfx/rendered"
 SCMDIR="$PWD/scripts/gimp_scripts"
 GPLDIR="$PWD/scripts/gimp_palettes"
 # You should not need to change the following variables
