@@ -19,25 +19,50 @@
 /* OpenGFX+ */
 /* Define the 32bpp sprite template */
 template template_train_opengfxp32(z, m, g) {
-    [(-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
-    [(-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
-    [(-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
-    [(-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
-    [(-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
-    [(-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
-    [(-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
-    [(-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
 }
 
 /* OpenGFX+ */
 /* Define the gui sprite template for the GUI menus */
 template template_train_gui_opengfxp32(m) {
-    [0,     0, ("src/gfx/rendered/" + m + "/gui/blank32.png"),      ("src/gfx/rendered/" + m + "/gui/blank8.png")]
-    [0,     0, ("src/gfx/rendered/" + m + "/gui/blank32.png"),      ("src/gfx/rendered/" + m + "/gui/blank8.png")]
-    [-27, -18, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
-    [0,     0, ("src/gfx/rendered/" + m + "/gui/blank32.png"),      ("src/gfx/rendered/" + m + "/gui/blank8.png")]
-    [0,     0, ("src/gfx/rendered/" + m + "/gui/blank32.png"),      ("src/gfx/rendered/" + m + "/gui/blank8.png")]
-    [0,     0, ("src/gfx/rendered/" + m + "/gui/blank32.png"),      ("src/gfx/rendered/" + m + "/gui/blank8.png")]
-    [-27, -18, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
-    [0,     0, ("src/gfx/rendered/" + m + "/gui/blank32.png"),      ("src/gfx/rendered/" + m + "/gui/blank8.png")]
+    []
+    []
+    [0, 0, 45, 31, -27, -18, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
+    []
+    []
+    []
+    [0, 0, 45, 31, -27, -18, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
+    []
+}
+
+/* Define the 32bpp short sprite template */
+template template_short_train_opengfxp32(z, m, g) {
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
+}
+
+/* OpenGFX+ */
+/* Define the short gui sprite template for the GUI menus */
+template template_short_train_gui_opengfxp32(m) {
+    []
+    []
+    [0, 0, 45, 31, -27, -18, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
+    []
+    []
+    []
+    [0, 0, 45, 31, -27, -18, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
+    []
 }
