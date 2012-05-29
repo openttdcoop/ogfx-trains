@@ -919,7 +919,7 @@ do
 	fi
 done
 
-func_copy $LINENO "$PCS/blank*.$EXT" "$DSTPCHS/"
+#func_copy $LINENO "$PCS/blank*.$EXT" "$DSTPCHS/"
 
 #func_echo_spin $LINENO $V_MODERATE "Crop to normal dimensions..."
 
