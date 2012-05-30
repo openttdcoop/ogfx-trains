@@ -16,8 +16,8 @@
 #**************************************************************************
 
 # Define variables
-RENDERED="$PWD/sprite_source/blender/rendered"
-PCS="$PWD/sprite_source/blender/rendered/processing"
+RENDERED="$PWD/sprite_source/blender"
+PCS="$PWD/sprite_source/blender/processing"
 ENGINES="$PWD/src/gfx/rendered"
 SCMDIR="$PWD/scripts/gimp_scripts"
 GPLDIR="$PWD/scripts/gimp_palettes"
@@ -869,7 +869,7 @@ func_mkdir $LINENO $POSTMSK8 $E_MK_POSTMSK8
 func_concat_path $LINENO POSTMSK32 $TMP "32bpp_mask"
 func_mkdir $LINENO $POSTMSK32 $E_MK_POSTMSK32
 
-func_concat_path $LINENO SRCIMG8 $SRC "8bpp_no_shadow"
+#func_concat_path $LINENO SRCIMG8 $SRC "8bpp_no_shadow"
 func_concat_path $LINENO SRCMSK8CC1 $SRC "1cc_mask"
 func_concat_path $LINENO SRCMSK8CC2 $SRC "2cc_mask"
 
@@ -905,7 +905,7 @@ for ((COUNT=1; COUNT<=$SPRITES; COUNT++))
 do
         func_format_name $LINENO NAME $COUNT
 	# Copy to 8 bit files
-	func_copy $LINENO "$SRCIMG8/$NAME.$EXT" "$DST8/$NAME$INS$I4X.$EXT" $E_CP_REN_1
+	#func_copy $LINENO "$SRCIMG8/$NAME.$EXT" "$DST8/$NAME$INS$I4X.$EXT" $E_CP_REN_1
 	# Copy to 8 bit mask files
 	func_copy $LINENO "$SRCMSK8CC1/$NAME.$EXT" "$POSTCC1/$NAME$INS$I4X$MASK.$EXT" $E_CP_REN_2
         func_copy $LINENO "$SRCMSK8CC1/$NAME.$EXT" "$POST32CC1/$NAME$INS$I4X$MASK.$EXT" $E_CP_REN_2
@@ -971,6 +971,8 @@ func_echo_spin $LINENO $V_MODERATE "Merge 8bpp masks ..."
 for ((COUNT=1; COUNT<=$SPRITES; COUNT++))
 do
         func_format_name $LINENO NAME $COUNT
+        func_copy $LINENO "$PCS/magic.$EXT" "$DST8/$NAME$INS$I4X.$EXT" $E_CP_MAGIC
+        func_gimp_merge $LINENO "$DST8/$NAME$INS$I4X.$EXT" "$SRCPCHS/$NAME.$EXT" $E_MG_8BPP
         func_gimp_flatten $LINENO "$DST8/$NAME$INS$I4X.$EXT" "$POSTMSK8/$NAME$INS$I4X$MASK.$EXT" $E_MG_8BPP
 done
 
