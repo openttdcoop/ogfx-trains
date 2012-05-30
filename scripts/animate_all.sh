@@ -14,10 +14,39 @@
 # as the list source
 #**************************************************************************
 
+BLENDS="$PWD/sprite_source/blender/"
+LIST="./scripts/model.lst"
+
 if [ $# -ge 1 ]; then
+    if [ $1 == "clean" ]; then
+        let COUNT=0
+
+        while read LINE; do
+            case $LINE in
+                # Execute only lines that begin with alpha-numeric character
+                [a-zA-Z0-9]*)
+                    # Remove extra white-spaces from the line then execute the script
+                    NAME="$(echo $LINE)"
+                    rm -Rf $BLENDS/$NAME/*.exr
+                    # Exit on failure
+                    EXIT_CODE=$?
+                    if [ ! $EXIT_CODE -eq 0 ]; then
+                        echo "Failed to clean: $NAME/*.exr"
+                        exit $EXIT_CODE
+                    fi
+                    ;;
+                # Ignore all others
+                *)
+                    ;;
+            esac
+
+            let COUNT++
+        done<$LIST
+
+        exit;
+    fi
+
     LIST=$1
-else
-    LIST="./scripts/model.lst"
 fi
 
 #**************************************************************************
