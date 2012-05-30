@@ -232,55 +232,44 @@ func_concat_path $LINENO BLENDFILE $BLENDS "$1/$1.blend" $E_BLENDFILE
 # Check the file exists
 func_chkfile $LINENO $BLENDFILE "File does not exist:$BLENDFILE" $E_BLENDFILE
 
-# Get URI of rendered directory
-#func_concat_path $LINENO RENDERED $BLENDS $1 $E_RENDERED
-# Create rendered directory
-#func_mkdir $LINENO $RENDERED $E_MK_RENDERED
-# Check rendered directory exists
-#func_chkdir $LINENO $RENDERED "Rendered directory does not exist:$RENDERED" $E_RENDERED
-
 # Get URI of rendered model directory
 func_concat_path $LINENO DST $BLENDS $1 $E_DST
-# Delete rendered model directory and contents
-func_remove $LINENO $DST $E_RM_DST
-# Create rendered model directory
-func_mkdir $LINENO $DST $E_MK_DST
 # Check rendered model directory exists
 func_chkdir $LINENO $DST "DST directory does not exist:$DST" $E_DST
-
 # Get URI of sub-directory
 func_concat_path $LINENO DST8NS $DST "8bpp_no_shadow"
-# Create sub-directory
-func_mkdir $LINENO $DST8NS
-# Check sub-directory exists
+# Delete rendered model directory contents
+func_remove $LINENO $DST8NS $E_RM_DST
+# Create rendered model directory
+func_mkdir $LINENO $DST8NS $E_MK_DST
 func_chkdir $LINENO $DST8NS "DST8NS directory does not exist:$DST8NS"
-
 # Get URI of sub-directory
 func_concat_path $LINENO DST1CC $DST "1cc_mask"
-# Create sub-directory
-func_mkdir $LINENO $DST1CC
-# Check sub-directory exists
+# Delete rendered model directory contents
+func_remove $LINENO $DST1CC $E_RM_DST
+# Create rendered model directory
+func_mkdir $LINENO $DST1CC $E_MK_DST
 func_chkdir $LINENO $DST1CC "DST1CC directory does not exist:$DST1CC"
-
 # Get URI of sub-directory
 func_concat_path $LINENO DST2CC $DST "2cc_mask"
-# Create sub-directory
-func_mkdir $LINENO $DST2CC
-# Check sub-directory exists
+# Delete rendered model directory contents
+func_remove $LINENO $DST2CC $E_RM_DST
+# Create rendered model directory
+func_mkdir $LINENO $DST2CC $E_MK_DST
 func_chkdir $LINENO $DST2CC "DST2CC directory does not exist:$DST2CC"
-
 # Get URI of sub-directory
 func_concat_path $LINENO DST32S $DST "32bpp_shadow"
-# Create sub-directory
-func_mkdir $LINENO $DST32S
-# Check sub-directory exists
+# Delete rendered model directory contents
+func_remove $LINENO $DST32S $E_RM_DST
+# Create rendered model directory
+func_mkdir $LINENO $DST32S $E_MK_DST
 func_chkdir $LINENO $DST32S "DST32S directory does not exist:$DST32S"
-
 # Get URI of sub-directory
 func_concat_path $LINENO DST32NS $DST "32bpp_no_shadow"
-# Create sub-directory
-func_mkdir $LINENO $DST32NS
-# Check sub-directory exists
+# Delete rendered model directory contents
+func_remove $LINENO $DST32NS $E_RM_DST
+# Create rendered model directory
+func_mkdir $LINENO $DST32NS $E_MK_DST
 func_chkdir $LINENO $DST32NS "DST8NS directory does not exist:$DST32NS"
 
 # Render the model
