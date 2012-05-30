@@ -228,19 +228,19 @@ if [ $# -eq 0 ]; then
 fi
 
 # Get URI of blend file
-func_concat_path $LINENO BLENDFILE $BLENDS $1.blend $E_BLENDFILE
+func_concat_path $LINENO BLENDFILE $BLENDS "$1/$1.blend" $E_BLENDFILE
 # Check the file exists
 func_chkfile $LINENO $BLENDFILE "File does not exist:$BLENDFILE" $E_BLENDFILE
 
 # Get URI of rendered directory
-func_concat_path $LINENO RENDERED $BLENDS "rendered" $E_RENDERED
+#func_concat_path $LINENO RENDERED $BLENDS $1 $E_RENDERED
 # Create rendered directory
-func_mkdir $LINENO $RENDERED $E_MK_RENDERED
+#func_mkdir $LINENO $RENDERED $E_MK_RENDERED
 # Check rendered directory exists
-func_chkdir $LINENO $RENDERED "Rendered directory does not exist:$RENDERED" $E_RENDERED
+#func_chkdir $LINENO $RENDERED "Rendered directory does not exist:$RENDERED" $E_RENDERED
 
 # Get URI of rendered model directory
-func_concat_path $LINENO DST $RENDERED $1 $E_DST
+func_concat_path $LINENO DST $BLENDS $1 $E_DST
 # Delete rendered model directory and contents
 func_remove $LINENO $DST $E_RM_DST
 # Create rendered model directory
