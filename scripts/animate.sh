@@ -273,4 +273,4 @@ func_mkdir $LINENO $DST32NS $E_MK_DST
 func_chkdir $LINENO $DST32NS "DST8NS directory does not exist:$DST32NS"
 
 # Render the model
-blender -b $BLENDFILE -a
+blender -nojoystick -noaudio -b $BLENDFILE -a
