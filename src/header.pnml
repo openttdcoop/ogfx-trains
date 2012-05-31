@@ -126,6 +126,20 @@ grf {
             };
 		}
 	}
+	param {
+		param_tender {
+			type:       int;
+			name:       string(STR_PARAM_TENDER);
+			desc:       string(STR_PARAM_TENDER_DESC);
+            min_value:  0;
+            max_value:  1;
+			def_value:  1;
+            names: {
+                0: string(STR_PARAM_TENDER_NONE);
+                1: string(STR_PARAM_TENDER_ARTICULATED);
+			};
+		}
+	}
 }
 
 /*
@@ -213,8 +227,6 @@ PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param_purchase_cost_mult - 9;
  * 1: articulates (default)
  * ********************************************
  */
-
-param_tender = 0;
 
 #define TENDER_NONE        0
 #define TENDER_ARTICULATED 1
