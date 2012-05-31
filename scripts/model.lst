@@ -28,12 +28,14 @@ passenger_tim
 passenger_dash
 passenger_dmu
 mono_passenger
+passenger_brake
 passenger_loading
 passenger_asia_star_loading
 passenger_tim_loading
 passenger_dash_loading
 passenger_dmu_loading
 mono_passenger_loading
+passenger_brake_loading
 mail
 mail_asia_star
 mail_tim
