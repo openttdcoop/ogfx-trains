@@ -5,6 +5,51 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
+
+/*************************
+ * Vehicle with
+ * - no loading stages
+ * - length 4/8
+ * - no temporal variation
+ ************************/
+#define SPRITEGROUP_1STAGE_LENGTH48_32BPP(name, model, climate, filename, templatename, x, y) \
+spriteset(name ## _ ## climate ## _set, filename) { templatename(x, y) } \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(1, model, "1") \
+} \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(2, model, "2") \
+} \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(4, model, "4") \
+} \
+spritegroup name ## _ ## climate ## _group { \
+    loaded: name ## _ ## climate ## _set; \
+    loading: name ## _ ## climate ## _set; \
+} \
+spriteset(name ## _ ## climate ## _set_gui, filename) { templatename(x, y) } \
+alternative_sprites(name ## _ ## climate ## _set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_short_train_gui_opengfxp32(model) \
+} \
+spritegroup name ## _ ## climate ## _group_gui { \
+    loaded: name ## _ ## climate ## _set_gui; \
+    loading: name ## _ ## climate ## _set_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## climate ## _group_gui; \
+    0x11: name ## _ ## climate ## _group_gui; \
+    0x12: name ## _ ## climate ## _group_gui; \
+    0x20: name ## _ ## climate ## _group_gui; \
+    0x21: name ## _ ## climate ## _group_gui; \
+    name ## _ ## climate ## _group; \
+}
+
+
+/*************************
+ * Vehicle with
+ * - one loading stage (empty + full)
+ * - length 8/8
+ ************************/
 #define SPRITEGROUP_2STAGES_NOLOADING_32BPP(name, empty_model, full_model, file1, file2, tmpl, x1, y1, x2, y2) \
 spriteset(name ##_empty_set, file1) { tmpl(x1, y1) } \
 alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
@@ -50,6 +95,8 @@ switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
     0x21: name ##_group_gui; \
     name ##_group; \
 }
+
+
 #define SPRITEGROUP_4STAGES_NOLOADING(name, file_empty, file_1, file_2, file_3, tmpl, x, yempty, y1, y2, y3) \
 spriteset(name ##_empty_set, file_empty) { tmpl(x, yempty) tmpl(x, yempty) } \
 spriteset(name ##_full13_set, file_1) { tmpl(x, y1) tmpl(x, y1) } \
@@ -59,6 +106,8 @@ spritegroup name ##_group { \
     loaded: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
     loading: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
 }
+
+
 #define SPRITEGROUP_4STAGES_NOLOADING_32BPP(name, model_empty, model_13, model_23, model_33, file_empty, file_1, file_2, file_3, tmpl, x1, y1, x2, y2, x3, y3, x4, y4) \
 spriteset(name ##_empty_set, file_empty) { tmpl(x1, y1) } \
 alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
@@ -132,6 +181,8 @@ switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
     0x21: name ##_group_gui; \
     name ##_group; \
 }
+
+
 #define SPRITEGROUP_3STAGES_NOLOADING(name, file_empty, file_1, file_2, tmpl, x, yempty, y1, y2) \
 spriteset(name ##_empty_set, file_empty) { tmpl(x, yempty) } \
 spriteset(name ##_full12_set, file_1) { tmpl(x, y1) } \
@@ -140,6 +191,8 @@ spritegroup name ##_group { \
     loaded: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
     loading: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
 }
+
+
 #define SPRITEGROUP_3STAGES_NOLOADING_32BPP(name, model_empty, model_12, model_22, file_empty, file_1, file_2, tmpl, x1, y1, x2, y2, x3, y3) \
 spriteset(name ##_empty_set, file_empty) { tmpl(x1, y1) } \
 alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
@@ -199,6 +252,8 @@ switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
     0x21: name ##_group_gui; \
     name ##_group; \
 }
+
+
 #define SPRITEGROUP_1STAGE_LOAD(name, filename, spritetemplate, x, yload, ydrive) \
 spriteset(name ## _open_set, filename) { spritetemplate (x, yload) } \
 spriteset(name ##_closed_set, filename) { spritetemplate (x, ydrive) } \
@@ -206,6 +261,8 @@ spritegroup name ## _group { \
 	loaded: name ## _closed_set; \
 	loading: name ## _open_set; \
 }
+
+
 #define WAGON_YEARSWITCH_2STAGE(year_for_modern, name) \
 spritegroup name ## _early_group { \
 	loaded: [ name ## _early_empty_set, name ## _early_full_set]; \
@@ -219,6 +276,8 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
     1: name ## _early_group; \
     name ## _modern_group; \
 }
+
+
 #define WAGON_BULK_EARLY_32BPP(name, name_empty, name_full, file, tmpl, x1, y1, x2, y2) \
 spriteset(name ## _early_empty_set, file) { \
 	tmpl(x1, y1) \
@@ -256,6 +315,8 @@ spriteset(name ## _early_full_set_gui, file) { \
 alternative_sprites(name ## _early_full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_short_train_gui_opengfxp32(name_full) \
 }
+
+
 #define WAGON_BULK_MODERN_32BPP(name, name_empty, name_full, file, tmpl, x1, y1, x2, y2) \
 spriteset(name ## _modern_empty_set, file) { \
 	tmpl(x1, y1) \
@@ -293,6 +354,8 @@ spriteset(name ## _modern_full_set_gui, file) { \
 alternative_sprites(name ## _modern_full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_gui_opengfxp32(name_full) \
 }
+
+
 #define WAGON_YEARSWITCH_2STAGE_32BPP(year_for_modern, name) \
 spritegroup name ## _early_group { \
 	loaded: [ name ## _early_empty_set, name ## _early_full_set]; \
@@ -330,6 +393,8 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
     1: name ## _early_switch_gui; \
     name ## _modern_switch_gui; \
 }
+
+
 #define WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(year_for_modern, name) \
 spritegroup name ## _early_group { \
 	loaded: [ name ## _early_empty_set, name ## _early_full_set]; \
@@ -380,6 +445,7 @@ spritegroup name ##_group { \
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); \
         running_cost_base:              RUNNING_COST_STEAM;
 
+
 #define WAGON_PROPERTIES_RAIL_DEFAULT \
         introduction_date:              date(1925,1,1); \
         climates_available:             param_provide_rail ? ALL_CLIMATES : NO_CLIMATE; \
@@ -387,12 +453,14 @@ spritegroup name ##_group { \
         model_life:                     VEHICLE_NEVER_EXPIRES; \
         track_type:                     NORMAL_RAIL10;
 
+
 #define WAGON_PROPERTIES_MONORAIL_DEFAULT \
         introduction_date:              date(1980,1,1); \
         climates_available:             param_provide_monorail ? ALL_CLIMATES : NO_CLIMATE; \
         speed:                          0; \
         model_life:                     VEHICLE_NEVER_EXPIRES; \
         track_type:                     MONORAIL;
+
 
 #define WAGON_PROPERTIES_MAGLEV_DEFAULT \
         introduction_date:              date(2010,1,1); \

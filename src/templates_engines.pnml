@@ -10,15 +10,19 @@
         name ## _switch; \
     }
 
+
 #define ENGINE_GRAPHICS_NOCLIMATE_SWITCH(name) \
 switch (FEAT_TRAINS, SELF, name ## _switch, CLIMATE_PARAM) { \
     name ## _default_group; \
 }
+
+
 #define ENGINE_GRAPHICS_TROPICAL_SWITCH(name) \
 switch (FEAT_TRAINS, SELF, name ## _switch, CLIMATE_PARAM) { \
     CLIMATE_TROPICAL: name ## _tropical_group; \
     name ## _default_group; \
 }
+
 
 #define ENGINE_GRAPHICS_GROUP(name, climate, template, filename) \
 spriteset(name ## _ ## climate ## _set, filename) { template } \
@@ -26,6 +30,7 @@ spritegroup name ## _ ## climate ## _group { \
     loaded: name ## _ ## climate ## _set; \
     loading: name ## _ ## climate ## _set; \
 }
+
 
 #define ENGINE_GRAPHICS_GROUP_32BPP(name, model, climate, filename, template1, x1, y1, template2, x2, y2) \
 spriteset(name ## _ ## climate ## _set, filename) { template1(x1, y1) } \
@@ -70,6 +75,8 @@ switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _indepot_switch, vehicle_is_in
     1: name ## _depot_ ## climate ## _group; \
     name ## _ ## climate ## _switch_gui; \
 }
+
+
 #define ENGINE_TENDER_GRAPHICS_GROUP_32BPP(name, model_train, model_tender, climate, filename1, template1, x1, y1, filename2, template2, x2, y2) \
 spriteset(name ## _ ## climate ## _set, filename1) { template1(x1, y1) } \
 alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \

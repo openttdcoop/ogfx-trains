@@ -9,6 +9,8 @@ STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Piece goods wag
 STR_NAME_FLATBED_WAGON                                          :Flatbed wagon
 STR_NAME_REFRIGERATOR_WAGON                                     :Refrigerator wagon
 
+STR_NAME_TENDER                                                 :Tender
+
 STR_PARAM_ENGINES                                               :Engine climate selection:
 STR_PARAM_ENGINES_DESC                                          :Select which engines you want to add (you could choose another climate or none, if desired. Default will choose the engines which are meant for that climate to appear. 'None' will disable ALL engines.
 STR_PARAM_ENGINES_DEFAULT                                       :Automatic (default)
@@ -52,6 +54,11 @@ STR_PARAM_COST_TIMES64                                          :64x
 STR_PARAM_COST_TIMES128                                         :128x
 STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER                                                :Tenders
+STR_PARAM_TENDER_DESC                                           :Select availability of tenders for steam engines. Note that when made available, you cannot use steam engines in flipped mode (driving backwards)
+STR_PARAM_TENDER_NONE                                           :Use
+STR_PARAM_TENDER_ARTICULATED                                    :Do not use
 
 STR_ERR_ENGINE_POOL                                             :Enable multiple NewGRF engine sets = on
 

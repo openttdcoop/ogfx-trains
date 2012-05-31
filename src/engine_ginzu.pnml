@@ -11,30 +11,40 @@
  * =============================================================================
  */
 
-ENGINE_TENDER_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", "ginzua4_tender", default,
-    "src/gfx/engines/temperate_GinzuA4_88.png", tmpl_engine_88, 0, 0,
-    "src/gfx/engines/temperate_GinzuA4_88.png", tmpl_engine_88, 0, 0)
+ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", default,
+    "src/gfx/engines/temperate_GinzuA4_88.png",
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0
+)
 
+/* This steam engine has a tender. See tender.pnml */
+
+/* Declare the engine and change what needs changing */
 item(FEAT_TRAINS, ginzua4) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
         track_type:                     NORMAL_RAIL;
     }
-    graphics {
-        purchase:                       ginzua4_default_switch_gui;
-        length:                         ginzua4_default_length_switch;
-        articulated_part:               ginzua4_default_articulated_switch;
-        default:                        ginzua4_default_graphics_switch;
-    }
 }
 
+/* We need to define the whole graphics block with all callbacks at once */
+
 if (param_tender != TENDER_NONE) {
+	/* Articulated vehicle with tender */
 	item(FEAT_TRAINS, ginzua4) {
 		graphics {
-                        purchase:           ginzua4_default_switch_gui;
-                        length:             ginzua4_default_length_switch;
-			articulated_part:   ginzua4_default_articulated_switch;
+			default:            ginzua4_default_indepot_switch;
+			articulated_part:   tender_articulated_cb;
+			purchase:           ginzua4_default_switch_gui;
+		}
+	}
+} else {
+	/* Normal engine without tender */
+	item(FEAT_TRAINS, ginzua4) {
+		graphics {
+			default:            ginzua4_default_indepot_switch;
+			purchase:           ginzua4_default_switch_gui;
 		}
 	}
 }

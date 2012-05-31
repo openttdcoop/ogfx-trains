@@ -12,11 +12,49 @@
  */
 
 /*
+ * We can define a special tender for each steam engine
+ * By default the tender of the ginzu will be used
+ */
+
+/* Ginzu */
+SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_ginzua4, "ginzua4_tender", all,
+	"src/gfx/engines/temperate_GinzuA4_88.png",
+	tmpl_engine_88, 0, 0
+)
+
+/* General switch to distinguish between engines */
+switch(FEAT_TRAINS, PARENT, tender_switch, vehicle_type_id) {
+    ginzua4: tender_ginzua4_all_switch_gui;    // graphics defined in engine_ginzu.pnml
+    tender_ginzua4_all_switch_gui;           // graphics defined in engine_ginzu.pnml
+}
+
+/* Declare the vehicle */
+item(FEAT_TRAINS, tender) {
+	property {
+		WAGON_PROPERTIES_DEFAULT
+		WAGON_PROPERTIES_RAIL_DEFAULT
+		name:                           string(STR_NAME_TENDER);
+		climates_available:		        NO_CLIMATE; // articulated only. Not in purchase list
+		cost_factor:                    0;
+		extra_power_per_wagon:          0hp;
+		cargo_capacity:                 0;
+		weight:                         20;
+		length:                         4;
+	}
+	graphics {
+		default:                        tender_switch;
+	}
+}
+
+
+
+/*
  * Switch to be used by all steam engines which use this tender
  */
 
-/* Check whether we attach a tender at all */
-switch(FEAT_TRAINS, SELF, tender_articulated_cb, param_tender) {
+/* We only attach one tender, thus fail for 2nd and consecutive calls */
+switch(FEAT_TRAINS, SELF, tender_articulated_cb, extra_callback_info1) {
+	1: return tender;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
