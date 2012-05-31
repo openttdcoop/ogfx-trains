@@ -19,14 +19,14 @@
 /* OpenGFX+ */
 /* Define the 32bpp sprite template */
 template template_train_opengfxp32(z, m, g) {
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
 }
 
 /* OpenGFX+ */
@@ -34,24 +34,24 @@ template template_train_opengfxp32(z, m, g) {
 template template_train_gui_opengfxp32(m) {
     []
     []
-    [0, 0, 45, 31, -27, -18, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
+    [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
     []
     []
     []
-    [0, 0, 45, 31, -27, -18, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
+    [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
     []
 }
 
 /* Define the 32bpp short sprite template */
 template template_short_train_opengfxp32(z, m, g) {
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-17 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-7  * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-6  * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-11 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-22 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-23 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
 }
 
 /* OpenGFX+ */
@@ -59,10 +59,10 @@ template template_short_train_opengfxp32(z, m, g) {
 template template_short_train_gui_opengfxp32(m) {
     []
     []
-    [0, 0, 45, 31, -27, -18, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
+    [12, 0, 24, 31, -23, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
     []
     []
     []
-    [0, 0, 45, 31, -27, -18, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
+    [12, 0, 24, 31, -23, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
     []
 }

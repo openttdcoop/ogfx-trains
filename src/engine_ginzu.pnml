@@ -11,10 +11,9 @@
  * =============================================================================
  */
 
-ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", default,
-    "src/gfx/engines/temperate_GinzuA4_88.png",
-    tmpl_engine_88, 0, 0,
-    tmpl_engine_88, 0, 0)
+ENGINE_TENDER_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", "ginzua4_tender", default,
+    "src/gfx/engines/temperate_GinzuA4_88.png", tmpl_engine_88, 0, 0,
+    "src/gfx/engines/temperate_GinzuA4_88.png", tmpl_engine_88, 0, 0)
 
 item(FEAT_TRAINS, ginzua4) {
     property {
@@ -23,14 +22,19 @@ item(FEAT_TRAINS, ginzua4) {
         track_type:                     NORMAL_RAIL;
     }
     graphics {
-        default: ginzua4_default_indepot_switch;
+        purchase:                       ginzua4_default_switch_gui;
+        length:                         ginzua4_default_length_switch;
+        articulated_part:               ginzua4_default_articulated_switch;
+        default:                        ginzua4_default_graphics_switch;
     }
 }
 
 if (param_tender != TENDER_NONE) {
 	item(FEAT_TRAINS, ginzua4) {
 		graphics {
-			articulated_part: tender_articulated_cb;
+                        purchase:           ginzua4_default_switch_gui;
+                        length:             ginzua4_default_length_switch;
+			articulated_part:   ginzua4_default_articulated_switch;
 		}
 	}
 }

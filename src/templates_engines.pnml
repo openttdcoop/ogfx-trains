@@ -70,3 +70,76 @@ switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _indepot_switch, vehicle_is_in
     1: name ## _depot_ ## climate ## _group; \
     name ## _ ## climate ## _switch_gui; \
 }
+#define ENGINE_TENDER_GRAPHICS_GROUP_32BPP(name, model_train, model_tender, climate, filename1, template1, x1, y1, filename2, template2, x2, y2) \
+spriteset(name ## _ ## climate ## _set, filename1) { template1(x1, y1) } \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_train, "1") \
+} \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_train, "2") \
+} \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_train, "4") \
+} \
+spritegroup name ## _ ## climate ## _group { \
+    loaded: name ## _ ## climate ## _set; \
+    loading: name ## _ ## climate ## _set; \
+} \
+spriteset(name ## _ ## climate ## _set_gui, filename1) { template1(x1, y1) } \
+alternative_sprites(name ## _ ## climate ## _set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_train) \
+} \
+spritegroup name ## _ ## climate ## _group_gui { \
+    loaded: name ## _ ## climate ## _set_gui; \
+    loading: name ## _ ## climate ## _set_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## climate ## _group_gui; \
+    0x11: name ## _ ## climate ## _group_gui; \
+    0x12: name ## _ ## climate ## _group_gui; \
+    0x20: name ## _ ## climate ## _group_gui; \
+    0x21: name ## _ ## climate ## _group_gui; \
+    name ## _ ## climate ## _group; \
+} \
+spriteset(name ## _tender_ ## climate ## _set, filename2) { template2(x1, y1) } \
+alternative_sprites(name ## _tender_ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(1, model_tender, "1") \
+} \
+alternative_sprites(name ## _tender_ ## climate ## _set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(2, model_tender, "2") \
+} \
+alternative_sprites(name ## _tender_ ## climate ## _set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(4, model_tender, "4") \
+} \
+spritegroup name ## _tender_ ## climate ## _group { \
+    loaded: name ## _tender_ ## climate ## _set; \
+    loading: name ## _tender_ ## climate ## _set; \
+} \
+spriteset(name ## _tender_ ## climate ## _set_gui, filename2) { template2(x1, y1) } \
+alternative_sprites(name ## _tender_ ## climate ## _set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_short_train_gui_opengfxp32(model_tender) \
+} \
+spritegroup name ## _tender_ ## climate ## _group_gui { \
+    loaded: name ## _tender_ ## climate ## _set_gui; \
+    loading: name ## _tender_ ## climate ## _set_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _tender_ ## climate ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _tender_ ## climate ## _group_gui; \
+    0x11: name ## _tender_ ## climate ## _group_gui; \
+    0x12: name ## _tender_ ## climate ## _group_gui; \
+    0x20: name ## _tender_ ## climate ## _group_gui; \
+    0x21: name ## _tender_ ## climate ## _group_gui; \
+    name ## _tender_ ## climate ## _group; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _graphics_switch, position_in_consist ) { \
+    1: name ## _tender_ ## climate ## _switch_gui; \
+    name ## _ ## climate ## _switch_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _length_switch, position_in_consist) { \
+    1: return 4; \
+    return 8; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _articulated_switch, extra_callback_info1) { \
+    1: return name; \
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; \
+}
