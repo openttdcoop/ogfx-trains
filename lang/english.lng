@@ -9,6 +9,8 @@ STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Piece goods wag
 STR_NAME_FLATBED_WAGON                                          :Flatbed wagon
 STR_NAME_REFRIGERATOR_WAGON                                     :Refrigerator wagon
 
+STR_NAME_TENDER                                                 :Tender
+
 STR_PARAM_ENGINES                                               :Engine climate selection:
 STR_PARAM_ENGINES_DESC                                          :Select which engines you want to add (you could choose another climate or none, if desired. Default will choose the engines which are meant for that climate to appear. 'None' will disable ALL engines.
 STR_PARAM_ENGINES_DEFAULT                                       :Automatic (default)

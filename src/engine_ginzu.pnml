@@ -17,6 +17,9 @@ ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", default,
     tmpl_engine_88, 0, 0
 )
 
+/* This steam engine has a tender. See tender.pnml */
+
+/* Declare the engine and change what needs changing */
 item(FEAT_TRAINS, ginzua4) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
