@@ -2,14 +2,15 @@
 
 #**************************************************************************
 # Animate a blender file from the command line
-# Version 2
-# 2012-04-23
+# Version 3
+# 2012-06-01
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
 #**************************************************************************
 
 BLENDS="$PWD/sprite_source/blender/"
+SPRITES=8
 # If you want more or less information then set VERBOSE to one of the following:
 # 0 - quiet, 1 - moderate, 2 - noisy, 3 - max
 # Do not change the values of V_XXXX, just set VERBOSE to the one you want
@@ -237,37 +238,44 @@ func_concat_path $LINENO DST $BLENDS $1 $E_DST
 # Check rendered model directory exists
 func_chkdir $LINENO $DST "DST directory does not exist:$DST" $E_DST
 # Get URI of sub-directory
-func_concat_path $LINENO DST8NS $DST "8bpp_no_shadow"
-# Delete rendered model directory contents
-func_remove $LINENO $DST8NS $E_RM_DST
-# Create rendered model directory
-func_mkdir $LINENO $DST8NS $E_MK_DST
-func_chkdir $LINENO $DST8NS "DST8NS directory does not exist:$DST8NS"
-# Get URI of sub-directory
 func_concat_path $LINENO DST1CC $DST "1cc_mask"
-# Delete rendered model directory contents
-func_remove $LINENO $DST1CC $E_RM_DST
+# Get URI of sub-directory
+func_concat_path $LINENO DST2CC $DST "2cc_mask"
+# Get URI of sub-directory
+func_concat_path $LINENO DST32S $DST "32bpp_shadow"
+# Get URI of sub-directory
+func_concat_path $LINENO DST32NS $DST "32bpp_no_shadow"
+
+# Do a check to see if rendering is required of the model or view
+for ((COUNT=1; COUNT<=$SPRITES; COUNT++))
+do
+    if [ -e "$DST/raw_000$COUNT.exr" ]; then
+        if [ ! -e "$DST1CC/000$COUNT.png" -o ! -e "$DST2CC/000$COUNT.png" -o ! -e "$DST32S/000$COUNT.png" -o ! -e "$DST32NS/000$COUNT.png" ]; then
+            # Delete the exr and any assosiated png so that it will be rendered again
+            func_remove $LINENO "$DST/raw_000$COUNT.exr" $E_RM_DST
+            func_remove $LINENO "$DST1CC/000$COUNT.png" $E_RM_DST
+            func_remove $LINENO "$DST2CC/000$COUNT.png" $E_RM_DST
+            func_remove $LINENO "$DST32S/000$COUNT.png" $E_RM_DST
+            func_remove $LINENO "$DST32NS/000$COUNT.png" $E_RM_DST
+        fi
+    else
+        # Delete any assosiated png
+        func_remove $LINENO "$DST1CC/000$COUNT.png" $E_RM_DST
+        func_remove $LINENO "$DST2CC/000$COUNT.png" $E_RM_DST
+        func_remove $LINENO "$DST32S/000$COUNT.png" $E_RM_DST
+        func_remove $LINENO "$DST32NS/000$COUNT.png" $E_RM_DST
+    fi
+done
+
 # Create rendered model directory
 func_mkdir $LINENO $DST1CC $E_MK_DST
 func_chkdir $LINENO $DST1CC "DST1CC directory does not exist:$DST1CC"
-# Get URI of sub-directory
-func_concat_path $LINENO DST2CC $DST "2cc_mask"
-# Delete rendered model directory contents
-func_remove $LINENO $DST2CC $E_RM_DST
 # Create rendered model directory
 func_mkdir $LINENO $DST2CC $E_MK_DST
 func_chkdir $LINENO $DST2CC "DST2CC directory does not exist:$DST2CC"
-# Get URI of sub-directory
-func_concat_path $LINENO DST32S $DST "32bpp_shadow"
-# Delete rendered model directory contents
-func_remove $LINENO $DST32S $E_RM_DST
 # Create rendered model directory
 func_mkdir $LINENO $DST32S $E_MK_DST
 func_chkdir $LINENO $DST32S "DST32S directory does not exist:$DST32S"
-# Get URI of sub-directory
-func_concat_path $LINENO DST32NS $DST "32bpp_no_shadow"
-# Delete rendered model directory contents
-func_remove $LINENO $DST32NS $E_RM_DST
 # Create rendered model directory
 func_mkdir $LINENO $DST32NS $E_MK_DST
 func_chkdir $LINENO $DST32NS "DST8NS directory does not exist:$DST32NS"
