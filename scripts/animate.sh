@@ -285,3 +285,4 @@ blender -nojoystick -noaudio -b $BLENDFILE -a
 
 # Cleanup any temp files
 func_remove $LINENO "/tmp/$1.blend_Scene.exr" $E_RM_DST
+
