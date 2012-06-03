@@ -8,13 +8,39 @@
 /*
  * =============================================================================
  * Generic Blender Model Templates
- * Version 1
- * 2012-04-16
+ * Version 2
+ * 2012-05-31
  * Xotic750
  * This release may be used under the terms of the license: GPLv2
  * http://www.gnu.org/licenses/gpl-2.0.html
  * =============================================================================
  */
+
+/* OpenGFX+ */
+/* Define the 8bpp sprite template */
+template template_train_opengfxp8(z, m, g) {
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0001_in" + g + "x.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0002_in" + g + "x.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0003_in" + g + "x.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0004_in" + g + "x.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0005_in" + g + "x.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0006_in" + g + "x.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0007_in" + g + "x.png")]
+    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0008_in" + g + "x.png")]
+}
+
+/* OpenGFX+ */
+/* Define the gui sprite template for the 8bpp GUI menus */
+template template_train_gui_opengfxp8(m) {
+    []
+    []
+    [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0003_8_in1x.png")]
+    []
+    []
+    []
+    [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_8_in1x.png")]
+    []
+}
 
 /* OpenGFX+ */
 /* Define the 32bpp sprite template */
@@ -30,7 +56,7 @@ template template_train_opengfxp32(z, m, g) {
 }
 
 /* OpenGFX+ */
-/* Define the gui sprite template for the GUI menus */
+/* Define the gui sprite template for the 32bpp GUI menus */
 template template_train_gui_opengfxp32(m) {
     []
     []
@@ -39,6 +65,31 @@ template template_train_gui_opengfxp32(m) {
     []
     []
     [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
+    []
+}
+
+/* Define the 8bpp short sprite template */
+template template_short_train_opengfxp8(z, m, g) {
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-17 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0001_in" + g + "x.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0002_in" + g + "x.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-7  * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0003_in" + g + "x.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-6  * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0004_in" + g + "x.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-11 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0005_in" + g + "x.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-22 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0006_in" + g + "x.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-23 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0007_in" + g + "x.png")]
+    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0008_in" + g + "x.png")]
+}
+
+/* OpenGFX+ */
+/* Define the short gui sprite template for the 8bpp GUI menus */
+template template_short_train_gui_opengfxp8(m) {
+    []
+    []
+    [12, 0, 24, 31, -23, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0003_8_in1x.png")]
+    []
+    []
+    []
+    [12, 0, 24, 31, -23, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_8_in1x.png")]
     []
 }
 
@@ -55,7 +106,7 @@ template template_short_train_opengfxp32(z, m, g) {
 }
 
 /* OpenGFX+ */
-/* Define the short gui sprite template for the GUI menus */
+/* Define the short gui sprite template for the 32bpp GUI menus */
 template template_short_train_gui_opengfxp32(m) {
     []
     []

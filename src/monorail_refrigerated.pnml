@@ -15,13 +15,13 @@
 
 #define THIS_ID(...) monorail_refrigerate_wagon ## __VA_ARGS__
 
-MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_temperate, "mono_refrigerated", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_temperate, "mono_refrigerated_loading", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_arctic, "mono_refrigerated", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_arctic, "mono_refrigerated_loading", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_tropic, "mono_refrigerated", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_tropic, "mono_refrigerated_loading", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_toyland, "mono_refrigerated", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_toyland, "mono_refrigerated_loading", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
 
 switch (FEAT_TRAINS, SELF, monorail_refrigerate_wagon_climate_switch, climate) {
     CLIMATE_TROPICAL: monorail_refrigerate_wagon_tropic_switch_gui;

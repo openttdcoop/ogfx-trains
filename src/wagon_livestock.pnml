@@ -15,13 +15,13 @@
 
 #define THIS_ID(...) livestock_wagon ## __VA_ARGS__
 
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_temperate, "livestock", "livestock", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(livestock_wagon_temperate, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_arctic, "livestock", "livestock", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(livestock_wagon_arctic, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_tropic, "livestock", "livestock", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(livestock_wagon_tropic, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_toyland, "livestock", "livestock", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(livestock_wagon_toyland, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
 
 switch (FEAT_TRAINS, SELF, livestock_wagon_climate_switch, climate) {
     CLIMATE_TROPICAL: livestock_wagon_tropic_switch_gui;

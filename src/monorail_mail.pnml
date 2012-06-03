@@ -13,13 +13,13 @@
 
 #define THIS_ID(...) monorail_mail_wagon ## __VA_ARGS__
 
-MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_temperate, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_temperate, "mono_mail", "mono_mail_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_arctic, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_arctic, "mono_mail", "mono_mail_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_tropic, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_tropic, "mono_mail", "mono_mail_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_toyland, "mono_mail", "mono_mail", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_toyland, "mono_mail", "mono_mail_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 20, 0, 20) // 8 views needed for 32bpp
 
 switch (FEAT_TRAINS, SELF, monorail_mail_wagon_climate_switch, climate) {
     CLIMATE_TROPICAL: monorail_mail_wagon_tropic_switch_gui;
