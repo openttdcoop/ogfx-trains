@@ -278,147 +278,81 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
 }
 
 
-#define WAGON_BULK_EARLY_32BPP(name, name_empty, name_full, file, tmpl, x1, y1, x2, y2) \
-spriteset(name ## _early_empty_set, file) { \
+#define WAGON_BULK_32BPP(name, type, name_empty, name_full, file, tmpl, x1, y1, x2, y2) \
+spriteset(name ## _ ## type ## _empty_set, file) { \
 	tmpl(x1, y1) \
 } \
-alternative_sprites(name ## _early_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(1, name_empty, "1") \
-} \
-alternative_sprites(name ## _early_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(2, name_empty, "2") \
-} \
-alternative_sprites(name ## _early_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(4, name_empty, "4") \
-} \
-spriteset(name ## _early_empty_set_gui, file) { \
-	tmpl(x1, y1) \
-} \
-alternative_sprites(name ## _early_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_short_train_gui_opengfxp32(name_empty) \
-} \
-spriteset(name ## _early_full_set, file) { \
-	tmpl(x1, y1) \
-} \
-alternative_sprites(name ## _early_full_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(1, name_full, "1") \
-} \
-alternative_sprites(name ## _early_full_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(2, name_full, "2") \
-} \
-alternative_sprites(name ## _early_full_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(4, name_full, "4") \
-} \
-spriteset(name ## _early_full_set_gui, file) { \
-	tmpl(x1, y1) \
-} \
-alternative_sprites(name ## _early_full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_short_train_gui_opengfxp32(name_full) \
-}
-
-
-#define WAGON_BULK_MODERN_32BPP(name, name_empty, name_full, file, tmpl, x1, y1, x2, y2) \
-spriteset(name ## _modern_empty_set, file) { \
-	tmpl(x1, y1) \
-} \
-alternative_sprites(name ## _modern_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+alternative_sprites(name ## _ ## type ## _empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_opengfxp32(1, name_empty, "1") \
 } \
-alternative_sprites(name ## _modern_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+alternative_sprites(name ## _ ## type ## _empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
     template_train_opengfxp32(2, name_empty, "2") \
 } \
-alternative_sprites(name ## _modern_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+alternative_sprites(name ## _ ## type ## _empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
     template_train_opengfxp32(4, name_empty, "4") \
 } \
-spriteset(name ## _modern_empty_set_gui, file) { \
+spriteset(name ## _ ## type ## _empty_set_gui, file) { \
 	tmpl(x1, y1) \
 } \
-alternative_sprites(name ## _modern_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+alternative_sprites(name ## _ ## type ## _empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_gui_opengfxp32(name_empty) \
 } \
-spriteset(name ## _modern_full_set, file) { \
+spriteset(name ## _ ## type ## _full_set, file) { \
 	tmpl(x1, y1) \
 } \
-alternative_sprites(name ## _modern_full_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+alternative_sprites(name ## _ ## type ## _full_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_opengfxp32(1, name_full, "1") \
 } \
-alternative_sprites(name ## _modern_full_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+alternative_sprites(name ## _ ## type ## _full_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
     template_train_opengfxp32(2, name_full, "2") \
 } \
-alternative_sprites(name ## _modern_full_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+alternative_sprites(name ## _ ## type ## _full_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
     template_train_opengfxp32(4, name_full, "4") \
 } \
-spriteset(name ## _modern_full_set_gui, file) { \
+spriteset(name ## _ ## type ## _full_set_gui, file) { \
 	tmpl(x1, y1) \
 } \
-alternative_sprites(name ## _modern_full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+alternative_sprites(name ## _ ## type ## _full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
     template_train_gui_opengfxp32(name_full) \
 }
 
 
-#define WAGON_YEARSWITCH_2STAGE_32BPP(year_for_modern, name) \
-spritegroup name ## _early_group { \
-	loaded: [ name ## _early_empty_set, name ## _early_full_set]; \
-	loading: [ name ## _early_empty_set, name ## _early_full_set]; \
+#define WAGON_YEARSWITCH_2STAGE_32BPP(year_for_modern, name, type1, type2) \
+spritegroup name ## _ ## type1 ## _group { \
+	loaded: [ name ## _ ## type1 ## _empty_set, name ## _ ## type1 ## _full_set]; \
+	loading: [ name ## _ ## type1 ## _empty_set, name ## _ ## type1 ## _full_set]; \
 } \
-spritegroup name ## _early_group_gui { \
-	loaded: [ name ## _early_empty_set_gui, name ## _early_full_set_gui]; \
-	loading: [ name ## _early_empty_set_gui, name ## _early_full_set_gui]; \
+spritegroup name ## _ ## type1 ## _group_gui { \
+	loaded: [ name ## _ ## type1 ## _empty_set_gui, name ## _ ## type1 ## _full_set_gui]; \
+	loading: [ name ## _ ## type1 ## _empty_set_gui, name ## _ ## type1 ## _full_set_gui]; \
 } \
-spritegroup name ## _modern_group { \
-	loaded: [ name ## _modern_empty_set, name ## _modern_full_set]; \
-	loading: [ name ## _modern_empty_set, name ## _modern_full_set]; \
+spritegroup name ## _ ## type2 ## _group { \
+	loaded: [ name ## _ ## type2 ## _empty_set, name ## _ ## type2 ## _full_set]; \
+	loading: [ name ## _ ## type2 ## _empty_set, name ## _ ## type2 ## _full_set]; \
 } \
-spritegroup name ## _modern_group_gui { \
-	loaded: [ name ## _modern_empty_set_gui, name ## _modern_full_set_gui]; \
-	loading: [ name ## _modern_empty_set_gui, name ## _modern_full_set_gui]; \
+spritegroup name ## _ ## type2 ## _group_gui { \
+	loaded: [ name ## _ ## type2 ## _empty_set_gui, name ## _ ## type2 ## _full_set_gui]; \
+	loading: [ name ## _ ## type2 ## _empty_set_gui, name ## _ ## type2 ## _full_set_gui]; \
 } \
-switch(FEAT_TRAINS, SELF, name ## _early_switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _early_group_gui; \
-    0x11: name ## _early_group_gui; \
-    0x12: name ## _early_group_gui; \
-    0x20: name ## _early_group_gui; \
-    0x21: name ## _early_group_gui; \
-    name ## _early_group; \
+switch(FEAT_TRAINS, SELF, name ## _ ## type1 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## type1 ## _group_gui; \
+    0x11: name ## _ ## type1 ## _group_gui; \
+    0x12: name ## _ ## type1 ## _group_gui; \
+    0x20: name ## _ ## type1 ## _group_gui; \
+    0x21: name ## _ ## type1 ## _group_gui; \
+    name ## _ ## type1 ## _group; \
 } \
-switch(FEAT_TRAINS, SELF, name ## _modern_switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _modern_group_gui; \
-    0x11: name ## _modern_group_gui; \
-    0x12: name ## _modern_group_gui; \
-    0x20: name ## _modern_group_gui; \
-    0x21: name ## _modern_group_gui; \
-    name ## _modern_group; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
-    1: name ## _early_switch_gui; \
-    name ## _modern_switch_gui; \
-}
-
-
-#define WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(year_for_modern, name) \
-spritegroup name ## _early_group { \
-	loaded: [ name ## _early_empty_set, name ## _early_full_set]; \
-	loading: [ name ## _early_empty_set, name ## _early_full_set]; \
-} \
-spritegroup name ## _modern_group { \
-	loaded: [ name ## _modern_empty_set, name ## _modern_full_set]; \
-	loading: [ name ## _modern_empty_set, name ## _modern_full_set]; \
-} \
-spritegroup name ## _modern_group_gui { \
-	loaded: [ name ## _modern_empty_set_gui, name ## _modern_full_set_gui]; \
-	loading: [ name ## _modern_empty_set_gui, name ## _modern_full_set_gui]; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _modern_switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _modern_group_gui; \
-    0x11: name ## _modern_group_gui; \
-    0x12: name ## _modern_group_gui; \
-    0x20: name ## _modern_group_gui; \
-    0x21: name ## _modern_group_gui; \
-    name ## _modern_group; \
+switch(FEAT_TRAINS, SELF, name ## _ ## type2 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## type2 ## _group_gui; \
+    0x11: name ## _ ## type2 ## _group_gui; \
+    0x12: name ## _ ## type2 ## _group_gui; \
+    0x20: name ## _ ## type2 ## _group_gui; \
+    0x21: name ## _ ## type2 ## _group_gui; \
+    name ## _ ## type2 ## _group; \
 } \
 switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
-    1: name ## _early_group; \
-    name ## _modern_switch_gui; \
+    1: name ## _ ## type1 ## _switch_gui; \
+    name ## _ ## type2 ## _switch_gui; \
 }
 
 

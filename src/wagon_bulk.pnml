@@ -21,34 +21,29 @@
 #define THIS_ID(...) bulk_wagon ## __VA_ARGS__
 
 // AORE
-spriteset(bulk_wagon_bauxite_early_empty_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_bauxite_early_full_set, "src/gfx/bulk/rail_bauxite_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_bauxite, "bulk", "bulk_bauxite", "src/gfx/bulk/rail_bauxite_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_bauxite)
+WAGON_BULK_32BPP(bulk_wagon_bauxite, early, "bulk_early", "bulk_bauxite_early", "src/gfx/bulk/rail_bauxite_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_bauxite, modern, "bulk", "bulk_bauxite", "src/gfx/bulk/rail_bauxite_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_bauxite, early, modern)
 
 // CERE, GRAI, MAIZ, WHEA
-spriteset(bulk_wagon_grain_early_empty_set, "src/gfx/bulk/rail_grain_temperate.png") { tmpl_railwagon(0, 6) }
-spriteset(bulk_wagon_grain_early_full_set, "src/gfx/bulk/rail_grain_temperate.png") { tmpl_railwagon(126, 6) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_grain, "bulk", "bulk_grain", "src/gfx/bulk/rail_grain_temperate.png", tmpl_railwagon42, 0, 38, 126, 38)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_grain)
+WAGON_BULK_32BPP(bulk_wagon_grain, early, "bulk_early", "bulk_grain_early", "src/gfx/bulk/rail_grain_temperate.png", tmpl_railwagon42, 0, 6, 126, 6)
+WAGON_BULK_32BPP(bulk_wagon_grain, modern, "bulk", "bulk_grain", "src/gfx/bulk/rail_grain_temperate.png", tmpl_railwagon42, 0, 38, 126, 38)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_grain, early, modern)
 
 // CLAY
-spriteset(bulk_wagon_clay_early_empty_set, "src/gfx/bulk/rail_clay_temperate.png") { tmpl_railwagon(0, 4) }
-spriteset(bulk_wagon_clay_early_full_set, "src/gfx/bulk/rail_clay_temperate.png") { tmpl_railwagon(126, 4) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_clay, "bulk", "bulk_clay", "src/gfx/bulk/rail_clay_temperate.png", tmpl_railwagon42, 0, 36, 126, 36)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_clay)
+WAGON_BULK_32BPP(bulk_wagon_clay, early, "bulk_early", "bulk_clay_early", "src/gfx/bulk/rail_clay_temperate.png", tmpl_railwagon42, 0, 4, 126, 4)
+WAGON_BULK_32BPP(bulk_wagon_clay, modern, "bulk", "bulk_clay", "src/gfx/bulk/rail_clay_temperate.png", tmpl_railwagon42, 0, 36, 126, 36)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_clay, early, modern)
 
 // COAL
-spriteset(bulk_wagon_coal_early_empty_set, "src/gfx/bulk/rail_coal_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_coal_early_full_set, "src/gfx/bulk/rail_coal_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_coal, "bulk", "bulk_coal", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_coal)
+WAGON_BULK_32BPP(bulk_wagon_coal, early, "bulk_early", "bulk_coal_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_coal, modern, "bulk", "bulk_coal", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_coal, early, modern)
 
 // CORE
-spriteset(bulk_wagon_copper_early_empty_set, "src/gfx/bulk/rail_copper_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_copper_early_full_set, "src/gfx/bulk/rail_copper_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_copper, "bulk", "bulk_copper_ore", "src/gfx/bulk/rail_copper_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_copper)
+WAGON_BULK_32BPP(bulk_wagon_copper, early, "bulk_early", "bulk_copper_ore_early", "src/gfx/bulk/rail_copper_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_copper, modern, "bulk", "bulk_copper_ore", "src/gfx/bulk/rail_copper_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_copper, early, modern)
 
 // CTCD
 spriteset(bulk_wagon_cottoncandy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,140) }
@@ -61,46 +56,40 @@ spritegroup bulk_wagon_cottoncandy_group {
 // FERT: see GRVL
 
 // FRUT, FRVG
-spriteset(bulk_wagon_fruits_early_empty_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_fruits_early_full_set, "src/gfx/bulk/rail_fruits_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_fruits, "bulk", "bulk_fruit_veg", "src/gfx/bulk/rail_fruits_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_fruits)
+WAGON_BULK_32BPP(bulk_wagon_fruits, early, "bulk_early", "bulk_fruit_veg_early", "src/gfx/bulk/rail_fruits_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_fruits, modern, "bulk", "bulk_fruit_veg", "src/gfx/bulk/rail_fruits_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_fruits, early, modern)
 
 // FRVG: see FRUT
 
 // GRAI: see CERE
 
 // GRVL, FERT
-spriteset(bulk_wagon_gravel_early_empty_set, "src/gfx/bulk/rail_gravel_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_gravel_early_full_set, "src/gfx/bulk/rail_gravel_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_gravel, "bulk", "bulk_gravel", "src/gfx/bulk/rail_gravel_temperate.png", tmpl_railwagon42, 0, 31, 126, 31)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_gravel)
+WAGON_BULK_32BPP(bulk_wagon_gravel, early, "bulk_early", "bulk_gravel_early", "src/gfx/bulk/rail_gravel_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_gravel, modern, "bulk", "bulk_gravel", "src/gfx/bulk/rail_gravel_temperate.png", tmpl_railwagon42, 0, 31, 126, 31)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_gravel, early, modern)
 
 // IORE
-spriteset(bulk_wagon_ironore_early_empty_set, "src/gfx/bulk/rail_ironore_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_ironore_early_full_set, "src/gfx/bulk/rail_ironore_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_ironore, "bulk", "bulk_iron_ore", "src/gfx/bulk/rail_ironore_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_ironore)
+WAGON_BULK_32BPP(bulk_wagon_ironore, early, "bulk_early", "bulk_iron_ore_early", "src/gfx/bulk/rail_ironore_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_ironore, modern, "bulk", "bulk_iron_ore", "src/gfx/bulk/rail_ironore_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_ironore, early, modern)
 
 // MAIZ: see CERE
 
 // RSGR (and SGCN, SGBT)
-spriteset(bulk_wagon_rawsugar_early_empty_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0, 500) }
-spriteset(bulk_wagon_rawsugar_early_full_set, "src/gfx/tropic_railwagons.png") { tmpl_railwagon(0, 525) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_rawsugar, "bulk", "bulk_sugar_beet", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 500, 0, 525)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_rawsugar)
+WAGON_BULK_32BPP(bulk_wagon_rawsugar, early, "bulk_early", "bulk_sugar_beet_early", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 500, 0, 525)
+WAGON_BULK_32BPP(bulk_wagon_rawsugar, modern, "bulk", "bulk_sugar_beet", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 500, 0, 525)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_rawsugar, early, modern)
 
 // SAND, SULP
-spriteset(bulk_wagon_sand_early_empty_set, "src/gfx/bulk/rail_sand_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_sand_early_full_set, "src/gfx/bulk/rail_sand_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_sand, "bulk", "bulk_sand", "src/gfx/bulk/rail_sand_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_sand)
+WAGON_BULK_32BPP(bulk_wagon_sand, early, "bulk_early", "bulk_sand_early", "src/gfx/bulk/rail_sand_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_sand, modern, "bulk", "bulk_sand", "src/gfx/bulk/rail_sand_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_sand, early, modern)
 
 // SCRP
-spriteset(bulk_wagon_scrapmetal_early_empty_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_scrapmetal_early_full_set, "src/gfx/bulk/rail_scrapmetal_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_scrapmetal, "bulk", "bulk_scrap_metal", "src/gfx/bulk/rail_scrapmetal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_scrapmetal)
+WAGON_BULK_32BPP(bulk_wagon_scrapmetal, early, "bulk_early", "bulk_scrap_metal_early", "src/gfx/bulk/rail_scrapmetal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_scrapmetal, modern, "bulk", "bulk_scrap_metal", "src/gfx/bulk/rail_scrapmetal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_scrapmetal, early, modern)
 
 // SUGR
 spriteset(bulk_wagon_sugar_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,100) }
@@ -123,16 +112,14 @@ spritegroup bulk_wagon_toffee_group {
 // WHEA: see CERE
 
 // WDPR
-spriteset(bulk_wagon_woodproducts_early_empty_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_woodproducts_early_full_set, "src/gfx/bulk/rail_woodproducts_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_woodproducts, "bulk", "bulk_woodproducts", "src/gfx/bulk/rail_woodproducts_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_woodproducts)
+WAGON_BULK_32BPP(bulk_wagon_woodproducts, early, "bulk_early", "bulk_woodproducts_early", "src/gfx/bulk/rail_woodproducts_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_woodproducts, modern, "bulk", "bulk_woodproducts", "src/gfx/bulk/rail_woodproducts_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_woodproducts, early, modern)
 
 // RUBR
-spriteset(bulk_wagon_rubber_early_empty_set, "src/gfx/bulk/rail_coal_temperate.png") { tmpl_railwagon(0, 0) }
-spriteset(bulk_wagon_rubber_early_full_set, "src/gfx/bulk/rail_coal_temperate.png") { tmpl_railwagon(126, 0) }
-WAGON_BULK_MODERN_32BPP(bulk_wagon_rubber, "bulk", "bulk_coal", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP_TEMP(rail_modern_year, bulk_wagon_rubber)
+WAGON_BULK_32BPP(bulk_wagon_rubber, early, "bulk_early", "bulk_coal_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_rubber, modern, "bulk", "bulk_coal", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_rubber, early, modern)
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     AORE: bulk_wagon_bauxite_year_switch;
