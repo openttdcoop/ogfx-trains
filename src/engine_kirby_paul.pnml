@@ -20,11 +20,3 @@ item(FEAT_TRAINS, kirbypaul) {
 		default: kirbypaul_switch;
 	}
 }
-
-if (param_tender != TENDER_NONE) {
-	item(FEAT_TRAINS, kirbypaul) {
-		graphics {
-			articulated_part: tender_articulated_cb;
-		}
-	}
-}
