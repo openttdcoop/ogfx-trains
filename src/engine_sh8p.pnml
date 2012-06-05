@@ -9,22 +9,37 @@
  * SH 8P steam engine
  */
 
-ENGINE_GRAPHICS_GROUP(sh8p, default, tmpl_engine_88(0, 0),  "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(sh8p)
+ENGINE_GRAPHICS_GROUP_32BPP(sh8p, "sh8p", default,
+    "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0
+)
+
 item(FEAT_TRAINS, sh8p) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
-	}
-	graphics {
-		default: sh8p_switch;
-	}
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        track_type:                     NORMAL_RAIL;
+    }
 }
 
+/* We need to define the whole graphics block with all callbacks at once */
+
 if (param_tender != TENDER_NONE) {
+	/* Articulated vehicle with tender */
 	item(FEAT_TRAINS, sh8p) {
 		graphics {
-			articulated_part: tender_articulated_cb;
+			default:            sh8p_default_indepot_switch;
+			articulated_part:   tender_articulated_cb;
+			purchase:           sh8p_default_switch_gui;
+		}
+	}
+} else {
+	/* Normal engine without tender */
+	item(FEAT_TRAINS, sh8p) {
+		graphics {
+			default:            sh8p_default_indepot_switch;
+			purchase:           sh8p_default_switch_gui;
 		}
 	}
 }
