@@ -23,6 +23,15 @@ switch (FEAT_TRAINS, SELF, name ## _switch, CLIMATE_PARAM) { \
     name ## _default_group; \
 }
 
+#define ENGINE_GRAPHICS_TROPICAL_SWITCH_32BPP(name) \
+switch (FEAT_TRAINS, SELF, name ## _indepot_switch, CLIMATE_PARAM) { \
+    CLIMATE_TROPICAL: name ## _tropical_indepot_switch; \
+    name ## _default_indepot_switch; \
+} \
+switch (FEAT_TRAINS, SELF, name ## _switch_gui, CLIMATE_PARAM) { \
+    CLIMATE_TROPICAL: name ## _tropical_switch_gui; \
+    name ## _default_switch_gui; \
+}
 
 #define ENGINE_GRAPHICS_GROUP(name, climate, template, filename) \
 spriteset(name ## _ ## climate ## _set, filename) { template } \
