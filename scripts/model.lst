@@ -178,6 +178,8 @@ bulk_gravel_early
 bulk_scrap_metal_early
 bulk_fruit_veg_early
 bulk_sugar_beet_early
+bulk_sugar
+bulk_candy_floss
 mono_bulk
 mono_bulk_coal
 mono_bulk_iron_ore
@@ -191,5 +193,7 @@ mono_bulk_gravel
 mono_bulk_scrap_metal
 mono_bulk_fruit_veg
 mono_bulk_sugar_beet
+mono_bulk_sugar
+mono_bulk_candy_floss
 short_bulk
 short_bulk_coal
