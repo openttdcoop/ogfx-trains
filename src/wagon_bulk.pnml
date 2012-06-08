@@ -46,12 +46,7 @@ WAGON_BULK_32BPP(bulk_wagon_copper, modern, "bulk", "bulk_copper_ore", "src/gfx/
 WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_copper, early, modern)
 
 // CTCD
-spriteset(bulk_wagon_cottoncandy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,140) }
-spriteset(bulk_wagon_cottoncandy_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,160) }
-spritegroup bulk_wagon_cottoncandy_group {
-	loaded: [bulk_wagon_cottoncandy_empty_set, bulk_wagon_cottoncandy_full_set];
-	loading: [bulk_wagon_cottoncandy_empty_set, bulk_wagon_cottoncandy_full_set];
-}
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(bulk_wagon_cottoncandy, "bulk", "bulk_candy_floss", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 140, 0, 160)
 
 // FERT: see GRVL
 
@@ -92,22 +87,12 @@ WAGON_BULK_32BPP(bulk_wagon_scrapmetal, modern, "bulk", "bulk_scrap_metal", "src
 WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_scrapmetal, early, modern)
 
 // SUGR
-spriteset(bulk_wagon_sugar_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,100) }
-spriteset(bulk_wagon_sugar_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,120) }
-spritegroup bulk_wagon_sugar_group {
-	loaded: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
-	loading: [bulk_wagon_sugar_empty_set, bulk_wagon_sugar_full_set];
-}
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(bulk_wagon_sugar, "bulk", "bulk_sugar", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 100, 0, 120)
 
 // SULP: see SAND
 
 // TOFF
-spriteset(bulk_wagon_toffee_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,180) }
-spriteset(bulk_wagon_toffee_full_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,200) }
-spritegroup bulk_wagon_toffee_group {
-	loaded: [bulk_wagon_toffee_empty_set, bulk_wagon_toffee_full_set];
-	loading: [bulk_wagon_toffee_empty_set, bulk_wagon_toffee_full_set];
-}
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(bulk_wagon_toffee, "bulk", "bulk_toffee", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 180, 0, 200)
 
 // WHEA: see CERE
 
@@ -127,7 +112,7 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     CLAY: bulk_wagon_clay_year_switch;
     COAL: bulk_wagon_coal_year_switch;
     CORE: bulk_wagon_copper_year_switch;
-    CTCD: bulk_wagon_cottoncandy_group;
+    CTCD: bulk_wagon_cottoncandy_switch_gui;
     FERT: bulk_wagon_gravel_year_switch;
     FRUT: bulk_wagon_fruits_year_switch;
     FRVG: bulk_wagon_fruits_year_switch;
@@ -142,9 +127,9 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     SAND: bulk_wagon_sand_year_switch;
     SCRP: bulk_wagon_scrapmetal_year_switch;
     SCMT: bulk_wagon_scrapmetal_year_switch;
-    SUGR: bulk_wagon_sugar_group;
+    SUGR: bulk_wagon_sugar_switch_gui;
     SULP: bulk_wagon_sand_year_switch;
-    TOFF: bulk_wagon_toffee_group;
+    TOFF: bulk_wagon_toffee_switch_gui;
     WHEA: bulk_wagon_grain_year_switch;
     WDPR: bulk_wagon_woodproducts_year_switch;
     RUBR: bulk_wagon_rubber_year_switch;

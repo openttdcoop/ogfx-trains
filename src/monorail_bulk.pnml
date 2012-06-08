@@ -37,7 +37,7 @@ SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_coal_arctic, "mono_bulk"
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_copper, "mono_bulk", "mono_bulk_copper_ore", "src/gfx/tropic_monolev.png", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 280, 0, 300)
 
 // CTCD
-SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_cottoncandy, "mono_bulk", "mono_bulk_coal", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 140, 0, 160)
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_cottoncandy, "mono_bulk", "mono_bulk_candy_floss", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 140, 0, 160)
 
 // FERT: see GRVL
 
@@ -66,12 +66,12 @@ SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_sand, "mono_bulk", "mono
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_scrapmetal, "mono_bulk", "mono_bulk_scrap_metal", "src/gfx/bulk/rail_scrapmetal_temperate.png", "src/gfx/bulk/rail_scrapmetal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
 
 // SUGR
-SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_sugar, "mono_bulk", "mono_bulk_coal", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 100, 0, 120)
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_sugar, "mono_bulk", "mono_bulk_sugar", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 100, 0, 120)
 
 // SULP: see SAND
 
 // TOFF
-SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_toffee, "mono_bulk", "mono_bulk_coal", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 180, 0, 200)
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_toffee, "mono_bulk", "mono_bulk_toffee", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 180, 0, 200)
 
 // WHEA: see CERE
 
