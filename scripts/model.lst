@@ -1,6 +1,6 @@
 #**************************************************************************
 # Blender Model List
-# 2012-05-23
+# 2012-06-08
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
@@ -121,6 +121,9 @@ flatbed_vehicles_stage1
 flatbed_vehicles2_full
 flatbed_vehicles2_stage1
 flatbed_vehicles3_full
+flatbed_bubbles_full
+flatbed_bubbles_stage1
+flatbed_bubbles_stage2
 mono_flatbed
 mono_flatbed_nocc
 mono_flatbed_container
@@ -152,6 +155,9 @@ mono_flatbed_vehicles_stage1
 mono_flatbed_vehicles2_full
 mono_flatbed_vehicles2_stage1
 mono_flatbed_vehicles3_full
+mono_flatbed_bubbles_full
+mono_flatbed_bubbles_stage1
+mono_flatbed_bubbles_stage2
 bulk
 bulk_coal
 bulk_iron_ore
