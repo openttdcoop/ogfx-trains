@@ -33,12 +33,12 @@ spritegroup monorail_flatbed_wagon_battery_group {
 }
 
 // BUBL
-spriteset(monorail_flatbed_wagon_bubbles_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,80) }
-spriteset(monorail_flatbed_wagon_bubbles_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,60) }
-spritegroup monorail_flatbed_wagon_bubbles_group {
-	loaded: [monorail_flatbed_wagon_bubbles_empty_set, monorail_flatbed_wagon_bubbles_set];
-	loading: [monorail_flatbed_wagon_bubbles_empty_set, monorail_flatbed_wagon_bubbles_set];
-}
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_bubbles,
+    "mono_flatbed_retainers", "mono_flatbed_bubbles_stage1",
+    "mono_flatbed_bubbles_stage2", "mono_flatbed_bubbles_full",
+    "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 60, 0, 60, 0, 80, 0, 80)
 
 // ENSP (vehicles)
 SPRITEGROUP_3STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_engineeringsupplies_vehicle1,
@@ -157,7 +157,7 @@ random_switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_steel_switch, bitmask(T
 
 switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_switch, cargo_type_in_veh) {
     BATT: monorail_flatbed_wagon_battery_group;
-    BUBL: monorail_flatbed_wagon_bubbles_group;
+    BUBL: monorail_flatbed_wagon_bubbles_switch_gui;
     ENSP: monorail_flatbed_wagon_engineeringsupplies_switch;
     FMSP: monorail_flatbed_wagon_vehicles_group;
     FZDR: monorail_flatbed_wagon_fizzy_group;
