@@ -56,12 +56,12 @@ SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_engineeringsupplies_v
 // FMSP: see VEHI
 
 // FZDR
-spriteset(monorail_flatbed_wagon_fizzy_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
-spriteset(monorail_flatbed_wagon_fizzy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
-spritegroup monorail_flatbed_wagon_fizzy_group {
-	loaded: [monorail_flatbed_wagon_fizzy_empty_set, monorail_flatbed_wagon_fizzy_set];
-	loading: [monorail_flatbed_wagon_fizzy_empty_set, monorail_flatbed_wagon_fizzy_set];
-}
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_fizzy,
+    "mono_flatbed_sides", "mono_flatbed_fizzy_drink_stage1",
+    "mono_flatbed_fizzy_drink_stage2", "mono_flatbed_fizzy_drink_full",
+    "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 340, 0, 340, 0, 360, 0, 360)
 
 // GOOD (container)
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_goods,
@@ -160,7 +160,7 @@ switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_switch, cargo_type_in_veh) {
     BUBL: monorail_flatbed_wagon_bubbles_switch_gui;
     ENSP: monorail_flatbed_wagon_engineeringsupplies_switch;
     FMSP: monorail_flatbed_wagon_vehicles_group;
-    FZDR: monorail_flatbed_wagon_fizzy_group;
+    FZDR: monorail_flatbed_wagon_fizzy_switch_gui;
     GOOD: monorail_flatbed_wagon_goods_switch_gui;
     PAPR: monorail_flatbed_wagon_paper_switch_gui;
     PETR: monorail_flatbed_wagon_fueloil_switch_gui;

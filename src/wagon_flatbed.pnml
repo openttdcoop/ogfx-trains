@@ -56,12 +56,12 @@ SPRITEGROUP_2STAGES_NOLOADING_32BPP(flatbed_wagon_engineeringsupplies_vehicle2,
 // FMSP: see VEHI
 
 // FZDR
-spriteset(flatbed_wagon_fizzy_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,360) }
-spriteset(flatbed_wagon_fizzy_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,340) }
-spritegroup flatbed_wagon_fizzy_group {
-	loaded: [flatbed_wagon_fizzy_empty_set, flatbed_wagon_fizzy_set];
-	loading: [flatbed_wagon_fizzy_empty_set, flatbed_wagon_fizzy_set];
-}
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_fizzy,
+    "flatbed_sides", "flatbed_fizzy_drink_stage1",
+    "flatbed_fizzy_drink_stage2", "flatbed_fizzy_drink_full",
+    "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 340, 0, 340, 0, 360, 0, 360)
 
 // GOOD (container)
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(flatbed_wagon_goods,
@@ -168,7 +168,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     BUBL: flatbed_wagon_bubbles_switch_gui;
     ENSP: flatbed_wagon_engineeringsupplies_switch;
     FMSP: flatbed_wagon_vehicles_group;
-    FZDR: flatbed_wagon_fizzy_group;
+    FZDR: flatbed_wagon_fizzy_switch_gui;
     GOOD: flatbed_wagon_goods_switch_gui;
     PAPR: flatbed_wagon_paper_switch_gui;
     PETR: flatbed_wagon_fueloil_switch_gui;
