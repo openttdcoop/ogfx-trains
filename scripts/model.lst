@@ -124,6 +124,9 @@ flatbed_vehicles3_full
 flatbed_bubbles_full
 flatbed_bubbles_stage1
 flatbed_bubbles_stage2
+flatbed_fizzy_drink_full
+flatbed_fizzy_drink_stage1
+flatbed_fizzy_drink_stage2
 mono_flatbed
 mono_flatbed_nocc
 mono_flatbed_container
@@ -158,6 +161,9 @@ mono_flatbed_vehicles3_full
 mono_flatbed_bubbles_full
 mono_flatbed_bubbles_stage1
 mono_flatbed_bubbles_stage2
+mono_flatbed_fizzy_drink_full
+mono_flatbed_fizzy_drink_stage1
+mono_flatbed_fizzy_drink_stage2
 bulk
 bulk_coal
 bulk_iron_ore
