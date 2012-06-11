@@ -121,6 +121,12 @@ flatbed_steel_full
 flatbed_steel2_stage1
 flatbed_steel2_stage2
 flatbed_steel2_full
+flatbed_copper1_stage1
+flatbed_copper1_stage2
+flatbed_copper1_full
+flatbed_copper2_stage1
+flatbed_copper2_stage2
+flatbed_copper2_full
 flatbed_timber_stage1
 flatbed_timber_stage2
 flatbed_timber_full
@@ -161,6 +167,12 @@ mono_flatbed_steel_full
 mono_flatbed_steel2_stage1
 mono_flatbed_steel2_stage2
 mono_flatbed_steel2_full
+mono_flatbed_copper1_stage1
+mono_flatbed_copper1_stage2
+mono_flatbed_copper1_full
+mono_flatbed_copper2_stage1
+mono_flatbed_copper2_stage2
+mono_flatbed_copper2_full
 mono_flatbed_timber_stage1
 mono_flatbed_timber_stage2
 mono_flatbed_timber_full
