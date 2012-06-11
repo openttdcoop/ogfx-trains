@@ -43,4 +43,5 @@ ogfx-trains.nml
 **/Thumbs.db
 
 # Ignore source directory cloned from ogfx-train-renders
+syntax: regexp
 ^sprite_source/blender
