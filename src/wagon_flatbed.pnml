@@ -25,12 +25,12 @@ SPRITEGROUP_2STAGES_NOLOADING_32BPP(flatbed_wagon_container,
     tmpl_railwagon42, 0, 8, 126, 8)
 
 // BATT
-spriteset(flatbed_wagon_battery_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,400) }
-spriteset(flatbed_wagon_battery_empty_set, "src/gfx/toyland_railwagons.png") { tmpl_short_railwagon(0,380) }
-spritegroup flatbed_wagon_battery_group {
-	loaded: [flatbed_wagon_battery_empty_set, flatbed_wagon_battery_set];
-	loading: [flatbed_wagon_battery_empty_set, flatbed_wagon_battery_set];
-}
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_battery,
+    "flatbed_sides", "flatbed_batteries_stage1",
+    "flatbed_batteries_stage2", "flatbed_batteries_full",
+    "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 380, 0, 380, 0, 400, 0, 400)
 
 // BUBL
 SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_bubbles,
@@ -164,7 +164,7 @@ random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, bitmask(TR
 }
 
 switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
-    BATT: flatbed_wagon_battery_group;
+    BATT: flatbed_wagon_battery_switch_gui;
     BUBL: flatbed_wagon_bubbles_switch_gui;
     ENSP: flatbed_wagon_engineeringsupplies_switch;
     FMSP: flatbed_wagon_vehicles_group;
