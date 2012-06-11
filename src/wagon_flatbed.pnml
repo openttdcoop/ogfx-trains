@@ -108,6 +108,21 @@ SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_steel_rolls2,
     "src/gfx/flatbed/steel/SteelFlatbeds1a2.png", "src/gfx/flatbed/steel/SteelFlatbeds1b2.png",
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
 
+// COPR
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_copper_rolls1,
+    "flatbed_retainers", "flatbed_copper1_stage1",
+    "flatbed_copper1_stage2", "flatbed_copper1_full",
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a1.png", "src/gfx/flatbed/steel/SteelFlatbeds1b1.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(flatbed_wagon_copper_rolls2,
+    "flatbed_retainers", "flatbed_copper2_stage1",
+    "flatbed_copper2_stage2", "flatbed_copper2_full",
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png", "src/gfx/flatbed/steel/SteelFlatbeds1a2.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a2.png", "src/gfx/flatbed/steel/SteelFlatbeds1b2.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
 // VEHI (vehicles)
 
 SPRITEGROUP_3STAGES_NOLOADING_32BPP(flatbed_wagon_vehicles,
@@ -143,6 +158,11 @@ random_switch (FEAT_TRAINS, SELF, flatbed_wagon_steel_switch, bitmask(TRIGGER_VE
     1: flatbed_wagon_steel_rolls2_switch_gui;
 }
 
+random_switch (FEAT_TRAINS, SELF, flatbed_wagon_copper_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
+    1: flatbed_wagon_copper_rolls1_switch_gui;
+    1: flatbed_wagon_copper_rolls2_switch_gui;
+}
+
 random_switch (FEAT_TRAINS, SELF, flatbed_wagon_random_colour_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
     1: return PALETTE_CC_DARK_BLUE;
     1: return PALETTE_CC_PALE_GREEN;
@@ -174,7 +194,7 @@ switch (FEAT_TRAINS, SELF, flatbed_wagon_switch, cargo_type_in_veh) {
     PETR: flatbed_wagon_fueloil_switch_gui;
     RFPR: flatbed_wagon_refineryproducts_switch_gui;
     STEL: flatbed_wagon_steel_switch;
-    COPR: flatbed_wagon_steel_switch;
+    COPR: flatbed_wagon_copper_switch;
     VEHI: flatbed_wagon_vehicles_switch_gui;
     WDPR: flatbed_wagon_woodproducts_switch_gui;
     WOOD: flatbed_wagon_wood_switch_gui;

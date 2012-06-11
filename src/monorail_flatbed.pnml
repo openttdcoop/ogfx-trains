@@ -108,6 +108,21 @@ SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_steel_rolls2,
     "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
     tmpl_short_railwagon42, 0, 320, 0, 320, 0, 340, 0, 340)
 
+// COPR
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_copper_rolls1,
+    "mono_flatbed_retainers", "mono_flatbed_copper1_stage1",
+    "mono_flatbed_copper1_stage2", "mono_flatbed_copper1_full",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 320, 0, 320, 0, 340, 0, 340)
+
+SPRITEGROUP_4STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_copper_rolls2,
+    "mono_flatbed_retainers", "mono_flatbed_copper2_stage1",
+    "mono_flatbed_copper2_stage2", "mono_flatbed_copper2_full",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png", "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 320, 0, 320, 0, 340, 0, 340)
+
 // VEHI (vehicles)
 
 SPRITEGROUP_3STAGES_NOLOADING_32BPP(monorail_flatbed_wagon_vehicles,
@@ -155,6 +170,11 @@ random_switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_steel_switch, bitmask(T
     1: monorail_flatbed_wagon_steel_rolls2_switch_gui;
 }
 
+random_switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_copper_switch, bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
+    1: monorail_flatbed_wagon_copper_rolls1_switch_gui;
+    1: monorail_flatbed_wagon_copper_rolls2_switch_gui;
+}
+
 switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_switch, cargo_type_in_veh) {
     BATT: monorail_flatbed_wagon_battery_switch_gui;
     BUBL: monorail_flatbed_wagon_bubbles_switch_gui;
@@ -166,7 +186,7 @@ switch (FEAT_TRAINS, SELF, monorail_flatbed_wagon_switch, cargo_type_in_veh) {
     PETR: monorail_flatbed_wagon_fueloil_switch_gui;
     RFPR: monorail_flatbed_wagon_refineryproducts_switch_gui;
     STEL: monorail_flatbed_wagon_steel_switch;
-    COPR: monorail_flatbed_wagon_steel_switch;
+    COPR: monorail_flatbed_wagon_copper_switch;
     VEHI: monorail_flatbed_wagon_vehicles_switch_gui;
     WDPR: monorail_flatbed_wagon_woodproducts_switch_gui;
     WOOD: monorail_flatbed_wood_climate_switch;
