@@ -28,6 +28,9 @@ MU_8SPRITES_32BPP(tank_wagon_cement, "tank", "src/gfx/tank/rail_cement_temperate
 // COLA
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(tank_wagon_cola, "tank_cola_empty", "tank_cola", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 220, 0, 240)
 
+// FZDR
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(tank_wagon_fizzy, "tank_fizzy_drink_empty", "tank_fizzy_drink", "src/gfx/tank/rail_oil_temperate.png", "src/gfx/tank/rail_oil_temperate.png", tmpl_railwagon42, 0, 0, 0, 0)
+
 // MILK:
 MU_8SPRITES_32BPP(tank_wagon_milk, "tank_milk", "src/gfx/tank/rail_milk_temperate.png", tmpl_railwagon42, 0, 0) // 8 views needed
 
@@ -60,7 +63,7 @@ switch(FEAT_TRAINS, SELF, tank_wagon_oil_climate_switch, climate) {
 switch(FEAT_TRAINS, SELF, tank_wagon_switch, cargo_type_in_veh) {
     CMNT: tank_wagon_cement_switch_gui;
     COLA: tank_wagon_cola_switch_gui;
-    FZDR: tank_wagon_default_climate_switch;
+    FZDR: tank_wagon_fizzy_switch_gui;
     MILK: tank_wagon_milk_switch_gui;
     OIL_: tank_wagon_oil_climate_switch;
     PETR: tank_wagon_fueloil_switch_gui;
