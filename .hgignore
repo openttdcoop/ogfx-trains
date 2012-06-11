@@ -41,3 +41,6 @@ ogfx-trains.nml
 # Files created by Mac image preview and file browser:
 **/.DS_Store
 **/Thumbs.db
+
+# Ignore source directory cloned from ogfx-train-renders
+^sprite_source/blender
