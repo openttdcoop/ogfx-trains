@@ -84,12 +84,20 @@ tank_milk
 tank_oil
 tank_petrol
 tank_refinery
+tank_cola_empty
+tank_cola
+tank_fizzy_drink_empty
+tank_fizzy_drink
 mono_tank
 mono_tank_water
 mono_tank_milk
 mono_tank_oil
 mono_tank_petrol
 mono_tank_refinery
+mono_tank_cola_empty
+mono_tank_cola
+mono_tank_fizzy_drink_empty
+mono_tank_fizzy_drink
 flatbed
 flatbed_nocc
 flatbed_container
@@ -193,8 +201,6 @@ bulk_sugar_beet_early
 bulk_sugar
 bulk_candy_floss
 bulk_toffee
-bulk_cola_empty
-bulk_cola
 mono_bulk
 mono_bulk_coal
 mono_bulk_iron_ore
@@ -211,7 +217,5 @@ mono_bulk_sugar_beet
 mono_bulk_sugar
 mono_bulk_candy_floss
 mono_bulk_toffee
-mono_bulk_cola_empty
-mono_bulk_cola
 short_bulk
 short_bulk_coal
