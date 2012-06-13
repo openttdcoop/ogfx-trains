@@ -1,6 +1,6 @@
 ##grflangid 0x04
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} mejora los vehículos de ferrocarril estándar y los extiende con nuevos vagones y locomotoras.{}Diseñado para concordar con el estilo OpenGFX.{}Programación: {SILVER}planetmaker, Terkhen{}{BLACK}Gráficos: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencia: {SILVER}GPL v2{}{BLACK}Página web: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Agradecimientos especiales a {SILVER}Yexo{BLACK} y {SILVER}Ammler{BLACK} por su apoyo y contribuciones.
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} mejora los vehículos de ferrocarril estándar y los extiende con nuevos vehículos.{}Diseñado para concordar con el estilo OpenGFX.{}Programación: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Gráficos: {SILVER}Xotic750, Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencia: {SILVER}GPL v2{}{BLACK}Agradecimientos especiales a {SILVER}Yexo{BLACK} y {SILVER}Ammler{BLACK} por su apoyo y contribuciones.
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Vagón a granel
@@ -8,6 +8,8 @@ STR_NAME_TANK_WAGON                                             :Vagón cisterna
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Vagón de mercancías
 STR_NAME_FLATBED_WAGON                                          :Vagón de plataforma
 STR_NAME_REFRIGERATOR_WAGON                                     :Vagón refrigerado
+
+STR_NAME_TENDER                                                 :Ténder
 
 STR_PARAM_ENGINES                                               :Selección de locomotoras por clima:
 STR_PARAM_ENGINES_DESC                                          :Seleccione las locomotoras que desea emplear. Al seleccionar el valor por defecto se emplearán las locomotoras del clima seleccionado. Seleccionar ninguna desactivará TODAS las locomotoras.
@@ -52,6 +54,11 @@ STR_PARAM_COST_TIMES64                                          :64x
 STR_PARAM_COST_TIMES128                                         :128x
 STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER                                                :Ténders
+STR_PARAM_TENDER_DESC                                           :Permite seleccionar la disponibilidad de ténders para locomotoras de vapor. Si se activan, no se pueden usar las locomotoras en modo invertido
+STR_PARAM_TENDER_NONE                                           :Usar
+STR_PARAM_TENDER_ARTICULATED                                    :No usar
 
 STR_ERR_ENGINE_POOL                                             :Permitir múltiples NewGRFs de vehículos = activo
 
