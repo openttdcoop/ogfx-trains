@@ -11,6 +11,8 @@
  * =============================================================================
  */
 
+#define THIS_ID(...) ginzua4 ## __VA_ARGS__
+
 ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", default,
     "src/gfx/engines/temperate_GinzuA4_88.png",
     tmpl_engine_88, 0, 0,
@@ -48,3 +50,5 @@ if (param_tender != TENDER_NONE) {
 		}
 	}
 }
+
+#undef THIS_ID

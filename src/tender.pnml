@@ -13,8 +13,20 @@
 
 /*
  * We can define a special tender for each steam engine
- * By default the tender of the ginzu will be used
+ * By default the tender of the common tender will be used
  */
+
+/*
+ * Desperately need 4/8 length 8bpp tender sprites!!!
+ */
+
+#define THIS_ID(...) tender ## __VA_ARGS__
+
+/* Common */
+SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_common, "common_tender", all,
+	"src/gfx/engines/arctic_wills280.png",
+	tmpl_engine_88, 0, 0
+)
 
 /* Ginzu */
 SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_ginzua4, "ginzua4_tender", all,
@@ -22,10 +34,17 @@ SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_ginzua4, "ginzua4_tender", all,
 	tmpl_engine_88, 0, 0
 )
 
+/* SH8P */
+SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_sh8p, "sh8p_tender", all,
+	"src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
+	tmpl_engine_88, 0, 0
+)
+
 /* General switch to distinguish between engines */
 switch(FEAT_TRAINS, PARENT, tender_switch, vehicle_type_id) {
-    ginzua4: tender_ginzua4_all_switch_gui;    // graphics defined in engine_ginzu.pnml
-    tender_ginzua4_all_switch_gui;           // graphics defined in engine_ginzu.pnml
+    ginzua4:    tender_ginzua4_all_switch_gui;    // graphics defined in engine_ginzu.pnml
+    sh8p:       tender_sh8p_all_switch_gui;
+    tender_common_all_switch_gui;           // graphics defined in engine_ginzu.pnml
 }
 
 /* Declare the vehicle */
@@ -34,7 +53,7 @@ item(FEAT_TRAINS, tender) {
 		WAGON_PROPERTIES_DEFAULT
 		WAGON_PROPERTIES_RAIL_DEFAULT
 		name:                           string(STR_NAME_TENDER);
-		climates_available:		        NO_CLIMATE; // articulated only. Not in purchase list
+		climates_available:		NO_CLIMATE; // articulated only. Not in purchase list
 		cost_factor:                    0;
 		extra_power_per_wagon:          0hp;
 		cargo_capacity:                 0;
@@ -46,8 +65,6 @@ item(FEAT_TRAINS, tender) {
 	}
 }
 
-
-
 /*
  * Switch to be used by all steam engines which use this tender
  */
@@ -58,4 +75,4 @@ switch(FEAT_TRAINS, SELF, tender_articulated_cb, extra_callback_info1) {
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-
+#undef THIS_ID

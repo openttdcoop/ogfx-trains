@@ -9,6 +9,8 @@
  * Chaney 'Jubilee' steam engine
  */
 
+#define THIS_ID(...) chaneyjubilee ## __VA_ARGS__
+
 ENGINE_GRAPHICS_GROUP_32BPP(chaneyjubilee, "chaney", default,
     "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
     tmpl_engine_88, 0, 0,
@@ -43,3 +45,5 @@ if (param_tender != TENDER_NONE) {
 		}
 	}
 }
+
+#undef THIS_ID
