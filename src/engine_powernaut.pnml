@@ -38,7 +38,7 @@ if (param_tender != TENDER_NONE) {
 	}
 } else {
 	/* Normal engine without tender */
-	item(FEAT_TRAINS, sh8p) {
+	item(FEAT_TRAINS, powernaut_choochoo) {
 		graphics {
 			default:            powernaut_choochoo_default_indepot_switch;
 			purchase:           powernaut_choochoo_default_switch_gui;
