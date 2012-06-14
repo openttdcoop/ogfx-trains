@@ -9,22 +9,41 @@
  * Ploddyphut Choo-Choo steam engine
  */
 
-ENGINE_GRAPHICS_GROUP(ploddyphut_choochoo, default, tmpl_engine_88(0, 0),  "src/gfx/engines/toyland_ploddyphut.png")
-ENGINE_GRAPHICS_NOCLIMATE_SWITCH(ploddyphut_choochoo)
+#define THIS_ID(...) ploddyphut_choochoo ## __VA_ARGS__
+
+ENGINE_GRAPHICS_GROUP_32BPP(ploddyphut_choochoo, "ploddyphut", default,
+    "src/gfx/engines/toyland_ploddyphut.png",
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0
+)
+
 item(FEAT_TRAINS, ploddyphut_choochoo) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
-	}
-	graphics {
-		default: ploddyphut_choochoo_switch;
-	}
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        track_type:                     NORMAL_RAIL;
+    }
 }
 
+/* We need to define the whole graphics block with all callbacks at once */
+
 if (param_tender != TENDER_NONE) {
+	/* Articulated vehicle with tender */
 	item(FEAT_TRAINS, ploddyphut_choochoo) {
 		graphics {
-			articulated_part: tender_articulated_cb;
+			default:            ploddyphut_choochoo_default_indepot_switch;
+			articulated_part:   tender_articulated_cb;
+			purchase:           ploddyphut_choochoo_default_switch_gui;
+		}
+	}
+} else {
+	/* Normal engine without tender */
+	item(FEAT_TRAINS, ploddyphut_choochoo) {
+		graphics {
+			default:            ploddyphut_choochoo_default_indepot_switch;
+			purchase:           ploddyphut_choochoo_default_switch_gui;
 		}
 	}
 }
+
+#undef THIS_ID
