@@ -26,6 +26,7 @@ uu37
 asia_star
 tim
 common_tender
+powernaut
 # Arctic & Tropical Tains
 willis
 # Temperate Wagons
@@ -240,7 +241,7 @@ mono_bulk_gravel
 mono_bulk_scrap_metal
 mono_bulk_fruit_veg
 mono_bulk_sugar_beet
-mono_bulk_rubber
+mono_bulk_rubber0
 mono_bulk_fiber
 mono_bulk_limestone
 mono_bulk_sugar
