@@ -102,9 +102,19 @@ WAGON_BULK_32BPP(bulk_wagon_woodproducts, modern, "bulk", "bulk_woodproducts", "
 WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_woodproducts, early, modern)
 
 // RUBR
-WAGON_BULK_32BPP(bulk_wagon_rubber, early, "bulk_early", "bulk_coal_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_rubber, modern, "bulk", "bulk_coal", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_BULK_32BPP(bulk_wagon_rubber, early, "bulk_early", "bulk_rubber_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_rubber, modern, "bulk", "bulk_rubber", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
 WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_rubber, early, modern)
+
+// LIME
+WAGON_BULK_32BPP(bulk_wagon_limestone, early, "bulk_early", "bulk_limestone_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_limestone, modern, "bulk", "bulk_limestone", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_limestone, early, modern)
+
+// FICR
+WAGON_BULK_32BPP(bulk_wagon_fiber_crop, early, "bulk_early", "bulk_fiber_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
+WAGON_BULK_32BPP(bulk_wagon_fiber_crop, modern, "bulk", "bulk_fiber", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_fiber_crop, early, modern)
 
 switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     AORE: bulk_wagon_bauxite_year_switch;
@@ -133,6 +143,8 @@ switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
     WHEA: bulk_wagon_grain_year_switch;
     WDPR: bulk_wagon_woodproducts_year_switch;
     RUBR: bulk_wagon_rubber_year_switch;
+    LIME: bulk_wagon_limestone_year_switch;
+    FICR: bulk_wagon_fiber_crop_year_switch;
     bulk_wagon_coal_year_switch;                // default to coal; also waste (WSTE)
 }
 

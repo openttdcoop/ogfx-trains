@@ -79,7 +79,14 @@ SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_toffee, "mono_bulk", "mo
 SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_woodproducts, "mono_bulk", "mono_bulk_woodproducts", "src/gfx/bulk/rail_woodproducts_temperate.png", "src/gfx/bulk/rail_woodproducts_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
 
 // RUBR
-SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_rubber, "mono_bulk", "mono_bulk_coal", "src/gfx/tropic_monolev.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 380, 0, 400)
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_rubber, "mono_bulk", "mono_bulk_rubber", "src/gfx/tropic_monolev.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 380, 0, 400)
+
+// LIME
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_limestone, "mono_bulk", "mono_bulk_limestone", "src/gfx/tropic_monolev.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 380, 0, 400)
+
+// FICR
+SPRITEGROUP_2STAGES_NOLOADING_32BPP(monorail_bulk_wagon_fiber_crop, "mono_bulk", "mono_bulk_fiber", "src/gfx/tropic_monolev.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 380, 0, 400)
+
 
 switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_coal_climate_switch, climate) {
     CLIMATE_ARCTIC: monorail_bulk_wagon_coal_arctic_switch_gui;
@@ -113,6 +120,8 @@ switch(FEAT_TRAINS, SELF, monorail_bulk_wagon_switch, cargo_type_in_veh) {
     WHEA: monorail_bulk_wagon_grain_switch_gui;
     WDPR: monorail_bulk_wagon_woodproducts_switch_gui;
     RUBR: monorail_bulk_wagon_rubber_switch_gui;
+    LIME: monorail_bulk_wagon_limestone_switch_gui;
+    FICR: monorail_bulk_wagon_fiber_crop_switch_gui;
     monorail_bulk_wagon_coal_climate_switch;                // default to coal; also waste (WSTE)
 }
 
