@@ -1,6 +1,6 @@
 ##grflangid 0x1F
 STR_GRF_NAME                                                    :OpenGFX+ Treinen {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Treinen{BLACK} verbetert de standaard railvoertuigen en breidt het wagenpark uit.{}Ontworpen om te passen bij de stijl van OpenGFX.{}Programmeren: {SILVER}planetmaker, Terkhen{}{BLACK}Graphics: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licentie: {SILVER}GPL v2{}{BLACK}Website: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Met dank aan {SILVER}Yexo{BLACK} en {SILVER}Ammler{BLACK} voor hun ondersteuning en bijdragen
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Treinen{BLACK} verbetert de standaard railvoertuigen en breidt het wagenpark uit.{}Ontworpen om te passen bij de stijl van OpenGFX.{}Programmeren: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Graphics: {SILVER}Xotic750, Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licentie: {SILVER}GPL v2{}{BLACK}Met dank aan {SILVER}Yexo{BLACK} en {SILVER}Ammler{BLACK} voor hun ondersteuning en bijdragen
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Open wagen
@@ -8,6 +8,8 @@ STR_NAME_TANK_WAGON                                             :Ketelwagen
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Gesloten wagen
 STR_NAME_FLATBED_WAGON                                          :Platte wagen
 STR_NAME_REFRIGERATOR_WAGON                                     :Koelwagen
+
+STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Trein landschap selectie:
 STR_PARAM_ENGINES_DESC                                          :Selecteer uit welk landschap je treinen wilt (je kan een ander landschap keizen of "geen". Standaard zullen de treinen uit het landschap dat je speelt gebruikt worden. "Geen" zal alle treinen uitschakelen.
@@ -52,6 +54,11 @@ STR_PARAM_COST_TIMES64                                          :64x
 STR_PARAM_COST_TIMES128                                         :128x
 STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER                                                :Tenders
+STR_PARAM_TENDER_DESC                                           :Selekteer beschikbaarheid van tenders voor  stoomlokomotieven. Merk op dat beschikbaar maken van tenders de omgedraaide mode uitzet (achteruit rijden)
+STR_PARAM_TENDER_NONE                                           :Gebruik
+STR_PARAM_TENDER_ARTICULATED                                    :Gebruik niet
 
 STR_ERR_ENGINE_POOL                                             :Maak het mogelijk om meerdere NewGRF-voertuigsets te gebruiken = aan
 
