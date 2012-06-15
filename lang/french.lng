@@ -2,7 +2,7 @@
 ##plural 2
 
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} améliore les véhicules ferroviaires de base et augmente le nombre de cargaisons transportables.{}Design correspondant au style OpenGFX.{}Programmation{NBSP}: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Graphiques{NBSP}: {SILVER}Xotic750, Zephyris, DanMacK, molace, Uzurpator{}{BLACK}Licence{NBSP}: {SILVER}GPL v2{}{BLACK}Site web{NBSP}: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Remerciements tout particuliers à {SILVER}Yexo{BLACK} et {SILVER}Ammler{BLACK} pour leur soutien et leurs contributions. 
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} améliore les véhicules ferroviaires de base et augmente le nombre de cargaisons transportables.{}Design correspondant au style OpenGFX.{}Programmation{NBSP}: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Graphiques{NBSP}: {SILVER}Xotic750, Zephyris, DanMacK, molace, Uzurpator{}{BLACK}Licence{NBSP}: {SILVER}GPL v2{}{BLACK}Site web{NBSP}: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Remerciements tout particuliers à {SILVER}Yexo{BLACK} et {SILVER}Ammler{BLACK} pour leur soutien et leurs contributions.
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Wagon-tombereau
@@ -58,8 +58,8 @@ STR_PARAM_COST_TIMES512                                         :512 ×
 
 STR_PARAM_TENDER                                                :Tenders
 STR_PARAM_TENDER_DESC                                           :Sélectionner la disponibilité des tenders pour les locomotives à vapeur. Si utilisés, les locomotives ne pourront pas rouler à reculons.
-STR_PARAM_TENDER_NONE                                           :Utiliser
-STR_PARAM_TENDER_ARTICULATED                                    :Ne pas utiliser
+STR_PARAM_TENDER_NONE                                           :Ne pas utiliser
+STR_PARAM_TENDER_ARTICULATED                                    :Utiliser
 
 STR_ERR_ENGINE_POOL                                             :Autoriser plusieurs modules de locomotives = Activé
 

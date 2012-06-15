@@ -57,8 +57,8 @@ STR_PARAM_COST_TIMES512                                         :512x
 
 STR_PARAM_TENDER                                                :Tenders
 STR_PARAM_TENDER_DESC                                           :Select availability of tenders for steam engines. Note that when made available, you cannot use steam engines in flipped mode (driving backwards)
-STR_PARAM_TENDER_NONE                                           :Use
-STR_PARAM_TENDER_ARTICULATED                                    :Do not use
+STR_PARAM_TENDER_NONE                                           :Do not use
+STR_PARAM_TENDER_ARTICULATED                                    :Use
 
 STR_ERR_ENGINE_POOL                                             :Enable multiple NewGRF engine sets = on
 
