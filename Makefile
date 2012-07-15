@@ -50,8 +50,10 @@ ifeq "$(findstring clean,$(MAKECMDGOALS))" ""
 -include Makefile_gfx.dep
 endif
 
-# target nml
-include $(SCRIPT_DIR)/Makefile_nml
+# target nml using C preprocessor
+# include $(SCRIPT_DIR)/Makefile_nml
+# target nml using m4 macro processor
+include $(SCRIPT_DIR)/Makefile_m4nml
 # target 'gfx' which builds all needed sprites
 # Only a special gfx target for gimp exists so far
 include $(SCRIPT_DIR)/Makefile_gimp
