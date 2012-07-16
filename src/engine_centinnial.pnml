@@ -1,0 +1,48 @@
+divert(-1)
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_engines.pnml])
+     check_included([src/railtype_table.pnml])])
+
+# Define the engine name and check that it was previously undefined
+define_unique([_THIS_ENGINE], [centennial])
+
+divert
+
+/*
+ * "Centennial (Diesel)"
+ */
+
+_ENGINE_LENGTH88(engine, default,
+    _NONE_AVAILABLE,
+    "src/gfx/engines/arctic_centennial.png",
+    tmpl_engine_88, 0, 0)
+
+_ENGINE_LENGTH88(engine, tropical,
+    _NONE_AVAILABLE,
+    "src/gfx/engines/tropical_centennial_88.png",
+    tmpl_engine_88, 0, 0)
+
+switch(FEAT_TRAINS, SELF, _THIS_ENGINE_CLIMATE_SWITCH_ID(engine, default), climate) {
+    CLIMATE_TROPICAL: _THIS_ENGINE_GRAPHICS_ID(engine, tropical);
+    _THIS_ENGINE_GRAPHICS_ID(engine, default);
+}
+
+item(FEAT_TRAINS, _THIS_ENGINE, 18) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL;
+    }
+    graphics { _THIS_ENGINE_CLIMATE_SWITCH_ID(engine, default); }
+}
+
+undefine([_THIS_ENGINE])dnl

@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,43 +6,73 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/*
- * =============================================================================
- * Lev3
- * =============================================================================
- */
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_engines.pnml])
+     check_included([src/railtype_table.pnml])
+     check_included([src/wagon_pax.pnml])
+     check_included([src/wagon_mail.pnml])
+     check_included([src/wagon_valuables.pnml])])
+
+# Define the engine name and check that it was previously undefined
+define_unique([_THIS_ENGINE], [lev3])
+
+divert
 
 /*
- * Lev3
+ * "Lev3 'Pegasus' (Electric)"
  * Livery override for passenger, mail and valuables wagons
  */
 
+_ENGINE_LENGTH88(engine, default,
+    _NONE_AVAILABLE,
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 0)
 
-MU_8SPRITES (lev3_engine,    "src/gfx/mus/lev3/Lev3LiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
-MU_8SPRITES (lev3_passenger, "src/gfx/mus/lev3/Lev3LiveryOverride.png", tmpl_maglev_wagon_78,   0, 27)
-MU_8SPRITES (lev3_mail,      "src/gfx/mus/lev3/Lev3LiveryOverride.png", tmpl_maglev_wagon_78,   0, 54)
-MU_8SPRITES (lev3_valuables, "src/gfx/mus/lev3/Lev3LiveryOverride.png", tmpl_maglev_wagon_78,   0, 81)
+_ENGINE_LOADING_LENGTH88(passenger, default,
+    _NONE_AVAILABLE,
+    _NONE_AVAILABLE,
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    tmpl_maglev_wagon_78, 0, 27, 0, 27)
 
-item(FEAT_TRAINS, lev3, 86) {
-	property {
-		sprite_id:                    SPRITE_ID_NEW_TRAIN;
-		misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP);
-        track_type:                   MAGLEV;
-	}
-	graphics {
-		length:        return 7;
-		lev3_engine_group;
-	}
-	livery_override (maglev_passenger_wagon) {
-		length:        return 7;
-		lev3_passenger_group;
-	}
-	livery_override (maglev_mail_wagon)      {
-		length:        return 7;
-		lev3_mail_group;
-	}
-	livery_override (maglev_valuables_wagon) {
-		length:        return 7;
-		lev3_valuables_group;
-	}
+_ENGINE_LOADING_LENGTH88(mail, default,
+    _NONE_AVAILABLE,
+    _NONE_AVAILABLE,
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    tmpl_maglev_wagon_78, 0, 54, 0, 54)
+
+_ENGINE_LOADING_LENGTH88(valuables, default,
+    _NONE_AVAILABLE,
+    _NONE_AVAILABLE,
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    tmpl_maglev_wagon_78, 0, 81, 0, 81)
+
+item(FEAT_TRAINS, _THIS_ENGINE, 86) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;
+        misc_flags:             bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_maglev) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             MAGLEV;
+    }
+    graphics {
+        length:        return 7;
+        _THIS_ENGINE_GRAPHICS_ID(engine, default);
+    }
+    livery_override (maglev_passenger_wagon) {
+        length:        return 7;
+        _THIS_ENGINE_GRAPHICS_ID(passenger, default);
+    }
+    livery_override (maglev_mail_wagon)      {
+        length:        return 7;
+        _THIS_ENGINE_GRAPHICS_ID(mail, default);
+    }
+    livery_override (maglev_valuables_wagon) {
+        length:        return 7;
+        _THIS_ENGINE_GRAPHICS_ID(valuables, default);
+    }
 }
+
+undefine([_THIS_ENGINE])dnl

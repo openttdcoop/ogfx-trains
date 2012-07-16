@@ -1,9 +1,20 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
+
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])
+     check_included([src/cargo_definitions.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [livestock_wagon])
+
+divert
 
 /*
  * ***************************
@@ -13,35 +24,27 @@
  * ***************************
  */
 
-#define THIS_ID(...) livestock_wagon ## __VA_ARGS__
+_WAGON_LOADING_LENGTH88(common, modern, default,
+    "livestock",
+    "livestock_loading",
+    "src/gfx/temperate_railwagons.png",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 100, 0, 100)
 
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_temperate, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_arctic, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_tropic, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_toyland, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
-
-switch (FEAT_TRAINS, SELF, livestock_wagon_climate_switch, climate) {
-    CLIMATE_TROPICAL: livestock_wagon_tropic_switch_gui;
-    CLIMATE_ARCTIC: livestock_wagon_arctic_switch_gui;
-    CLIMATE_TOYLAND: livestock_wagon_toyland_switch_gui;
-    livestock_wagon_temperate_switch_gui;
-}
-
-item(FEAT_TRAINS, livestock_wagon, 31) {
+item(FEAT_TRAINS, _THIS_WAGON, 31) {
     property {
-        REFIT_PROPERTIES_LIVESTOCK
-        WAGON_PROPERTIES_DEFAULT
-        WAGON_PROPERTIES_RAIL_DEFAULT
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_rail_default.pnml])
+include([src/template_refit_properties_livestock.pnml])
         cost_factor:                    192;
         cargo_capacity:                 25;
-        weight:                         20;
+        weight:                         20 ton;
     }
     graphics {
-        livestock_wagon_climate_switch;
+        refit_cost:     _LIVESTOCK_REFIT_COST_SWITCH_ID;
+
+        _THIS_WAGON_GRAPHICS_ID(common, modern, default);
     }
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

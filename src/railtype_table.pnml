@@ -1,9 +1,14 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
+
+# Note the use of quadrigraphs @<:@ and @:>@
+
+divert
 
 /*
  * ********************************************
@@ -55,45 +60,45 @@
  * railtypetable. Not all of the labels are actually used.
  *
  * railtypetable {
- *     unelectrified_A: [SAAN, RAIL],
- *     unelectrified_B: [SABN, RAIL],
- *     unelectrified_C: [SACN, RAIL],
- *     unelectrified_D: [SADN, RAIL],
- *     unelectrified_E: [SAEN, RAIL],
- *     DC_A: [SAAD, SAAE, ELRL],
- *     DC_B: [SABD, SABE, ELRL],
- *     DC_C: [SACD, SACE, ELRL],
- *     DC_D: [SADD, SADE, ELRL],
- *     DC_E: [SAED, SAEE, ELRL],
- *     AC_A: [SAAA, SAAE, ELRL],
- *     AC_B: [SABA, SABE, ELRL],
- *     AC_C: [SACA, SACE, ELRL],
- *     AC_D: [SADA, SADE, ELRL],
- *     AC_E: [SAEA, SAEE, ELRL],
- *     dual_A: [SAAE, ELRL],
- *     dual_B: [SABE, ELRL],
- *     dual_C: [SACE, ELRL],
- *     dual_D: [SADE, ELRL],
- *     dual_E: [SAEE, ELRL],
- *     metro_A: [SAA3, MTRO, "3RDR"],
- *     metro_B: [SAB3, MTRO, "3RDR"],
- *     metro_C: [SAC3, MTRO, "3RDR"],
- *     metro_D: [SAD3, MTRO, "3RDR"],
- *     metro_E: [SAE3, MTRO, "3RDR"]
+ *     unelectrified_A: @<:@SAAN, RAIL@:>@,
+ *     unelectrified_B: @<:@SABN, RAIL@:>@,
+ *     unelectrified_C: @<:@SACN, RAIL@:>@,
+ *     unelectrified_D: @<:@SADN, RAIL@:>@,
+ *     unelectrified_E: @<:@SAEN, RAIL@:>@,
+ *     DC_A: @<:@SAAD, SAAE, ELRL@:>@,
+ *     DC_B: @<:@SABD, SABE, ELRL@:>@,
+ *     DC_C: @<:@SACD, SACE, ELRL@:>@,
+ *     DC_D: @<:@SADD, SADE, ELRL@:>@,
+ *     DC_E: @<:@SAED, SAEE, ELRL@:>@,
+ *     AC_A: @<:@SAAA, SAAE, ELRL@:>@,
+ *     AC_B: @<:@SABA, SABE, ELRL@:>@,
+ *     AC_C: @<:@SACA, SACE, ELRL@:>@,
+ *     AC_D: @<:@SADA, SADE, ELRL@:>@,
+ *     AC_E: @<:@SAEA, SAEE, ELRL@:>@,
+ *     dual_A: @<:@SAAE, ELRL@:>@,
+ *     dual_B: @<:@SABE, ELRL@:>@,
+ *     dual_C: @<:@SACE, ELRL@:>@,
+ *     dual_D: @<:@SADE, ELRL@:>@,
+ *     dual_E: @<:@SAEE, ELRL@:>@,
+ *     metro_A: @<:@SAA3, MTRO, "3RDR"@:>@,
+ *     metro_B: @<:@SAB3, MTRO, "3RDR"@:>@,
+ *     metro_C: @<:@SAC3, MTRO, "3RDR"@:>@,
+ *     metro_D: @<:@SAD3, MTRO, "3RDR"@:>@,
+ *     metro_E: @<:@SAE3, MTRO, "3RDR"@:>@
  * }
  **************************************************/
 
 railtypetable {
-    NORMAL_RAIL10: [SAAN, _040, RLOW, NLOW, RAIL],
-    NORMAL_RAIL20: [SABN, RLOW, NLOW, RAIL],
-    NORMAL_RAIL30: [SACN, RMED, RAIL],
-    NORMAL_RAIL40: [SADN, RMED, RAIL],
-    NORMAL_RAIL: [SAEN, RHIG, DBNN, FRNN, RAIL],
-    EL_RAIL10: [SAAA, SAAE, E040, ELOW, ELRL],
-    EL_RAIL20: [SABA, SABE, ELOW, ELRL],
-    EL_RAIL30: [SACA, SACE, EMED, ELRL],
-    EL_RAIL40: [SADA, SADE, EHIG, ELRL],
-    EL_RAIL: [SAEA, SAEE, HSTR, DBHE, DBHS, ENHI, ELRL],
-    MONORAIL: [MONO, SAA3, MTRO, "3RDR"],
-    MAGLEV:      [MGLV, TRPD]
+    NORMAL_RAIL10: @<:@SAAN, _040, RLOW, NLOW, RAIL@:>@,
+    NORMAL_RAIL20: @<:@SABN, RLOW, NLOW, RAIL@:>@,
+    NORMAL_RAIL30: @<:@SACN, RMED, RAIL@:>@,
+    NORMAL_RAIL40: @<:@SADN, RMED, RAIL@:>@,
+    NORMAL_RAIL:   @<:@SAEN, RHIG, DBNN, FRNN, RAIL@:>@,
+    EL_RAIL10:     @<:@SAAA, SAAE, E040, ELOW, ELRL@:>@,
+    EL_RAIL20:     @<:@SABA, SABE, ELOW, ELRL@:>@,
+    EL_RAIL30:     @<:@SACA, SACE, EMED, ELRL@:>@,
+    EL_RAIL40:     @<:@SADA, SADE, EHIG, ELRL@:>@,
+    EL_RAIL:       @<:@SAEA, SAEE, HSTR, DBHE, DBHS, ENHI, ELRL@:>@,
+    MONORAIL:      @<:@MONO, SAA3, MTRO, "3RDR"@:>@,
+    MAGLEV:        @<:@MGLV, TRPD@:>@
 }

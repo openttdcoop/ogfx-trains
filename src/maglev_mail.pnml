@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,26 +6,45 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])
+     check_included([src/cargo_definitions.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [maglev_mail_wagon])
+
+divert
+
+
 /*
  * ***************************
- * Mail wagon:
+ * Maglev Mail wagon:
  * ***************************
  */
 
-#define THIS_ID(...) maglev_mail_wagon ## __VA_ARGS__
+_WAGON_LOADING_LENGTH88(common, modern, default,
+    "mono_mail",
+    "mono_mail_loading",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon242, 0, 20, 0, 20)
 
-item(FEAT_TRAINS, maglev_mail_wagon, 90) {
+item(FEAT_TRAINS, _THIS_WAGON, 90) {
     property {
-        sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        climates_available:             param_provide_maglev ? ALL_CLIMATES : NO_CLIMATE;
-        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
-        refit_cost:                     0; // refit is free
-        REFIT_PROPERTIES_MAIL
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_maglev_default.pnml])
+include([src/template_refit_properties_mail.pnml])
+        cost_factor:                    228;
+        cargo_capacity:                 37;
+        weight:                         21 ton;
     }
     graphics {
 	length:        return 7;
-	monorail_mail_wagon_climate_switch;
+        refit_cost:     _MAIL_REFIT_COST_SWITCH;
+
+        _THIS_WAGON_GRAPHICS_ID(common, modern, default);
     }
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

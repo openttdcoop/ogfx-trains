@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,42 +6,73 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/*
- * =============================================================================
- * Turner Turbotrain
- * =============================================================================
- */
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_engines.pnml])
+     check_included([src/railtype_table.pnml])
+     check_included([src/wagon_pax.pnml])
+     check_included([src/wagon_mail.pnml])
+     check_included([src/wagon_valuables.pnml])])
+
+# Define the engine name and check that it was previously undefined
+define_unique([_THIS_ENGINE], [turner_turbo])
+
+divert
 
 /*
- * Turbo train engine (arctic)
- * Livery override for passenger and mail wagons
+ * "Turner Turbo (Diesel)"
+ * Livery override for passenger, mail and valuables wagons
  */
 
-MU_8SPRITES_REVERSAL (turbotrain_engine,    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_engine, 142, 112)
-MU_8SPRITES_REVERSAL (turbotrain_passenger, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 139)
-MU_8SPRITES_REVERSAL (turbotrain_mail,      "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 168)
-MU_8SPRITES_REVERSAL (turbotrain_valuables, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 168) // same as mail
+_ENGINE_REVERSED_LENGTH88(engine, default,
+    _NONE_AVAILABLE,
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    tmpl_turbotrain_engine, 142, 112)
 
-item(FEAT_TRAINS, turbotrain, 20) {
-	property {
-                sprite_id:                      SPRITE_ID_NEW_TRAIN;
-                misc_flags:                     bitmask(TRAIN_FLAG_MU);
-                track_type:                     NORMAL_RAIL;
-	}
-	graphics {
-		length:        return 7;
-		turbotrain_engine_reversal_switch;
-	}
-	livery_override (passenger_wagon) {
-		length:        return 7;
-		turbotrain_passenger_reversal_switch;
-	}
-	livery_override (mail_wagon)      {
-		length:        return 7;
-		turbotrain_mail_reversal_switch;
-	}
-	livery_override (valuables_wagon) {
-		length:        return 7;
-		turbotrain_valuables_reversal_switch;
-	}
+_ENGINE_REVERSED_LOADING_LENGTH88(passenger, default,
+    _NONE_AVAILABLE,
+    _NONE_AVAILABLE,
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    tmpl_turbotrain_wagon, 142, 139, 142, 139)
+
+_ENGINE_REVERSED_LOADING_LENGTH88(mail, default,
+    _NONE_AVAILABLE,
+    _NONE_AVAILABLE,
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    tmpl_turbotrain_wagon, 142, 168, 142, 168)
+
+_ENGINE_REVERSED_LOADING_LENGTH88(valuables, default,
+    _NONE_AVAILABLE,
+    _NONE_AVAILABLE,
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    tmpl_turbotrain_wagon, 142, 168, 142, 168)
+
+item(FEAT_TRAINS, _THIS_ENGINE, 20) {
+    property {
+        sprite_id:              SPRITE_ID_NEW_TRAIN;
+        misc_flags:             bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_2CC);
+        climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL30;
+    }
+    graphics {
+        length:        return 7;
+        _THIS_ENGINE_GRAPHICS_ID(engine, default);
+    }
+    livery_override (passenger_wagon) {
+        length:        return 7;
+        _THIS_ENGINE_GRAPHICS_ID(passenger, default);
+    }
+    livery_override (mail_wagon)      {
+        length:        return 7;
+        _THIS_ENGINE_GRAPHICS_ID(mail, default);
+    }
+    livery_override (valuables_wagon) {
+        length:        return 7;
+        _THIS_ENGINE_GRAPHICS_ID(valuables, default);
+    }
 }
+
+undefine([_THIS_ENGINE])dnl

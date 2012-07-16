@@ -1,9 +1,20 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
+
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])
+     check_included([src/cargo_definitions.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [passenger_wagon])
+
+divert
 
 /*
  * ***************************
@@ -13,34 +24,55 @@
  * ***************************
  */
 
-#define THIS_ID(...) passenger_wagon ## __VA_ARGS__
+_WAGON_LOADING_LENGTH88(common, modern, default,
+    "passenger",
+    "passenger_loading",
+    "src/gfx/temperate_railwagons.png",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 0, 0, 0)
 
-MU_8SPRITES_LOADING_32BPP(passenger_wagon_temperate, "passenger", "passenger_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
+_WAGON_LOADING_LENGTH88(common, modern, tropical,
+    "passenger",
+    "passenger_loading",
+    "src/gfx/tropic_railwagons.png",
+    "src/gfx/tropic_railwagons.png",
+    tmpl_railwagon42, 0, 0, 0, 0)
 
-MU_8SPRITES_LOADING_32BPP(passenger_wagon_tropic, "passenger", "passenger_loading", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
+_WAGON_LOADING_LENGTH88(common, modern, arctic,
+    "passenger",
+    "passenger_loading",
+    "src/gfx/arctic_railwagons.png",
+    "src/gfx/arctic_railwagons.png",
+    tmpl_railwagon42, 0, 0, 0, 0)
 
-MU_8SPRITES_LOADING_32BPP(passenger_wagon_arctic, "passenger", "passenger_loading", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
+_WAGON_LOADING_LENGTH88(common, modern, toyland,
+    "passenger",
+    "passenger_loading",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 0, 0, 0)
 
-MU_8SPRITES_LOADING_32BPP(passenger_wagon_toyland, "passenger", "passenger_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
-
-switch (FEAT_TRAINS, SELF, passenger_wagon_climate_switch, climate) {
-    CLIMATE_TROPICAL: passenger_wagon_tropic_switch_gui;
-    CLIMATE_ARCTIC: passenger_wagon_arctic_switch_gui;
-    CLIMATE_TOYLAND: passenger_wagon_toyland_switch_gui;
-    passenger_wagon_temperate_switch_gui;
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CLIMATE_SWITCH_ID(common, default), climate) {
+    CLIMATE_TROPICAL: _THIS_WAGON_GRAPHICS_ID(common, modern, tropical);
+    CLIMATE_ARCTIC:   _THIS_WAGON_GRAPHICS_ID(common, modern, arctic);
+    CLIMATE_TOYLAND:  _THIS_WAGON_GRAPHICS_ID(common, modern, toyland);
+    _THIS_WAGON_GRAPHICS_ID(common, modern, default);
 }
 
-item(FEAT_TRAINS, passenger_wagon, 27) {
+item(FEAT_TRAINS, _THIS_WAGON, 27) {
     property {
-        sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprites
-        climates_available:           param_provide_rail ? ALL_CLIMATES : NO_CLIMATE;
-        misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
-        refit_cost:                   0; // refit is free
-        REFIT_PROPERTIES_PAX
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_rail_default.pnml])
+include([src/template_refit_properties_pax.pnml])
+        cost_factor:                    247;
+        cargo_capacity:                 40;
+        weight:                         25 ton;
     }
     graphics {
-        passenger_wagon_climate_switch;
+        refit_cost:     _PAX_REFIT_COST_SWITCH;
+
+	_THIS_WAGON_CLIMATE_SWITCH_ID(common, default);
     }
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

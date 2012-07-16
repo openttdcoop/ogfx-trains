@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,29 +6,45 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_engines.pnml])
+     check_included([src/railtype_table.pnml])])
+
+# Define the engine name and check that it was previously undefined
+define_unique([_THIS_ENGINE], [mjs1000])
+
+divert
+
 /*
- * =============================================================================
- * MJS 1000
- * =============================================================================
+ * "MJS 1000 (Diesel)"
  */
 
-ENGINE_GRAPHICS_GROUP(mjs1000, default, tmpl_engine_42(0, 0),  "src/gfx/engines/arctic_MJS1000.png")
-ENGINE_GRAPHICS_GROUP(mjs1000, tropical, tmpl_engine_42(0, 0),  "src/gfx/engines/tropical_MJS1000_88.png")      // it's actually unsymmetric and should get changed sprites
-ENGINE_GRAPHICS_GROUP(mjs1000_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/arctic_MJS1000.png")
-ENGINE_GRAPHICS_GROUP(mjs1000_depot, tropical, tmpl_engine_88(176, 0), "src/gfx/engines/tropical_MJS1000_88.png") // it's actually unsymmetric
-ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs1000)
-ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs1000_depot)
+_ENGINE_INDEPOT_LENGTH88(engine, default,
+    _NONE_AVAILABLE,
+    "src/gfx/engines/arctic_MJS1000.png",
+    tmpl_engine8_42, 0, 0,
+    tmpl_engine_88, 176, 0)
 
-switch(FEAT_TRAINS, SELF, mjs1000_indepot_switch, vehicle_is_in_depot) {
-    1: mjs1000_depot_switch;
-    mjs1000_switch;
+_ENGINE_INDEPOT_LENGTH88(engine, tropical,
+    _NONE_AVAILABLE,
+    "src/gfx/engines/tropical_MJS1000_88.png",
+    tmpl_engine8_42, 0, 0,
+    tmpl_engine_88, 176, 0)
+
+switch(FEAT_TRAINS, SELF, _THIS_ENGINE_CLIMATE_SWITCH_ID(engine, default), climate) {
+    CLIMATE_TROPICAL: _THIS_ENGINE_GRAPHICS_ID(engine, tropical);
+    _THIS_ENGINE_GRAPHICS_ID(engine, default);
 }
 
-item(FEAT_TRAINS, mjs1000, 21) {
+item(FEAT_TRAINS, _THIS_ENGINE, 21) {
     property {
-        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:                     bitmask(TRAIN_FLAG_FLIP);
-        track_type:                     NORMAL_RAIL;
+        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:             bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             NORMAL_RAIL30;
     }
-    ENGINE_GRAPHICS_BLOCK(mjs1000_indepot)
+    graphics { _THIS_ENGINE_CLIMATE_SWITCH_ID(engine, default); }
 }
+
+undefine([_THIS_ENGINE])dnl

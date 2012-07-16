@@ -1,9 +1,20 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
+
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])
+     check_included([src/cargo_definitions.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [bulk_wagon])
+
+divert
 
 /*
  * ***************************
@@ -18,137 +29,302 @@
  * ***************************
  */
 
-#define THIS_ID(...) bulk_wagon ## __VA_ARGS__
+/* AORE */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(bauxite, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_bauxite_early",
+    "src/gfx/bulk/rail_bauxite_temperate.png",
+    "src/gfx/bulk/rail_bauxite_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_bauxite",
+    "src/gfx/bulk/rail_bauxite_temperate.png",
+    "src/gfx/bulk/rail_bauxite_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// AORE
-WAGON_BULK_32BPP(bulk_wagon_bauxite, early, "bulk_early", "bulk_bauxite_early", "src/gfx/bulk/rail_bauxite_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_bauxite, modern, "bulk", "bulk_bauxite", "src/gfx/bulk/rail_bauxite_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_bauxite, early, modern)
+/* CERE, GRAI, MAIZ, WHEA */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(grain, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_grain_early",
+    "src/gfx/bulk/rail_grain_temperate.png",
+    "src/gfx/bulk/rail_grain_temperate.png",
+    tmpl_railwagon42, 0, 6, 126, 6,
+    modern,
+    "bulk",
+    "bulk_grain",
+    "src/gfx/bulk/rail_grain_temperate.png",
+    "src/gfx/bulk/rail_grain_temperate.png",
+    tmpl_railwagon42, 0, 38, 126, 38)
 
-// CERE, GRAI, MAIZ, WHEA
-WAGON_BULK_32BPP(bulk_wagon_grain, early, "bulk_early", "bulk_grain_early", "src/gfx/bulk/rail_grain_temperate.png", tmpl_railwagon42, 0, 6, 126, 6)
-WAGON_BULK_32BPP(bulk_wagon_grain, modern, "bulk", "bulk_grain", "src/gfx/bulk/rail_grain_temperate.png", tmpl_railwagon42, 0, 38, 126, 38)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_grain, early, modern)
+/* CLAY */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(clay, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_clay_early",
+    "src/gfx/bulk/rail_clay_temperate.png",
+    "src/gfx/bulk/rail_clay_temperate.png",
+    tmpl_railwagon42, 0, 4, 126, 4,
+    modern,
+    "bulk",
+    "bulk_clay",
+    "src/gfx/bulk/rail_clay_temperate.png",
+    "src/gfx/bulk/rail_clay_temperate.png",
+    tmpl_railwagon42, 0, 36, 126, 36)
 
-// CLAY
-WAGON_BULK_32BPP(bulk_wagon_clay, early, "bulk_early", "bulk_clay_early", "src/gfx/bulk/rail_clay_temperate.png", tmpl_railwagon42, 0, 4, 126, 4)
-WAGON_BULK_32BPP(bulk_wagon_clay, modern, "bulk", "bulk_clay", "src/gfx/bulk/rail_clay_temperate.png", tmpl_railwagon42, 0, 36, 126, 36)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_clay, early, modern)
+/* COAL */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(coal, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_coal_early",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_coal",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// COAL
-WAGON_BULK_32BPP(bulk_wagon_coal, early, "bulk_early", "bulk_coal_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_coal, modern, "bulk", "bulk_coal", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_coal, early, modern)
+/* CORE */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(copper, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_copper_ore_early",
+    "src/gfx/bulk/rail_copper_temperate.png",
+    "src/gfx/bulk/rail_copper_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_copper_ore",
+    "src/gfx/bulk/rail_copper_temperate.png",
+    "src/gfx/bulk/rail_copper_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// CORE
-WAGON_BULK_32BPP(bulk_wagon_copper, early, "bulk_early", "bulk_copper_ore_early", "src/gfx/bulk/rail_copper_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_copper, modern, "bulk", "bulk_copper_ore", "src/gfx/bulk/rail_copper_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_copper, early, modern)
+/* CTCD */
+_WAGON_2STAGES_NOLOADING_LENGTH88(cottoncandy, modern, default,
+    "bulk",
+    "bulk_candy_floss",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 140, 0, 160)
 
-// CTCD
-SPRITEGROUP_2STAGES_NOLOADING_32BPP(bulk_wagon_cottoncandy, "bulk", "bulk_candy_floss", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 140, 0, 160)
+/* FERT: see GRVL */
 
-// FERT: see GRVL
+/* FRUT, FRVG */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(fruits, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_fruit_veg_early",
+    "src/gfx/bulk/rail_fruits_temperate.png",
+    "src/gfx/bulk/rail_fruits_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_fruit_veg",
+    "src/gfx/bulk/rail_fruits_temperate.png",
+    "src/gfx/bulk/rail_fruits_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// FRUT, FRVG
-WAGON_BULK_32BPP(bulk_wagon_fruits, early, "bulk_early", "bulk_fruit_veg_early", "src/gfx/bulk/rail_fruits_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_fruits, modern, "bulk", "bulk_fruit_veg", "src/gfx/bulk/rail_fruits_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_fruits, early, modern)
+/* FRVG: see FRUT */
 
-// FRVG: see FRUT
+/* GRAI: see CERE */
 
-// GRAI: see CERE
+/* GRVL, FERT */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(gravel, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_gravel_early",
+    "src/gfx/bulk/rail_gravel_temperate.png",
+    "src/gfx/bulk/rail_gravel_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_gravel",
+    "src/gfx/bulk/rail_gravel_temperate.png",
+    "src/gfx/bulk/rail_gravel_temperate.png",
+    tmpl_railwagon42, 0, 31, 126, 31)
 
-// GRVL, FERT
-WAGON_BULK_32BPP(bulk_wagon_gravel, early, "bulk_early", "bulk_gravel_early", "src/gfx/bulk/rail_gravel_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_gravel, modern, "bulk", "bulk_gravel", "src/gfx/bulk/rail_gravel_temperate.png", tmpl_railwagon42, 0, 31, 126, 31)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_gravel, early, modern)
+/* IORE */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(ironore, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_iron_ore_early",
+    "src/gfx/bulk/rail_ironore_temperate.png",
+    "src/gfx/bulk/rail_ironore_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_iron_ore",
+    "src/gfx/bulk/rail_ironore_temperate.png",
+    "src/gfx/bulk/rail_ironore_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// IORE
-WAGON_BULK_32BPP(bulk_wagon_ironore, early, "bulk_early", "bulk_iron_ore_early", "src/gfx/bulk/rail_ironore_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_ironore, modern, "bulk", "bulk_iron_ore", "src/gfx/bulk/rail_ironore_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_ironore, early, modern)
+/* MAIZ: see CERE */
 
-// MAIZ: see CERE
+/* RSGR (and SGCN, SGBT) */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(rawsugar, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_sugar_beet_early",
+    "src/gfx/tropic_railwagons.png",
+    "src/gfx/tropic_railwagons.png",
+    tmpl_railwagon42, 0, 500, 0, 525,
+    modern,
+    "bulk",
+    "bulk_sugar_beet",
+    "src/gfx/tropic_railwagons.png",
+    "src/gfx/tropic_railwagons.png",
+    tmpl_railwagon42, 0, 500, 0, 525)
 
-// RSGR (and SGCN, SGBT)
-WAGON_BULK_32BPP(bulk_wagon_rawsugar, early, "bulk_early", "bulk_sugar_beet_early", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 500, 0, 525)
-WAGON_BULK_32BPP(bulk_wagon_rawsugar, modern, "bulk", "bulk_sugar_beet", "src/gfx/tropic_railwagons.png", tmpl_railwagon42, 0, 500, 0, 525)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_rawsugar, early, modern)
+/* SAND, SULP */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(sand, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_sand_early",
+    "src/gfx/bulk/rail_sand_temperate.png",
+    "src/gfx/bulk/rail_sand_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_sand",
+    "src/gfx/bulk/rail_sand_temperate.png",
+    "src/gfx/bulk/rail_sand_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// SAND, SULP
-WAGON_BULK_32BPP(bulk_wagon_sand, early, "bulk_early", "bulk_sand_early", "src/gfx/bulk/rail_sand_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_sand, modern, "bulk", "bulk_sand", "src/gfx/bulk/rail_sand_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_sand, early, modern)
+/* SCRP */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(scrapmetal, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_scrap_metal_early",
+    "src/gfx/bulk/rail_scrapmetal_temperate.png",
+    "src/gfx/bulk/rail_scrapmetal_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_scrap_metal",
+    "src/gfx/bulk/rail_scrapmetal_temperate.png",
+    "src/gfx/bulk/rail_scrapmetal_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// SCRP
-WAGON_BULK_32BPP(bulk_wagon_scrapmetal, early, "bulk_early", "bulk_scrap_metal_early", "src/gfx/bulk/rail_scrapmetal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_scrapmetal, modern, "bulk", "bulk_scrap_metal", "src/gfx/bulk/rail_scrapmetal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_scrapmetal, early, modern)
+/* SUGR */
+_WAGON_2STAGES_NOLOADING_LENGTH88(sugar, modern, default,
+    "bulk",
+    "bulk_sugar",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 100, 0, 120)
 
-// SUGR
-SPRITEGROUP_2STAGES_NOLOADING_32BPP(bulk_wagon_sugar, "bulk", "bulk_sugar", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 100, 0, 120)
+/* SULP: see SAND */
 
-// SULP: see SAND
+/* TOFF */
+_WAGON_2STAGES_NOLOADING_LENGTH88(toffee, modern, default,
+    "bulk",
+    "bulk_toffee",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 180, 0, 200)
 
-// TOFF
-SPRITEGROUP_2STAGES_NOLOADING_32BPP(bulk_wagon_toffee, "bulk", "bulk_toffee", "src/gfx/toyland_railwagons.png", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 180, 0, 200)
+/* WHEA: see CERE */
 
-// WHEA: see CERE
+/* WDPR */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(woodproducts, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_woodproducts_early",
+    "src/gfx/bulk/rail_woodproducts_temperate.png",
+    "src/gfx/bulk/rail_woodproducts_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_woodproducts",
+    "src/gfx/bulk/rail_woodproducts_temperate.png",
+    "src/gfx/bulk/rail_woodproducts_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// WDPR
-WAGON_BULK_32BPP(bulk_wagon_woodproducts, early, "bulk_early", "bulk_woodproducts_early", "src/gfx/bulk/rail_woodproducts_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_woodproducts, modern, "bulk", "bulk_woodproducts", "src/gfx/bulk/rail_woodproducts_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_woodproducts, early, modern)
+/* RUBR */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(rubber, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_rubber_early",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_rubber",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// RUBR
-WAGON_BULK_32BPP(bulk_wagon_rubber, early, "bulk_early", "bulk_rubber_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_rubber, modern, "bulk", "bulk_rubber", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_rubber, early, modern)
+/* LIME */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(limestone, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_limestone_early",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_limestone",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// LIME
-WAGON_BULK_32BPP(bulk_wagon_limestone, early, "bulk_early", "bulk_limestone_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_limestone, modern, "bulk", "bulk_limestone", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_limestone, early, modern)
+/* FICR */
+_WAGON_2STAGES_NOLOADING_YEARSWITCH_LENGTH88(fiber_crop, _RAIL_MODERN_YEAR, default,
+    early,
+    "bulk_early",
+    "bulk_fiber_early",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    tmpl_railwagon42, 0, 0, 126, 0,
+    modern,
+    "bulk",
+    "bulk_fiber",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    "src/gfx/bulk/rail_coal_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-// FICR
-WAGON_BULK_32BPP(bulk_wagon_fiber_crop, early, "bulk_early", "bulk_fiber_early", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 0, 126, 0)
-WAGON_BULK_32BPP(bulk_wagon_fiber_crop, modern, "bulk", "bulk_fiber", "src/gfx/bulk/rail_coal_temperate.png", tmpl_railwagon42, 0, 32, 126, 32)
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, bulk_wagon_fiber_crop, early, modern)
 
-switch(FEAT_TRAINS, SELF, bulk_wagon_switch, cargo_type_in_veh) {
-    AORE: bulk_wagon_bauxite_year_switch;
-    CERE: bulk_wagon_grain_year_switch;
-    CLAY: bulk_wagon_clay_year_switch;
-    COAL: bulk_wagon_coal_year_switch;
-    CORE: bulk_wagon_copper_year_switch;
-    CTCD: bulk_wagon_cottoncandy_switch_gui;
-    FERT: bulk_wagon_gravel_year_switch;
-    FRUT: bulk_wagon_fruits_year_switch;
-    FRVG: bulk_wagon_fruits_year_switch;
-    GRAI: bulk_wagon_grain_year_switch;
-    GRVL: bulk_wagon_gravel_year_switch;
-    IORE: bulk_wagon_ironore_year_switch;
-    MAIZ: bulk_wagon_grain_year_switch;
-    OLSD: bulk_wagon_fruits_year_switch;
-    RSGR: bulk_wagon_rawsugar_year_switch;
-    SGCN: bulk_wagon_rawsugar_year_switch;
-    SGBT: bulk_wagon_rawsugar_year_switch;
-    SAND: bulk_wagon_sand_year_switch;
-    SCRP: bulk_wagon_scrapmetal_year_switch;
-    SCMT: bulk_wagon_scrapmetal_year_switch;
-    SUGR: bulk_wagon_sugar_switch_gui;
-    SULP: bulk_wagon_sand_year_switch;
-    TOFF: bulk_wagon_toffee_switch_gui;
-    WHEA: bulk_wagon_grain_year_switch;
-    WDPR: bulk_wagon_woodproducts_year_switch;
-    RUBR: bulk_wagon_rubber_year_switch;
-    LIME: bulk_wagon_limestone_year_switch;
-    FICR: bulk_wagon_fiber_crop_year_switch;
-    bulk_wagon_coal_year_switch;                // default to coal; also waste (WSTE)
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(default), cargo_type_in_veh) {
+    AORE: _THIS_WAGON_YEAR_SWITCH_ID(bauxite, default);
+    CERE: _THIS_WAGON_YEAR_SWITCH_ID(grain, default);
+    CLAY: _THIS_WAGON_YEAR_SWITCH_ID(clay, default);
+    COAL: _THIS_WAGON_YEAR_SWITCH_ID(coal, default);
+    CORE: _THIS_WAGON_YEAR_SWITCH_ID(copper, default);
+    CTCD: _THIS_WAGON_GRAPHICS_ID(cottoncandy, modern, default);
+    FERT: _THIS_WAGON_YEAR_SWITCH_ID(gravel, default);
+    FRUT: _THIS_WAGON_YEAR_SWITCH_ID(fruits, default);
+    FRVG: _THIS_WAGON_YEAR_SWITCH_ID(fruits, default);
+    GRAI: _THIS_WAGON_YEAR_SWITCH_ID(grain, default);
+    GRVL: _THIS_WAGON_YEAR_SWITCH_ID(gravel, default);
+    IORE: _THIS_WAGON_YEAR_SWITCH_ID(ironore, default);
+    MAIZ: _THIS_WAGON_YEAR_SWITCH_ID(grain, default);
+    OLSD: _THIS_WAGON_YEAR_SWITCH_ID(fruits, default);
+    RSGR: _THIS_WAGON_YEAR_SWITCH_ID(rawsugar, default);
+    SGCN: _THIS_WAGON_YEAR_SWITCH_ID(rawsugar, default);
+    SGBT: _THIS_WAGON_YEAR_SWITCH_ID(rawsugar, default);
+    SAND: _THIS_WAGON_YEAR_SWITCH_ID(sand, default);
+    SCRP: _THIS_WAGON_YEAR_SWITCH_ID(scrapmetal, default);
+    SCMT: _THIS_WAGON_YEAR_SWITCH_ID(scrapmetal, default);
+    SUGR: _THIS_WAGON_GRAPHICS_ID(sugar, modern, default);
+    SULP: _THIS_WAGON_YEAR_SWITCH_ID(sand, default);
+    TOFF: _THIS_WAGON_GRAPHICS_ID(toffee, modern, default);
+    WHEA: _THIS_WAGON_YEAR_SWITCH_ID(grain, default);
+    WDPR: _THIS_WAGON_YEAR_SWITCH_ID(woodproducts, default);
+    RUBR: _THIS_WAGON_YEAR_SWITCH_ID(rubber, default);
+    LIME: _THIS_WAGON_YEAR_SWITCH_ID(limestone, default);
+    FICR: _THIS_WAGON_YEAR_SWITCH_ID(fiber_crop, default);
+    _THIS_WAGON_YEAR_SWITCH_ID(coal, default);                /* default to coal; also waste (WSTE) */
 }
 
-switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
+define([_BULK_WAGON_CAPACITY_SWITCH_ID], _THIS_WAGON_CARGO_SWITCH_ID(capacity))dnl
+switch (FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(capacity), cargo_type_in_veh) {
     FICR: return 25;
     FRUT: return 25;
     FRVG: return 25;
@@ -161,7 +337,8 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
     return 30;
 }
 
-switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_veh) {
+define([_BULK_WAGON_WEIGHT_SWITCH_ID], _THIS_WAGON_CARGO_SWITCH_ID(weight))dnl
+switch (FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(weight), cargo_type_in_veh) {
     COAL: return 18;
     FRUT: return 18;
     FRVG: return 18;
@@ -174,31 +351,32 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_property_weight_switch, cargo_type_in_v
     return 19;
 }
 
-switch (FEAT_TRAINS, SELF, bulk_wagon_cb_cargo_subtype_switch, cargo_type_in_veh) {
+define([_BULK_WAGON_SUFFIX_SWITCH_ID], _THIS_WAGON_CARGO_SWITCH_ID(suffix))dnl
+switch (FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(suffix), cargo_type_in_veh) {
     WDPR: return string(STR_BULK_WAGON_CARGO_SUBTYPE_WDPR);
     CB_FAILED;
 }
 
-item(FEAT_TRAINS, bulk_wagon) {
+item(FEAT_TRAINS, _THIS_WAGON) {
     property {
-        // We try to simulate the stats of the temperate grain wagon
+        /* We try to simulate the stats of the temperate grain wagon */
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_rail_default.pnml])
+include([src/template_refit_properties_bulk.pnml])
         name:                           string(STR_NAME_BULK_WAGON);
-        REFIT_PROPERTIES_BULK
-        WAGON_PROPERTIES_DEFAULT
-        WAGON_PROPERTIES_RAIL_DEFAULT
         cost_factor:                    182;
         cargo_capacity:                 30;
         weight:                         19 ton;
     }
     graphics {
-        cargo_capacity:     bulk_wagon_cb_capacity_switch;
-        weight:             bulk_wagon_cb_property_weight_switch;
-        cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
-        refit_cost:         bulk_refit_cost_switch;
+        cargo_capacity:     _THIS_WAGON_CARGO_SWITCH_ID(capacity);
+        weight:             _THIS_WAGON_CARGO_SWITCH_ID(weight);
+        cargo_subtype_text: _THIS_WAGON_CARGO_SWITCH_ID(suffix);
+        refit_cost:         _BULK_REFIT_COST_SWITCH;
 
-        purchase:           bulk_wagon_coal_year_switch;
-        bulk_wagon_switch;
+        purchase:           _THIS_WAGON_YEAR_SWITCH_ID(coal, default);
+        _THIS_WAGON_CARGO_SWITCH_ID(default);
     }
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,115 +6,330 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
+# Note the use of quadrigraphs @<:@ and @:>@
+
+define_unique([_TEMPLATE_48_8BPP], [check_args_exact([$0], [$#], [2])template_48_8bpp($1, $2)])
+define_unique([_TEMPLATE_GUI_48_8BPP], [check_args_exact([$0], [$#], [1])template_gui_48_8bpp($1)])
+define_unique([_TEMPLATE_48_8BPP_REVERSED], [check_args_exact([$0], [$#], [2])template_48_8bpp_reversed($1, $2)])
+define_unique([_TEMPLATE_GUI_48_8BPP_REVERSED], [check_args_exact([$0], [$#], [1])template_gui_48_8bpp_reversed($1)])
+
+define_unique([_TEMPLATE_88_8BPP], [check_args_exact([$0], [$#], [2])template_88_8bpp($1, $2)])
+define_unique([_TEMPLATE_GUI_88_8BPP], [check_args_exact([$0], [$#], [1])template_gui_88_8bpp($1)])
+define_unique([_TEMPLATE_88_8BPP_REVERSED], [check_args_exact([$0], [$#], [2])template_88_8bpp_reversed($1, $2)])
+define_unique([_TEMPLATE_GUI_88_8BPP_REVERSED], [check_args_exact([$0], [$#], [1])template_gui_88_8bpp_reversed($1)])
+
+define_unique([_TEMPLATE_48_32BPP], [check_args_exact([$0], [$#], [2])template_48_32bpp($1, $2)])
+define_unique([_TEMPLATE_GUI_48_32BPP], [check_args_exact([$0], [$#], [1])template_gui_48_32bpp($1)])
+define_unique([_TEMPLATE_48_32BPP_REVERSED], [check_args_exact([$0], [$#], [2])template_48_32bpp_reversed($1, $2)])
+define_unique([_TEMPLATE_GUI_48_32BPP_REVERSED], [check_args_exact([$0], [$#], [1])template_gui_48_32bpp_reversed($1)])
+
+define_unique([_TEMPLATE_88_32BPP], [check_args_exact([$0], [$#], [2])template_88_32bpp($1, $2)])
+define_unique([_TEMPLATE_GUI_88_32BPP], [check_args_exact([$0], [$#], [1])template_gui_88_32bpp($1)])
+define_unique([_TEMPLATE_88_32BPP_REVERSED], [check_args_exact([$0], [$#], [2])template_88_32bpp_reversed($1, $2)])
+define_unique([_TEMPLATE_GUI_88_32BPP_REVERSED], [check_args_exact([$0], [$#], [1])template_gui_88_32bpp_reversed($1)])
+
+define_unique([_ZOOM_1x], [1])
+define_unique([_ZOOM_2x], [2])
+define_unique([_ZOOM_4x], [4])
+
+define_unique([_ATTR_ZOOM], [zoom])
+define_unique([_ATTR_MODEL], [model])
+
+define_unique([_SIZE_48], [(48 / (4 / _ATTR_ZOOM)), 0, (96 / (4 / _ATTR_ZOOM)), (124 / (4 / _ATTR_ZOOM))])
+define_unique([_SIZE_GUI_48], [12, 0, 24, 31])
+
+define_unique([_SIZE_88], [0, 0, (180 / (4 / _ATTR_ZOOM)), (124 / (4 / _ATTR_ZOOM))])
+define_unique([_SIZE_GUI_88], [0, 0, 45, 31])
+
+define_unique([_SIZE_ID], [check_args_exact([$0], [$#], [1])_SIZE_$1])
+define_unique([_SIZE_GUI_ID], [check_args_exact([$0], [$#], [1])_SIZE_GUI_$1])
+
+define_unique([_OFFSET_0001_48], [(-14 * _ATTR_ZOOM), (-17 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0002_48], [(-14 * _ATTR_ZOOM), (-18 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0003_48], [(-7  * _ATTR_ZOOM), (-18 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0004_48], [(-6  * _ATTR_ZOOM), (-14 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0005_48], [(-14 * _ATTR_ZOOM), (-11 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0006_48], [(-22 * _ATTR_ZOOM), (-14 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0007_48], [(-23 * _ATTR_ZOOM), (-18 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0008_48], [(-14 * _ATTR_ZOOM), (-18 * _ATTR_ZOOM)])
+
+define_unique([_OFFSET_0003_GUI_48], [-23, -18])
+define_unique([_OFFSET_0007_GUI_48], [-23, -18])
+
+define_unique([_OFFSET_0001_88], [(-26 * _ATTR_ZOOM), (-14 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0002_88], [(-30 * _ATTR_ZOOM), (-16 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0003_88], [(-27 * _ATTR_ZOOM), (-18 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0004_88], [(-22 * _ATTR_ZOOM), (-16 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0005_88], [(-26 * _ATTR_ZOOM), (-14 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0006_88], [(-30 * _ATTR_ZOOM), (-16 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0007_88], [(-27 * _ATTR_ZOOM), (-18 * _ATTR_ZOOM)])
+define_unique([_OFFSET_0008_88], [(-22 * _ATTR_ZOOM), (-16 * _ATTR_ZOOM)])
+
+define_unique([_OFFSET_0003_GUI_88], [-27, -18])
+define_unique([_OFFSET_0007_GUI_88], [-27, -18])
+
+define_unique([_OFFSET_ID], [check_args_exact([$0], [$#], [2])_OFFSET_$1_$2])
+define_unique([_OFFSET_GUI_ID], [check_args_exact([$0], [$#], [2])_OFFSET_$1_GUI_$2])
+
+define_unique([_SOURCE_DIR], ["src/gfx/rendered/"])
+define_unique([_ZOOM_COND], [(_ATTR_ZOOM == _ZOOM_1x ? "_ZOOM_1x" : (_ATTR_ZOOM == _ZOOM_2x ? "_ZOOM_2x" : "_ZOOM_4x"))])
+
+define_unique([_RENDERED_SPRITE_8BPP], [check_args_exact([$0], [$#], [2])_SIZE_ID($2), _OFFSET_ID($1,$2), CROP, (_SOURCE_DIR + _ATTR_MODEL + "/8bpp/$1_in" + _ZOOM_COND + "x.png")])
+define_unique([_RENDERED_SPRITE_GUI_8BPP], [check_args_exact([$0], [$#], [2])_SIZE_GUI_ID($2), _OFFSET_GUI_ID($1,$2), CROP, (_SOURCE_DIR + _ATTR_MODEL + "/gui/$1_8_in][]_ZOOM_1x[x.png")])
+
+define_unique([_RENDERED_SPRITE_32BPP], [check_args_exact([$0], [$#], [2])_SIZE_ID($2), _OFFSET_ID($1,$2), CROP, (_SOURCE_DIR + _ATTR_MODEL + "/32bpp/$1_in" + _ZOOM_COND + "x.png"), (_SOURCE_DIR + _ATTR_MODEL + "/32bpp_mask/$1_in" + _ZOOM_COND + "xm.png")])
+define_unique([_RENDERED_SPRITE_GUI_32BPP], [check_args_exact([$0], [$#], [2])_SIZE_GUI_ID($2), _OFFSET_GUI_ID($1,$2), CROP, (_SOURCE_DIR + _ATTR_MODEL + "/gui/$1_32_in][]_ZOOM_1x[x.png"), (_SOURCE_DIR + _ATTR_MODEL + "/gui/$1_32_in][]_ZOOM_1x[xm.png")])
+
+define_unique([_LENGTH_88], [88])
+define_unique([_LENGTH_78], [78])
+define_unique([_LENGTH_68], [68])
+define_unique([_LENGTH_48], [48])
+divert
+
 /*
  * =============================================================================
- * Generic Blender Model Templates
- * Version 2
- * 2012-05-31
- * Xotic750
- * This release may be used under the terms of the license: GPLv2
- * http://www.gnu.org/licenses/gpl-2.0.html
+ * Rendered 8bpp and 32bpp templates
  * =============================================================================
  */
 
-/* OpenGFX+ */
 /* Define the 8bpp sprite template */
-template template_train_opengfxp8(z, m, g) {
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0001_in" + g + "x.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0002_in" + g + "x.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0003_in" + g + "x.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0004_in" + g + "x.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0005_in" + g + "x.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0006_in" + g + "x.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0007_in" + g + "x.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0008_in" + g + "x.png")]
+template _TEMPLATE_88_8BPP(_ATTR_ZOOM, _ATTR_MODEL) {
+    @<:@_RENDERED_SPRITE_8BPP(0001,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0002,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0003,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0004,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0005,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0006,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0007,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0008,_LENGTH_88)@:>@
 }
 
-/* OpenGFX+ */
 /* Define the gui sprite template for the 8bpp GUI menus */
-template template_train_gui_opengfxp8(m) {
-    []
-    []
-    [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0003_8_in1x.png")]
-    []
-    []
-    []
-    [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_8_in1x.png")]
-    []
+template _TEMPLATE_GUI_88_8BPP(_ATTR_MODEL) {
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_8BPP(0003,_LENGTH_88)@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_8BPP(0007,_LENGTH_88)@:>@
+    @<:@@:>@
 }
 
-/* OpenGFX+ */
+/* Define the 8bpp sprite template */
+template _TEMPLATE_88_8BPP_REVERSED(_ATTR_ZOOM, _ATTR_MODEL) {
+    @<:@_RENDERED_SPRITE_8BPP(0005,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0006,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0007,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0008,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0001,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0002,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0003,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0004,_LENGTH_88)@:>@
+}
+
+/* Define the gui sprite template for the 8bpp GUI menus */
+template _TEMPLATE_GUI_88_8BPP_REVERSED(_ATTR_MODEL) {
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_8BPP(0007,_LENGTH_88)@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_8BPP(0003,_LENGTH_88)@:>@
+    @<:@@:>@
+}
+
 /* Define the 32bpp sprite template */
-template template_train_opengfxp32(z, m, g) {
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-26 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-30 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-27 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
-    [0, 0, (180 / (4 / z)), (124 / (4 / z)), (-22 * z), (-16 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
+template _TEMPLATE_88_32BPP(_ATTR_ZOOM, _ATTR_MODEL) {
+    @<:@_RENDERED_SPRITE_32BPP(0001,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0002,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0003,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0004,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0005,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0006,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0007,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0008,_LENGTH_88)@:>@
 }
 
-/* OpenGFX+ */
 /* Define the gui sprite template for the 32bpp GUI menus */
-template template_train_gui_opengfxp32(m) {
-    []
-    []
-    [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
-    []
-    []
-    []
-    [0, 0, 45, 31, -27, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
-    []
+template _TEMPLATE_GUI_88_32BPP(_ATTR_MODEL) {
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_32BPP(0003,_LENGTH_88)@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_32BPP(0007,_LENGTH_88)@:>@
+    @<:@@:>@
+}
+
+/* Define the 32bpp sprite template */
+template _TEMPLATE_88_32BPP_REVERSED(_ATTR_ZOOM, _ATTR_MODEL) {
+    @<:@_RENDERED_SPRITE_32BPP(0005,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0006,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0007,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0008,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0001,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0002,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0003,_LENGTH_88)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0004,_LENGTH_88)@:>@
+}
+
+/* Define the gui sprite template for the 32bpp GUI menus */
+template _TEMPLATE_GUI_88_32BPP_REVERSED(_ATTR_MODEL) {
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_32BPP(0007,_LENGTH_88)@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_32BPP(0003,_LENGTH_88)@:>@
+    @<:@@:>@
 }
 
 /* Define the 8bpp short sprite template */
-template template_short_train_opengfxp8(z, m, g) {
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-17 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0001_in" + g + "x.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0002_in" + g + "x.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-7  * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0003_in" + g + "x.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-6  * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0004_in" + g + "x.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-11 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0005_in" + g + "x.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-22 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0006_in" + g + "x.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-23 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0007_in" + g + "x.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/8bpp/0008_in" + g + "x.png")]
+template _TEMPLATE_48_8BPP(_ATTR_ZOOM, _ATTR_MODEL) {
+    @<:@_RENDERED_SPRITE_8BPP(0001,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0002,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0003,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0004,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0005,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0006,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0007,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0008,_LENGTH_48)@:>@
 }
 
-/* OpenGFX+ */
 /* Define the short gui sprite template for the 8bpp GUI menus */
-template template_short_train_gui_opengfxp8(m) {
-    []
-    []
-    [12, 0, 24, 31, -23, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0003_8_in1x.png")]
-    []
-    []
-    []
-    [12, 0, 24, 31, -23, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_8_in1x.png")]
-    []
+template _TEMPLATE_GUI_48_8BPP(_ATTR_MODEL) {
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_8BPP(0003,_LENGTH_48)@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_8BPP(0007,_LENGTH_48)@:>@
+    @<:@@:>@
+}
+
+/* Define the 8bpp short sprite template */
+template _TEMPLATE_48_8BPP_REVERSED(_ATTR_ZOOM, _ATTR_MODEL) {
+    @<:@_RENDERED_SPRITE_8BPP(0005,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0006,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0007,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0008,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0001,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0002,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0003,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_8BPP(0004,_LENGTH_48)@:>@
+}
+
+/* Define the short gui sprite template for the 8bpp GUI menus */
+template _TEMPLATE_GUI_48_8BPP_REVERSED(_ATTR_MODEL) {
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_8BPP(0007,_LENGTH_48)@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_8BPP(0003,_LENGTH_48)@:>@
+    @<:@@:>@
 }
 
 /* Define the 32bpp short sprite template */
-template template_short_train_opengfxp32(z, m, g) {
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-17 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0001_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0001_in" + g + "xm.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0002_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0002_in" + g + "xm.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-7  * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0003_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0003_in" + g + "xm.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-6  * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0004_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0004_in" + g + "xm.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-11 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0005_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0005_in" + g + "xm.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-22 * z), (-14 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0006_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0006_in" + g + "xm.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-23 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0007_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0007_in" + g + "xm.png")]
-    [(48 / (4 / z)), 0, (96 / (4 / z)), (124 / (4 / z)), (-14 * z), (-18 * z), CROP, ("src/gfx/rendered/" + m + "/32bpp/0008_in" + g + "x.png"), ("src/gfx/rendered/" + m + "/32bpp_mask/0008_in" + g + "xm.png")]
+template _TEMPLATE_48_32BPP(_ATTR_ZOOM, _ATTR_MODEL) {
+    @<:@_RENDERED_SPRITE_32BPP(0001,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0002,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0003,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0004,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0005,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0006,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0007,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0008,_LENGTH_48)@:>@
 }
 
-/* OpenGFX+ */
 /* Define the short gui sprite template for the 32bpp GUI menus */
-template template_short_train_gui_opengfxp32(m) {
-    []
-    []
-    [12, 0, 24, 31, -23, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0003_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0003_32_in1xm.png")]
-    []
-    []
-    []
-    [12, 0, 24, 31, -23, -18, CROP, ("src/gfx/rendered/" + m + "/gui/0007_32_in1x.png"), ("src/gfx/rendered/" + m + "/gui/0007_32_in1xm.png")]
-    []
+template _TEMPLATE_GUI_48_32BPP(_ATTR_MODEL) {
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_32BPP(0003,_LENGTH_48)@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_32BPP(0007,_LENGTH_48)@:>@
+    @<:@@:>@
 }
+
+/* Define the 32bpp short sprite template */
+template _TEMPLATE_48_32BPP_REVERSED(_ATTR_ZOOM, _ATTR_MODEL) {
+    @<:@_RENDERED_SPRITE_32BPP(0005,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0006,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0007,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0008,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0001,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0002,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0003,_LENGTH_48)@:>@
+    @<:@_RENDERED_SPRITE_32BPP(0004,_LENGTH_48)@:>@
+}
+
+/* Define the short gui sprite template for the 32bpp GUI menus */
+template _TEMPLATE_GUI_48_32BPP_REVERSED(_ATTR_MODEL) {
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_32BPP(0007,_LENGTH_48)@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@@:>@
+    @<:@_RENDERED_SPRITE_GUI_32BPP(0003,_LENGTH_48)@:>@
+    @<:@@:>@
+}
+
+divert(-1)
+undefine([_ATTR_ZOOM])
+undefine([_ATTR_MODEL])
+
+undefine([_SIZE_48])
+undefine([_SIZE_GUI_48])
+
+undefine([_SIZE_88])
+undefine([_SIZE_GUI_88])
+
+undefine([_SIZE_ID])
+undefine([_SIZE_GUI_ID])
+
+undefine([_OFFSET_0001_48])
+undefine([_OFFSET_0002_48])
+undefine([_OFFSET_0003_48])
+undefine([_OFFSET_0004_48])
+undefine([_OFFSET_0005_48])
+undefine([_OFFSET_0006_48])
+undefine([_OFFSET_0007_48])
+undefine([_OFFSET_0008_48])
+
+undefine([_OFFSET_0003_GUI_48])
+undefine([_OFFSET_0007_GUI_48])
+
+undefine([_OFFSET_0001_88])
+undefine([_OFFSET_0002_88])
+undefine([_OFFSET_0003_88])
+undefine([_OFFSET_0004_88])
+undefine([_OFFSET_0005_88])
+undefine([_OFFSET_0006_88])
+undefine([_OFFSET_0007_88])
+undefine([_OFFSET_0008_88])
+
+undefine([_OFFSET_0003_GUI_88])
+undefine([_OFFSET_0007_GUI_88])
+
+undefine([_OFFSET_ID])
+undefine([_OFFSET_GUI_ID])
+
+undefine([_SOURCE_DIR])
+undefine([_ZOOM_COND])
+
+undefine([_RENDERED_SPRITE_8BPP])
+undefine([_RENDERED_SPRITE_GUI_8BPP])
+
+undefine([_RENDERED_SPRITE_32BPP])
+undefine([_RENDERED_SPRITE_GUI_32BPP])
+divert

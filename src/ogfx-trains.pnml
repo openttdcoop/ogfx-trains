@@ -4,23 +4,21 @@
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
+divert(-1)
 
-#include "src/header.pnml"
-#include "src/cargo_definitions.pnml"
-#include "src/railtype_table.pnml"
+# Include the main macros
+include(src/m4_macros.pnml)
 
-#include "src/templates_sprites.pnml"
-#include "src/templates_wagons.pnml"
-#include "src/templates_engines.pnml"
-#include "src/templates_mu.pnml"
-#include "src/templates_32bpp.pnml"
+divert
 
-/*
- * Redefine the default engines
- */
-
-#include "src/remove_wagons.pnml"
-#include "src/redefine_engines.pnml"
+include_unique([src/header.pnml])
+include_unique([src/cargo_definitions.pnml])
+include_unique([src/railtype_table.pnml])
+include_unique([src/templates_sprites.pnml])
+include_unique([src/templates_32bpp.pnml])
+include_unique([src/templates_common.pnml])
+include_unique([src/templates_wagons.pnml])
+include_unique([src/templates_engines.pnml])
 
 /*
  * IMPORTANT: Don't add or remove single entries
@@ -31,89 +29,114 @@
  */
 
 /*
- * Declare all rail and elrail wagons here
+ * =============================================================================
+ * Redefine the default wagons
+ * =============================================================================
  */
 
-#include "src/wagon_pax.pnml"
-#include "src/wagon_mail.pnml"
-#include "src/wagon_valuables.pnml"
-#include "src/wagon_bulk.pnml"
-#include "src/wagon_piecegoods.pnml"
-#include "src/wagon_refrigerated.pnml"
-#include "src/wagon_livestock.pnml"
-#include "src/wagon_tank.pnml"
-#include "src/wagon_flatbed.pnml"
+include_unique([src/remove_wagons.pnml])
+
+/*
+ * Declare all rail and elrail wagons here
+ */
+include_unique([src/wagon_pax.pnml])
+include_unique([src/wagon_mail.pnml])
+include_unique([src/wagon_valuables.pnml])
+include_unique([src/wagon_bulk.pnml])
+include_unique([src/wagon_piecegoods.pnml])
+include_unique([src/wagon_refrigerated.pnml])
+include_unique([src/wagon_livestock.pnml])
+include_unique([src/wagon_tank.pnml])
+include_unique([src/wagon_flatbed.pnml])
 
 /*
  * Monorail has to go below railwagons as some
  * of their graphics are re-used
  */
-
-#include "src/monorail_pax.pnml"
-#include "src/monorail_mail.pnml"
-#include "src/monorail_valuables.pnml"
-#include "src/monorail_bulk.pnml"
-#include "src/monorail_piecegoods.pnml"
-#include "src/monorail_livestock.pnml"
-#include "src/monorail_refrigerated.pnml"
-#include "src/monorail_tank.pnml"
-#include "src/monorail_flatbed.pnml"
+include_unique([src/monorail_pax.pnml])
+include_unique([src/monorail_mail.pnml])
+include_unique([src/monorail_valuables.pnml])
+include_unique([src/monorail_bulk.pnml])
+include_unique([src/monorail_piecegoods.pnml])
+include_unique([src/monorail_livestock.pnml])
+include_unique([src/monorail_refrigerated.pnml])
+include_unique([src/monorail_tank.pnml])
+include_unique([src/monorail_flatbed.pnml])
 
 /*
  * Maglev has to go below monorail wagons as some
  * of their graphics are re-used
  */
-
-#include "src/maglev_pax.pnml"
-#include "src/maglev_mail.pnml"
-#include "src/maglev_valuables.pnml"
-#include "src/maglev_bulk.pnml"
-#include "src/maglev_piecegoods.pnml"
-#include "src/maglev_refrigerated.pnml"
-#include "src/maglev_livestock.pnml"
-#include "src/maglev_tank.pnml"
-#include "src/maglev_flatbed.pnml"
+include_unique([src/maglev_pax.pnml])
+include_unique([src/maglev_mail.pnml])
+include_unique([src/maglev_valuables.pnml])
+include_unique([src/maglev_bulk.pnml])
+include_unique([src/maglev_piecegoods.pnml])
+include_unique([src/maglev_refrigerated.pnml])
+include_unique([src/maglev_livestock.pnml])
+include_unique([src/maglev_tank.pnml])
+include_unique([src/maglev_flatbed.pnml])
 
 /*
+ * Tender has to go before engines even though it is a new wagon
+ */
+include_unique([src/tender.pnml])
+
+/*
+ * =============================================================================
+ * Redefine the default engines
+ * =============================================================================
+ */
+
+/*
+ * Steam / Diesel / Electric engines.
+ */
+include_unique([src/engine_kirby_paul.pnml])
+include_unique([src/engine_mjs250.pnml])
+include_unique([src/engine_ploddyphut.pnml])
+include_unique([src/engine_powernaut.pnml])
+include_unique([src/engine_mightymover.pnml])
+include_unique([src/engine_ploddyphut_diesel.pnml])
+include_unique([src/engine_powernaut_diesel.pnml])
+include_unique([src/engine_wills280.pnml])
+include_unique([src/engine_chaneyjubilee.pnml])
+include_unique([src/engine_ginzu.pnml])
+include_unique([src/engine_sh8p.pnml])
+include_unique([src/engine_manley-morel.pnml])
+include_unique([src/engine_dash.pnml])
+include_unique([src/engine_sh25.pnml])
+include_unique([src/engine_uu37.pnml])
+include_unique([src/engine_floss.pnml])
+include_unique([src/engine_cs4000.pnml])
+include_unique([src/engine_cs2400.pnml])
+include_unique([src/engine_centinnial.pnml])
+include_unique([src/engine_kelling3100.pnml])
+include_unique([src/engine_turbotrain.pnml])
+include_unique([src/engine_mjs1000.pnml])
+include_unique([src/engine_sh125.pnml])
+include_unique([src/engine_sh30.pnml])
+include_unique([src/engine_sh40.pnml])
+include_unique([src/engine_tim.pnml])
+include_unique([src/engine_asiastar.pnml])
+
+/*
+ * Monorail Engines.
+ */
+include_unique([src/engine_x2001.pnml])
+include_unique([src/engine_milleniumZ1.pnml])
+include_unique([src/engine_wizzwow_z99.pnml])
+
+/*
+ * Maglev engines.
+ */
+include_unique([src/engine_lev1.pnml])
+include_unique([src/engine_lev2.pnml])
+include_unique([src/engine_lev3.pnml])
+include_unique([src/engine_lev4.pnml])
+include_unique([src/engine_wizzowowrocketeer.pnml])
+
+/*
+ * =============================================================================
  * Non-default vehicles here
+ * =============================================================================
  */
-#include "src/tender.pnml"              // Tender for steam engines
-
-/*
- * Re-declare all engines with new graphics here
- * (they don't use new vehicleIDs)
- */
-
-#include "src/engine_manley-morel.pnml"
-#include "src/engine_dash.pnml"
-#include "src/engine_turbotrain.pnml"
-#include "src/engine_sh125.pnml"
-#include "src/engine_asiastar.pnml"
-#include "src/engine_tim.pnml"
-
-// rail engines
-#include "src/engine_kirby_paul.pnml"    // id 00
-#include "src/engine_ploddyphut.pnml"    // id 02
-#include "src/engine_powernaut.pnml"     // id 03
-#include "src/engine_mightymover.pnml"   // id 04
-#include "src/engine_wills280.pnml"      // id 07
-#include "src/engine_chaneyjubilee.pnml" // id 08
-#include "src/engine_ginzu.pnml"         // id 09
-#include "src/engine_sh8p.pnml"          // id 10
-#include "src/engine_sh25.pnml"          // id 13
-#include "src/engine_uu37.pnml"          // id 14
-#include "src/engine_floss.pnml"         // id 15
-#include "src/engine_kelling3100.pnml" 	 // id 19
-#include "src/engine_mjs1000.pnml"       // id 21
-#include "src/engine_sh30.pnml"          // id 23
-#include "src/engine_sh40.pnml"          // id 24
-
-// monorail
-#include "src/engine_x2001.pnml"        // id 54
-#include "src/engine_milleniumZ1.pnml"
-
-// maglev
-#include "src/engine_lev1.pnml"         // id 84
-#include "src/engine_lev2.pnml"         // id 85
-#include "src/engine_lev3.pnml"         // id 86
-#include "src/engine_wizzowowrocketeer.pnml" // id 88

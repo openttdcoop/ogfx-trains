@@ -1,9 +1,19 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
+
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [tender])
+
+divert
 
 /*
  * ***************************
@@ -20,59 +30,43 @@
  * Desperately need 4/8 length 8bpp tender sprites!!!
  */
 
-#define THIS_ID(...) tender ## __VA_ARGS__
-
-/* Common */
-SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_common, "common_tender", all,
-	"src/gfx/engines/arctic_wills280.png",
-	tmpl_engine_88, 0, 0
-)
-
-/* Ginzu */
-SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_ginzua4, "ginzua4_tender", all,
-	"src/gfx/engines/temperate_GinzuA4_88.png",
-	tmpl_engine_88, 0, 0
-)
-
-/* SH8P */
-SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_sh8p, "sh8p_tender", all,
-	"src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
-	tmpl_engine_88, 0, 0
-)
-
-/* General switch to distinguish between engines */
-switch(FEAT_TRAINS, PARENT, tender_switch, vehicle_type_id) {
-    ginzua4:    tender_ginzua4_all_switch_gui;    // graphics defined in engine_ginzu.pnml
-    sh8p:       tender_sh8p_all_switch_gui;
-    tender_common_all_switch_gui;           // graphics defined in engine_ginzu.pnml
-}
+/* Tender Common */
+_WAGON_LENGTH48(common, engine, default,
+    "common_tender",
+    _NONE_AVAILABLE,
+    tmpl_engine_88, 0, 0)
 
 /* Declare the vehicle */
-item(FEAT_TRAINS, tender) {
-	property {
-		WAGON_PROPERTIES_DEFAULT
-		WAGON_PROPERTIES_RAIL_DEFAULT
-		name:                           string(STR_NAME_TENDER);
-		climates_available:		NO_CLIMATE; // articulated only. Not in purchase list
-		cost_factor:                    0;
-		extra_power_per_wagon:          0hp;
-		cargo_capacity:                 0;
-		weight:                         20;
-		length:                         4;
-	}
-	graphics {
-		default:                        tender_switch;
-	}
+item(FEAT_TRAINS, _THIS_WAGON) {
+    property {
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_rail_default.pnml])
+        name:                           string(STR_NAME_TENDER);
+        climates_available:             NO_CLIMATE; /* articulated only. Not in purchase list */
+        cost_factor:                    0;
+        extra_power_per_wagon:          0 hp;
+        cargo_capacity:                 0;
+        weight:                         20 ton;
+        length:                         4;
+    }
+    graphics { _THIS_WAGON_GRAPHICS_ID(common, engine, default); }
+}
+
+/* We only attach one tender, thus fail for 2nd and consecutive calls */
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_ID(articulated_switch), extra_callback_info1) {
+    1: return _THIS_WAGON;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
 /*
  * Switch to be used by all steam engines which use this tender
  */
 
-/* We only attach one tender, thus fail for 2nd and consecutive calls */
-switch(FEAT_TRAINS, SELF, tender_articulated_cb, extra_callback_info1) {
-	1: return tender;
-	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+/* We only attach a tender if the parameter is set */
+define([_TENDER_ARTICULATED_ENABLED_SWITCH_ID], _THIS_WAGON_ID(articulated_enabled_switch))dnl
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_ID(articulated_enabled_switch), (param_tender != TENDER_NONE)) {
+    1: _THIS_WAGON_ID(articulated_switch);
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

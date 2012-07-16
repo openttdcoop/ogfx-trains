@@ -1,0 +1,17 @@
+divert(-1)
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/cargo_definitions.pnml])])
+
+divert
+        refittable_cargo_classes:       bitmask(CC_LIQUID);
+        non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED);
+        cargo_allow_refit:              @<:@list_to_columns([13], [41], [_TANK_CARGO_ALLOW_REFIT])@:>@;
+        cargo_disallow_refit:           @<:@list_to_columns([13], [41], [_TANK_CARGO_DISALLOW_REFIT])@:>@;
