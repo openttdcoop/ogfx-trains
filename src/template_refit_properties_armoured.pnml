@@ -15,3 +15,4 @@ divert
         non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_LIQUID, CC_REFRIGERATED, CC_BULK);
         cargo_allow_refit:              @<:@list_to_columns([13], [41], [_ARMOURED_CARGO_ALLOW_REFIT])@:>@;
         cargo_disallow_refit:           @<:@list_to_columns([13], [41], [_ARMOURED_CARGO_DISALLOW_REFIT])@:>@;
+        refit_cost:                     0;

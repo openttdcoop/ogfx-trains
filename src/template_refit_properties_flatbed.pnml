@@ -15,3 +15,4 @@ divert
         non_refittable_cargo_classes:   bitmask(CC_PASSENGERS, CC_REFRIGERATED);
         cargo_allow_refit:              @<:@list_to_columns([13], [41], [_FLATBED_CARGO_ALLOW_REFIT])@:>@;
         cargo_disallow_refit:           @<:@list_to_columns([13], [41], [_FLATBED_CARGO_DISALLOW_REFIT])@:>@;
+        refit_cost:                     40;

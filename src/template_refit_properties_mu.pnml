@@ -15,3 +15,4 @@ divert
         non_refittable_cargo_classes:   bitmask(CC_OVERSIZED);
         cargo_allow_refit:              @<:@list_to_columns([13], [41], [_MU_CARGO_ALLOW_REFIT])@:>@;
         cargo_disallow_refit:           @<:@list_to_columns([13], [41], [_MU_CARGO_DISALLOW_REFIT])@:>@;
+        refit_cost:                     40;

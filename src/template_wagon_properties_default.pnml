@@ -28,7 +28,6 @@ divert
         running_cost_factor:            5;
         power:                          0;
         bitmask_vehicle_info:           0;
-        refit_cost:                     40;
         misc_flags:                     bitmask(_TRAIN_FLAGS);
         running_cost_base:              RUNNING_COST_STEAM;
 undefine([_TRAIN_FLAGS])dnl
