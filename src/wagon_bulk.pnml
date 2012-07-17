@@ -357,6 +357,11 @@ switch (FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(suffix), cargo_type_in_ve
     CB_FAILED;
 }
 
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_ID([speed], [year_switch]), build_year < _RAIL_MODERN_YEAR) {
+    1: return 160;
+    CB_FAILED;
+}
+
 item(FEAT_TRAINS, _THIS_WAGON) {
     property {
         /* We try to simulate the stats of the temperate grain wagon */
@@ -373,6 +378,7 @@ include([src/template_refit_properties_bulk.pnml])
         weight:             _THIS_WAGON_CARGO_SWITCH_ID(weight);
         cargo_subtype_text: _THIS_WAGON_CARGO_SWITCH_ID(suffix);
         refit_cost:         _BULK_REFIT_COST_SWITCH;
+        speed:              _THIS_WAGON_ID([speed], [year_switch]);
 
         purchase:           _THIS_WAGON_YEAR_SWITCH_ID(coal, default);
         _THIS_WAGON_CARGO_SWITCH_ID(default);

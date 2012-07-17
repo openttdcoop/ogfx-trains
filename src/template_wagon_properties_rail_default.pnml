@@ -13,6 +13,6 @@ ifelse(do_included_checks, [1],
 divert
         introduction_date:              date(1925,1,1);
         climates_available:             param_provide_rail ? ALL_CLIMATES : NO_CLIMATE;
-        speed:                          160 km/h;
+        speed:                          0;
         model_life:                     VEHICLE_NEVER_EXPIRES;
         track_type:                     NORMAL_RAIL10;
