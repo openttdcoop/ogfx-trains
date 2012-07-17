@@ -22,7 +22,7 @@ divert
  */
 
 _ENGINE_LENGTH88(engine, default,
-    _NONE_AVAILABLE,
+    "willis",
     "src/gfx/engines/toyland_mightymover.png",
     tmpl_engine_88, 0, 0)
 

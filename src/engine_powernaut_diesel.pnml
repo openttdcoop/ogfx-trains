@@ -21,7 +21,7 @@ divert
  */
 
 _ENGINE_LENGTH88(engine, default,
-    _NONE_AVAILABLE,
+    "sh125",
     "src/gfx/engines/toyland_powernaut_diesel.png",
     tmpl_engine_88, 0, 0)
 

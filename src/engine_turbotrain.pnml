@@ -30,22 +30,22 @@ _ENGINE_REVERSED_LENGTH88(engine, default,
     tmpl_turbotrain_engine, 142, 112)
 
 _ENGINE_REVERSED_LOADING_LENGTH88(passenger, default,
-    _NONE_AVAILABLE,
-    _NONE_AVAILABLE,
+    "passenger",
+    "passenger_loading",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     tmpl_turbotrain_wagon, 142, 139, 142, 139)
 
 _ENGINE_REVERSED_LOADING_LENGTH88(mail, default,
-    _NONE_AVAILABLE,
-    _NONE_AVAILABLE,
+    "mail",
+    "mail_loading",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     tmpl_turbotrain_wagon, 142, 168, 142, 168)
 
 _ENGINE_REVERSED_LOADING_LENGTH88(valuables, default,
-    _NONE_AVAILABLE,
-    _NONE_AVAILABLE,
+    "armoured",
+    "armoured_loading",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     tmpl_turbotrain_wagon, 142, 168, 142, 168)

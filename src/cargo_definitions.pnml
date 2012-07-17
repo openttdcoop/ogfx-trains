@@ -164,6 +164,15 @@ ifelse(do_cargo_checks, [1],
      check_existance_cargo_label([_BULK_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
 
 #############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_BULK_DEFAULT_CARGO], [COAL])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_BULK_DEFAULT_CARGO])
+     check_existance_cargo_label([_BULK_DEFAULT_CARGO], [_BULK_CARGO_ALLOW_REFIT])])
+
+#############################################################################################
 # Refit cost switch refererenced in this other files.
 #############################################################################################
 define_unique([_BULK_REFIT_COST_SWITCH], [bulk_refit_cost_switch])
@@ -273,6 +282,15 @@ ifelse(do_cargo_checks, [1],
      check_existance_cargo_label([_FLATBED_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
 
 #############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_FLATBED_DEFAULT_CARGO], [WOOD])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_FLATBED_DEFAULT_CARGO])
+     check_existance_cargo_label([_FLATBED_DEFAULT_CARGO], [_FLATBED_CARGO_ALLOW_REFIT])])
+
+#############################################################################################
 # Refit cost switch refererenced in this other files.
 #############################################################################################
 define_unique([_FLATBED_REFIT_COST_SWITCH], [flatbed_refit_cost_switch])
@@ -370,6 +388,15 @@ ifelse(do_cargo_checks, [1],
      check_existance_cargo_label([_PIECE_GOODS_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
 
 #############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_PIECE_GOODS_DEFAULT_CARGO], [GOOD])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_PIECE_GOODS_DEFAULT_CARGO])
+     check_existance_cargo_label([_PIECE_GOODS_DEFAULT_CARGO], [_PIECE_GOODS_CARGO_ALLOW_REFIT])])
+
+#############################################################################################
 # Refit cost switch refererenced in this other files.
 #############################################################################################
 define_unique([_PIECEGOODS_REFIT_COST_SWITCH], [piecegoods_refit_cost_switch])
@@ -411,6 +438,15 @@ ifelse(do_cargo_checks, [1],
      check_existance_cargo_label([_PAX_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
 
 #############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_PAX_DEFAULT_CARGO], [PASS])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_PAX_DEFAULT_CARGO])
+     check_existance_cargo_label([_PAX_DEFAULT_CARGO], [_PAX_CARGO_ALLOW_REFIT])])
+
+#############################################################################################
 # Refit cost switch refererenced in this other files.
 #############################################################################################
 define_unique([_PAX_REFIT_COST_SWITCH], [pax_refit_cost_switch])
@@ -445,6 +481,15 @@ define_unique([_MAIL_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_MAIL_
 ifelse(do_cargo_checks, [1],
     [check_cargo_labels([_MAIL_CARGO_DISALLOW_REFIT])
      check_existance_cargo_label([_MAIL_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
+
+#############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_MAIL_DEFAULT_CARGO], [MAIL])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_MAIL_DEFAULT_CARGO])
+     check_existance_cargo_label([_MAIL_DEFAULT_CARGO], [_MAIL_CARGO_ALLOW_REFIT])])
 
 #############################################################################################
 # Refit cost switch refererenced in this other files.
@@ -483,6 +528,15 @@ ifelse(do_cargo_checks, [1],
      check_existance_cargo_label([_ARMOURED_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
 
 #############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_ARMOURED_DEFAULT_CARGO], [VALU])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_ARMOURED_DEFAULT_CARGO])
+     check_existance_cargo_label([_ARMOURED_DEFAULT_CARGO], [_ARMOURED_CARGO_ALLOW_REFIT])])
+
+#############################################################################################
 # Refit cost switch refererenced in this other files.
 #############################################################################################
 define_unique([_ARMOURED_REFIT_COST_SWITCH], [armoured_refit_cost_switch])
@@ -517,6 +571,15 @@ define_unique([_REFRIGERATED_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit
 ifelse(do_cargo_checks, [1],
     [check_cargo_labels([_REFRIGERATED_CARGO_DISALLOW_REFIT])
      check_existance_cargo_label([_REFRIGERATED_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
+
+#############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_REFRIGERATED_DEFAULT_CARGO], [FOOD])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_REFRIGERATED_DEFAULT_CARGO])
+     check_existance_cargo_label([_REFRIGERATED_DEFAULT_CARGO], [_REFRIGERATED_CARGO_ALLOW_REFIT])])
 
 #############################################################################################
 # Refit cost switch refererenced in this other files.
@@ -555,6 +618,15 @@ ifelse(do_cargo_checks, [1],
      check_existance_cargo_label([_LIVESTOCK_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
 
 #############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_LIVESTOCK_DEFAULT_CARGO], [LVST])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_LIVESTOCK_DEFAULT_CARGO])
+     check_existance_cargo_label([_LIVESTOCK_DEFAULT_CARGO], [_LIVESTOCK_CARGO_ALLOW_REFIT])])
+
+#############################################################################################
 # Refit cost switch refererenced in this other files.
 #############################################################################################
 define_unique([_LIVESTOCK_REFIT_COST_SWITCH_ID], [livestock_refit_cost_switch])
@@ -591,6 +663,15 @@ define_unique([_TANK_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_TANK_
 ifelse(do_cargo_checks, [1],
     [check_cargo_labels([_TANK_CARGO_DISALLOW_REFIT])
      check_existance_cargo_label([_TANK_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
+
+#############################################################################################
+# Default cargo to carry
+#############################################################################################
+define_unique([_TANK_DEFAULT_CARGO], [OIL_])
+
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([_TANK_DEFAULT_CARGO])
+     check_existance_cargo_label([_TANK_DEFAULT_CARGO], [_TANK_CARGO_ALLOW_REFIT])])
 
 #############################################################################################
 # Refit cost switch refererenced in this other files.
@@ -666,6 +747,16 @@ define_unique([_MU_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_MU_CARG
 ifelse(do_cargo_checks, [1],
     [check_cargo_labels([_MU_CARGO_DISALLOW_REFIT])
      check_existance_cargo_label([_MU_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
+
+#############################################################################################
+# Default cargo to carry
+# _MU_DEFAULT_CARGO (cargo-label)
+#############################################################################################
+define_unique([_MU_DEFAULT_CARGO], [check_args_exact([$0], [$#], [1])dnl
+ifelse(do_cargo_checks, [1],
+    [check_cargo_labels([$1])
+     check_existance_cargo_label([$1], [_MU_CARGO_ALLOW_REFIT])])dnl
+$1])
 
 #############################################################################################
 # Refit cost switch refererenced in this other files.

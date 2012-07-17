@@ -19,6 +19,7 @@ divert
 
 /*
  * "SH '8P' (Steam)"
+ * Livery override for tender
  */
 
 _ENGINE_LENGTH88(engine, default,

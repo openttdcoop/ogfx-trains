@@ -18,26 +18,54 @@ divert
 
 /*
  * "'Millennium Z1' (Electric)"
+ * Livery override for passenger, mail and valuables wagons
  */
 
-_ENGINE_LENGTH88(engine, default,
+_ENGINE_LOADING_LENGTH88(engine, default,
+    _NONE_AVAILABLE,
     _NONE_AVAILABLE,
     "src/gfx/engines/monorail_millenium_88.png",
-    tmpl_engine_88, 0, 0)
+    "src/gfx/engines/monorail_millenium_88.png",
+    tmpl_engine_88, 0, 0, 0, 0)
+
+_ENGINE_LOADING_LENGTH88(passenger, default,
+    "mono_passenger",
+    "mono_passenger_loading",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon242, 0, 0, 0, 0)
+
+_ENGINE_LOADING_LENGTH88(mail, default,
+    "mono_mail",
+    "mono_mail_loading",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon242, 0, 20, 0, 20)
+
+_ENGINE_LOADING_LENGTH88(valuables, default,
+    "mono_armoured",
+    "mono_armoured_loading",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon242, 0, 60, 0, 80)
 
 item(FEAT_TRAINS, _THIS_ENGINE, 55) {
     property {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
+        misc_flags:             bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_monorail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             MONORAIL;
 include([src/template_refit_properties_mu.pnml])
+        default_cargo_type:     _MU_DEFAULT_CARGO([PASS]);
     }
     graphics {
         refit_cost: _MU_REFIT_COST_SWITCH;
 
         _THIS_ENGINE_GRAPHICS_ID(engine, default);
     }
+    livery_override (passenger_wagon) { _THIS_ENGINE_GRAPHICS_ID(passenger, default); }
+    livery_override (mail_wagon)      { _THIS_ENGINE_GRAPHICS_ID(mail, default); }
+    livery_override (valuables_wagon) { _THIS_ENGINE_GRAPHICS_ID(valuables, default); }
 }
 
 undefine([_THIS_ENGINE])dnl

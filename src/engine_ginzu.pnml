@@ -19,6 +19,7 @@ divert
 
 /*
  * "Ginzu 'A4' (Steam)"
+ * Livery override for tender
  */
 
 _ENGINE_LENGTH88(engine, default,

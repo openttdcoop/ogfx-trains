@@ -16,3 +16,4 @@ divert
         cargo_allow_refit:              @<:@list_to_columns([13], [41], [_TANK_CARGO_ALLOW_REFIT])@:>@;
         cargo_disallow_refit:           @<:@list_to_columns([13], [41], [_TANK_CARGO_DISALLOW_REFIT])@:>@;
         refit_cost:                     40;
+        default_cargo_type:             _TANK_DEFAULT_CARGO;
