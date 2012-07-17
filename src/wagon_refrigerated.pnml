@@ -51,4 +51,4 @@ include([src/template_refit_properties_refrigerated.pnml])
     }
 }
 
-undefine([_THIS_WAGON])dnl"
+undefine([_THIS_WAGON])dnl

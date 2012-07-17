@@ -19,6 +19,8 @@ divert
 /*
  * ***************************
  * Monorail Passenger wagon:
+ *
+ * Note this is a redefined wagon and not a new wagon!
  * ***************************
  */
 

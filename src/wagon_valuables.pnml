@@ -21,6 +21,8 @@ divert
  * Armoured wagon:
  *
  * valuables, gold, diamonds
+ *
+ * Note this is a redefined wagon and not a new wagon!
  * ***************************
  */
 
