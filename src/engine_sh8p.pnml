@@ -17,10 +17,16 @@ ENGINE_GRAPHICS_GROUP_32BPP(sh8p, "sh8p", default,
     tmpl_engine_88, 0, 0
 )
 
+/* SH8P */
+SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_sh8p, "sh8p_tender", all,
+	"src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
+	tmpl_engine_88, 0, 0
+)
+
 item(FEAT_TRAINS, sh8p) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
         track_type:                     NORMAL_RAIL;
     }
 }
@@ -35,6 +41,9 @@ if (param_tender != TENDER_NONE) {
 			articulated_part:   tender_articulated_cb;
 			purchase:           sh8p_default_switch_gui;
 		}
+                livery_override (tender) {
+                        tender_sh8p_all_switch_gui;
+                }
 	}
 } else {
 	/* Normal engine without tender */
@@ -43,6 +52,9 @@ if (param_tender != TENDER_NONE) {
 			default:            sh8p_default_indepot_switch;
 			purchase:           sh8p_default_switch_gui;
 		}
+                livery_override (tender) {
+                        tender_sh8p_all_switch_gui;
+                }
 	}
 }
 

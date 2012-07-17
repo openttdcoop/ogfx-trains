@@ -28,25 +28,6 @@ SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_common, "common_tender", all,
 	tmpl_engine_88, 0, 0
 )
 
-/* Ginzu */
-SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_ginzua4, "ginzua4_tender", all,
-	"src/gfx/engines/temperate_GinzuA4_88.png",
-	tmpl_engine_88, 0, 0
-)
-
-/* SH8P */
-SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_sh8p, "sh8p_tender", all,
-	"src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
-	tmpl_engine_88, 0, 0
-)
-
-/* General switch to distinguish between engines */
-switch(FEAT_TRAINS, PARENT, tender_switch, vehicle_type_id) {
-    ginzua4:    tender_ginzua4_all_switch_gui;    // graphics defined in engine_ginzu.pnml
-    sh8p:       tender_sh8p_all_switch_gui;
-    tender_common_all_switch_gui;           // graphics defined in engine_ginzu.pnml
-}
-
 /* Declare the vehicle */
 item(FEAT_TRAINS, tender) {
 	property {
@@ -59,9 +40,10 @@ item(FEAT_TRAINS, tender) {
 		cargo_capacity:                 0;
 		weight:                         20;
 		length:                         4;
+                misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_2CC);
 	}
 	graphics {
-		default:                        tender_switch;
+		default:                        tender_common_all_switch_gui;
 	}
 }
 

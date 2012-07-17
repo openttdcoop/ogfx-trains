@@ -19,13 +19,19 @@ ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", default,
     tmpl_engine_88, 0, 0
 )
 
+/* Ginzu */
+SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_ginzua4, "ginzua4_tender", all,
+    "src/gfx/engines/temperate_GinzuA4_88.png",
+    tmpl_engine_88, 0, 0
+)
+
 /* This steam engine has a tender. See tender.pnml */
 
 /* Declare the engine and change what needs changing */
 item(FEAT_TRAINS, ginzua4) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
         track_type:                     NORMAL_RAIL;
     }
 }
@@ -40,6 +46,9 @@ if (param_tender != TENDER_NONE) {
 			articulated_part:   tender_articulated_cb;
 			purchase:           ginzua4_default_switch_gui;
 		}
+                livery_override (tender) {
+                        tender_ginzua4_all_switch_gui;
+                }
 	}
 } else {
 	/* Normal engine without tender */
@@ -48,6 +57,9 @@ if (param_tender != TENDER_NONE) {
 			default:            ginzua4_default_indepot_switch;
 			purchase:           ginzua4_default_switch_gui;
 		}
+                livery_override (tender) {
+                        tender_ginzua4_all_switch_gui;
+                }
 	}
 }
 
