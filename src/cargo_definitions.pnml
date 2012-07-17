@@ -83,8 +83,8 @@ cargotable {                        // Cargos needed for special refit orders.
                                          FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
                                          RFPR, SAND, SCMT, SGBT, SGCN, SULP,       VEHI, WDPR, WOOL, \
                                          GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             PASS; \
         refit_cost:                     0; // Refit is free.
-
 
 /*
  * *****************************************************************************
@@ -103,7 +103,10 @@ cargotable {                        // Cargos needed for special refit orders.
                                          FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
                                          RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
                                          GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             MAIL; \
         refit_cost:                     0; // Refit is free.
+
+#define MAIL_DEFAULT_CARGO MAIL
 
 /*
  * *****************************************************************************
@@ -122,6 +125,7 @@ cargotable {                        // Cargos needed for special refit orders.
                                          FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
                                          RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
                                          GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             VALU; \
         refit_cost:                     0; // Refit is free.
 
 
@@ -219,7 +223,8 @@ switch (FEAT_CURRENT, SELF, bulk_refit_cost_switch, cargo_type_in_veh) {
                                                BEER, BDMT, BRCK, CERA,                   COPR, DYES, ENSP,             \
                                          FISH, FMSP,       GLAS,             MILK, MNSP,       PETR, PLAS, POTA,       \
                                          RFPR,                         SULP, TOUR, VEHI,       WOOL, \
-                                         GEAR, FUEL,             TWOD, WSTE];
+                                         GEAR, FUEL,             TWOD, WSTE]; \
+        default_cargo_type:             COAL;
 
 #define REFIT_GRAPHICS_BULK \
         refit_cost:         bulk_refit_cost_switch;
@@ -302,7 +307,8 @@ switch (FEAT_CURRENT, SELF, flatbed_refit_cost_switch, cargo_type_in_veh) {
                                          AORE, BEER,             CERA, CERE, CLAY, CMNT,                         FICR, \
                                          FISH,       FRVG,       GRVL, LIME, MILK,       OLSD,             POTA, RCYC, \
                                                SAND, SCMT, SGBT, SGCN, SULP, TOUR,             WOOL, \
-                                         GEAR, FUEL, RSGR, SCRP,       WSTE];
+                                         GEAR, FUEL, RSGR, SCRP,       WSTE]; \
+        default_cargo_type:             WOOD;
 
 
 #define REFIT_GRAPHICS_FLATBED \
@@ -326,7 +332,8 @@ switch (FEAT_CURRENT, SELF, flatbed_refit_cost_switch, cargo_type_in_veh) {
                                          AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
                                          FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
                                          RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
-                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE];
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             LVST;
 
 
 /*
@@ -353,7 +360,8 @@ switch (FEAT_CURRENT, SELF, piecegoods_refit_cost_switch, 1) {
                                          AORE,       BDMT, BRCK, CERA, CERE, CLAY, CMNT,                   FERT, FICR, \
                                          FISH,             GLAS, GRVL, LIME, MILK,       OLSD, PETR,       POTA, RCYC, \
                                          RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI,             \
-                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE];
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             GOOD;
 
 #define REFIT_GRAPHICS_PIECE_GOODS \
         refit_cost:         piecegoods_refit_cost_switch;
@@ -378,7 +386,8 @@ switch (FEAT_CURRENT, SELF, refrigerated_refit_cost_switch, 1) {
                                          AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
                                          FMSP,       GLAS, GRVL, LIME,       MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
                                          RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
-                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE];
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             FOOD;
 
 #define REFIT_GRAPHICS_REFRIGERATED \
         refit_cost:         refrigerated_refit_cost_switch;
@@ -440,7 +449,8 @@ switch (FEAT_CURRENT, SELF, tank_refit_cost_switch, cargo_type_in_veh) {
                                          AORE,       BDMT, BRCK, CERA, CERE, CLAY,       COPR,       ENSP, FERT, FICR, \
                                          FISH, FMSP, FRVG, GLAS, GRVL, LIME,       MNSP, OLSD,             POTA, RCYC, \
                                                SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
-                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE];
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             OIL_;
 
 #define REFIT_GRAPHICS_TANK \
         refit_cost:         tank_refit_cost_switch;
@@ -462,4 +472,3 @@ switch (FEAT_CURRENT, SELF, tank_refit_cost_switch, cargo_type_in_veh) {
 		                                       FMSP,       GLAS, GRVL, LIME,             OLSD, PETR, PLAS, POTA, RCYC, \
 		                                       SAND, SCMT, SGBT, SGCN, SULP,       VEHI, WDPR,       \
 		                                 GEAR, FUEL, RSGR, SCRP, TWOD, WSTE];
-

@@ -31,6 +31,7 @@ item(FEAT_TRAINS, dash, 12) {
 		misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
                 track_type:                     NORMAL_RAIL;
 		REFIT_PROPERTIES_MU
+                default_cargo_type:             PASS;
 	}
 	graphics {
 		refit_cost: THIS_ID(refit_cost_switch);
