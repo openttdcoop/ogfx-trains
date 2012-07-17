@@ -36,6 +36,7 @@ item(FEAT_TRAINS, monorail_passenger_wagon, 57) {
         refit_cost:                     0; // refit is free
         running_cost_factor:            5;
         running_cost_base:              RUNNING_COST_STEAM;
+        track_type:                     NORMAL_RAIL10;
         REFIT_PROPERTIES_PAX
     }
     graphics {
