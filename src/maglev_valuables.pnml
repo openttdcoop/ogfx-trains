@@ -21,6 +21,8 @@ item(FEAT_TRAINS, maglev_valuables_wagon, 99) {
         climates_available:             param_provide_maglev ? ALL_CLIMATES : NO_CLIMATE;
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
         refit_cost:                     0; // free refit between armoured cargos
+        running_cost_factor:            5;
+        running_cost_base:              RUNNING_COST_STEAM;
         REFIT_PROPERTIES_ARMOURED
     }
     graphics {
