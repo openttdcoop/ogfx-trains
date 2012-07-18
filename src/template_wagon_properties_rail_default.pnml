@@ -15,7 +15,7 @@ ifelse(do_included_checks, [1],
 #############################################################################################
 define_unique([_VEHICLE_SPEED],
 [ifelse(index([|passenger_wagon|mail_wagon|valuables_wagon|], [|]_THIS_WAGON[|]), [-1],
-    [160 km/h],
+    [_SPEED_2ND_GENERATION km/h],
     [0])])
 
 divert

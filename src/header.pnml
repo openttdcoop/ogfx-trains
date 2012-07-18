@@ -262,6 +262,24 @@ define_unique([_RAIL_MODERN_YEAR], [1970])dnl
 
 /*
  * ********************************************
+ * 1st generation wagon speed limit
+ * ********************************************
+ */
+
+define_unique([_SPEED_1ST_GENERATION], [80])dnl
+/* 1st Generation Speed: _SPEED_1ST_GENERATION */
+
+/*
+ * ********************************************
+ * 2nd generation wagon speed limit - cargo only
+ * ********************************************
+ */
+
+define_unique([_SPEED_2ND_GENERATION], [160])dnl
+/* 2nd Generation Cargo Speed: _SPEED_2ND_GENERATION */
+
+/*
+ * ********************************************
  * Vehicles may be 32px wide in the depots
  * ********************************************
  */

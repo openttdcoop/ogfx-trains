@@ -1,6 +1,6 @@
 #**************************************************************************
 # Blender Model List
-# 2012-06-08
+# 2012-07-18
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,7 @@ powernaut
 willis
 # Temperate Wagons
 passenger
+passenger_early
 passenger_asia_star
 passenger_tim
 passenger_dash
@@ -39,6 +40,7 @@ passenger_dmu
 mono_passenger
 passenger_brake
 passenger_loading
+passenger_early_loading
 passenger_asia_star_loading
 passenger_tim_loading
 passenger_dash_loading
@@ -46,11 +48,13 @@ passenger_dmu_loading
 mono_passenger_loading
 passenger_brake_loading
 mail
+mail_early
 mail_asia_star
 mail_tim
 mail_dash
 mail_dmu
 mono_mail
+mail_early_loading
 mail_loading
 mail_asia_star_loading
 mail_tim_loading
@@ -58,26 +62,32 @@ mail_dash_loading
 mail_dmu_loading
 mono_mail_loading
 armoured
+armoured_early
 armoured_asia_star
 armoured_tim
 armoured_dash
 armoured_dmu
 mono_armoured
 armoured_loading
+armoured_early_loading
 armoured_asia_star_loading
 armoured_tim_loading
 armoured_dash_loading
 armoured_dmu_loading
 mono_armoured_loading
 goods
+goods_early
 refrigerated
 livestock
+livestock_early
 mono_goods
 mono_refrigerated
 mono_livestock
 goods_loading
+goods_early_loading
 refrigerated_loading
 livestock_loading
+livestock_early_loading
 mono_goods_loading
 mono_refrigerated_loading
 mono_livestock_loading

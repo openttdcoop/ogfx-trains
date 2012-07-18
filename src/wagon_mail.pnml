@@ -26,12 +26,21 @@ divert
  * ***************************
  */
 
-_WAGON_LOADING_LENGTH88(common, modern, default,
+_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, default,
+    early,
+    "mail_early",
+    "mail_early_loading",
+    "src/gfx/temperate_railwagons.png",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 50, 0, 50,
+    modern,
     "mail",
     "mail_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 50, 0, 50)
+
+_WAGON_SPEED_YEAR_SWITCH(common, default, _RAIL_MODERN_YEAR, _SPEED_1ST_GENERATION)
 
 item(FEAT_TRAINS, _THIS_WAGON, 28) {
     property {
@@ -43,9 +52,10 @@ include([src/template_refit_properties_mail.pnml])
         weight:                         21 ton;
     }
     graphics {
-        refit_cost:     _MAIL_REFIT_COST_SWITCH;
+        refit_cost:         _MAIL_REFIT_COST_SWITCH;
+        speed:              _THIS_WAGON_SPEED_YEAR_SWITCH_ID(common, default);
 
-        _THIS_WAGON_GRAPHICS_ID(common, modern, default);
+        _THIS_WAGON_YEAR_SWITCH_ID(common, default);
     }
 }
 

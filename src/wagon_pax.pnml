@@ -26,28 +26,56 @@ divert
  * ***************************
  */
 
-_WAGON_LOADING_LENGTH88(common, modern, default,
+_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, default,
+    early,
+    "passenger_early",
+    "passenger_early_loading",
+    "src/gfx/temperate_railwagons.png",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 0, 0, 0,
+    modern,
     "passenger",
     "passenger_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0)
 
-_WAGON_LOADING_LENGTH88(common, modern, tropical,
+_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, tropical,
+    early,
+    "passenger_early",
+    "passenger_early_loading",
+    "src/gfx/tropic_railwagons.png",
+    "src/gfx/tropic_railwagons.png",
+    tmpl_railwagon42, 0, 0, 0, 0,
+    modern,
     "passenger",
     "passenger_loading",
     "src/gfx/tropic_railwagons.png",
     "src/gfx/tropic_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0)
 
-_WAGON_LOADING_LENGTH88(common, modern, arctic,
+_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, arctic,
+    early,
+    "passenger_early",
+    "passenger_early_loading",
+    "src/gfx/arctic_railwagons.png",
+    "src/gfx/arctic_railwagons.png",
+    tmpl_railwagon42, 0, 0, 0, 0,
+    modern,
     "passenger",
     "passenger_loading",
     "src/gfx/arctic_railwagons.png",
     "src/gfx/arctic_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0)
 
-_WAGON_LOADING_LENGTH88(common, modern, toyland,
+_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, toyland,
+    early,
+    "passenger_early",
+    "passenger_early_loading",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 0, 0, 0,
+    modern,
     "passenger",
     "passenger_loading",
     "src/gfx/toyland_railwagons.png",
@@ -55,11 +83,13 @@ _WAGON_LOADING_LENGTH88(common, modern, toyland,
     tmpl_short_railwagon42, 0, 0, 0, 0)
 
 switch(FEAT_TRAINS, SELF, _THIS_WAGON_CLIMATE_SWITCH_ID(common, default), climate) {
-    CLIMATE_TROPICAL: _THIS_WAGON_GRAPHICS_ID(common, modern, tropical);
-    CLIMATE_ARCTIC:   _THIS_WAGON_GRAPHICS_ID(common, modern, arctic);
-    CLIMATE_TOYLAND:  _THIS_WAGON_GRAPHICS_ID(common, modern, toyland);
-    _THIS_WAGON_GRAPHICS_ID(common, modern, default);
+    CLIMATE_TROPICAL: _THIS_WAGON_YEAR_SWITCH_ID(common, tropical);
+    CLIMATE_ARCTIC:   _THIS_WAGON_YEAR_SWITCH_ID(common, arctic);
+    CLIMATE_TOYLAND:  _THIS_WAGON_YEAR_SWITCH_ID(common, toyland);
+    _THIS_WAGON_YEAR_SWITCH_ID(common, default);
 }
+
+_WAGON_SPEED_YEAR_SWITCH(common, default, _RAIL_MODERN_YEAR, _SPEED_1ST_GENERATION)
 
 item(FEAT_TRAINS, _THIS_WAGON, 27) {
     property {
@@ -71,7 +101,8 @@ include([src/template_refit_properties_pax.pnml])
         weight:                         25 ton;
     }
     graphics {
-        refit_cost:     _PAX_REFIT_COST_SWITCH;
+        refit_cost:         _PAX_REFIT_COST_SWITCH;
+        speed:              _THIS_WAGON_SPEED_YEAR_SWITCH_ID(common, default);
 
 	_THIS_WAGON_CLIMATE_SWITCH_ID(common, default);
     }
