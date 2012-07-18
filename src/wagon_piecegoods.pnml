@@ -185,7 +185,7 @@ include([src/template_refit_properties_piece_goods.pnml])
         refit_cost:         _PIECEGOODS_REFIT_COST_SWITCH;
         speed:              _THIS_WAGON_SPEED_YEAR_SWITCH_ID(common, default);
 
-        purchase:   _THIS_WAGON_GRAPHICS_ID(common, modern, default);
+        purchase:           _THIS_WAGON_YEAR_SWITCH_ID(common, default);
         _THIS_WAGON_CARGO_SWITCH_ID(default);
     }
 }
