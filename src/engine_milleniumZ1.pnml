@@ -9,7 +9,6 @@
 item(FEAT_TRAINS, milleniumz1, 55) {
     property {
         misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT);
-        track_type:                     MONORAIL;
         REFIT_PROPERTIES_MU
         default_cargo_type:             PASS;
     }

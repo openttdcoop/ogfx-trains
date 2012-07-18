@@ -29,7 +29,6 @@ item(FEAT_TRAINS, dash, 12) {
 	property {
 		sprite_id:                      SPRITE_ID_NEW_TRAIN;
 		misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
-                track_type:                     NORMAL_RAIL;
 		REFIT_PROPERTIES_MU
                 default_cargo_type:             PASS;
 	}

@@ -19,7 +19,6 @@ item(FEAT_TRAINS, kirbypaul) {
     property {
             sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
             misc_flags:             bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
-            track_type:             NORMAL_RAIL;
 	}
 	graphics {
             default:            kirbypaul_default_indepot_switch;

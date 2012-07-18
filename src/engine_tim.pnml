@@ -25,7 +25,6 @@ item(FEAT_TRAINS, tim, 25) {
 	property {
 		sprite_id:                    SPRITE_ID_NEW_TRAIN;
 		misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_2CC);
-                track_type:                   EL_RAIL;
 	}
 	graphics { tim_engine_switch_gui; }
 	livery_override (passenger_wagon) { tim_passenger_switch_gui; }

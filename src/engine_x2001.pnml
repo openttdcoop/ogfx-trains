@@ -23,7 +23,6 @@ item(FEAT_TRAINS, x2001, 54) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:                     bitmask(TRAIN_FLAG_FLIP);
-        track_type:                     MONORAIL;
     }
     ENGINE_GRAPHICS_BLOCK(x2001_indepot)
 }

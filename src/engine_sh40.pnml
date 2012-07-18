@@ -20,7 +20,6 @@ item(FEAT_TRAINS, sh40, 24) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
-        track_type:                     EL_RAIL;
     }
     graphics {
         sh40_default_indepot_switch;

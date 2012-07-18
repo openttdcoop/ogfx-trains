@@ -27,7 +27,6 @@ item(FEAT_TRAINS, mjs1000, 21) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:                     bitmask(TRAIN_FLAG_FLIP);
-        track_type:                     NORMAL_RAIL;
     }
     ENGINE_GRAPHICS_BLOCK(mjs1000_indepot)
 }

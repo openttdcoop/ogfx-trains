@@ -23,7 +23,6 @@ item(FEAT_TRAINS, lev2, 85) {
     property {
         sprite_id:                    SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:                   bitmask(TRAIN_FLAG_FLIP);
-        track_type:                   MAGLEV;
     }
     ENGINE_GRAPHICS_BLOCK(lev2_indepot)
 }

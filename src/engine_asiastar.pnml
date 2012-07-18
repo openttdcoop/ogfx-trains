@@ -25,7 +25,6 @@ item(FEAT_TRAINS, asiastar, 26) {
 	property {
 		sprite_id:                      SPRITE_ID_NEW_TRAIN;
 		misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_2CC);
-		track_type:                     EL_RAIL;
 	}
 	graphics { asiastar_engine_switch_gui; }
 	livery_override (passenger_wagon) { asiastar_passenger_switch_gui; }

@@ -20,7 +20,6 @@ item(FEAT_TRAINS, uu37, 14) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
-        track_type:                     NORMAL_RAIL;
     }
     graphics {
         uu37_default_indepot_switch;
