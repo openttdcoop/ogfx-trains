@@ -39,8 +39,8 @@ switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_i
     0x10: name ## _ ## climate ## _group_gui; \
     0x11: name ## _ ## climate ## _group_gui; \
     0x12: name ## _ ## climate ## _group_gui; \
-    0x20: name ## _ ## climate ## _group_gui; \
-    0x21: name ## _ ## climate ## _group_gui; \
+    0x20: name ## _ ## climate ## _set_gui; \
+    0x21: name ## _ ## climate ## _set_gui; \
     name ## _ ## climate ## _group; \
 }
 
@@ -91,8 +91,8 @@ switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
     0x10: name ##_group_gui; \
     0x11: name ##_group_gui; \
     0x12: name ##_group_gui; \
-    0x20: name ##_group_gui; \
-    0x21: name ##_group_gui; \
+    0x20: name ##_empty_set_gui; \
+    0x21: name ##_empty_set_gui; \
     name ##_group; \
 }
 
@@ -177,8 +177,8 @@ switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
     0x10: name ##_group_gui; \
     0x11: name ##_group_gui; \
     0x12: name ##_group_gui; \
-    0x20: name ##_group_gui; \
-    0x21: name ##_group_gui; \
+    0x20: name ##_empty_set_gui; \
+    0x21: name ##_empty_set_gui; \
     name ##_group; \
 }
 
@@ -248,8 +248,8 @@ switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
     0x10: name ##_group_gui; \
     0x11: name ##_group_gui; \
     0x12: name ##_group_gui; \
-    0x20: name ##_group_gui; \
-    0x21: name ##_group_gui; \
+    0x20: name ##_empty_set_gui; \
+    0x21: name ##_empty_set_gui; \
     name ##_group; \
 }
 
@@ -338,16 +338,16 @@ switch(FEAT_TRAINS, SELF, name ## _ ## type1 ## _switch_gui, (extra_callback_inf
     0x10: name ## _ ## type1 ## _group_gui; \
     0x11: name ## _ ## type1 ## _group_gui; \
     0x12: name ## _ ## type1 ## _group_gui; \
-    0x20: name ## _ ## type1 ## _group_gui; \
-    0x21: name ## _ ## type1 ## _group_gui; \
+    0x20: name ## _ ## type1 ## _empty_set_gui; \
+    0x21: name ## _ ## type1 ## _empty_set_gui; \
     name ## _ ## type1 ## _group; \
 } \
 switch(FEAT_TRAINS, SELF, name ## _ ## type2 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
     0x10: name ## _ ## type2 ## _group_gui; \
     0x11: name ## _ ## type2 ## _group_gui; \
     0x12: name ## _ ## type2 ## _group_gui; \
-    0x20: name ## _ ## type2 ## _group_gui; \
-    0x21: name ## _ ## type2 ## _group_gui; \
+    0x20: name ## _ ## type2 ## _empty_set_gui; \
+    0x21: name ## _ ## type2 ## _empty_set_gui; \
     name ## _ ## type2 ## _group; \
 } \
 switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \

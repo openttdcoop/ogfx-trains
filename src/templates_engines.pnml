@@ -76,8 +76,8 @@ switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_i
     0x10: name ## _ ## climate ## _group_gui; \
     0x11: name ## _ ## climate ## _group_gui; \
     0x12: name ## _ ## climate ## _group_gui; \
-    0x20: name ## _ ## climate ## _group_gui; \
-    0x21: name ## _ ## climate ## _group_gui; \
+    0x20: name ## _ ## climate ## _set_gui; \
+    0x21: name ## _ ## climate ## _set_gui; \
     name ## _ ## climate ## _group; \
 } \
 switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _indepot_switch, vehicle_is_in_depot) { \
@@ -113,8 +113,8 @@ switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_i
     0x10: name ## _ ## climate ## _group_gui; \
     0x11: name ## _ ## climate ## _group_gui; \
     0x12: name ## _ ## climate ## _group_gui; \
-    0x20: name ## _ ## climate ## _group_gui; \
-    0x21: name ## _ ## climate ## _group_gui; \
+    0x20: name ## _ ## climate ## _set_gui; \
+    0x21: name ## _ ## climate ## _set_gui; \
     name ## _ ## climate ## _group; \
 } \
 spriteset(name ## _tender_ ## climate ## _set, filename2) { template2(x1, y1) } \
@@ -143,8 +143,8 @@ switch(FEAT_TRAINS, SELF, name ## _tender_ ## climate ## _switch_gui, (extra_cal
     0x10: name ## _tender_ ## climate ## _group_gui; \
     0x11: name ## _tender_ ## climate ## _group_gui; \
     0x12: name ## _tender_ ## climate ## _group_gui; \
-    0x20: name ## _tender_ ## climate ## _group_gui; \
-    0x21: name ## _tender_ ## climate ## _group_gui; \
+    0x20: name ## _tender_ ## climate ## _set_gui; \
+    0x21: name ## _tender_ ## climate ## _set_gui; \
     name ## _tender_ ## climate ## _group; \
 } \
 switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _graphics_switch, position_in_consist ) { \
