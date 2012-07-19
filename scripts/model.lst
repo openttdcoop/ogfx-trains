@@ -1,6 +1,6 @@
 #**************************************************************************
 # Blender Model List
-# 2012-07-18
+# 2012-07-19
 # Xotic750
 # This release may be used under the terms of the license: GPLv2
 # http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,6 +17,10 @@ dmu
 dash
 dmu_loading
 dash_loading
+dmu_cargo
+dash_cargo
+dmu_cargo_loading
+dash_cargo_loading
 sh25
 floss47
 sh125
