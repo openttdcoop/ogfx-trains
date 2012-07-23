@@ -179,11 +179,6 @@ switch (FEAT_TRAINS, SELF, bulk_wagon_cb_cargo_subtype_switch, cargo_type_in_veh
     CB_FAILED;
 }
 
-switch(FEAT_TRAINS, SELF, bulk_wagon_speed_year_switch, build_year < rail_modern_year) { \
-    1: 80;
-    CB_FAILED;
-}
-
 item(FEAT_TRAINS, bulk_wagon) {
     property {
         // We try to simulate the stats of the temperate grain wagon
@@ -200,7 +195,6 @@ item(FEAT_TRAINS, bulk_wagon) {
         weight:             bulk_wagon_cb_property_weight_switch;
         cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
         refit_cost:         bulk_refit_cost_switch;
-        speed:              bulk_wagon_speed_year_switch;
 
         purchase:           bulk_wagon_coal_year_switch;
         bulk_wagon_switch;
