@@ -166,8 +166,6 @@ switch (FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(weight), cargo_type_in_ve
     CB_FAILED;
 }
 
-_WAGON_SPEED_YEAR_SWITCH(common, default, _RAIL_MODERN_YEAR, _SPEED_1ST_GENERATION)
-
 item(FEAT_TRAINS, _THIS_WAGON) {
     property {
         /* We try to simulate the stats of the temperate goods wagon */
@@ -183,7 +181,6 @@ include([src/template_refit_properties_piece_goods.pnml])
         weight:             _THIS_WAGON_CARGO_SWITCH_ID(weight);
         cargo_capacity:     _THIS_WAGON_CARGO_SWITCH_ID(capacity);
         refit_cost:         _PIECEGOODS_REFIT_COST_SWITCH;
-        speed:              _THIS_WAGON_SPEED_YEAR_SWITCH_ID(common, default);
 
         purchase:           _THIS_WAGON_YEAR_SWITCH_ID(common, default);
         _THIS_WAGON_CARGO_SWITCH_ID(default);
