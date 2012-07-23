@@ -117,9 +117,12 @@ mono_tank_cola
 mono_tank_fizzy_drink_empty
 mono_tank_fizzy_drink
 flatbed
+flatbed_early
 flatbed_nocc
+flatbed_early_nocc
 flatbed_container
 flatbed_sides
+flatbed_early_sides
 flatbed_oil_stage1
 flatbed_oil_stage2
 flatbed_oil_full
@@ -127,6 +130,7 @@ flatbed_refinery_stage1
 flatbed_refinery_stage2
 flatbed_refinery_full
 flatbed_retainers
+flatbed_early_retainers
 flatbed_wood_stage1
 flatbed_wood_stage2
 flatbed_wood_full
