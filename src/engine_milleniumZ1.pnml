@@ -9,7 +9,10 @@ divert(-1)
 # Perform a check to make sure the files have been included
 ifelse(do_included_checks, [1],
     [check_included([src/templates_engines.pnml])
-     check_included([src/railtype_table.pnml])])
+     check_included([src/railtype_table.pnml])
+     check_included([src/monorail_pax.pnml])
+     check_included([src/monorail_mail.pnml])
+     check_included([src/monorail_valuables.pnml])])
 
 # Define the engine name and check that it was previously undefined
 define_unique([_THIS_ENGINE], [millenium_z1])
@@ -21,6 +24,7 @@ divert
  * Livery override for passenger, mail and valuables wagons
  */
 
+/* DEFAULT ENGINE */
 _ENGINE_LOADING_LENGTH88(engine, default,
     _NONE_AVAILABLE,
     _NONE_AVAILABLE,
@@ -28,21 +32,24 @@ _ENGINE_LOADING_LENGTH88(engine, default,
     "src/gfx/engines/monorail_millenium_88.png",
     tmpl_engine_88, 0, 0, 0, 0)
 
-_ENGINE_LOADING_LENGTH88(passenger, default,
+/* PASSENGER LIVERY */
+_ENGINE_LIVERY_LOADING_LENGTH88(monorail_passenger_wagon, modern, default,
     "mono_passenger",
     "mono_passenger_loading",
     "src/gfx/temperate_monolev.png",
     "src/gfx/temperate_monolev.png",
     tmpl_short_railwagon242, 0, 0, 0, 0)
 
-_ENGINE_LOADING_LENGTH88(mail, default,
+/* MAIL LIVERY */
+_ENGINE_LIVERY_LOADING_LENGTH88(monorail_mail_wagon, modern, default,
     "mono_mail",
     "mono_mail_loading",
     "src/gfx/temperate_monolev.png",
     "src/gfx/temperate_monolev.png",
     tmpl_short_railwagon242, 0, 20, 0, 20)
 
-_ENGINE_LOADING_LENGTH88(valuables, default,
+/* VALUABLES LIVERY */
+_ENGINE_LIVERY_LOADING_LENGTH88(monorail_valuables_wagon, modern, default,
     "mono_armoured",
     "mono_armoured_loading",
     "src/gfx/temperate_monolev.png",
@@ -63,9 +70,15 @@ include([src/template_refit_properties_mu.pnml])
 
         _THIS_ENGINE_GRAPHICS_ID(engine, default);
     }
-    livery_override (passenger_wagon) { _THIS_ENGINE_GRAPHICS_ID(passenger, default); }
-    livery_override (mail_wagon)      { _THIS_ENGINE_GRAPHICS_ID(mail, default); }
-    livery_override (valuables_wagon) { _THIS_ENGINE_GRAPHICS_ID(valuables, default); }
+    livery_override (monorail_passenger_wagon) {
+        _THIS_ENGINE_LIVERY_GRAPHICS_ID(monorail_passenger_wagon, modern, default);
+    }
+    livery_override (monorail_mail_wagon) {
+        _THIS_ENGINE_LIVERY_GRAPHICS_ID(monorail_mail_wagon, modern, default);
+    }
+    livery_override (monorail_valuables_wagon) {
+        _THIS_ENGINE_LIVERY_GRAPHICS_ID(monorail_valuables_wagon, modern, default);
+    }
 }
 
 undefine([_THIS_ENGINE])dnl

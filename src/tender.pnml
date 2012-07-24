@@ -31,7 +31,7 @@ divert
  */
 
 /* Tender Common */
-_WAGON_LENGTH48(common, engine, default,
+_WAGON_LENGTH48(common, early, default,
     "common_tender",
     _NONE_AVAILABLE,
     tmpl_engine_88, 0, 0)
@@ -49,7 +49,7 @@ include([src/template_wagon_properties_rail_default.pnml])
         weight:                         20 ton;
         length:                         4;
     }
-    graphics { _THIS_WAGON_GRAPHICS_ID(common, engine, default); }
+    graphics { _THIS_WAGON_GRAPHICS_ID(common, early, default); }
 }
 
 /* We only attach one tender, thus fail for 2nd and consecutive calls */

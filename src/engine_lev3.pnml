@@ -10,9 +10,9 @@ divert(-1)
 ifelse(do_included_checks, [1],
     [check_included([src/templates_engines.pnml])
      check_included([src/railtype_table.pnml])
-     check_included([src/wagon_pax.pnml])
-     check_included([src/wagon_mail.pnml])
-     check_included([src/wagon_valuables.pnml])])
+     check_included([src/maglev_pax.pnml])
+     check_included([src/maglev_mail.pnml])
+     check_included([src/maglev_valuables.pnml])])
 
 # Define the engine name and check that it was previously undefined
 define_unique([_THIS_ENGINE], [lev3])
@@ -24,26 +24,30 @@ divert
  * Livery override for passenger, mail and valuables wagons
  */
 
+/* DEFAULT ENGINE */
 _ENGINE_LENGTH88(engine, default,
     _NONE_AVAILABLE,
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
     tmpl_railwagon8_normal, 0, 0)
 
-_ENGINE_LOADING_LENGTH88(passenger, default,
+/* PASSENGER LIVERY */
+_ENGINE_LIVERY_LOADING_LENGTH88(maglev_passenger_wagon, modern, default,
     "mono_passenger",
     "mono_passenger_loading",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
     tmpl_maglev_wagon_78, 0, 27, 0, 27)
 
-_ENGINE_LOADING_LENGTH88(mail, default,
+/* MAIL LIVERY */
+_ENGINE_LIVERY_LOADING_LENGTH88(maglev_mail_wagon, modern, default,
     "mono_mail",
     "mono_mail_loading",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
     tmpl_maglev_wagon_78, 0, 54, 0, 54)
 
-_ENGINE_LOADING_LENGTH88(valuables, default,
+/* VALUABLES LIVERY */
+_ENGINE_LIVERY_LOADING_LENGTH88(maglev_valuables_wagon, modern, default,
     "mono_armoured",
     "mono_armoured_loading",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
@@ -58,20 +62,19 @@ item(FEAT_TRAINS, _THIS_ENGINE, 86) {
         track_type:             MAGLEV;
     }
     graphics {
-        length:        return 7;
         _THIS_ENGINE_GRAPHICS_ID(engine, default);
     }
     livery_override (maglev_passenger_wagon) {
         length:        return 7;
-        _THIS_ENGINE_GRAPHICS_ID(passenger, default);
+        _THIS_ENGINE_LIVERY_GRAPHICS_ID(maglev_passenger_wagon, modern, default);
     }
-    livery_override (maglev_mail_wagon)      {
+    livery_override (maglev_mail_wagon) {
         length:        return 7;
-        _THIS_ENGINE_GRAPHICS_ID(mail, default);
+        _THIS_ENGINE_LIVERY_GRAPHICS_ID(maglev_mail_wagon, modern, default);
     }
     livery_override (maglev_valuables_wagon) {
         length:        return 7;
-        _THIS_ENGINE_GRAPHICS_ID(valuables, default);
+        _THIS_ENGINE_LIVERY_GRAPHICS_ID(maglev_valuables_wagon, modern, default);
     }
 }
 

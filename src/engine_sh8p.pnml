@@ -22,13 +22,14 @@ divert
  * Livery override for tender
  */
 
+/* DEFAULT ENGINE */
 _ENGINE_LENGTH88(engine, default,
     "sh8p",
     "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
     tmpl_engine_88, 0, 0)
 
 /* Tender SH8P */
-_ENGINE_LENGTH48(tender, default,
+_ENGINE_LIVERY_LENGTH48(tender, early, default,
     "sh8p_tender",
     _NONE_AVAILABLE,
     tmpl_engine_88, 0, 0)
@@ -45,7 +46,7 @@ item(FEAT_TRAINS, _THIS_ENGINE, 10) {
 
         _THIS_ENGINE_GRAPHICS_ID(engine, default);
     }
-    livery_override (tender) { _THIS_ENGINE_GRAPHICS_ID(tender, default); }
+    livery_override (tender) { _THIS_ENGINE_LIVERY_GRAPHICS_ID(tender, early, default); }
 }
 
 undefine([_THIS_ENGINE])dnl
