@@ -31,6 +31,13 @@ _ENGINE_LOADING_LENGTH88(engine, default,
     "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 0, 0, 0)
 
+_ENGINE_LOADING_LENGTH88(engine, cargo,
+    "dmu_cargo",
+    "dmu_cargo_loading",
+    "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png",
+    "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0)
+
 _ENGINE_LOADING_LENGTH88(passenger, default,
     "passenger_dmu",
     "passenger_dmu_loading",
@@ -52,6 +59,12 @@ _ENGINE_LOADING_LENGTH88(valuables, default,
     "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 80, 0, 80)
 
+switch (FEAT_TRAINS, SELF, _THIS_ENGINE_CARGO_SWITCH_ID(graphics), cargo_type_in_veh) {
+    PASS: _THIS_ENGINE_GRAPHICS_ID(engine, default);
+    TOUR: _THIS_ENGINE_GRAPHICS_ID(engine, default);
+    _THIS_ENGINE_GRAPHICS_ID(engine, cargo);
+}
+
 item(FEAT_TRAINS, _THIS_ENGINE, 11) {
     property {
         sprite_id:              SPRITE_ID_NEW_TRAIN;
@@ -64,7 +77,7 @@ include([src/template_refit_properties_mu.pnml])
     graphics {
         refit_cost: _MU_REFIT_COST_SWITCH;
 
-        _THIS_ENGINE_GRAPHICS_ID(engine, default);
+        _THIS_ENGINE_CARGO_SWITCH_ID(graphics);
     }
     livery_override (passenger_wagon) { _THIS_ENGINE_GRAPHICS_ID(passenger, default); }
     livery_override (mail_wagon)      { _THIS_ENGINE_GRAPHICS_ID(mail, default); }
