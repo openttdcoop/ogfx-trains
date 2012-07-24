@@ -27,114 +27,114 @@ divert
  */
 
 /* DEFAULT */
-_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, default,
-    early,
+_WAGON_LOADING_LENGTH88(common, early, default,
     "goods_early",
     "goods_early_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
-    tmpl_railwagon42, 0, 125, 0, 125,
-    modern,
+    tmpl_railwagon42, 0, 125, 0, 125)
+
+_WAGON_LOADING_LENGTH88(common, modern, default,
     "goods",
     "goods_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 125, 0, 125)
 
+_WAGON_YEAR_SWITCH(common, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* PAPER */
-_WAGON_LOADING_YEARSWITCH_LENGTH88(paper, _RAIL_MODERN_YEAR, default,
-    early,
+_WAGON_LOADING_LENGTH88(paper, early, default,
     "goods_early",
     "goods_early_loading",
     "src/gfx/arctic_railwagons.png",
     "src/gfx/arctic_railwagons.png",
-    tmpl_railwagon42, 0, 200, 0, 425,
-    modern,
+    tmpl_railwagon42, 0, 200, 0, 425)
+
+_WAGON_LOADING_LENGTH88(paper, modern, default,
     "goods",
     "goods_loading",
     "src/gfx/arctic_railwagons.png",
     "src/gfx/arctic_railwagons.png",
     tmpl_railwagon42, 0, 200, 0, 425)
 
+_WAGON_YEAR_SWITCH(paper, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* FRUIT */
-_WAGON_LOADING_YEARSWITCH_LENGTH88(fruit, _RAIL_MODERN_YEAR, default,
-    early,
+/* FRVG */
+/* FOOD */
+_WAGON_LOADING_LENGTH88(food, early, default,
     "goods_early",
     "goods_early_loading",
     "src/gfx/arctic_railwagons.png",
     "src/gfx/arctic_railwagons.png",
-    tmpl_railwagon42, 0, 400, 0, 400,
-    modern,
+    tmpl_railwagon42, 0, 400, 0, 400)
+
+_WAGON_LOADING_LENGTH88(food, modern, default,
     "goods",
     "goods_loading",
     "src/gfx/arctic_railwagons.png",
     "src/gfx/arctic_railwagons.png",
     tmpl_railwagon42, 0, 400, 0, 400)
 
-/* FOOD */
-_WAGON_LOADING_YEARSWITCH_LENGTH88(food, _RAIL_MODERN_YEAR, default,
-    early,
-    "goods_early",
-    "goods_early_loading",
-    "src/gfx/arctic_railwagons.png",
-    "src/gfx/arctic_railwagons.png",
-    tmpl_railwagon42, 0, 400, 0, 400,
-    modern,
-    "goods",
-    "goods_loading",
-    "src/gfx/arctic_railwagons.png",
-    "src/gfx/arctic_railwagons.png",
-    tmpl_railwagon42, 0, 400, 0, 400)
+_WAGON_YEAR_SWITCH(food, default, _RAIL_MODERN_YEAR, early, modern)
 
 /* LIVESTOCK */
-_WAGON_LOADING_YEARSWITCH_LENGTH88(livestock, _RAIL_MODERN_YEAR, default,
-    early,
+_WAGON_LOADING_LENGTH88(livestock, early, default,
     "livestock_early",
     "livestock_early_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
-    tmpl_railwagon42, 0, 100, 0, 100,
-    modern,
+    tmpl_railwagon42, 0, 100, 0, 100)
+
+_WAGON_LOADING_LENGTH88(livestock, modern, default,
     "livestock",
     "livestock_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 100, 0, 100)
 
+_WAGON_YEAR_SWITCH(livestock, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* TOYLAND */
-_WAGON_LOADING_YEARSWITCH_LENGTH88(toyland, _RAIL_MODERN_YEAR, default,
-    early,
+_WAGON_LOADING_LENGTH88(toyland, early, default,
     "goods_early",
     "goods_early_loading",
     "src/gfx/toyland_railwagons.png",
     "src/gfx/toyland_railwagons.png",
-    tmpl_short_railwagon42, 0, 260, 0, 280,
-    modern,
+    tmpl_short_railwagon42, 0, 260, 0, 280)
+
+_WAGON_LOADING_LENGTH88(toyland, modern, default,
     "goods",
     "goods_loading",
     "src/gfx/toyland_railwagons.png",
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 260, 0, 280)
 
+_WAGON_YEAR_SWITCH(toyland, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* TOYS */
-_WAGON_LOADING_YEARSWITCH_LENGTH88(toys, _RAIL_MODERN_YEAR, default,
-    early,
+_WAGON_LOADING_LENGTH88(toys, early, default,
     "goods_early",
     "goods_early_loading",
     "src/gfx/toyland_railwagons.png",
     "src/gfx/toyland_railwagons.png",
-    tmpl_short_railwagon42, 0, 300, 0, 320,
-    modern,
+    tmpl_short_railwagon42, 0, 300, 0, 320)
+
+_WAGON_LOADING_LENGTH88(toys, modern, default,
     "goods",
     "goods_loading",
     "src/gfx/toyland_railwagons.png",
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 300, 0, 320)
 
+_WAGON_YEAR_SWITCH(toys, default, _RAIL_MODERN_YEAR, early, modern)
+
+/* Cargo switch */
 switch(FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(default), cargo_type_in_veh) {
     BATT: _THIS_WAGON_YEAR_SWITCH_ID(toyland, default);
-    FRUT: _THIS_WAGON_YEAR_SWITCH_ID(fruit, default);
-    FRVG: _THIS_WAGON_YEAR_SWITCH_ID(fruit, default);
+    FRUT: _THIS_WAGON_YEAR_SWITCH_ID(food, default);
+    FRVG: _THIS_WAGON_YEAR_SWITCH_ID(food, default);
     FOOD: _THIS_WAGON_YEAR_SWITCH_ID(food, default);
     LVST: _THIS_WAGON_YEAR_SWITCH_ID(livestock, default);
     PAPR: _THIS_WAGON_YEAR_SWITCH_ID(paper, default);

@@ -28,6 +28,13 @@ divert
  */
 
 /* default: container */
+_WAGON_2STAGES_NOLOADING_LENGTH88(container, early, default,
+    "flatbed_early_nocc",
+    "flatbed_container",
+    "src/gfx/flatbed/rail_flatbed_container_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_container_temperate.png",
+    tmpl_railwagon42, 0, 8, 126, 8)
+
 _WAGON_2STAGES_NOLOADING_LENGTH88(container, modern, default,
     "flatbed_nocc",
     "flatbed_container",
@@ -35,7 +42,20 @@ _WAGON_2STAGES_NOLOADING_LENGTH88(container, modern, default,
     "src/gfx/flatbed/rail_flatbed_container_temperate.png",
     tmpl_railwagon42, 0, 8, 126, 8)
 
+_WAGON_YEAR_SWITCH(container, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* BATT */
+_WAGON_4STAGES_NOLOADING_LENGTH88(battery, early, default,
+    "flatbed_early_sides",
+    "flatbed_batteries_stage1",
+    "flatbed_batteries_stage2",
+    "flatbed_batteries_full",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 380, 0, 380, 0, 400, 0, 400)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(battery, modern, default,
     "flatbed_sides",
     "flatbed_batteries_stage1",
@@ -47,7 +67,20 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(battery, modern, default,
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 380, 0, 380, 0, 400, 0, 400)
 
+_WAGON_YEAR_SWITCH(battery, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* BUBL */
+_WAGON_4STAGES_NOLOADING_LENGTH88(bubbles, early, default,
+    "flatbed_early_retainers",
+    "flatbed_bubbles_stage1",
+    "flatbed_bubbles_stage2",
+    "flatbed_bubbles_full",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 60, 0, 60, 0, 80, 0, 80)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(bubbles, modern, default,
     "flatbed_retainers",
     "flatbed_bubbles_stage1",
@@ -59,7 +92,18 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(bubbles, modern, default,
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 60, 0, 60, 0, 80, 0, 80)
 
+_WAGON_YEAR_SWITCH(bubbles, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* ENSP (vehicles) */
+_WAGON_3STAGES_NOLOADING_LENGTH88(engineeringsupplies_vehicle1, early, default,
+    "flatbed_early",
+    "flatbed_vehicles_stage1",
+    "flatbed_vehicles_full",
+    "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png",
+    "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png",
+    "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1a.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0, 0, 0)
+
 _WAGON_3STAGES_NOLOADING_LENGTH88(engineeringsupplies_vehicle1, modern, default,
     "flatbed",
     "flatbed_vehicles_stage1",
@@ -69,6 +113,15 @@ _WAGON_3STAGES_NOLOADING_LENGTH88(engineeringsupplies_vehicle1, modern, default,
     "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1a.png",
     tmpl_railwagon8_normal, 0, 0, 0, 0, 0, 0)
 
+_WAGON_YEAR_SWITCH(engineeringsupplies_vehicle1, default, _RAIL_MODERN_YEAR, early, modern)
+
+_WAGON_2STAGES_NOLOADING_LENGTH88(engineeringsupplies_vehicle2, early, default,
+    "flatbed_early",
+    "flatbed_vehicles3_full",
+    "src/gfx/flatbed/ensp/rail_flatbed_ensp_empty_wagoncc1.png",
+    "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1b.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0)
+
 _WAGON_2STAGES_NOLOADING_LENGTH88(engineeringsupplies_vehicle2, modern, default,
     "flatbed",
     "flatbed_vehicles3_full",
@@ -76,9 +129,22 @@ _WAGON_2STAGES_NOLOADING_LENGTH88(engineeringsupplies_vehicle2, modern, default,
     "src/gfx/flatbed/ensp/rail_flatbed_ensp_vehicles_wagoncc1b.png",
     tmpl_railwagon8_normal, 0, 0, 0, 0)
 
+_WAGON_YEAR_SWITCH(engineeringsupplies_vehicle2, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* FMSP: see VEHI */
 
 /* FZDR */
+_WAGON_4STAGES_NOLOADING_LENGTH88(fizzy, early, default,
+    "flatbed_early_sides",
+    "flatbed_fizzy_drink_stage1",
+    "flatbed_fizzy_drink_stage2",
+    "flatbed_fizzy_drink_full",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 340, 0, 340, 0, 360, 0, 360)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(fizzy, modern, default,
     "flatbed_sides",
     "flatbed_fizzy_drink_stage1",
@@ -90,7 +156,16 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(fizzy, modern, default,
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 340, 0, 340, 0, 360, 0, 360)
 
+_WAGON_YEAR_SWITCH(fizzy, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* GOOD (container) */
+_WAGON_2STAGES_NOLOADING_LENGTH88(goods, early, default,
+    "flatbed_early_nocc",
+    "flatbed_container",
+    "src/gfx/flatbed/container/rail_flatbed_container_empty_NoWagonCC_2.png",
+    "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2a.png",
+    tmpl_railwagon42, 0, 0, 0, 0)
+
 _WAGON_2STAGES_NOLOADING_LENGTH88(goods, modern, default,
     "flatbed_nocc",
     "flatbed_container",
@@ -98,7 +173,20 @@ _WAGON_2STAGES_NOLOADING_LENGTH88(goods, modern, default,
     "src/gfx/flatbed/container/rail_flatbed_container_full_NoWagonCC_2a.png",
     tmpl_railwagon42, 0, 0, 0, 0)
 
+_WAGON_YEAR_SWITCH(goods, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* PAPR */
+_WAGON_4STAGES_NOLOADING_LENGTH88(paper, early, default,
+    "flatbed_early_retainers",
+    "flatbed_paper_stage1",
+    "flatbed_paper_stage2",
+    "flatbed_paper_full",
+    "src/gfx/flatbed/rail_flatbed_paper_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_paper_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_paper_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_paper_temperate.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 126, 0, 126, 0)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(paper, modern, default,
     "flatbed_retainers",
     "flatbed_paper_stage1",
@@ -110,7 +198,20 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(paper, modern, default,
     "src/gfx/flatbed/rail_flatbed_paper_temperate.png",
     tmpl_railwagon42, 0, 0, 0, 0, 126, 0, 126, 0)
 
+_WAGON_YEAR_SWITCH(paper, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* RFPR (barrels) */
+_WAGON_4STAGES_NOLOADING_LENGTH88(refineryproducts, early, default,
+    "flatbed_early_sides",
+    "flatbed_refinery_stage1",
+    "flatbed_refinery_stage2",
+    "flatbed_refinery_full",
+    "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
+    tmpl_railwagon42, 0, 10, 0, 10, 126, 10, 126, 10)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(refineryproducts, modern, default,
     "flatbed_sides",
     "flatbed_refinery_stage1",
@@ -122,7 +223,20 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(refineryproducts, modern, default,
     "src/gfx/flatbed/rail_flatbed_refineryproducts_temperate.png",
     tmpl_railwagon42, 0, 10, 0, 10, 126, 10, 126, 10)
 
+_WAGON_YEAR_SWITCH(refineryproducts, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* PETR (barrels) */
+_WAGON_4STAGES_NOLOADING_LENGTH88(fueloil, early, default,
+    "flatbed_early_sides",
+    "flatbed_oil_stage1",
+    "flatbed_oil_stage2",
+    "flatbed_oil_full",
+    "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 126, 0, 126, 0)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(fueloil, modern, default,
     "flatbed_sides",
     "flatbed_oil_stage1",
@@ -134,7 +248,20 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(fueloil, modern, default,
     "src/gfx/flatbed/rail_flatbed_fueloil_temperate.png",
     tmpl_railwagon42, 0, 0, 0, 0, 126, 0, 126, 0)
 
+_WAGON_YEAR_SWITCH(fueloil, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* STEL */
+_WAGON_4STAGES_NOLOADING_LENGTH88(steel_rolls1, early, default,
+    "flatbed_early_retainers",
+    "flatbed_steel_stage1",
+    "flatbed_steel_stage2",
+    "flatbed_steel_full",
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1b1.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(steel_rolls1, modern, default,
     "flatbed_retainers",
     "flatbed_steel_stage1",
@@ -144,6 +271,19 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(steel_rolls1, modern, default,
     "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
     "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
     "src/gfx/flatbed/steel/SteelFlatbeds1b1.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
+_WAGON_YEAR_SWITCH(steel_rolls1, default, _RAIL_MODERN_YEAR, early, modern)
+
+_WAGON_4STAGES_NOLOADING_LENGTH88(steel_rolls2, early, default,
+    "flatbed_early_retainers",
+    "flatbed_steel2_stage1",
+    "flatbed_steel2_stage2",
+    "flatbed_steel2_full",
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a2.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a2.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1b2.png",
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
 
 _WAGON_4STAGES_NOLOADING_LENGTH88(steel_rolls2, modern, default,
@@ -157,7 +297,20 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(steel_rolls2, modern, default,
     "src/gfx/flatbed/steel/SteelFlatbeds1b2.png",
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
 
+_WAGON_YEAR_SWITCH(steel_rolls2, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* COPR */
+_WAGON_4STAGES_NOLOADING_LENGTH88(copper_rolls1, early, default,
+    "flatbed_early_retainers",
+    "flatbed_copper1_stage1",
+    "flatbed_copper1_stage2",
+    "flatbed_copper1_full",
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1b1.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(copper_rolls1, modern, default,
     "flatbed_retainers",
     "flatbed_copper1_stage1",
@@ -167,6 +320,19 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(copper_rolls1, modern, default,
     "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
     "src/gfx/flatbed/steel/SteelFlatbeds1a1.png",
     "src/gfx/flatbed/steel/SteelFlatbeds1b1.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
+_WAGON_YEAR_SWITCH(copper_rolls1, default, _RAIL_MODERN_YEAR, early, modern)
+
+_WAGON_4STAGES_NOLOADING_LENGTH88(copper_rolls2, early, default,
+    "flatbed_early_retainers",
+    "flatbed_copper2_stage1",
+    "flatbed_copper2_stage2",
+    "flatbed_copper2_full",
+    "src/gfx/flatbed/steel/SteelFlatbeds1.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a2.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1a2.png",
+    "src/gfx/flatbed/steel/SteelFlatbeds1b2.png",
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
 
 _WAGON_4STAGES_NOLOADING_LENGTH88(copper_rolls2, modern, default,
@@ -180,7 +346,17 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(copper_rolls2, modern, default,
     "src/gfx/flatbed/steel/SteelFlatbeds1b2.png",
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
 
+_WAGON_YEAR_SWITCH(copper_rolls2, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* VEHI (vehicles) */
+_WAGON_3STAGES_NOLOADING_LENGTH88(vehicles, early, default,
+    "flatbed_early",
+    "flatbed_vehicles2_stage1",
+    "flatbed_vehicles2_full",
+    "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
+    tmpl_railwagon42, 0, 7, 0, 7, 126, 7)
 
 _WAGON_3STAGES_NOLOADING_LENGTH88(vehicles, modern, default,
     "flatbed",
@@ -191,7 +367,20 @@ _WAGON_3STAGES_NOLOADING_LENGTH88(vehicles, modern, default,
     "src/gfx/flatbed/rail_flatbed_vehicles_temperate.png",
     tmpl_railwagon42, 0, 7, 0, 7, 126, 7)
 
+_WAGON_YEAR_SWITCH(vehicles, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* WDPR */
+_WAGON_4STAGES_NOLOADING_LENGTH88(woodproducts, early, default,
+    "flatbed_early_retainers",
+    "flatbed_timber_stage1",
+    "flatbed_timber_stage2",
+    "flatbed_timber_full",
+    "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png",
+    "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(woodproducts, modern, default,
     "flatbed_retainers",
     "flatbed_timber_stage1",
@@ -203,7 +392,20 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(woodproducts, modern, default,
     "src/gfx/flatbed/rail_flatbed_woodproducts_temperate.png",
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
 
+_WAGON_YEAR_SWITCH(woodproducts, default, _RAIL_MODERN_YEAR, early, modern)
+
 /* WOOD */
+_WAGON_4STAGES_NOLOADING_LENGTH88(wood, early, default,
+    "flatbed_early_retainers",
+    "flatbed_wood_stage1",
+    "flatbed_wood_stage2",
+    "flatbed_wood_full",
+    "src/gfx/flatbed/wood/WoodFlatbeds1.png",
+    "src/gfx/flatbed/wood/WoodFlatbeds1a.png",
+    "src/gfx/flatbed/wood/WoodFlatbeds1b.png",
+    "src/gfx/flatbed/wood/WoodFlatbeds1c.png",
+    tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
+
 _WAGON_4STAGES_NOLOADING_LENGTH88(wood, modern, default,
     "flatbed_retainers",
     "flatbed_wood_stage1",
@@ -215,19 +417,21 @@ _WAGON_4STAGES_NOLOADING_LENGTH88(wood, modern, default,
     "src/gfx/flatbed/wood/WoodFlatbeds1c.png",
     tmpl_railwagon42, 0, 0, 0, 0, 0, 0, 0, 0)
 
+_WAGON_YEAR_SWITCH(wood, default, _RAIL_MODERN_YEAR, early, modern)
+
 random_switch (FEAT_TRAINS, SELF, _THIS_WAGON_RANDOM_SWITCH_ID(engineeringsupplies), bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
-    3: _THIS_WAGON_GRAPHICS_ID(engineeringsupplies_vehicle1, modern, default);
-    1: _THIS_WAGON_GRAPHICS_ID(engineeringsupplies_vehicle2, modern, default);
+    3: _THIS_WAGON_YEAR_SWITCH_ID(engineeringsupplies_vehicle1, default);
+    1: _THIS_WAGON_YEAR_SWITCH_ID(engineeringsupplies_vehicle2, default);
 }
 
 random_switch (FEAT_TRAINS, SELF, _THIS_WAGON_RANDOM_SWITCH_ID(steel), bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
-    1: _THIS_WAGON_GRAPHICS_ID(steel_rolls1, modern, default);
-    1: _THIS_WAGON_GRAPHICS_ID(steel_rolls2, modern, default);
+    1: _THIS_WAGON_YEAR_SWITCH_ID(steel_rolls1, default);
+    1: _THIS_WAGON_YEAR_SWITCH_ID(steel_rolls2, default);
 }
 
 random_switch (FEAT_TRAINS, SELF, _THIS_WAGON_RANDOM_SWITCH_ID(copper), bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
-    1: _THIS_WAGON_GRAPHICS_ID(copper_rolls1, modern, default);
-    1: _THIS_WAGON_GRAPHICS_ID(copper_rolls2, modern, default);
+    1: _THIS_WAGON_YEAR_SWITCH_ID(copper_rolls1, default);
+    1: _THIS_WAGON_YEAR_SWITCH_ID(copper_rolls2, default);
 }
 
 random_switch (FEAT_TRAINS, SELF, _THIS_WAGON_RANDOM_SWITCH_ID(colour), bitmask(TRIGGER_VEHICLE_UNLOAD_ALL)) {
@@ -251,21 +455,21 @@ random_switch (FEAT_TRAINS, SELF, _THIS_WAGON_RANDOM_SWITCH_ID(colour), bitmask(
 }
 
 switch (FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(default), cargo_type_in_veh) {
-    BATT: _THIS_WAGON_GRAPHICS_ID(battery, modern, default);
-    BUBL: _THIS_WAGON_GRAPHICS_ID(bubbles, modern, default);
+    BATT: _THIS_WAGON_YEAR_SWITCH_ID(battery, default);
+    BUBL: _THIS_WAGON_YEAR_SWITCH_ID(bubbles, default);
     ENSP: _THIS_WAGON_RANDOM_SWITCH_ID(engineeringsupplies);
-    FMSP: _THIS_WAGON_GRAPHICS_ID(vehicles, modern, default);
-    FZDR: _THIS_WAGON_GRAPHICS_ID(fizzy, modern, default);
-    GOOD: _THIS_WAGON_GRAPHICS_ID(goods, modern, default);
-    PAPR: _THIS_WAGON_GRAPHICS_ID(paper, modern, default);
-    PETR: _THIS_WAGON_GRAPHICS_ID(fueloil, modern, default);
-    RFPR: _THIS_WAGON_GRAPHICS_ID(refineryproducts, modern, default);
+    FMSP: _THIS_WAGON_YEAR_SWITCH_ID(vehicles, default);
+    FZDR: _THIS_WAGON_YEAR_SWITCH_ID(fizzy, default);
+    GOOD: _THIS_WAGON_YEAR_SWITCH_ID(goods, default);
+    PAPR: _THIS_WAGON_YEAR_SWITCH_ID(paper, default);
+    PETR: _THIS_WAGON_YEAR_SWITCH_ID(fueloil, default);
+    RFPR: _THIS_WAGON_YEAR_SWITCH_ID(refineryproducts, default);
     STEL: _THIS_WAGON_RANDOM_SWITCH_ID(steel);
     COPR: _THIS_WAGON_RANDOM_SWITCH_ID(copper);
-    VEHI: _THIS_WAGON_GRAPHICS_ID(vehicles, modern, default);
-    WDPR: _THIS_WAGON_GRAPHICS_ID(woodproducts, modern, default);
-    WOOD: _THIS_WAGON_GRAPHICS_ID(wood, modern, default);
-    _THIS_WAGON_GRAPHICS_ID(container, modern, default);
+    VEHI: _THIS_WAGON_YEAR_SWITCH_ID(vehicles, default);
+    WDPR: _THIS_WAGON_YEAR_SWITCH_ID(woodproducts, default);
+    WOOD: _THIS_WAGON_YEAR_SWITCH_ID(wood, default);
+    _THIS_WAGON_YEAR_SWITCH_ID(container, default);
 }
 
 define([_FLATBED_WAGON_CAPACITY_SWITCH_ID], _THIS_WAGON_CARGO_SWITCH_ID(capacity))dnl
@@ -334,7 +538,7 @@ include([src/template_refit_properties_flatbed.pnml])
         random_trigger:     _THIS_WAGON_CARGO_SWITCH_ID(colour);
         refit_cost:         _FLATBED_REFIT_COST_SWITCH;
 
-        purchase:           _THIS_WAGON_GRAPHICS_ID(container, modern, default);
+        purchase:           _THIS_WAGON_YEAR_SWITCH_ID(container, default);
         _THIS_WAGON_CARGO_SWITCH_ID(default);
     }
 }

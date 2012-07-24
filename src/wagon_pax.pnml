@@ -26,62 +26,75 @@ divert
  * ***************************
  */
 
-_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, default,
-    early,
+/* DEFAULT */
+_WAGON_LOADING_LENGTH88(common, early, default,
     "passenger_early",
     "passenger_early_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
-    tmpl_railwagon42, 0, 0, 0, 0,
-    modern,
+    tmpl_railwagon42, 0, 0, 0, 0)
+
+_WAGON_LOADING_LENGTH88(common, modern, default,
     "passenger",
     "passenger_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0)
 
-_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, tropical,
-    early,
+_WAGON_YEAR_SWITCH(common, default, _RAIL_MODERN_YEAR, early, modern)
+
+/* TROPICAL */
+_WAGON_LOADING_LENGTH88(common, early, tropical,
     "passenger_early",
     "passenger_early_loading",
     "src/gfx/tropic_railwagons.png",
     "src/gfx/tropic_railwagons.png",
-    tmpl_railwagon42, 0, 0, 0, 0,
-    modern,
+    tmpl_railwagon42, 0, 0, 0, 0)
+
+_WAGON_LOADING_LENGTH88(common, modern, tropical,
     "passenger",
     "passenger_loading",
     "src/gfx/tropic_railwagons.png",
     "src/gfx/tropic_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0)
 
-_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, arctic,
-    early,
+_WAGON_YEAR_SWITCH(common, tropical, _RAIL_MODERN_YEAR, early, modern)
+
+/* ARCTIC */
+_WAGON_LOADING_LENGTH88(common, early, arctic,
     "passenger_early",
     "passenger_early_loading",
     "src/gfx/arctic_railwagons.png",
     "src/gfx/arctic_railwagons.png",
-    tmpl_railwagon42, 0, 0, 0, 0,
-    modern,
+    tmpl_railwagon42, 0, 0, 0, 0)
+
+_WAGON_LOADING_LENGTH88(common, modern, arctic,
     "passenger",
     "passenger_loading",
     "src/gfx/arctic_railwagons.png",
     "src/gfx/arctic_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0)
 
-_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, toyland,
-    early,
+_WAGON_YEAR_SWITCH(common, arctic, _RAIL_MODERN_YEAR, early, modern)
+
+/* TOYLAND */
+_WAGON_LOADING_LENGTH88(common, early, toyland,
     "passenger_early",
     "passenger_early_loading",
     "src/gfx/toyland_railwagons.png",
     "src/gfx/toyland_railwagons.png",
-    tmpl_short_railwagon42, 0, 0, 0, 0,
-    modern,
+    tmpl_short_railwagon42, 0, 0, 0, 0)
+
+_WAGON_LOADING_LENGTH88(common, modern, toyland,
     "passenger",
     "passenger_loading",
     "src/gfx/toyland_railwagons.png",
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 0, 0, 0)
 
+_WAGON_YEAR_SWITCH(common, toyland, _RAIL_MODERN_YEAR, early, modern)
+
+/* CLIMATE SWITCH */
 switch(FEAT_TRAINS, SELF, _THIS_WAGON_CLIMATE_SWITCH_ID(common, default), climate) {
     CLIMATE_TROPICAL: _THIS_WAGON_YEAR_SWITCH_ID(common, tropical);
     CLIMATE_ARCTIC:   _THIS_WAGON_YEAR_SWITCH_ID(common, arctic);

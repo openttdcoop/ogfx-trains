@@ -26,19 +26,21 @@ divert
  * ***************************
  */
 
-_WAGON_LOADING_YEARSWITCH_LENGTH88(common, _RAIL_MODERN_YEAR, default,
-    early,
+_WAGON_LOADING_LENGTH88(common, early, default,
     "livestock_early",
     "livestock_early_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
-    tmpl_railwagon42, 0, 100, 0, 100,
-    modern,
+    tmpl_railwagon42, 0, 100, 0, 100)
+
+_WAGON_LOADING_LENGTH88(common, modern, default,
     "livestock",
     "livestock_loading",
     "src/gfx/temperate_railwagons.png",
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 100, 0, 100)
+
+_WAGON_YEAR_SWITCH(common, default, _RAIL_MODERN_YEAR, early, modern)
 
 item(FEAT_TRAINS, _THIS_WAGON, 31) {
     property {

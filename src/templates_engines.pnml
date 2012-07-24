@@ -32,6 +32,14 @@ define_unique([_THIS_ENGINE_GRAPHICS_ID], [check_args_exact([$0], [$#], [2])_THI
 define_unique([_THIS_ENGINE_CLIMATE_SWITCH_ID], [check_args_exact([$0], [$#], [2])_THIS_ENGINE_ID($@, climate_switch)])
 
 #############################################################################################
+# _THIS_ENGINE_CARGO_SWITCH_ID (name, climate)
+# Creates an engine cargo switch identifier that can be used as a unique graphics reference
+# for template macros.
+#############################################################################################
+define_unique([_THIS_ENGINE_CARGO_SWITCH_ID],
+    [check_args_exact([$0], [$#], [1])_THIS_ENGINE_ID($@, cargo_switch)])
+
+#############################################################################################
 # Engine with
 # - no loading stages
 # - length 4/8
