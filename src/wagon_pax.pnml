@@ -29,7 +29,7 @@ WAGON_BULK_32BPP(passenger_wagon_temperate,
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, passenger_wagon_temperate, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, passenger_wagon_temperate, early, modern)
 
 WAGON_BULK_32BPP(passenger_wagon_tropic,
     early,
@@ -45,7 +45,7 @@ WAGON_BULK_32BPP(passenger_wagon_tropic,
     "src/gfx/tropic_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, passenger_wagon_tropic, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, passenger_wagon_tropic, early, modern)
 
 WAGON_BULK_32BPP(passenger_wagon_arctic,
     early,
@@ -61,7 +61,7 @@ WAGON_BULK_32BPP(passenger_wagon_arctic,
     "src/gfx/arctic_railwagons.png",
     tmpl_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, passenger_wagon_arctic, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, passenger_wagon_arctic, early, modern)
 
 WAGON_BULK_32BPP(passenger_wagon_toyland,
     early,
@@ -77,7 +77,7 @@ WAGON_BULK_32BPP(passenger_wagon_toyland,
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, passenger_wagon_toyland, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, passenger_wagon_toyland, early, modern)
 
 switch (FEAT_TRAINS, SELF, passenger_wagon_climate_switch, climate) {
     CLIMATE_TROPICAL: passenger_wagon_tropic_year_switch;

@@ -23,23 +23,32 @@ MU_8SPRITES_32BPP (sh125_engine,
     "src/gfx/mus/sh125/sh125LiveryOverride.png",
     tmpl_railwagon8_normal, 0, 0)
 
-MU_8SPRITES_LOADING_32BPP (sh125_passenger,
+WAGON_BULK_32BPP (sh125_passenger,
+    modern,
     "passenger_sh125",
     "passenger_sh125_loading",
     "src/gfx/mus/sh125/sh125LiveryOverride.png",
     tmpl_railwagon8_normal, 0, 27, 0, 27)
 
-MU_8SPRITES_LOADING_32BPP (sh125_mail,
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, sh125_passenger, passenger_wagon_climate_switch, modern)
+
+WAGON_BULK_32BPP (sh125_mail,
+    modern,
     "mail",
     "mail_loading",
     "src/gfx/mus/sh125/sh125LiveryOverride.png",
     tmpl_railwagon8_normal, 0, 54, 0, 54)
 
-MU_8SPRITES_LOADING_32BPP (sh125_valuables,
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, sh125_mail, mail_wagon_climate_switch, modern)
+
+WAGON_BULK_32BPP (sh125_valuables,
+    modern,
     "armoured",
     "armoured_loading",
     "src/gfx/mus/sh125/sh125LiveryOverride.png",
     tmpl_railwagon8_normal, 0, 80, 0, 80)
+
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, sh125_valuables, valuables_wagon_climate_switch, modern)
 
 #include "template_refit_cost_mu.pnml"
 
@@ -56,13 +65,13 @@ item(FEAT_TRAINS, sh125, 22) {
         sh125_engine_switch_gui;
     }
     livery_override (passenger_wagon) {
-        sh125_passenger_switch_gui;
+        sh125_passenger_year_switch;
     }
     livery_override (mail_wagon)      {
-        sh125_mail_switch_gui;
+        sh125_mail_year_switch;
     }
     livery_override (valuables_wagon) {
-        sh125_valuables_switch_gui;
+        sh125_valuables_year_switch;
     }
 }
 

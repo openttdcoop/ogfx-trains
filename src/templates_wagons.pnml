@@ -356,6 +356,68 @@ switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { 
 }
 
 
+#define WAGON_YEARSWITCH_LOADING_32BPP(year_for_modern, name, type1, type2) \
+spritegroup name ## _ ## type1 ## _group { \
+	loaded: name ## _ ## type1 ## _full_set; \
+	loading: name ## _ ## type1 ## _empty_set; \
+} \
+spritegroup name ## _ ## type1 ## _group_gui { \
+	loaded: name ## _ ## type1 ## _full_set_gui; \
+	loading: name ## _ ## type1 ## _empty_set_gui; \
+} \
+spritegroup name ## _ ## type2 ## _group { \
+	loaded: name ## _ ## type2 ## _full_set; \
+	loading: name ## _ ## type2 ## _empty_set; \
+} \
+spritegroup name ## _ ## type2 ## _group_gui { \
+	loaded: name ## _ ## type2 ## _full_set_gui; \
+	loading: name ## _ ## type2 ## _empty_set_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## type1 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## type1 ## _group_gui; \
+    0x11: name ## _ ## type1 ## _group_gui; \
+    0x12: name ## _ ## type1 ## _group_gui; \
+    0x20: name ## _ ## type1 ## _full_set_gui; \
+    0x21: name ## _ ## type1 ## _full_set_gui; \
+    name ## _ ## type1 ## _group; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## type2 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## type2 ## _group_gui; \
+    0x11: name ## _ ## type2 ## _group_gui; \
+    0x12: name ## _ ## type2 ## _group_gui; \
+    0x20: name ## _ ## type2 ## _full_set_gui; \
+    0x21: name ## _ ## type2 ## _full_set_gui; \
+    name ## _ ## type2 ## _group; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
+    1: name ## _ ## type1 ## _switch_gui; \
+    name ## _ ## type2 ## _switch_gui; \
+}
+
+
+#define WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(year_for_modern, name, mapped, type2) \
+spritegroup name ## _ ## type2 ## _group { \
+	loaded: name ## _ ## type2 ## _full_set; \
+	loading: name ## _ ## type2 ## _empty_set; \
+} \
+spritegroup name ## _ ## type2 ## _group_gui { \
+	loaded: name ## _ ## type2 ## _full_set_gui; \
+	loading: name ## _ ## type2 ## _empty_set_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## type2 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## type2 ## _group_gui; \
+    0x11: name ## _ ## type2 ## _group_gui; \
+    0x12: name ## _ ## type2 ## _group_gui; \
+    0x20: name ## _ ## type2 ## _full_set_gui; \
+    0x21: name ## _ ## type2 ## _full_set_gui; \
+    name ## _ ## type2 ## _group; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
+    1: mapped; \
+    name ## _ ## type2 ## _switch_gui; \
+}
+
+
 #define WAGON_SINGLE_SET8(name, filename, tmpl, x, y) \
 spriteset(name ##_set, filename) { \
 	tmpl(x, y) tmpl(x, y) \

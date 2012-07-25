@@ -31,7 +31,7 @@ WAGON_BULK_32BPP(piecegoods_wagon_default,
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 125, 0, 125) // 8 views needed
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_default, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, piecegoods_wagon_default, early, modern)
 
 WAGON_BULK_32BPP(piecegoods_wagon_paper,
     early,
@@ -47,7 +47,7 @@ WAGON_BULK_32BPP(piecegoods_wagon_paper,
     "src/gfx/arctic_railwagons.png",
     tmpl_railwagon42, 0, 200, 0, 425) // 8 views needed
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_paper, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, piecegoods_wagon_paper, early, modern)
 
 WAGON_BULK_32BPP(piecegoods_wagon_food,
     early,
@@ -63,7 +63,7 @@ WAGON_BULK_32BPP(piecegoods_wagon_food,
     "src/gfx/arctic_railwagons.png",
     tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_food, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, piecegoods_wagon_food, early, modern)
 
 WAGON_BULK_32BPP(piecegoods_wagon_livestock,
     early,
@@ -79,7 +79,7 @@ WAGON_BULK_32BPP(piecegoods_wagon_livestock,
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_livestock, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, piecegoods_wagon_livestock, early, modern)
 
 WAGON_BULK_32BPP(piecegoods_wagon_toyland,
     early,
@@ -95,7 +95,7 @@ WAGON_BULK_32BPP(piecegoods_wagon_toyland,
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 260, 0, 280) // 8 views needed
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_toyland, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, piecegoods_wagon_toyland, early, modern)
 
 WAGON_BULK_32BPP(piecegoods_wagon_toys,
     early,
@@ -111,7 +111,7 @@ WAGON_BULK_32BPP(piecegoods_wagon_toys,
     "src/gfx/toyland_railwagons.png",
     tmpl_short_railwagon42, 0, 300, 0, 320) // 8 views needed
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_toys, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, piecegoods_wagon_toys, early, modern)
 
 switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
     BATT: piecegoods_wagon_toyland_year_switch;

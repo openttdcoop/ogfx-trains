@@ -30,23 +30,32 @@ MU_8SPRITES_LOADING_32BPP (dash_engine_cargo,
     "src/gfx/mus/dash/DashLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 0, 0, 0)
 
-MU_8SPRITES_LOADING_32BPP (dash_passenger,
+WAGON_BULK_32BPP (dash_passenger,
+    modern,
     "passenger_dash",
     "passenger_dash_loading",
     "src/gfx/mus/dash/DashLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 27, 0, 27)
 
-MU_8SPRITES_LOADING_32BPP (dash_mail,
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, dash_passenger, passenger_wagon_climate_switch, modern)
+
+WAGON_BULK_32BPP (dash_mail,
+    modern,
     "mail_dash",
     "mail_dash_loading",
     "src/gfx/mus/dash/DashLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 54, 0, 54)
 
-MU_8SPRITES_LOADING_32BPP (dash_valuables,
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, dash_mail, mail_wagon_climate_switch, modern)
+
+WAGON_BULK_32BPP (dash_valuables,
+    modern,
     "armoured_dash",
     "armoured_dash_loading",
     "src/gfx/mus/dash/DashLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 80, 0, 80)
+
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, dash_valuables, valuables_wagon_climate_switch, modern)
 
 switch(FEAT_TRAINS, SELF, dash_cargo_switch, cargo_type_in_veh) {
     PASS: dash_engine_switch_gui;
@@ -68,9 +77,9 @@ item(FEAT_TRAINS, dash, 12) {
 
         dash_cargo_switch;
     }
-    livery_override (passenger_wagon) { dash_passenger_switch_gui; }
-    livery_override (mail_wagon)      { dash_mail_switch_gui; }
-    livery_override (valuables_wagon) { dash_valuables_switch_gui; }
+    livery_override (passenger_wagon) { dash_passenger_year_switch; }
+    livery_override (mail_wagon)      { dash_mail_year_switch; }
+    livery_override (valuables_wagon) { dash_valuables_year_switch; }
 }
 
 #undef THIS_ID

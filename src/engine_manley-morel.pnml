@@ -30,23 +30,32 @@ MU_8SPRITES_LOADING_32BPP (manley_morel_engine_cargo,
     "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 0, 0, 0)
 
-MU_8SPRITES_LOADING_32BPP (manley_morel_passenger,
+WAGON_BULK_32BPP (manley_morel_passenger,
+    modern,
     "passenger_dmu",
     "passenger_dmu_loading",
     "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 27, 0, 27)
 
-MU_8SPRITES_LOADING_32BPP (manley_morel_mail,
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, manley_morel_passenger, passenger_wagon_climate_switch, modern)
+
+WAGON_BULK_32BPP (manley_morel_mail,
+    modern,
     "mail_dmu",
     "mail_dmu_loading",
     "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 54, 0, 54)
 
-MU_8SPRITES_LOADING_32BPP (manley_morel_valuables,
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, manley_morel_mail, mail_wagon_climate_switch, modern)
+
+WAGON_BULK_32BPP (manley_morel_valuables,
+    modern,
     "armoured_dmu",
     "armoured_dmu_loading",
     "src/gfx/mus/manley-morel/Manley-MorelLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 80, 0, 80)
+
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, manley_morel_valuables, valuables_wagon_climate_switch, modern)
 
 switch(FEAT_TRAINS, SELF, manley_morel_cargo_switch, cargo_type_in_veh) {
     PASS: manley_morel_engine_switch_gui;
@@ -68,9 +77,9 @@ item(FEAT_TRAINS, manley_morel, 11) {
 
         manley_morel_cargo_switch;
     }
-    livery_override (passenger_wagon) { manley_morel_passenger_switch_gui; }
-    livery_override (mail_wagon)      { manley_morel_mail_switch_gui; }
-    livery_override (valuables_wagon) { manley_morel_valuables_switch_gui; }
+    livery_override (passenger_wagon) { manley_morel_passenger_year_switch; }
+    livery_override (mail_wagon)      { manley_morel_mail_year_switch; }
+    livery_override (valuables_wagon) { manley_morel_valuables_year_switch; }
 }
 
 #undef THIS_ID

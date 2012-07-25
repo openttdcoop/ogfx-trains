@@ -29,7 +29,7 @@ WAGON_BULK_32BPP(valuables_wagon_temperate,
     "src/gfx/temperate_railwagons.png",
     tmpl_railwagon42, 0, 375, 0, 375) // 8 views needed for 32bpp
 
-WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, valuables_wagon_temperate, early, modern)
+WAGON_YEARSWITCH_LOADING_32BPP(rail_modern_year, valuables_wagon_temperate, early, modern)
 
 switch (FEAT_TRAINS, SELF, valuables_wagon_climate_switch, climate) {
     valuables_wagon_temperate_year_switch;
