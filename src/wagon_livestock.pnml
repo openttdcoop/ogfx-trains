@@ -15,19 +15,24 @@
 
 #define THIS_ID(...) livestock_wagon ## __VA_ARGS__
 
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_temperate, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+WAGON_BULK_32BPP(livestock_wagon_temperate,
+    early,
+    "livestock_early",
+    "livestock_early_loading",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_arctic, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+WAGON_BULK_32BPP(livestock_wagon_temperate,
+    modern,
+    "livestock",
+    "livestock_loading",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_tropic, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(livestock_wagon_toyland, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, livestock_wagon_temperate, early, modern)
 
 switch (FEAT_TRAINS, SELF, livestock_wagon_climate_switch, climate) {
-    CLIMATE_TROPICAL: livestock_wagon_tropic_switch_gui;
-    CLIMATE_ARCTIC: livestock_wagon_arctic_switch_gui;
-    CLIMATE_TOYLAND: livestock_wagon_toyland_switch_gui;
-    livestock_wagon_temperate_switch_gui;
+    livestock_wagon_temperate_year_switch;
 }
 
 item(FEAT_TRAINS, livestock_wagon, 31) {

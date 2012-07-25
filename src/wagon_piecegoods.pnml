@@ -17,29 +17,112 @@
 
 #define THIS_ID(...) piecegoods_wagon ## __VA_ARGS__
 
-MU_8SPRITES_LOADING_32BPP(piecegoods_wagon_default, "goods", "goods_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 125, 0, 125) // 8 views needed
+WAGON_BULK_32BPP(piecegoods_wagon_default,
+    early,
+    "goods_early",
+    "goods_early_loading",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 125, 0, 125) // 8 views needed
 
-MU_8SPRITES_LOADING_32BPP(piecegoods_wagon_paper, "goods", "goods_loading", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 200, 0, 425) // 8 views needed
+WAGON_BULK_32BPP(piecegoods_wagon_default,
+    modern,
+    "goods",
+    "goods_loading",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 125, 0, 125) // 8 views needed
 
-MU_8SPRITES_LOADING_32BPP(piecegoods_wagon_fruit, "goods", "goods_loading", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed
-MU_8SPRITES_LOADING_32BPP(piecegoods_wagon_food, "goods", "goods_loading", "src/gfx/arctic_railwagons.png", tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_default, early, modern)
 
-MU_8SPRITES_LOADING_32BPP(piecegoods_wagon_livestock, "livestock", "livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed
+WAGON_BULK_32BPP(piecegoods_wagon_paper,
+    early,
+    "goods_early",
+    "goods_early_loading",
+    "src/gfx/arctic_railwagons.png",
+    tmpl_railwagon42, 0, 200, 0, 425) // 8 views needed
 
-MU_8SPRITES_LOADING_32BPP(piecegoods_wagon_toyland, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 260, 0, 280) // 8 views needed
+WAGON_BULK_32BPP(piecegoods_wagon_paper,
+    modern,
+    "goods",
+    "goods_loading",
+    "src/gfx/arctic_railwagons.png",
+    tmpl_railwagon42, 0, 200, 0, 425) // 8 views needed
 
-MU_8SPRITES_LOADING_32BPP(piecegoods_wagon_toys, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 300, 0, 320) // 8 views needed
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_paper, early, modern)
+
+WAGON_BULK_32BPP(piecegoods_wagon_food,
+    early,
+    "goods_early",
+    "goods_early_loading",
+    "src/gfx/arctic_railwagons.png",
+    tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed
+
+WAGON_BULK_32BPP(piecegoods_wagon_food,
+    modern,
+    "goods",
+    "goods_loading",
+    "src/gfx/arctic_railwagons.png",
+    tmpl_railwagon42, 0, 400, 0, 400) // 8 views needed
+
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_food, early, modern)
+
+WAGON_BULK_32BPP(piecegoods_wagon_livestock,
+    early,
+    "livestock_early",
+    "livestock_early_loading",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed
+
+WAGON_BULK_32BPP(piecegoods_wagon_livestock,
+    modern,
+    "livestock",
+    "livestock_loading",
+    "src/gfx/temperate_railwagons.png",
+    tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed
+
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_livestock, early, modern)
+
+WAGON_BULK_32BPP(piecegoods_wagon_toyland,
+    early,
+    "goods_early",
+    "goods_early_loading",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 260, 0, 280) // 8 views needed
+
+WAGON_BULK_32BPP(piecegoods_wagon_toyland,
+    modern,
+    "goods",
+    "goods_loading",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 260, 0, 280) // 8 views needed
+
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_toyland, early, modern)
+
+WAGON_BULK_32BPP(piecegoods_wagon_toys,
+    early,
+    "goods_early",
+    "goods_early_loading",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 300, 0, 320) // 8 views needed
+
+WAGON_BULK_32BPP(piecegoods_wagon_toys,
+    modern,
+    "goods",
+    "goods_loading",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 300, 0, 320) // 8 views needed
+
+WAGON_YEARSWITCH_2STAGE_32BPP(rail_modern_year, piecegoods_wagon_toys, early, modern)
 
 switch(FEAT_TRAINS, SELF, piecegoods_wagon_switch, cargo_type_in_veh) {
-    BATT: piecegoods_wagon_toyland_switch_gui;
-    FRUT: piecegoods_wagon_fruit_switch_gui;
-    FRVG: piecegoods_wagon_fruit_switch_gui;
-    FOOD: piecegoods_wagon_food_switch_gui;
-    LVST: piecegoods_wagon_livestock_switch_gui;
-    PAPR: piecegoods_wagon_paper_switch_gui;
-    SWET: piecegoods_wagon_toyland_switch_gui;
-    TOYS: piecegoods_wagon_toys_switch_gui;
-    piecegoods_wagon_default_switch_gui;
+    BATT: piecegoods_wagon_toyland_year_switch;
+    FRUT: piecegoods_wagon_food_year_switch;
+    FRVG: piecegoods_wagon_food_year_switch;
+    FOOD: piecegoods_wagon_food_year_switch;
+    LVST: piecegoods_wagon_livestock_year_switch;
+    PAPR: piecegoods_wagon_paper_year_switch;
+    SWET: piecegoods_wagon_toyland_year_switch;
+    TOYS: piecegoods_wagon_toys_year_switch;
+    piecegoods_wagon_default_year_switch;
 }
 
 switch (FEAT_TRAINS, SELF, piecegoods_wagon_capacity_switch, cargo_type_in_veh) {
@@ -79,7 +162,7 @@ item(FEAT_TRAINS, piecegoods_wagon) {
         cargo_capacity: piecegoods_wagon_capacity_switch;
         refit_cost:     piecegoods_refit_cost_switch;
 
-        purchase:   piecegoods_wagon_default_switch_gui;
+        purchase:   piecegoods_wagon_default_year_switch;
         piecegoods_wagon_switch;
     }
 }
