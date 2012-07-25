@@ -378,9 +378,9 @@ item(FEAT_TRAINS, bulk_wagon) {
     property {
         // We try to simulate the stats of the temperate grain wagon
         name:                           string(STR_NAME_BULK_WAGON);
-        REFIT_PROPERTIES_BULK
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
+        REFIT_PROPERTIES_BULK
         cost_factor:                    182;
         cargo_capacity:                 30;
         weight:                         19 ton;

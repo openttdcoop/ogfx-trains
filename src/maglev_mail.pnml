@@ -15,13 +15,11 @@
 
 item(FEAT_TRAINS, maglev_mail_wagon, 90) {
     property {
-        sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        climates_available:             param_provide_maglev ? ALL_CLIMATES : NO_CLIMATE;
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_MAGLEV_DEFAULT
+        REFIT_PROPERTIES_MAIL
         misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
         refit_cost:                     0; // refit is free
-        running_cost_factor:            5;
-        running_cost_base:              RUNNING_COST_STEAM;
-        REFIT_PROPERTIES_MAIL
     }
     graphics {
 	length:        return 7;

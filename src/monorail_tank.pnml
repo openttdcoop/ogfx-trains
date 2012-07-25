@@ -75,9 +75,9 @@ switch(FEAT_TRAINS, SELF, monorail_tank_wagon_switch, cargo_type_in_veh) {
 item(FEAT_TRAINS, monorail_tank_wagon) {
     property {
         name:                           string(STR_NAME_TANK_WAGON);
-        REFIT_PROPERTIES_TANK
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MONORAIL_DEFAULT
+        REFIT_PROPERTIES_TANK
         cost_factor:                    200;
         cargo_capacity:                 30;
         weight:                         24;

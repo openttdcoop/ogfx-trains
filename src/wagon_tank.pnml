@@ -93,9 +93,9 @@ item(FEAT_TRAINS, tank_wagon) {
     property {
         // We try to simulate the stats of the temperate oil wagon
         name:                           string(STR_NAME_TANK_WAGON);
-        REFIT_PROPERTIES_TANK
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
+        REFIT_PROPERTIES_TANK
         cost_factor:                    200;
         cargo_capacity:                 30;
         weight:                         24;

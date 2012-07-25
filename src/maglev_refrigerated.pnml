@@ -12,9 +12,9 @@ item(FEAT_TRAINS, maglev_refrigerate_wagon) {
     property {
         // We try to simulate the stats of the arctic food wagon
         name:                           string(STR_NAME_REFRIGERATOR_WAGON);
-        REFIT_PROPERTIES_REFRIGERATED
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MAGLEV_DEFAULT
+        REFIT_PROPERTIES_REFRIGERATED
         cost_factor:                    191;
         cargo_capacity:                 32;
         weight:                         22;
@@ -24,7 +24,7 @@ item(FEAT_TRAINS, maglev_refrigerate_wagon) {
         refit_cost:         refrigerated_refit_cost_switch;
         additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 
-        monorail_refrigerate_wagon_climate_switch;
+        monorail_refrigerate_wagon_temperate_switch_gui;
     }
 }
 

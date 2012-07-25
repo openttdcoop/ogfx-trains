@@ -150,9 +150,9 @@ item(FEAT_TRAINS, piecegoods_wagon) {
     property {
         // We try to simulate the stats of the temperate goods wagon
         name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
-        REFIT_PROPERTIES_PIECE_GOODS
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
+        REFIT_PROPERTIES_PIECE_GOODS
         cost_factor:                    190;
         cargo_capacity:                 25;
         weight:                         21;

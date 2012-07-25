@@ -17,15 +17,15 @@
 
 item(FEAT_TRAINS, maglev_livestock_wagon, 93) {
     property {
-        REFIT_PROPERTIES_LIVESTOCK
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MAGLEV_DEFAULT
+        REFIT_PROPERTIES_LIVESTOCK
         cost_factor:                    192;
         cargo_capacity:                 32;
         weight:                         20;
     }
     graphics {
-        monorail_livestock_wagon_climate_switch;
+        monorail_livestock_wagon_temperate_switch_gui;
     }
 }
 

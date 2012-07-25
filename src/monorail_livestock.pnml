@@ -17,30 +17,17 @@
 
 MU_8SPRITES_LOADING_32BPP(monorail_livestock_wagon_temperate, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_livestock_wagon_arctic, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(monorail_livestock_wagon_tropic, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(monorail_livestock_wagon_toyland, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
-
-switch (FEAT_TRAINS, SELF, monorail_livestock_wagon_climate_switch, climate) {
-    CLIMATE_TROPICAL: monorail_livestock_wagon_tropic_switch_gui;
-    CLIMATE_ARCTIC: monorail_livestock_wagon_arctic_switch_gui;
-    CLIMATE_TOYLAND: monorail_livestock_wagon_toyland_switch_gui;
-    monorail_livestock_wagon_temperate_switch_gui;
-}
-
 item(FEAT_TRAINS, monorail_livestock_wagon, 61) {
     property {
-        REFIT_PROPERTIES_LIVESTOCK
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MONORAIL_DEFAULT
+        REFIT_PROPERTIES_LIVESTOCK
         cost_factor:                    192;
         cargo_capacity:                 30;
         weight:                         20;
     }
     graphics {
-        monorail_livestock_wagon_climate_switch;
+        monorail_livestock_wagon_temperate_switch_gui;
     }
 }
 

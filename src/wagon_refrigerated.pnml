@@ -34,9 +34,9 @@ item(FEAT_TRAINS, refrigerate_wagon) {
     property {
         // We try to simulate the stats of the arctic food wagon
         name:                           string(STR_NAME_REFRIGERATOR_WAGON);
-        REFIT_PROPERTIES_REFRIGERATED
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
+        REFIT_PROPERTIES_REFRIGERATED
         cost_factor:                    191;
         cargo_capacity:                 25;
         weight:                         22;

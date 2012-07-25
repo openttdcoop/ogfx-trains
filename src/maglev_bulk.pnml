@@ -35,9 +35,9 @@ switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_capacity_switch, cargo_type_in_v
 item(FEAT_TRAINS, maglev_bulk_wagon) {
     property {
         name:                           string(STR_NAME_BULK_WAGON);
-        REFIT_PROPERTIES_BULK
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MAGLEV_DEFAULT
+        REFIT_PROPERTIES_BULK
         cost_factor:                    176;
         cargo_capacity:                 37;
         weight:                         18;

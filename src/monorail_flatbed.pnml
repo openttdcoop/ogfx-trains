@@ -197,9 +197,9 @@ item(FEAT_TRAINS, monorail_flatbed_wagon) {
     property {
         // We try to simulate the stats of the temperate wood wagon
         name:                           string(STR_NAME_FLATBED_WAGON);
-        REFIT_PROPERTIES_FLATBED
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MONORAIL_DEFAULT
+        REFIT_PROPERTIES_FLATBED
         cost_factor:                    181;
         cargo_capacity:                 30; // Usually units of goods which fit onto it.
         weight:                         16;

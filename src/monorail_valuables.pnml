@@ -17,29 +17,17 @@
 
 MU_8SPRITES_LOADING_32BPP(monorail_valuables_wagon_temperate, "mono_armoured", "mono_armoured_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 60, 0, 80) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_valuables_wagon_arctic, "mono_armoured", "mono_armoured_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 60, 0, 80) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(monorail_valuables_wagon_tropic, "mono_armoured", "mono_armoured_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 60, 0, 80) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(monorail_valuables_wagon_toyland, "mono_armoured", "mono_armoured_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 60, 0, 80) // 8 views needed for 32bpp
-
 switch (FEAT_TRAINS, SELF, monorail_valuables_wagon_climate_switch, climate) {
-    CLIMATE_TROPICAL: monorail_valuables_wagon_tropic_switch_gui;
-    CLIMATE_ARCTIC: monorail_valuables_wagon_arctic_switch_gui;
-    CLIMATE_TOYLAND: monorail_valuables_wagon_toyland_switch_gui;
     monorail_valuables_wagon_temperate_switch_gui;
 }
 
 item(FEAT_TRAINS, monorail_valuables_wagon, 67) {
     property {
-        sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        climates_available:             param_provide_monorail ? ALL_CLIMATES : NO_CLIMATE;
-        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT);
-        refit_cost:                     0; // free refit between armoured cargos
-        running_cost_factor:            5;
-        running_cost_base:              RUNNING_COST_STEAM;
-        track_type:                     NORMAL_RAIL10;
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_MONORAIL_DEFAULT
         REFIT_PROPERTIES_ARMOURED
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
+        refit_cost:                     0; // free refit between armoured cargos
     }
     graphics {
         monorail_valuables_wagon_climate_switch;

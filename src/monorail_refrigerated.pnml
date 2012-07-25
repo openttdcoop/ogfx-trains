@@ -17,26 +17,13 @@
 
 MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_temperate, "mono_refrigerated_loading", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
 
-MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_arctic, "mono_refrigerated_loading", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_tropic, "mono_refrigerated_loading", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
-
-MU_8SPRITES_LOADING_32BPP(monorail_refrigerate_wagon_toyland, "mono_refrigerated_loading", "mono_refrigerated", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 420, 0, 400) // 8 views needed for 32bpp
-
-switch (FEAT_TRAINS, SELF, monorail_refrigerate_wagon_climate_switch, climate) {
-    CLIMATE_TROPICAL: monorail_refrigerate_wagon_tropic_switch_gui;
-    CLIMATE_ARCTIC: monorail_refrigerate_wagon_arctic_switch_gui;
-    CLIMATE_TOYLAND: monorail_refrigerate_wagon_toyland_switch_gui;
-    monorail_refrigerate_wagon_temperate_switch_gui;
-}
-
 item(FEAT_TRAINS, monorail_refrigerate_wagon) {
     property {                                                // we keep the name 'food van'
         // We try to simulate the stats of the arctic food wagon
         name:                           string(STR_NAME_REFRIGERATOR_WAGON);
-        REFIT_PROPERTIES_REFRIGERATED
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MONORAIL_DEFAULT
+        REFIT_PROPERTIES_REFRIGERATED
         cost_factor:                    191;
         cargo_capacity:                 25;
         weight:                         22;
@@ -46,7 +33,7 @@ item(FEAT_TRAINS, monorail_refrigerate_wagon) {
         refit_cost:         refrigerated_refit_cost_switch;
         additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 
-        monorail_refrigerate_wagon_climate_switch;
+        monorail_refrigerate_wagon_temperate_switch_gui;
     }
 }
 

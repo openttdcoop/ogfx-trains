@@ -37,9 +37,9 @@ switch (FEAT_TRAINS, SELF, livestock_wagon_climate_switch, climate) {
 
 item(FEAT_TRAINS, livestock_wagon, 31) {
     property {
-        REFIT_PROPERTIES_LIVESTOCK
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_RAIL_DEFAULT
+        REFIT_PROPERTIES_LIVESTOCK
         cost_factor:                    192;
         cargo_capacity:                 25;
         weight:                         20;

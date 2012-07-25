@@ -33,9 +33,9 @@ switch (FEAT_TRAINS, SELF, maglev_flatbed_wagon_cb_capacity_switch, cargo_type_i
 item(FEAT_TRAINS, maglev_flatbed_wagon) {
     property {
         name:                           string(STR_NAME_FLATBED_WAGON);
-        REFIT_PROPERTIES_FLATBED
         WAGON_PROPERTIES_DEFAULT
         WAGON_PROPERTIES_MAGLEV_DEFAULT
+        REFIT_PROPERTIES_FLATBED
         cost_factor:                    181;
         cargo_capacity:                 37;
         weight:                         16;
