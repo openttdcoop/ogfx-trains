@@ -97,6 +97,7 @@ mono_goods_early
 mono_refrigerated
 mono_refrigerated_early
 mono_livestock
+mono_livestock_early
 goods_loading
 goods_early_loading
 refrigerated_loading
@@ -107,6 +108,7 @@ mono_goods_early_loading
 mono_refrigerated_loading
 mono_refrigerated_early_loading
 mono_livestock_loading
+mono_livestock_early_loading
 # Temperate Wagons: Multi-load
 tank
 tank_water
