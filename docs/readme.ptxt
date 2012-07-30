@@ -254,8 +254,8 @@ Graphics:
 Translations:
     Chinese (traditional)       2006TTD
     Croation:                   Voyager1
-    Dutch:                      Hirundo, Yexo
-    English:                    planetmaker
+    Dutch:                      Hirundo, Yexo, Alberth
+    English:                    planetmaker, Alberth
     French:                     OliTTD, peetleouf
     Norwegian Bokmal:           DJNekkid
     Portuguese (Brazilian)      prppedro
@@ -263,6 +263,9 @@ Translations:
     Serbian:                    etran
     Spanish:                    Terkhen
     Swedish:                    AndersI
+    Lithuanian:                 RunisLabs
+    Czech:                      Nash_CZ
+    Afrikaans:                  te_lanus
 
 Special thanks to #openttdcoop and especially Ammler who provides and
 works a lot on maintaining the Development Zone where this repository is
@@ -293,7 +296,7 @@ In order to build this newgrf from source you need:
 - python 2.5 ... 2.7 with yacc, pil, ply modules installed
 - NML r1789
 - make 3.80+
-- gcc as pre-processor
+- gcc as pre-processor (Alternatively GNU M4 1.4.16+ for the m4 branch)
 - mercurial (recommended)
 - md5sum (or md5 on Mac, recommended)
 - some small shell tools: cat, sed
@@ -371,4 +374,3 @@ addcheck:
 check:
 	Check the md5sum of the built newgrf against the supplied md5sum
 	(Intended to be used when building from tar balls)
-
