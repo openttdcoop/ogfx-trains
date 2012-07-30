@@ -252,20 +252,21 @@ Graphics:
         ENSP, FMSP, VEHI:       andythenorth
 
 Translations:
+    Afrikaans:                  te_lanus
     Chinese (traditional)       2006TTD
     Croation:                   Voyager1
+    Czech:                      Nash_CZ
     Dutch:                      Hirundo, Yexo, Alberth
     English:                    planetmaker, Alberth
     French:                     OliTTD, peetleouf
+    German:                     planetmaker
+    Lithuanian:                 RunisLabs
     Norwegian Bokmal:           DJNekkid
     Portuguese (Brazilian)      prppedro
     Russian                     akasoft
     Serbian:                    etran
     Spanish:                    Terkhen
     Swedish:                    AndersI
-    Lithuanian:                 RunisLabs
-    Czech:                      Nash_CZ
-    Afrikaans:                  te_lanus
 
 Special thanks to #openttdcoop and especially Ammler who provides and
 works a lot on maintaining the Development Zone where this repository is
