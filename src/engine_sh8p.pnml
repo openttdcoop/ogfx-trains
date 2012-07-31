@@ -19,8 +19,8 @@ ENGINE_GRAPHICS_GROUP_32BPP(sh8p, "sh8p", default,
 
 /* SH8P */
 SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_sh8p, "sh8p_tender", all,
-	"src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
-	tmpl_engine_88, 0, 0
+    "src/gfx/temperate_tender.png",
+    tmpl_wagon_48, 0, 0
 )
 
 item(FEAT_TRAINS, sh8p) {

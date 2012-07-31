@@ -21,8 +21,8 @@ ENGINE_GRAPHICS_GROUP_32BPP(ginzua4, "ginzua4", default,
 
 /* Ginzu */
 SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_ginzua4, "ginzua4_tender", all,
-    "src/gfx/engines/temperate_GinzuA4_88.png",
-    tmpl_engine_88, 0, 0
+    "src/gfx/temperate_tender.png",
+    tmpl_wagon_48, 0, 0
 )
 
 /* This steam engine has a tender. See tender.pnml */
