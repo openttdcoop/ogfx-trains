@@ -242,3 +242,14 @@ template tmpl_turbotrain_engine(x, y) {
 template tmpl_turbotrain_engine_reversed(x, y) {
     tmpl_turbotrain_engine(x, y)
 }
+
+template tmpl_wagon_48(x, y) {
+    @<:@  0+x, y,  8, 18,  -3, -14@:>@
+    @<:@ 16+x, y, 20, 16,  -9, -11@:>@
+    @<:@ 48+x, y, 28, 12,  -6,  -8@:>@
+    @<:@ 96+x, y, 20, 16,  -1,  -7@:>@
+    @<:@128+x, y,  8, 18,  -3,  -6@:>@
+    @<:@144+x, y, 20, 16, -17,  -7@:>@
+    @<:@176+x, y, 28, 12, -23,  -8@:>@
+    @<:@224+x, y, 20, 16,  -9, -11@:>@
+}

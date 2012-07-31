@@ -31,8 +31,8 @@ _ENGINE_LENGTH88(engine, default,
 /* Tender Ginzu */
 _ENGINE_LIVERY_LENGTH48(tender, early, default,
     "ginzua4_tender",
-    _NONE_AVAILABLE,
-    tmpl_engine_88, 0, 0)
+    "src/gfx/temperate_tender.png",
+    tmpl_wagon_48, 0, 0)
 
 item(FEAT_TRAINS, _THIS_ENGINE, 09) {
     property {
