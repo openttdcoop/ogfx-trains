@@ -253,3 +253,7 @@ template tmpl_wagon_48(x, y) {
     @<:@176+x, y, 28, 12, -23,  -8@:>@
     @<:@224+x, y, 20, 16,  -9, -11@:>@
 }
+
+template tmpl_wagon_48_reversed(x, y) {
+    tmpl_wagon_48(x, y)
+}
