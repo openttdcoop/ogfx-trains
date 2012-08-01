@@ -11,18 +11,17 @@
  * =============================================================================
  */
 
-ENGINE_GRAPHICS_GROUP(x2001, default, tmpl_engine_42(0, 0),  "src/gfx/engines/monorail_x2001_88.png")
-ENGINE_GRAPHICS_GROUP(x2001_depot, default, tmpl_engine_88(176, 0), "src/gfx/engines/monorail_x2001_88.png")
-
-switch(FEAT_TRAINS, SELF, x2001_indepot_switch, vehicle_is_in_depot) {
-    1: x2001_depot_default_group;
-    x2001_default_group;
-}
+ENGINE_GRAPHICS_GROUP_32BPP(x2001, "x2001", default,
+    "src/gfx/engines/monorail_x2001_88.png",
+    tmpl_engine8_42, 0, 0,
+    tmpl_engine_88, 176, 0)
 
 item(FEAT_TRAINS, x2001, 54) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
         misc_flags:                     bitmask(TRAIN_FLAG_FLIP);
     }
-    ENGINE_GRAPHICS_BLOCK(x2001_indepot)
+    graphics {
+        x2001_default_indepot_switch;
+    }
 }
