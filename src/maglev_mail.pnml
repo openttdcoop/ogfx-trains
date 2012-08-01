@@ -22,7 +22,6 @@ item(FEAT_TRAINS, maglev_mail_wagon, 90) {
         refit_cost:                     0; // refit is free
     }
     graphics {
-	length:        return 7;
 	monorail_mail_wagon_climate_switch;
     }
 }
