@@ -19,7 +19,7 @@ ENGINE_GRAPHICS_GROUP_32BPP(x2001, "x2001", default,
 item(FEAT_TRAINS, x2001, 54) {
     property {
         sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:                     bitmask(TRAIN_FLAG_FLIP);
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
     }
     graphics {
         x2001_default_indepot_switch;
