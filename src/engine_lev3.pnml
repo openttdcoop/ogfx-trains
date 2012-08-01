@@ -17,30 +17,37 @@
  */
 
 
-MU_8SPRITES (lev3_engine,    "src/gfx/mus/lev3/Lev3LiveryOverride.png", tmpl_railwagon8_normal, 0, 0)
-MU_8SPRITES (lev3_passenger, "src/gfx/mus/lev3/Lev3LiveryOverride.png", tmpl_maglev_wagon_78,   0, 27)
-MU_8SPRITES (lev3_mail,      "src/gfx/mus/lev3/Lev3LiveryOverride.png", tmpl_maglev_wagon_78,   0, 54)
-MU_8SPRITES (lev3_valuables, "src/gfx/mus/lev3/Lev3LiveryOverride.png", tmpl_maglev_wagon_78,   0, 81)
+MU_8SPRITES (lev3_engine,
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 0)
+
+MU_8SPRITES (lev3_passenger,
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 26)
+
+MU_8SPRITES (lev3_mail,
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 52)
+
+MU_8SPRITES (lev3_valuables,
+    "src/gfx/mus/lev3/Lev3LiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 78)
 
 item(FEAT_TRAINS, lev3, 86) {
-	property {
-		sprite_id:                    SPRITE_ID_NEW_TRAIN;
-		misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP);
-	}
-	graphics {
-		length:        return 7;
-		lev3_engine_group;
-	}
-	livery_override (maglev_passenger_wagon) {
-		length:        return 7;
-		lev3_passenger_group;
-	}
-	livery_override (maglev_mail_wagon)      {
-		length:        return 7;
-		lev3_mail_group;
-	}
-	livery_override (maglev_valuables_wagon) {
-		length:        return 7;
-		lev3_valuables_group;
-	}
+    property {
+        sprite_id:                    SPRITE_ID_NEW_TRAIN;
+        misc_flags:                   bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP);
+    }
+    graphics {
+        lev3_engine_group;
+    }
+    livery_override (maglev_passenger_wagon) {
+        lev3_passenger_group;
+    }
+    livery_override (maglev_mail_wagon)      {
+        lev3_mail_group;
+    }
+    livery_override (maglev_valuables_wagon) {
+        lev3_valuables_group;
+    }
 }

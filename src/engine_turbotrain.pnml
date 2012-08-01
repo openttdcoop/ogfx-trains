@@ -18,19 +18,19 @@
 
 MU_8SPRITES_REVERSAL (turbotrain_engine,
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
-    tmpl_turbotrain_engine, 142, 112)
+    tmpl_railwagon8_normal, 0, 0)
 
 MU_8SPRITES_REVERSAL (turbotrain_passenger,
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
-    tmpl_turbotrain_wagon, 142, 139)
+    tmpl_railwagon8_normal, 0, 26)
 
 MU_8SPRITES_REVERSAL (turbotrain_mail,
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
-    tmpl_turbotrain_wagon, 142, 168)
+    tmpl_railwagon8_normal, 0, 52)
 
 MU_8SPRITES_REVERSAL (turbotrain_valuables,
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
-    tmpl_turbotrain_wagon, 142, 168) // same as mail
+    tmpl_railwagon8_normal, 0, 78)
 
 item(FEAT_TRAINS, turbotrain, 20) {
     property {
