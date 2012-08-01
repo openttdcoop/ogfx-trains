@@ -16,30 +16,37 @@
  * Livery override for passenger and mail wagons
  */
 
-MU_8SPRITES_REVERSAL (turbotrain_engine,    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_engine, 142, 112)
-MU_8SPRITES_REVERSAL (turbotrain_passenger, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 139)
-MU_8SPRITES_REVERSAL (turbotrain_mail,      "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 168)
-MU_8SPRITES_REVERSAL (turbotrain_valuables, "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png", tmpl_turbotrain_wagon,  142, 168) // same as mail
+MU_8SPRITES_REVERSAL (turbotrain_engine,
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    tmpl_turbotrain_engine, 142, 112)
+
+MU_8SPRITES_REVERSAL (turbotrain_passenger,
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    tmpl_turbotrain_wagon, 142, 139)
+
+MU_8SPRITES_REVERSAL (turbotrain_mail,
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    tmpl_turbotrain_wagon, 142, 168)
+
+MU_8SPRITES_REVERSAL (turbotrain_valuables,
+    "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
+    tmpl_turbotrain_wagon, 142, 168) // same as mail
 
 item(FEAT_TRAINS, turbotrain, 20) {
-	property {
-                sprite_id:                      SPRITE_ID_NEW_TRAIN;
-                misc_flags:                     bitmask(TRAIN_FLAG_MU);
-	}
-	graphics {
-		length:        return 7;
-		turbotrain_engine_reversal_switch;
-	}
-	livery_override (passenger_wagon) {
-		length:        return 7;
-		turbotrain_passenger_reversal_switch;
-	}
-	livery_override (mail_wagon)      {
-		length:        return 7;
-		turbotrain_mail_reversal_switch;
-	}
-	livery_override (valuables_wagon) {
-		length:        return 7;
-		turbotrain_valuables_reversal_switch;
-	}
+    property {
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        misc_flags:                     bitmask(TRAIN_FLAG_MU);
+    }
+    graphics {
+        turbotrain_engine_reversal_switch;
+    }
+    livery_override (passenger_wagon) {
+        turbotrain_passenger_reversal_switch;
+    }
+    livery_override (mail_wagon)      {
+        turbotrain_mail_reversal_switch;
+    }
+    livery_override (valuables_wagon) {
+        turbotrain_valuables_reversal_switch;
+    }
 }
