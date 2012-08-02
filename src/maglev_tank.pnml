@@ -139,7 +139,6 @@ include([src/template_refit_properties_tank.pnml])
         weight:                         24 ton;
     }
     graphics {
-        length:             return 7;
 	cargo_capacity:     _THIS_WAGON_CARGO_SWITCH_ID(capacity);
 	weight:             _TANK_WAGON_WEIGHT_SWITCH_ID;
         refit_cost:         _TANK_REFIT_COST_SWITCH;

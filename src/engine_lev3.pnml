@@ -36,7 +36,7 @@ _ENGINE_LIVERY_LOADING_LENGTH88(maglev_passenger_wagon, modern, default,
     "mono_passenger_loading",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
-    tmpl_maglev_wagon_78, 0, 27, 0, 27)
+    tmpl_maglev_wagon_78, 0, 26, 0, 26)
 
 /* MAIL LIVERY */
 _ENGINE_LIVERY_LOADING_LENGTH88(maglev_mail_wagon, modern, default,
@@ -44,7 +44,7 @@ _ENGINE_LIVERY_LOADING_LENGTH88(maglev_mail_wagon, modern, default,
     "mono_mail_loading",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
-    tmpl_maglev_wagon_78, 0, 54, 0, 54)
+    tmpl_maglev_wagon_78, 0, 52, 0, 52)
 
 /* VALUABLES LIVERY */
 _ENGINE_LIVERY_LOADING_LENGTH88(maglev_valuables_wagon, modern, default,
@@ -52,7 +52,7 @@ _ENGINE_LIVERY_LOADING_LENGTH88(maglev_valuables_wagon, modern, default,
     "mono_armoured_loading",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
     "src/gfx/mus/lev3/Lev3LiveryOverride.png",
-    tmpl_maglev_wagon_78, 0, 81, 0, 81)
+    tmpl_maglev_wagon_78, 0, 78, 0, 78)
 
 item(FEAT_TRAINS, _THIS_ENGINE, 86) {
     property {
@@ -65,15 +65,12 @@ item(FEAT_TRAINS, _THIS_ENGINE, 86) {
         _THIS_ENGINE_GRAPHICS_ID(engine, default);
     }
     livery_override (maglev_passenger_wagon) {
-        length:        return 7;
         _THIS_ENGINE_LIVERY_GRAPHICS_ID(maglev_passenger_wagon, modern, default);
     }
     livery_override (maglev_mail_wagon) {
-        length:        return 7;
         _THIS_ENGINE_LIVERY_GRAPHICS_ID(maglev_mail_wagon, modern, default);
     }
     livery_override (maglev_valuables_wagon) {
-        length:        return 7;
         _THIS_ENGINE_LIVERY_GRAPHICS_ID(maglev_valuables_wagon, modern, default);
     }
 }

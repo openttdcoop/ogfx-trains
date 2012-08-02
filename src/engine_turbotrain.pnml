@@ -28,7 +28,7 @@ divert
 _ENGINE_REVERSED_LENGTH88(engine, default,
     _NONE_AVAILABLE,
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
-    tmpl_turbotrain_engine, 142, 112)
+    tmpl_railwagon8_normal, 0, 0)
 
 /* PASSENGER LIVERY */
 _ENGINE_LIVERY_MAPPING_SWITCH(passenger_wagon, common, early, default)
@@ -38,7 +38,7 @@ _ENGINE_LIVERY_REVERSED_LOADING_LENGTH88(passenger_wagon, modern, default,
     "passenger_loading",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
-    tmpl_turbotrain_wagon, 142, 139, 142, 139)
+    tmpl_railwagon8_normal, 0, 26, 0, 26)
 
 _ENGINE_LIVERY_YEAR_SWITCH(passenger_wagon, default, _RAIL_MODERN_YEAR, early, modern)
 
@@ -50,7 +50,7 @@ _ENGINE_LIVERY_REVERSED_LOADING_LENGTH88(mail_wagon, modern, default,
     "mail_loading",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
-    tmpl_turbotrain_wagon, 142, 168, 142, 168)
+    tmpl_railwagon8_normal, 0, 52, 0, 52)
 
 _ENGINE_LIVERY_YEAR_SWITCH(mail_wagon, default, _RAIL_MODERN_YEAR, early, modern)
 
@@ -62,7 +62,7 @@ _ENGINE_LIVERY_REVERSED_LOADING_LENGTH88(valuables_wagon, modern, default,
     "armoured_loading",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
     "src/gfx/mus/turbotrain/TurboTrainLiveryOverride.png",
-    tmpl_turbotrain_wagon, 142, 168, 142, 168)
+    tmpl_railwagon8_normal, 0, 78, 0, 78)
 
 _ENGINE_LIVERY_YEAR_SWITCH(valuables_wagon, default, _RAIL_MODERN_YEAR, early, modern)
 
@@ -77,15 +77,12 @@ item(FEAT_TRAINS, _THIS_ENGINE, 20) {
         _THIS_ENGINE_GRAPHICS_ID(engine, default);
     }
     livery_override (passenger_wagon) {
-        length:        return 7;
         _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(passenger_wagon, default);
     }
     livery_override (mail_wagon) {
-        length:        return 7;
         _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(mail_wagon, default);
     }
     livery_override (valuables_wagon) {
-        length:        return 7;
         _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(valuables_wagon, default);
     }
 }

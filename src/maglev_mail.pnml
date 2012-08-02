@@ -42,7 +42,6 @@ include([src/template_refit_properties_mail.pnml])
         weight:                         21 ton;
     }
     graphics {
-	length:        return 7;
         refit_cost:     _MAIL_REFIT_COST_SWITCH;
 
         _THIS_WAGON_GRAPHICS_ID(common, modern, default);

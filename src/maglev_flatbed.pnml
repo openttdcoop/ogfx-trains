@@ -288,7 +288,6 @@ include([src/template_refit_properties_flatbed.pnml])
         weight:                         16 ton;
     }
     graphics {
-        length:             return 7;
         cargo_capacity:     _THIS_WAGON_CARGO_SWITCH_ID(capacity);
         weight:             _FLATBED_WAGON_WEIGHT_SWITCH_ID;
         cargo_subtype_text: _FLATBED_WAGON_SUFFIX_SWITCH_ID;

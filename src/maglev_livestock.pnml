@@ -43,7 +43,6 @@ include([src/template_refit_properties_livestock.pnml])
         weight:                         20 ton;
     }
     graphics {
-        length:         return 7;
         refit_cost:     _LIVESTOCK_REFIT_COST_SWITCH_ID;
 
         _THIS_WAGON_GRAPHICS_ID(common, modern, default);

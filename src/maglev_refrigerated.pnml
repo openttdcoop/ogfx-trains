@@ -44,7 +44,6 @@ include([src/template_refit_properties_refrigerated.pnml])
         cargo_age_period:               372;
     }
     graphics {
-        length:             return 7;
         refit_cost:         _REFRIGERATED_REFIT_COST_SWITCH_ID;
         additional_text:    return string(STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON);
 

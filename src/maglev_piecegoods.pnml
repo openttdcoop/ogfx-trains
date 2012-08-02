@@ -137,7 +137,6 @@ include([src/template_refit_properties_piece_goods.pnml])
         weight:                         21 ton;
     }
     graphics {
-        length:         return 7;
         weight:         _PIECEGOODS_WAGON_WEIGHT_SWITCH_ID;
         cargo_capacity: _THIS_WAGON_CARGO_SWITCH_ID(capacity);
         refit_cost:     _PIECEGOODS_REFIT_COST_SWITCH;

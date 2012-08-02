@@ -41,7 +41,6 @@ include([src/template_refit_properties_pax.pnml])
         weight:                         25 ton;
     }
     graphics {
-	length:        return 7;
         refit_cost:     _PAX_REFIT_COST_SWITCH;
 
 	_THIS_WAGON_GRAPHICS_ID(common, modern, default);
