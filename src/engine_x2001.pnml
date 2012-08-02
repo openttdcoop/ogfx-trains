@@ -21,7 +21,7 @@ divert
  */
 
 _ENGINE_INDEPOT_LENGTH88(engine, default,
-    _NONE_AVAILABLE,
+    "x2001",
     "src/gfx/engines/monorail_x2001_88.png",
     tmpl_engine8_42, 0, 0,
     tmpl_engine_88, 176, 0)
