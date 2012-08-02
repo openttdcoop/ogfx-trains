@@ -26,16 +26,24 @@ divert
 
 /* DEFAULT ENGINE */
 _ENGINE_LOADING_LENGTH88(engine, default,
-    _NONE_AVAILABLE,
-    _NONE_AVAILABLE,
+    "millennium",
+    "millennium_loading",
+    "src/gfx/engines/monorail_millenium_88.png",
+    "src/gfx/engines/monorail_millenium_88.png",
+    tmpl_engine_88, 0, 0, 0, 0)
+
+/* CARGO REFITTED ENGINE */
+_ENGINE_LOADING_LENGTH88(engine_cargo, default,
+    "millennium_cargo",
+    "millennium_cargo_loading",
     "src/gfx/engines/monorail_millenium_88.png",
     "src/gfx/engines/monorail_millenium_88.png",
     tmpl_engine_88, 0, 0, 0, 0)
 
 /* PASSENGER LIVERY */
 _ENGINE_LIVERY_LOADING_LENGTH88(monorail_passenger_wagon, modern, default,
-    "mono_passenger",
-    "mono_passenger_loading",
+    "passenger_millennium",
+    "passenger_millennium_loading",
     "src/gfx/temperate_monolev.png",
     "src/gfx/temperate_monolev.png",
     tmpl_short_railwagon242, 0, 0, 0, 0)
@@ -56,6 +64,13 @@ _ENGINE_LIVERY_LOADING_LENGTH88(monorail_valuables_wagon, modern, default,
     "src/gfx/temperate_monolev.png",
     tmpl_short_railwagon242, 0, 60, 0, 80)
 
+/* CARGO GRAPHICS SWITCH */
+switch (FEAT_TRAINS, SELF, _THIS_ENGINE_CARGO_SWITCH_ID(graphics), cargo_type_in_veh) {
+    PASS: _THIS_ENGINE_GRAPHICS_ID(engine, default);
+    TOUR: _THIS_ENGINE_GRAPHICS_ID(engine, default);
+    _THIS_ENGINE_GRAPHICS_ID(engine_cargo, default);
+}
+
 item(FEAT_TRAINS, _THIS_ENGINE, 55) {
     property {
         sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
@@ -68,7 +83,7 @@ include([src/template_refit_properties_mu.pnml])
     graphics {
         refit_cost: _MU_REFIT_COST_SWITCH;
 
-        _THIS_ENGINE_GRAPHICS_ID(engine, default);
+        _THIS_ENGINE_CARGO_SWITCH_ID(graphics);
     }
     livery_override (monorail_passenger_wagon) {
         _THIS_ENGINE_LIVERY_GRAPHICS_ID(monorail_passenger_wagon, modern, default);
