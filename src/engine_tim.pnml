@@ -73,10 +73,18 @@ item(FEAT_TRAINS, _THIS_ENGINE, 25) {
         climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             EL_RAIL;
     }
-    graphics { _THIS_ENGINE_GRAPHICS_ID(engine, default); }
-    livery_override (passenger_wagon) { _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(passenger_wagon, default); }
-    livery_override (mail_wagon)      { _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(mail_wagon, default); }
-    livery_override (valuables_wagon) { _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(valuables_wagon, default); }
+    graphics {
+        _THIS_ENGINE_GRAPHICS_ID(engine, default);
+    }
+    livery_override (passenger_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(passenger_wagon, default);
+    }
+    livery_override (mail_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(mail_wagon, default);
+    }
+    livery_override (valuables_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(valuables_wagon, default);
+    }
 }
 
 undefine([_THIS_ENGINE])dnl

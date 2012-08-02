@@ -97,9 +97,15 @@ include([src/template_refit_properties_mu.pnml])
 
         _THIS_ENGINE_CARGO_SWITCH_ID(graphics);
     }
-    livery_override (passenger_wagon) { _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(passenger_wagon, default); }
-    livery_override (mail_wagon)      { _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(mail_wagon, default); }
-    livery_override (valuables_wagon) { _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(valuables_wagon, default); }
+    livery_override (passenger_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(passenger_wagon, default);
+    }
+    livery_override (mail_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(mail_wagon, default);
+    }
+    livery_override (valuables_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(valuables_wagon, default);
+    }
 }
 
 undefine([_THIS_ENGINE])dnl
