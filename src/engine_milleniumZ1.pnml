@@ -13,13 +13,13 @@ MU_8SPRITES_LOADING_32BPP (milleniumz1_engine,
     "millennium",
     "millennium_loading",
     "src/gfx/engines/monorail_millenium_88.png",
-    tmpl_railwagon8_normal, 0, 0, 0, 0)
+    tmpl_engine_88, 0, 0, 0, 0)
 
 MU_8SPRITES_LOADING_32BPP (milleniumz1_engine_cargo,
     "millennium_cargo",
     "millennium_cargo_loading",
     "src/gfx/engines/monorail_millenium_88.png",
-    tmpl_railwagon8_normal, 0, 0, 0, 0)
+    tmpl_engine_88, 0, 0, 0, 0)
 
 MU_8SPRITES_LOADING_32BPP (milleniumz1_passenger,
     "passenger_millennium",
