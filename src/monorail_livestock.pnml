@@ -29,9 +29,9 @@ divert
 _WAGON_LOADING_LENGTH88(common, modern, default,
     "mono_livestock",
     "mono_livestock_loading",
-    "src/gfx/temperate_railwagons.png",
-    "src/gfx/temperate_railwagons.png",
-    tmpl_railwagon42, 0, 100, 0, 100)
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 180, 0, 160)
 
 item(FEAT_TRAINS, _THIS_WAGON, 61) {
     property {

@@ -33,21 +33,21 @@ _WAGON_LOADING_LENGTH88(common, modern, default,
     "mono_goods_loading",
     "src/gfx/temperate_monolev.png",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon42, 0, 200, 0, 220)
+    tmpl_short_railwagon42, 0, 220, 0, 200)
 
 _WAGON_LOADING_LENGTH88(common, modern, arctic,
     "mono_goods",
     "mono_goods_loading",
     "src/gfx/arctic_monolev.png",
     "src/gfx/arctic_monolev.png",
-    tmpl_short_railwagon42, 0, 200, 0, 220)
+    tmpl_short_railwagon42, 0, 220, 0, 200)
 
 _WAGON_LOADING_LENGTH88(common, modern, tropical,
     "mono_goods",
     "mono_goods_loading",
     "src/gfx/tropic_monolev.png",
     "src/gfx/tropic_monolev.png",
-    tmpl_short_railwagon42, 0, 120, 0, 140)
+    tmpl_short_railwagon42, 0, 140, 0, 120)
 
 /* PAPER */
 _WAGON_LOADING_LENGTH88(paper, modern, default,
@@ -55,7 +55,7 @@ _WAGON_LOADING_LENGTH88(paper, modern, default,
     "mono_goods_loading",
     "src/gfx/arctic_monolev.png",
     "src/gfx/arctic_monolev.png",
-    tmpl_short_railwagon42, 0, 360, 0, 380)
+    tmpl_short_railwagon42, 0, 380, 0, 360)
 
 /* FRUIT */
 _WAGON_LOADING_LENGTH88(fruit, modern, default,
@@ -63,7 +63,7 @@ _WAGON_LOADING_LENGTH88(fruit, modern, default,
     "mono_goods_loading",
     "src/gfx/tropic_monolev.png",
     "src/gfx/tropic_monolev.png",
-    tmpl_short_railwagon42, 0, 240, 0, 260)
+    tmpl_short_railwagon42, 0, 260, 0, 240)
 
 /* FOOD */
 _WAGON_LOADING_LENGTH88(food, modern, default,
@@ -71,15 +71,15 @@ _WAGON_LOADING_LENGTH88(food, modern, default,
     "mono_goods_loading",
     "src/gfx/tropic_monolev.png",
     "src/gfx/tropic_monolev.png",
-    tmpl_short_railwagon42, 0, 240, 0, 260)
+    tmpl_short_railwagon42, 0, 260, 0, 240)
 
 /* LIVESTOCK */
 _WAGON_LOADING_LENGTH88(livestock, modern, default,
     "mono_livestock",
     "mono_livestock_loading",
-    "src/gfx/temperate_railwagons.png",
-    "src/gfx/temperate_railwagons.png",
-    tmpl_railwagon42, 0, 100, 0, 100)
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 180, 0, 160)
 
 /* TOYLAND */
 _WAGON_LOADING_LENGTH88(toyland, modern, default,
@@ -87,7 +87,7 @@ _WAGON_LOADING_LENGTH88(toyland, modern, default,
     "mono_goods_loading",
     "src/gfx/toyland_railwagons.png",
     "src/gfx/toyland_railwagons.png",
-    tmpl_short_railwagon42, 0, 260, 0, 280)
+    tmpl_short_railwagon42, 0, 280, 0, 260)
 
 /* TOYS */
 _WAGON_LOADING_LENGTH88(toys, modern, default,
@@ -95,7 +95,7 @@ _WAGON_LOADING_LENGTH88(toys, modern, default,
     "mono_goods_loading",
     "src/gfx/toyland_railwagons.png",
     "src/gfx/toyland_railwagons.png",
-    tmpl_short_railwagon42, 0, 300, 0, 320)
+    tmpl_short_railwagon42, 0, 320, 0, 300)
 
 switch(FEAT_TRAINS, SELF, _THIS_WAGON_CLIMATE_SWITCH_ID(common, modern), climate) {
     CLIMATE_ARCTIC: _THIS_WAGON_GRAPHICS_ID(common, modern, arctic);

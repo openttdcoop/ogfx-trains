@@ -31,7 +31,7 @@ _WAGON_LOADING_LENGTH88(common, modern, default,
     "mono_armoured_loading",
     "src/gfx/temperate_monolev.png",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon242, 0, 60, 0, 80)
+    tmpl_short_railwagon242, 0, 80, 0, 60)
 
 item(FEAT_TRAINS, _THIS_WAGON, 67) {
     property {

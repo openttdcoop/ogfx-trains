@@ -29,7 +29,7 @@ _WAGON_LOADING_LENGTH88(common, modern, default,
     "mono_mail_loading",
     "src/gfx/temperate_monolev.png",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon242, 0, 20, 0, 20)
+    tmpl_short_railwagon242, 0, 40, 0, 20)
 
 item(FEAT_TRAINS, _THIS_WAGON, 58) {
     property {
