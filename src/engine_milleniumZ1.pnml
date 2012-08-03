@@ -50,19 +50,19 @@ _ENGINE_LIVERY_LOADING_LENGTH88(monorail_passenger_wagon, modern, default,
 
 /* MAIL LIVERY */
 _ENGINE_LIVERY_LOADING_LENGTH88(monorail_mail_wagon, modern, default,
-    "mono_mail",
-    "mono_mail_loading",
+    "mail_millennium",
+    "mail_millennium_loading",
     "src/gfx/temperate_monolev.png",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon242, 0, 20, 0, 20)
+    tmpl_short_railwagon242, 0, 40, 0, 20)
 
 /* VALUABLES LIVERY */
 _ENGINE_LIVERY_LOADING_LENGTH88(monorail_valuables_wagon, modern, default,
-    "mono_armoured",
-    "mono_armoured_loading",
+    "armoured_millennium",
+    "armoured_millennium_loading",
     "src/gfx/temperate_monolev.png",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon242, 0, 60, 0, 80)
+    tmpl_short_railwagon242, 0, 80, 0, 60)
 
 /* CARGO GRAPHICS SWITCH */
 switch (FEAT_TRAINS, SELF, _THIS_ENGINE_CARGO_SWITCH_ID(graphics), cargo_type_in_veh) {
