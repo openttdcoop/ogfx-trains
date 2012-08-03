@@ -25,19 +25,19 @@ MU_8SPRITES_LOADING_32BPP (milleniumz1_passenger,
     "passenger_millennium",
     "passenger_millennium_loading",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon242, 0, 0, 0, 0)
+    tmpl_short_railwagon42, 0, 0, 0, 0)
 
 MU_8SPRITES_LOADING_32BPP (milleniumz1_mail,
     "mail_millennium",
     "mail_millennium_loading",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon242, 0, 40, 0, 20)
+    tmpl_short_railwagon42, 0, 40, 0, 20)
 
 MU_8SPRITES_LOADING_32BPP (milleniumz1_valuables,
     "armoured_millennium",
     "armoured_millennium_loading",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon242, 0, 80, 0, 60)
+    tmpl_short_railwagon42, 0, 80, 0, 60)
 
 switch(FEAT_TRAINS, SELF, milleniumz1_cargo_switch, cargo_type_in_veh) {
     PASS: milleniumz1_engine_switch_gui;

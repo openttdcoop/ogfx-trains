@@ -15,7 +15,11 @@
 
 #define THIS_ID(...) monorail_valuables_wagon ## __VA_ARGS__
 
-MU_8SPRITES_LOADING_32BPP(monorail_valuables_wagon_temperate, "mono_armoured", "mono_armoured_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 80, 0, 60) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_valuables_wagon_temperate,
+    "mono_armoured",
+    "mono_armoured_loading",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 80, 0, 60) // 8 views needed for 32bpp
 
 switch (FEAT_TRAINS, SELF, monorail_valuables_wagon_climate_switch, climate) {
     monorail_valuables_wagon_temperate_switch_gui;
