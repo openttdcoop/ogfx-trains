@@ -6,10 +6,62 @@
  */
 
 // Millenium Z1
+
+#define THIS_ID(...) milleniumz1 ## __VA_ARGS__
+
+MU_8SPRITES_LOADING_32BPP (milleniumz1_engine,
+    "millennium",
+    "millennium_loading",
+    "src/gfx/engines/monorail_millenium_88.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0)
+
+MU_8SPRITES_LOADING_32BPP (milleniumz1_engine_cargo,
+    "millennium_cargo",
+    "millennium_cargo_loading",
+    "src/gfx/engines/monorail_millenium_88.png",
+    tmpl_railwagon8_normal, 0, 0, 0, 0)
+
+MU_8SPRITES_LOADING_32BPP (milleniumz1_passenger,
+    "passenger_millennium",
+    "passenger_millennium_loading",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon242, 0, 0, 0, 0)
+
+MU_8SPRITES_LOADING_32BPP (milleniumz1_mail,
+    "mail_millennium",
+    "mail_millennium_loading",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon242, 0, 40, 0, 20)
+
+MU_8SPRITES_LOADING_32BPP (milleniumz1_valuables,
+    "armoured_millennium",
+    "armoured_millennium_loading",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon242, 0, 80, 0, 60)
+
+switch(FEAT_TRAINS, SELF, milleniumz1_cargo_switch, cargo_type_in_veh) {
+    PASS: milleniumz1_engine_switch_gui;
+    TOUR: milleniumz1_engine_switch_gui;
+    milleniumz1_engine_cargo_switch_gui;
+}
+
+#include "template_refit_cost_mu.pnml"
+
 item(FEAT_TRAINS, milleniumz1, 55) {
     property {
-        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
         REFIT_PROPERTIES_MU
         default_cargo_type:             PASS;
     }
+    graphics {
+        refit_cost: THIS_ID(refit_cost_switch);
+
+        milleniumz1_cargo_switch;
+    }
+    livery_override (passenger_wagon) { milleniumz1_passenger_switch_gui; }
+    livery_override (mail_wagon)      { milleniumz1_mail_switch_gui; }
+    livery_override (valuables_wagon) { milleniumz1_valuables_switch_gui; }
 }
+
+#undef THIS_ID
