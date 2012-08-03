@@ -15,7 +15,7 @@
 
 #define THIS_ID(...) monorail_livestock_wagon ## __VA_ARGS__
 
-MU_8SPRITES_LOADING_32BPP(monorail_livestock_wagon_temperate, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed for 32bpp
+MU_8SPRITES_LOADING_32BPP(monorail_livestock_wagon_temperate, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon242, 0, 180, 0, 160) // 8 views needed for 32bpp
 
 item(FEAT_TRAINS, monorail_livestock_wagon, 61) {
     property {

@@ -17,20 +17,20 @@
 
 #define THIS_ID(...) monorail_piecegoods_wagon ## __VA_ARGS__
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_temperate, "mono_goods", "mono_goods_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 200, 0, 220) // 8 views needed
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_arctic, "mono_goods", "mono_goods_loading", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 200, 0, 220) // 8 views needed
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_tropic, "mono_goods", "mono_goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 120, 0, 140) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_temperate, "mono_goods", "mono_goods_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 220, 0, 200) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_arctic, "mono_goods", "mono_goods_loading", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 220, 0, 200) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_tropic, "mono_goods", "mono_goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 140, 0, 120) // 8 views needed
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_paper, "mono_goods", "mono_goods_loading", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 360, 0, 380) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_paper, "mono_goods", "mono_goods_loading", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 380, 0, 360) // 8 views needed
 
 MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_fruit, "goods", "goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 240, 0, 260) // 8 views needed
 MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_food, "goods", "goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 240, 0, 260) // 8 views needed
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_livestock, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_railwagons.png", tmpl_railwagon42, 0, 100, 0, 100) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_livestock, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 180, 0, 160) // 8 views needed
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_toyland, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 260, 0, 280) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_toyland, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 280, 0, 260) // 8 views needed
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_toys, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 300, 0, 320) // 8 views needed
+MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_toys, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 320, 0, 300) // 8 views needed
 
 switch(FEAT_TRAINS, SELF, monorail_piecegoods_wagon_climate_switch, climate) {
 	CLIMATE_ARCTIC: monorail_piecegoods_wagon_arctic_switch_gui;
