@@ -168,17 +168,12 @@ item(FEAT_TRAINS, cs4000, 16) {
     ENGINE_GRAPHICS_BLOCK(cs4000)
 }
 
-ENGINE_GRAPHICS_GROUP(cs2400, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_cs2400.png")
-ENGINE_GRAPHICS_GROUP(cs2400, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/tropical_cs2400_88.png")
-ENGINE_GRAPHICS_TROPICAL_SWITCH(cs2400)
 item(FEAT_TRAINS, cs2400, 17) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL40;
     }
-    ENGINE_GRAPHICS_BLOCK(cs2400)
 }
 
 ENGINE_GRAPHICS_GROUP(centennial, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_centennial.png")
