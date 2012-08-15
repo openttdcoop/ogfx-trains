@@ -21,12 +21,12 @@ divert
  */
 
 _ENGINE_LENGTH88(engine, default,
-    _NONE_AVAILABLE,
+    "cs2400",
     "src/gfx/engines/arctic_cs2400.png",
     tmpl_engine_88, 0, 0)
 
 _ENGINE_LENGTH88(engine, tropical,
-    _NONE_AVAILABLE,
+    "cs2400",
     "src/gfx/engines/tropical_cs2400_88.png",
     tmpl_engine_88, 0, 0)
 
