@@ -30,6 +30,7 @@ item(FEAT_TRAINS, cs2400, 17) {
         misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
     }
     graphics {
-        cs2400_indepot_switch;
+        default:            cs2400_indepot_switch;
+        purchase:           cs2400_switch_gui;
     }
 }
