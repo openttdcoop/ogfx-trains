@@ -21,7 +21,7 @@ divert
  */
 
 _ENGINE_LENGTH88(engine, default,
-    "floss47",
+    "cs2400",
     "src/gfx/engines/toyland_ploddyphut_diesel.png",
     tmpl_engine_88, 0, 0)
 
