@@ -20,10 +20,12 @@ divert
  * "Wizzowow Z99"
  */
 
-_ENGINE_LENGTH88(engine, default,
-    _NONE_AVAILABLE,
+_ENGINE_LOADING_LENGTH88(engine, default,
+    "millennium_cargo",
+    "millennium_cargo_loading",
     "src/gfx/engines/toyland_monorail_WizzowowZ99_88.png",
-    tmpl_engine_88, 0, 0)
+    "src/gfx/engines/toyland_monorail_WizzowowZ99_88.png",
+    tmpl_engine_88, 0, 0, 0, 0)
 
 item(FEAT_TRAINS, _THIS_ENGINE, 56) {
     property {
