@@ -21,13 +21,13 @@ divert
  */
 
 _ENGINE_INDEPOT_LENGTH88(engine, default,
-    _NONE_AVAILABLE,
+    "mjs1000",
     "src/gfx/engines/arctic_MJS1000.png",
     tmpl_engine8_42, 0, 0,
     tmpl_engine_88, 176, 0)
 
 _ENGINE_INDEPOT_LENGTH88(engine, tropical,
-    _NONE_AVAILABLE,
+    "mjs1000",
     "src/gfx/engines/tropical_MJS1000_88.png",
     tmpl_engine8_42, 0, 0,
     tmpl_engine_88, 176, 0)
