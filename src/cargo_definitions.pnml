@@ -1,4 +1,3 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -6,181 +5,139 @@ divert(-1)
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#############################################################################################
-# Vehicle type
-# This definition [_FEAT_CURRENT] must be switched to the vehicle type that you want to use.
-# http://newgrf-specs.tt-wiki.net/wiki/NML:Block_syntax#Features
-# [FEAT_TRAINS]
-# [FEAT_ROADVEHS]
-# [FEAT_SHIPS]
-# [FEAT_AIRCRAFT]
-#############################################################################################
-define_unique([_FEAT_CURRENT], [FEAT_TRAINS])
-
-#############################################################################################
-# If [do_cargo_checks] is set to [1] then we perform checks for duplicate cargo labels
-# and we make sure that cargo labels exist in the main cargo list.
-# It is recommended to leave this set [1]
-#############################################################################################
-define_unique([do_cargo_checks], [1])dnl
-
-#############################################################################################
-# check_cargo_labels (cargo-list)
-# Checks that cargo labels are 4 characters in length.
-#############################################################################################
-define_unique([check_cargo_labels],
-[check_args_exact([$0], [$#], [1])dnl
-foreachq([x], [$1],
-    [ifelse(len(x), [4],
-        [],
-        [exit_with_error([Expected a cargo label of length 4:]x)])])])
-
-#############################################################################################
-# check_duplicate_cargo_label (cargo-list, is-in-cargo-list)
-# Checks to see if a cargo label in the first list is duplicated in the second list
-# and throws an error if it is.
-#############################################################################################
-define_unique([check_duplicate_cargo_label],
-[check_args_exact([$0], [$#], [2])dnl
-foreachq([x], [$1],
-    [ifelse(index(quote($2), x), [-1],
-        [],
-        [exit_with_error([Duplicate cargo label:]x)])])])
-
-#############################################################################################
-# check_existance_cargo_label (cargo-list, is-in-cargo-list)
-# Checks to make sure that a cargo label in the first list is also in the second list
-# and throws an error if it is not.
-#############################################################################################
-define_unique([check_existance_cargo_label],
-[check_args_exact([$0], [$#], [2])dnl
-foreachq([x], [$1],
-    [ifelse(index(quote($2), x), [-1],
-        [exit_with_error([Cargo label does not exist:]x)])])])
-
-#############################################################################################
-# Cargos needed for special refit orders.
-# http://newgrf-specs.tt-wiki.net/wiki/CargoTypes#Cargo_Labels
-#############################################################################################
-define_unique([_SPECIAL_CARGO_LIST],
-[[WDPR],[SCRP],[CMNT],[WOOD],[LVST],[STEL],[VEHI],[BRCK],[WOOL],[BUBL],[TOYS],[FZDR],
- [FRUT],[FRVG],[FOOD],[FICR],[RUBR],[RFPR],[PETR]])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_SPECIAL_CARGO_LIST])])
-
-#############################################################################################
-# Cargos only referenced
-# http://newgrf-specs.tt-wiki.net/wiki/CargoTypes#Cargo_Labels
-#############################################################################################
-define_unique([_REFERENCED_CARGO_LIST],
-[[OIL_],[GOOD],[WATR],[MILK],[COAL],[IORE],[AORE],[CLAY],[GRVL],[SAND],[GRAI],[RSGR],
- [MAIZ],[CORE],[FERT],[CTCD],[SULP],[WHEA],[COLA],[CERE],[PAPR],[TOFF],[SUGR],[PLAS],
- [PASS],[MAIL],[BATT],[SWET],[FMSP],[ENSP],[MNSP],[DYES],[PLST],[LIME],[COPR],[SGCN],
- [SGBT],[OLSD],[VALU],[GOLD],[DIAM],[BEER],[BDMT],[CERA],[FISH],[GLAS],[POTA],[RCYC],
- [SCMT],[TOUR],[GEAR],[FUEL],[TWOD],[WSTE]])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_REFERENCED_CARGO_LIST])
-     check_duplicate_cargo_label([_REFERENCED_CARGO_LIST], [_SPECIAL_CARGO_LIST])])
-
-#############################################################################################
-# Complete list of all cargos:
-# Cargos needed for special refit orders + Cargos only referenced
-#############################################################################################
-define_unique([_COMPLETE_CARGO_LIST], [_SPECIAL_CARGO_LIST,_REFERENCED_CARGO_LIST])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# create_cargo_disallow_refit (cargo-allow-refit-list)
-# Creates a mutually exclusive list from the complete list of all cargos and
-# a list of allowed cargos, the result is a list of disallowed cargos.
-#############################################################################################
-define_unique([create_cargo_disallow_refit],
-[check_args_exact([$0], [$#], [1])dnl
-define_unique([$0_item], defn([_counter_def]))$0_item([0])dnl
-foreachq([x], [_COMPLETE_CARGO_LIST],
-    [ifelse(index(quote($1), x), [-1],
-        [ifelse($0_item, arg_count(_COMPLETE_CARGO_LIST),
-            [quote(x)],
-            [quote(x),])],
-        [$0_item()])])dnl
-undefine([$0_item])])
-
-divert
-
 /*
  * *****************************************************************************
- * Vehicle type: _FEAT_CURRENT
+ * Vehicle type
  * *****************************************************************************
  */
+
+// This definition must be switched to the vehicle type that you want to use.
+#define FEAT_CURRENT FEAT_TRAINS
 
 /*
  * *****************************************************************************
  * Define cargo translation table and refits
- * http://newgrf-specs.tt-wiki.net/wiki/NML:Cargotable
  * *****************************************************************************
  */
 
-cargotable {
-/* Cargos needed for special refit orders.
- * bulk, bulk+piece+flat, tank, piece
- * piece+flat, piece, piece, piece
- * flat, flat, flat, tank
- * bulk, bulk, piece, flatbed
- * piece, flatbed, flatbed */
-    list_to_columns([10], [4], [_SPECIAL_CARGO_LIST]),
-/* Cargos only referenced */
-    list_to_columns([10], [4], [_REFERENCED_CARGO_LIST])
+cargotable {                        // Cargos needed for special refit orders.
+    WDPR, SCRP, CMNT, WOOD,         // bulk, bulk+piece+flat, tank, piece
+    LVST, STEL, VEHI, BRCK,         // piece+flat, piece, piece, piece
+    WOOL, BUBL, TOYS, FZDR,         // flat, flat, flat, tank
+    FRUT, FRVG, FOOD, FICR,         // bulk, bulk, piece, flatbed
+    RUBR, RFPR, PETR,               // piece, flatbed, flatbed
+                                    // cargos only referenced
+    OIL_, GOOD, WATR, MILK,
+    COAL, IORE, AORE, CLAY,
+    GRVL, SAND, GRAI, RSGR,
+    MAIZ, CORE, FERT, CTCD,
+    SULP, WHEA, COLA, CERE,
+    PAPR, TOFF, SUGR, PLAS,
+    PASS, MAIL, BATT, SWET,
+    FMSP, ENSP, MNSP, DYES,
+    PLST, LIME, COPR, SGCN,
+    SGBT, OLSD, VALU, GOLD,
+    DIAM, BEER, BDMT, CERA,
+    FISH, GLAS, POTA, RCYC,
+    SCMT, TOUR, GEAR, FUEL,
+    TWOD, WSTE
 }
+
+/*
+ * Copy and paste for a new cargo definition.
+ * allow_refit: Delete those entries which shall not be carried by this vehicle type.
+ * disallow_refit: Delete those entries which it shall be able to carry.
+
+        cargo_allow_refit:              [PASS, COAL, MAIL, OIL_, LVST, GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, \
+                                         FOOD, GOLD, RUBR, FRUT, MAIZ, CORE, WATR, DIAM, SUGR, TOYS, BATT, SWET, TOFF, \
+                                         COLA, CTCD, BUBL, PLST, FZDR, \
+                                         AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
+                                         FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
+                                         RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        cargo_disallow_refit:           [PASS, COAL, MAIL, OIL_, LVST, GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, \
+                                         FOOD, GOLD, RUBR, FRUT, MAIZ, CORE, WATR, DIAM, SUGR, TOYS, BATT, SWET, TOFF, \
+                                         COLA, CTCD, BUBL, PLST, FZDR, \
+                                         AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
+                                         FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
+                                         RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE];
+*/
+
+
+
+/*
+ * *****************************************************************************
+ * Passenger vehicle definitions
+ * *****************************************************************************
+ */
+
+#define REFIT_PROPERTIES_PAX \
+        refittable_cargo_classes:        bitmask(CC_PASSENGERS); // Allow passengers (and tourists) \
+        non_refittable_cargo_classes:    NO_CARGO_CLASS;         // Disallow other cargos \
+        cargo_allow_refit:              [PASS, TOUR]; \
+        cargo_disallow_refit:           [      COAL, MAIL, OIL_, LVST, GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, \
+                                         FOOD, GOLD, RUBR, FRUT, MAIZ, CORE, WATR, DIAM, SUGR, TOYS, BATT, SWET, TOFF, \
+                                         COLA, CTCD, BUBL, PLST, FZDR, \
+                                         AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
+                                         FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
+                                         RFPR, SAND, SCMT, SGBT, SGCN, SULP,       VEHI, WDPR, WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             PASS; \
+        refit_cost:                     0; // Refit is free.
+
+/*
+ * *****************************************************************************
+ * Mail vehicle definitions
+ * *****************************************************************************
+ */
+
+#define REFIT_PROPERTIES_MAIL \
+        refittable_cargo_classes:        bitmask(CC_MAIL);       // Allow mail \
+        non_refittable_cargo_classes:    NO_CARGO_CLASS;         // Disallow other cargos \
+        cargo_allow_refit:              [MAIL]; \
+        cargo_disallow_refit:           [PASS, COAL,       OIL_, LVST, GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, \
+                                         FOOD, GOLD, RUBR, FRUT, MAIZ, CORE, WATR, DIAM, SUGR, TOYS, BATT, SWET, TOFF, \
+                                         COLA, CTCD, BUBL, PLST, FZDR, \
+                                         AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
+                                         FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
+                                         RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             MAIL; \
+        refit_cost:                     0; // Refit is free.
+
+#define MAIL_DEFAULT_CARGO MAIL
+
+/*
+ * *****************************************************************************
+ * Armoured vehicle definitions
+ * *****************************************************************************
+ */
+
+#define REFIT_PROPERTIES_ARMOURED \
+        refittable_cargo_classes:        bitmask(CC_ARMOURED); \
+        non_refittable_cargo_classes:    bitmask(CC_PASSENGERS, CC_LIQUID, CC_REFRIGERATED, CC_BULK); \
+        cargo_allow_refit:              [GOLD, DIAM, VALU, MAIL]; \
+        cargo_disallow_refit:           [PASS, COAL,       OIL_, LVST, GOOD, GRAI, WOOD, IORE, STEL,       PAPR, WHEA, \
+                                         FOOD,       RUBR, FRUT, MAIZ, CORE, WATR,       SUGR, TOYS, BATT, SWET, TOFF, \
+                                         COLA, CTCD, BUBL, PLST, FZDR, \
+                                         AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
+                                         FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
+                                         RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             VALU; \
+        refit_cost:                     0; // Refit is free.
+
+
 
 /*
  * *****************************************************************************
  * Bulk vehicle definitions
  * *****************************************************************************
  */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_BULK_CARGO_ALLOW_REFIT],
-[[AORE],[CERE],[CLAY],[CMNT],[COAL],[CORE],[CTCD],[FERT],[FICR],[FRUT],[FRVG],[GRAI],
- [GRVL],[IORE],[LIME],[MAIZ],[OLSD],[RCYC],[RSGR],[RUBR],[SAND],[SCMT],[SCRP],[SGBT],
- [SGCN],[SUGR],[TOFF],[WDPR],[WHEA]])
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_BULK_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_BULK_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_BULK_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_BULK_CARGO_ALLOW_REFIT])])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_BULK_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_BULK_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_BULK_DEFAULT_CARGO], [COAL])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_BULK_DEFAULT_CARGO])
-     check_existance_cargo_label([_BULK_DEFAULT_CARGO], [_BULK_CARGO_ALLOW_REFIT])])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_BULK_REFIT_COST_SWITCH], [bulk_refit_cost_switch])
-
-divert
-
-switch (_FEAT_CURRENT, SELF, bulk_refit_from_dirty_switch, extra_callback_info1 & 0xFF) {
-    /* Cleaning needs to be done in a depot with default refit costs. */
+switch (FEAT_CURRENT, SELF, bulk_refit_from_dirty_switch, extra_callback_info1 & 0xFF) {
+    // Cleaning needs to be done in a depot with default refit costs.
     CERE: return CB_FAILED;
     CTCD: return CB_FAILED;
     FICR: return CB_FAILED;
@@ -194,14 +151,13 @@ switch (_FEAT_CURRENT, SELF, bulk_refit_from_dirty_switch, extra_callback_info1 
     SGBT: return CB_FAILED;
     TOFF: return CB_FAILED;
     WHEA: return CB_FAILED;
-    /* if the vehicle is already dirty, and we put in dirty stuff, just do so without costs: */
+    // if the vehicle is already dirty, and we put in dirty stuff, just do so without costs:
     return 0 | CB_RESULT_AUTOREFIT;
 }
 
-switch (_FEAT_CURRENT, SELF, bulk_refit_from_clean_switch, extra_callback_info1 & 0xFF) {
-    /* The vehicle is clean, but we want to transport something else. Allow to
-     * clean it quickly in the station with a broom and some water at a cost.
-     */
+switch (FEAT_CURRENT, SELF, bulk_refit_from_clean_switch, extra_callback_info1 & 0xFF) {
+    // The vehicle is clean, but we want to transport something else. Allow to
+    // clean it quickly in the station with a broom and some water at a cost.
     CERE: return 20 | CB_RESULT_AUTOREFIT;
     CTCD: return 20 | CB_RESULT_AUTOREFIT;
     FICR: return 20 | CB_RESULT_AUTOREFIT;
@@ -214,12 +170,12 @@ switch (_FEAT_CURRENT, SELF, bulk_refit_from_clean_switch, extra_callback_info1 
     SGBT: return 20 | CB_RESULT_AUTOREFIT;
     TOFF: return 20 | CB_RESULT_AUTOREFIT;
     WHEA: return 20 | CB_RESULT_AUTOREFIT;
-    /* The vehicle is clean and we want to transport dirty stuff. Just do so without costs:*/
+    // The vehicle is clean and we want to transport dirty stuff. Just do so
+    // without costs:
     return 0 | CB_RESULT_AUTOREFIT;
 }
 
-/* Refit cost switch used by all bulk wagons */
-switch (_FEAT_CURRENT, SELF, _BULK_REFIT_COST_SWITCH, cargo_type_in_veh) {
+switch (FEAT_CURRENT, SELF, bulk_refit_cost_switch, cargo_type_in_veh) {
     AORE: bulk_refit_from_dirty_switch;
     CMNT: bulk_refit_from_dirty_switch;
     COAL: bulk_refit_from_dirty_switch;
@@ -252,66 +208,46 @@ switch (_FEAT_CURRENT, SELF, _BULK_REFIT_COST_SWITCH, cargo_type_in_veh) {
     TOFF: bulk_refit_from_clean_switch;
     WHEA: bulk_refit_from_clean_switch;
 
-    return CB_FAILED; /* use default refit cost, but no autorefit. */
+    return CB_FAILED; // use default refit cost, but no autorefit.
 }
+
+#define REFIT_PROPERTIES_BULK \
+        refittable_cargo_classes:        bitmask(CC_BULK); \
+        non_refittable_cargo_classes:    bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_LIQUID, CC_REFRIGERATED, CC_HAZARDOUS); \
+        cargo_allow_refit:              [AORE, CERE, CLAY, CMNT, COAL, CORE, CTCD, FERT, FICR, FRUT, FRVG, GRAI, GRVL, \
+                                         IORE, LIME, MAIZ, OLSD, RCYC, RSGR, RUBR, SAND, SCMT, SCRP, SGBT, SGCN, SUGR, \
+                                         TOFF, WDPR, WHEA]; \
+        cargo_disallow_refit:           [PASS,       MAIL, OIL_, LVST, GOOD,       WOOD,       STEL, VALU, PAPR,       \
+                                         FOOD, GOLD,                         WATR, DIAM,       TOYS, BATT, SWET,       \
+                                         COLA,       BUBL, PLST, FZDR, \
+                                               BEER, BDMT, BRCK, CERA,                   COPR, DYES, ENSP,             \
+                                         FISH, FMSP,       GLAS,             MILK, MNSP,       PETR, PLAS, POTA,       \
+                                         RFPR,                         SULP, TOUR, VEHI,       WOOL, \
+                                         GEAR, FUEL,             TWOD, WSTE]; \
+        default_cargo_type:             COAL;
+
+#define REFIT_GRAPHICS_BULK \
+        refit_cost:         bulk_refit_cost_switch;
 
 /*
  * *****************************************************************************
  * Flatbed vehicle definitions
  * *****************************************************************************
  */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_FLATBED_CARGO_ALLOW_REFIT],
-[[BATT],[BDMT],[BRCK],[BUBL],[COPR],[DYES],[ENSP],[FERT],[FMSP],[FZDR],[GLAS],[GOOD],
- [MNSP],[PAPR],[PETR],[PLAS],[PLST],[RFPR],[STEL],[SWET],[TWOD],[VEHI],[WDPR],[WOOD]])
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_FLATBED_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_FLATBED_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_FLATBED_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_FLATBED_CARGO_ALLOW_REFIT])])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_FLATBED_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_FLATBED_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_FLATBED_DEFAULT_CARGO], [WOOD])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_FLATBED_DEFAULT_CARGO])
-     check_existance_cargo_label([_FLATBED_DEFAULT_CARGO], [_FLATBED_CARGO_ALLOW_REFIT])])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_FLATBED_REFIT_COST_SWITCH], [flatbed_refit_cost_switch])
-
-divert
-
-/* Carrying vehicles needs special equipment. Changing from that to other transport types
- * needs a depot visit. Different vehicle types need no change and are fine to be changed
- * in a station without cost and trouble.
- */
-switch (_FEAT_CURRENT, SELF, flatbed_refit_from_vehicles, extra_callback_info1 & 0xFF) {
+// Carrying vehicles needs special equipment. Changing from that to other transport types
+// needs a depot visit. Different vehicle types need no change and are fine to be changed
+// in a station without cost and trouble.
+switch (FEAT_CURRENT, SELF, flatbed_refit_from_vehicles, extra_callback_info1 & 0xFF) {
     FMSP: return 0 | CB_RESULT_AUTOREFIT;
     ENSP: return 0 | CB_RESULT_AUTOREFIT;
     VEHI: return 0 | CB_RESULT_AUTOREFIT;
     return CB_FAILED;
 }
 
-/* Carrying containers requires stakes to be removed. This needs a depot visit. Changing
- * one container for the other incurs no cost nor needs a depot visit.
- */
-switch (_FEAT_CURRENT, SELF, flatbed_refit_from_flat, extra_callback_info1 & 0xFF) {
+// Carrying containers requires stakes to be removed. This needs a depot visit. Changing
+// one container for the other incurs no cost nor needs a depot visit.
+switch (FEAT_CURRENT, SELF, flatbed_refit_from_flat, extra_callback_info1 & 0xFF) {
     BDMT: return 0 | CB_RESULT_AUTOREFIT;
     BRCK: return 0 | CB_RESULT_AUTOREFIT;
     DYES: return 0 | CB_RESULT_AUTOREFIT;
@@ -323,10 +259,10 @@ switch (_FEAT_CURRENT, SELF, flatbed_refit_from_flat, extra_callback_info1 & 0xF
     return CB_FAILED;
 }
 
-/* Being a stake vehicle is default. Allow refit without trouble and cost. Other versions
- * need a depot visit
- */
-switch (_FEAT_CURRENT, SELF, flatbed_refit_from_stakes, extra_callback_info1 & 0xFF) {
+// Being a stake vehicle is default. Allow refit without trouble and cost. Other versions
+// need a depot visit
+
+switch (FEAT_CURRENT, SELF, flatbed_refit_from_stakes, extra_callback_info1 & 0xFF) {
     FMSP: return CB_FAILED;
     ENSP: return CB_FAILED;
     VEHI: return CB_FAILED;
@@ -343,8 +279,7 @@ switch (_FEAT_CURRENT, SELF, flatbed_refit_from_stakes, extra_callback_info1 & 0
     return 0 | CB_RESULT_AUTOREFIT;
 }
 
-/* Refit cost switch used by all flatbed wagons */
-switch (_FEAT_CURRENT, SELF, _FLATBED_REFIT_COST_SWITCH, cargo_type_in_veh) {
+switch (FEAT_CURRENT, SELF, flatbed_refit_cost_switch, cargo_type_in_veh) {
     FMSP: flatbed_refit_from_vehicles;
     ENSP: flatbed_refit_from_vehicles;
     VEHI: flatbed_refit_from_vehicles;
@@ -361,326 +296,109 @@ switch (_FEAT_CURRENT, SELF, _FLATBED_REFIT_COST_SWITCH, cargo_type_in_veh) {
     flatbed_refit_from_stakes;
 }
 
-/*
- * *****************************************************************************
- * Piece goods vehicle definitions
- * *****************************************************************************
- */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_PIECE_GOODS_CARGO_ALLOW_REFIT],
-[[BATT],[BEER],[COPR],[DYES],[ENSP],[FOOD],[FMSP],[FRUT],[FRVG],
- [FZDR],[GOOD],[MNSP],[PAPR],[PLAS],[SWET],[TOYS],[WDPR],[WOOL]])
+#define REFIT_PROPERTIES_FLATBED \
+        refittable_cargo_classes:        bitmask(CC_PIECE_GOODS, CC_EXPRESS); \
+        non_refittable_cargo_classes:    bitmask(CC_PASSENGERS, CC_REFRIGERATED); \
+        cargo_allow_refit:              [BATT, BDMT, BRCK, BUBL, COPR, DYES, ENSP, FERT, FMSP, FZDR, GLAS, GOOD, MNSP, \
+                                         PAPR, PETR, PLAS, PLST, RFPR, STEL, SWET, TWOD, VEHI, WDPR, WOOD]; \
+        cargo_disallow_refit:           [PASS, COAL, MAIL, OIL_, LVST,       GRAI,       IORE,       VALU, WHEA, \
+                                         FOOD, GOLD, RUBR, FRUT, MAIZ, CORE, WATR, DIAM, SUGR, TOYS,             TOFF, \
+                                         COLA, CTCD,             \
+                                         AORE, BEER,             CERA, CERE, CLAY, CMNT,                         FICR, \
+                                         FISH,       FRVG,       GRVL, LIME, MILK,       OLSD,             POTA, RCYC, \
+                                               SAND, SCMT, SGBT, SGCN, SULP, TOUR,             WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP,       WSTE]; \
+        default_cargo_type:             WOOD;
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_PIECE_GOODS_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_PIECE_GOODS_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
 
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_PIECE_GOODS_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_PIECE_GOODS_CARGO_ALLOW_REFIT])])
+#define REFIT_GRAPHICS_FLATBED \
+        refit_cost:         flatbed_refit_cost_switch;
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_PIECE_GOODS_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_PIECE_GOODS_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
 
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_PIECE_GOODS_DEFAULT_CARGO], [GOOD])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_PIECE_GOODS_DEFAULT_CARGO])
-     check_existance_cargo_label([_PIECE_GOODS_DEFAULT_CARGO], [_PIECE_GOODS_CARGO_ALLOW_REFIT])])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_PIECEGOODS_REFIT_COST_SWITCH], [piecegoods_refit_cost_switch])
-
-divert
-
-/* Removing piece goods from a vehicle and putting in another piece goods can be done
- * at no extra costs in a station. Fruits etc are packed into convenient boxes when
- * carried in this vehicle type.
- */
-
-/* Refit cost switch used by all piece goods wagons */
-switch (_FEAT_CURRENT, SELF, _PIECEGOODS_REFIT_COST_SWITCH, 1) {
-    return 0 | CB_RESULT_AUTOREFIT;
-}
-
-/*
- * *****************************************************************************
- * Pax vehicle definitions
- * *****************************************************************************
- */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_PAX_CARGO_ALLOW_REFIT], [[PASS],[TOUR]])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_PAX_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_PAX_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_PAX_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_PAX_CARGO_ALLOW_REFIT])])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_PAX_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_PAX_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_PAX_DEFAULT_CARGO], [PASS])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_PAX_DEFAULT_CARGO])
-     check_existance_cargo_label([_PAX_DEFAULT_CARGO], [_PAX_CARGO_ALLOW_REFIT])])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_PAX_REFIT_COST_SWITCH], [pax_refit_cost_switch])
-
-divert
-
-/* Refit cost switch used by all PAX wagons */
-switch (_FEAT_CURRENT, SELF, _PAX_REFIT_COST_SWITCH, 1) {
-    return 0 | CB_RESULT_AUTOREFIT;
-}
-
-/*
- * *****************************************************************************
- * Mail vehicle definitions
- * *****************************************************************************
- */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_MAIL_CARGO_ALLOW_REFIT], [[MAIL]])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_MAIL_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_MAIL_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_MAIL_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_MAIL_CARGO_ALLOW_REFIT])])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_MAIL_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_MAIL_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_MAIL_DEFAULT_CARGO], [MAIL])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_MAIL_DEFAULT_CARGO])
-     check_existance_cargo_label([_MAIL_DEFAULT_CARGO], [_MAIL_CARGO_ALLOW_REFIT])])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_MAIL_REFIT_COST_SWITCH], [mail_refit_cost_switch])
-
-divert
-
-/* Refit cost switch used by all mail wagons */
-switch (_FEAT_CURRENT, SELF, _MAIL_REFIT_COST_SWITCH, 1) {
-    return 0 | CB_RESULT_AUTOREFIT;
-}
-
-/*
- * *****************************************************************************
- * Armoured vehicle definitions
- * *****************************************************************************
- */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_ARMOURED_CARGO_ALLOW_REFIT], [[GOLD],[DIAM],[VALU],[MAIL]])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_ARMOURED_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_ARMOURED_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_ARMOURED_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_ARMOURED_CARGO_ALLOW_REFIT])])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_ARMOURED_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_ARMOURED_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_ARMOURED_DEFAULT_CARGO], [VALU])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_ARMOURED_DEFAULT_CARGO])
-     check_existance_cargo_label([_ARMOURED_DEFAULT_CARGO], [_ARMOURED_CARGO_ALLOW_REFIT])])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_ARMOURED_REFIT_COST_SWITCH], [armoured_refit_cost_switch])
-
-divert
-
-/* Refit cost switch used by all valuables wagons */
-switch (_FEAT_CURRENT, SELF, _ARMOURED_REFIT_COST_SWITCH, 1) {
-    return 0 | CB_RESULT_AUTOREFIT;
-}
-
-/*
- * *****************************************************************************
- * Refrigerated vehicle definitions
- * *****************************************************************************
- */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_REFRIGERATED_CARGO_ALLOW_REFIT], [[FOOD],[FRUT],[FISH],[FRVG],[MILK]])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_REFRIGERATED_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_REFRIGERATED_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_REFRIGERATED_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_REFRIGERATED_CARGO_ALLOW_REFIT])])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_REFRIGERATED_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_REFRIGERATED_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_REFRIGERATED_DEFAULT_CARGO], [FOOD])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_REFRIGERATED_DEFAULT_CARGO])
-     check_existance_cargo_label([_REFRIGERATED_DEFAULT_CARGO], [_REFRIGERATED_CARGO_ALLOW_REFIT])])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_REFRIGERATED_REFIT_COST_SWITCH_ID], [refrigerated_refit_cost_switch])
-
-divert
-
-/* Refit cost switch used by all refrigerated wagons */
-switch (_FEAT_CURRENT, SELF, _REFRIGERATED_REFIT_COST_SWITCH_ID, 1) {
-    return 20 | CB_RESULT_AUTOREFIT;
-}
 
 /*
  * *****************************************************************************
  * Livestock vehicle definitions
  * *****************************************************************************
  */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_LIVESTOCK_CARGO_ALLOW_REFIT], [[LVST]])
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_LIVESTOCK_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_LIVESTOCK_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
+#define REFIT_PROPERTIES_LIVESTOCK \
+        refittable_cargo_classes:        NO_CARGO_CLASS; \
+        non_refittable_cargo_classes:    bitmask(CC_PASSENGERS, CC_LIQUID, CC_REFRIGERATED, CC_BULK); \
+        cargo_allow_refit:              [LVST]; \
+        cargo_disallow_refit:           [PASS, COAL, MAIL, OIL_,       GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, \
+                                         FOOD, GOLD, RUBR, FRUT, MAIZ, CORE, WATR, DIAM, SUGR, TOYS, BATT, SWET, TOFF, \
+                                         COLA, CTCD, BUBL, PLST, FZDR, \
+                                         AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
+                                         FISH, FMSP, FRVG, GLAS, GRVL, LIME, MILK, MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
+                                         RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             LVST;
 
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_LIVESTOCK_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_LIVESTOCK_CARGO_ALLOW_REFIT])])
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_LIVESTOCK_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_LIVESTOCK_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
+/*
+ * *****************************************************************************
+ * Piece goods vehicle definitions
+ * *****************************************************************************
+ */
 
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_LIVESTOCK_DEFAULT_CARGO], [LVST])
+// Removing piece goods from a vehicle and putting in another piece goods can be done
+// at no extra costs in a station. Fruits etc are packed into convenient boxes when
+// carried in this vehicle type.
+switch (FEAT_CURRENT, SELF, piecegoods_refit_cost_switch, 1) {
+    return 0 | CB_RESULT_AUTOREFIT;
+}
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_LIVESTOCK_DEFAULT_CARGO])
-     check_existance_cargo_label([_LIVESTOCK_DEFAULT_CARGO], [_LIVESTOCK_CARGO_ALLOW_REFIT])])
+#define REFIT_PROPERTIES_PIECE_GOODS \
+        refittable_cargo_classes:        bitmask(CC_PIECE_GOODS, CC_EXPRESS); \
+        non_refittable_cargo_classes:    bitmask(CC_PASSENGERS, CC_MAIL, CC_BULK, CC_ARMOURED, CC_OVERSIZED, CC_REFRIGERATED); \
+        cargo_allow_refit:              [BATT, BEER, COPR, DYES, ENSP, FOOD, FMSP, FRUT, FRVG, FZDR, GOOD, MNSP, PAPR, \
+                                         PLAS, SWET, TOYS, WDPR, WOOL]; \
+        cargo_disallow_refit:           [PASS, COAL, MAIL, OIL_, LVST,       GRAI, WOOD, IORE, STEL, VALU,       WHEA, \
+                                               GOLD, RUBR,       MAIZ, CORE, WATR, DIAM, SUGR,                   TOFF, \
+                                         COLA, CTCD, BUBL, PLST, \
+                                         AORE,       BDMT, BRCK, CERA, CERE, CLAY, CMNT,                   FERT, FICR, \
+                                         FISH,             GLAS, GRVL, LIME, MILK,       OLSD, PETR,       POTA, RCYC, \
+                                         RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI,             \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             GOOD;
 
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_LIVESTOCK_REFIT_COST_SWITCH_ID], [livestock_refit_cost_switch])
+#define REFIT_GRAPHICS_PIECE_GOODS \
+        refit_cost:         piecegoods_refit_cost_switch;
 
-divert
+/*
+ * *****************************************************************************
+ * Refrigerated vehicle definitions
+ * *****************************************************************************
+ */
 
-/* Refit cost switch used by all livestock wagons */
-switch (_FEAT_CURRENT, SELF, _LIVESTOCK_REFIT_COST_SWITCH_ID, 1) {
+switch (FEAT_CURRENT, SELF, refrigerated_refit_cost_switch, 1) {
     return 20 | CB_RESULT_AUTOREFIT;
 }
+
+#define REFIT_PROPERTIES_REFRIGERATED \
+        refittable_cargo_classes:        bitmask(CC_REFRIGERATED); \
+        non_refittable_cargo_classes:    bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_HAZARDOUS); \
+        cargo_allow_refit:              [FOOD, FRUT, FISH, FRVG, MILK]; \
+        cargo_disallow_refit:           [PASS, COAL, MAIL, OIL_, LVST, GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, \
+                                               GOLD, RUBR,       MAIZ, CORE, WATR, DIAM, SUGR, TOYS, BATT, SWET, TOFF, \
+                                         COLA, CTCD, BUBL, PLST, FZDR, \
+                                         AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES, ENSP, FERT, FICR, \
+                                         FMSP,       GLAS, GRVL, LIME,       MNSP, OLSD, PETR, PLAS, POTA, RCYC, \
+                                         RFPR, SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             FOOD;
+
+#define REFIT_GRAPHICS_REFRIGERATED \
+        refit_cost:         refrigerated_refit_cost_switch;
 
 /*
  * *****************************************************************************
  * Tank vehicle definitions
  * *****************************************************************************
  */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_TANK_CARGO_ALLOW_REFIT],
-[[BEER],[CMNT],[COLA],[DYES],[FZDR],[MILK],[OIL_],
- [PETR],[PLAS],[PLST],[RFPR],[RUBR],[WATR]])
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_TANK_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_TANK_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_TANK_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_TANK_CARGO_ALLOW_REFIT])])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_TANK_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_TANK_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# Default cargo to carry
-#############################################################################################
-define_unique([_TANK_DEFAULT_CARGO], [OIL_])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_TANK_DEFAULT_CARGO])
-     check_existance_cargo_label([_TANK_DEFAULT_CARGO], [_TANK_CARGO_ALLOW_REFIT])])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_TANK_REFIT_COST_SWITCH], [tank_refit_cost_switch])
-
-divert
-
-switch (_FEAT_CURRENT, SELF, tank_refit_from_clean_switch, extra_callback_info1 & 0xFF) {
+switch (FEAT_CURRENT, SELF, tank_refit_from_clean_switch, extra_callback_info1 & 0xFF) {
     BEER: return 20 | CB_RESULT_AUTOREFIT;
     COLA: return 20 | CB_RESULT_AUTOREFIT;
     DYES: return 20 | CB_RESULT_AUTOREFIT;
@@ -691,7 +409,7 @@ switch (_FEAT_CURRENT, SELF, tank_refit_from_clean_switch, extra_callback_info1 
     return 10 | CB_RESULT_AUTOREFIT;
 }
 
-switch (_FEAT_CURRENT, SELF, tank_refit_from_dirty_switch, extra_callback_info1 & 0xFF) {
+switch (FEAT_CURRENT, SELF, tank_refit_from_dirty_switch, extra_callback_info1 & 0xFF) {
     BEER: CB_FAILED;
     COLA: CB_FAILED;
     DYES: CB_FAILED;
@@ -702,8 +420,7 @@ switch (_FEAT_CURRENT, SELF, tank_refit_from_dirty_switch, extra_callback_info1 
     return 40 | CB_RESULT_AUTOREFIT;
 }
 
-/* Refit cost switch used by all tank wagons */
-switch (_FEAT_CURRENT, SELF, _TANK_REFIT_COST_SWITCH, cargo_type_in_veh) {
+switch (FEAT_CURRENT, SELF, tank_refit_cost_switch, cargo_type_in_veh) {
     CMNT: tank_refit_from_dirty_switch;
     OIL_: tank_refit_from_dirty_switch;
     PETR: tank_refit_from_dirty_switch;
@@ -722,61 +439,36 @@ switch (_FEAT_CURRENT, SELF, _TANK_REFIT_COST_SWITCH, cargo_type_in_veh) {
     return CB_FAILED;
 }
 
-/*
- * *****************************************************************************
- * MU vehicle definitions
- * *****************************************************************************
- */
-divert(-1)
-#############################################################################################
-# List of allowed refit cargos
-#############################################################################################
-define_unique([_MU_CARGO_ALLOW_REFIT],
-[[PASS],[MAIL],[GOOD],[VALU],[PAPR],[FOOD],[GOLD],[FRUT],[DIAM],[TOYS],[SWET],
- [TOFF],[CTCD],[PLST],[ENSP],[FISH],[FRVG],[MILK],[MNSP],[RFPR],[TOUR],[WOOL]])
+#define REFIT_PROPERTIES_TANK \
+        refittable_cargo_classes:        bitmask(CC_LIQUID); \
+        non_refittable_cargo_classes:    bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED); \
+        cargo_allow_refit:              [BEER, CMNT, COLA, DYES, FZDR, MILK, OIL_, PETR, PLAS, PLST, RFPR, RUBR, WATR]; \
+        cargo_disallow_refit:           [PASS, COAL, MAIL,       LVST, GOOD, GRAI, WOOD, IORE, STEL, VALU, PAPR, WHEA, \
+                                         FOOD, GOLD,       FRUT, MAIZ, CORE,       DIAM, SUGR, TOYS, BATT, SWET, TOFF, \
+                                               CTCD, BUBL,             \
+                                         AORE,       BDMT, BRCK, CERA, CERE, CLAY,       COPR,       ENSP, FERT, FICR, \
+                                         FISH, FMSP, FRVG, GLAS, GRVL, LIME,       MNSP, OLSD,             POTA, RCYC, \
+                                               SAND, SCMT, SGBT, SGCN, SULP, TOUR, VEHI, WDPR, WOOL, \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE]; \
+        default_cargo_type:             OIL_;
 
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_MU_CARGO_ALLOW_REFIT])
-     check_existance_cargo_label([_MU_CARGO_ALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
+#define REFIT_GRAPHICS_TANK \
+        refit_cost:         tank_refit_cost_switch;
 
-#############################################################################################
-# List of disallowed refit cargos
-#############################################################################################
-define_unique([_MU_CARGO_DISALLOW_REFIT], [create_cargo_disallow_refit([_MU_CARGO_ALLOW_REFIT])])
-
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([_MU_CARGO_DISALLOW_REFIT])
-     check_existance_cargo_label([_MU_CARGO_DISALLOW_REFIT], [_COMPLETE_CARGO_LIST])])
-
-#############################################################################################
-# Default cargo to carry
-# _MU_DEFAULT_CARGO (cargo-label)
-#############################################################################################
-define_unique([_MU_DEFAULT_CARGO], [check_args_exact([$0], [$#], [1])dnl
-ifelse(do_cargo_checks, [1],
-    [check_cargo_labels([$1])
-     check_existance_cargo_label([$1], [_MU_CARGO_ALLOW_REFIT])])dnl
-$1])
-
-#############################################################################################
-# Refit cost switch refererenced in this other files.
-#############################################################################################
-define_unique([_MU_REFIT_COST_SWITCH], [mu_refit_cost_switch])
-
-divert
-
-switch (_FEAT_CURRENT, SELF, mu_refit_cost_check_piece, (cargo_classes_in_consist & bitmask(CC_MAIL, CC_PIECE_GOODS) > 0) && (extra_callback_info1 & (bitmask(CC_MAIL, CC_PIECE_GOODS) << 16) > 0)) {
-    1: return CB_RESULT_AUTOREFIT;
-    return CB_FAILED;
-}
-
-switch (_FEAT_CURRENT, SELF, mu_refit_cost_check_armour, (cargo_classes_in_consist & bitmask(CC_ARMOURED) > 0) && (extra_callback_info1 & (bitmask(CC_ARMOURED) << 16) > 0)) {
-    1: return CB_RESULT_AUTOREFIT;
-    mu_refit_cost_check_piece;
-}
-
-/* Refit cost switch used by all MU engines */
-switch (_FEAT_CURRENT, SELF, _MU_REFIT_COST_SWITCH, (cargo_classes_in_consist & bitmask(CC_PASSENGERS) > 0) && (extra_callback_info1 & (bitmask(CC_PASSENGERS) << 16) > 0)) {
-    1: return CB_RESULT_AUTOREFIT;
-    mu_refit_cost_check_armour;
-}
+#define REFIT_PROPERTIES_MU \
+        refittable_cargo_classes:       bitmask(CC_PASSENGERS, CC_MAIL, CC_ARMOURED, CC_EXPRESS, CC_PIECE_GOODS); \
+        non_refittable_cargo_classes:   bitmask(CC_OVERSIZED); \
+        cargo_allow_refit:              [PASS,       MAIL,             GOOD,                         VALU, PAPR,       \
+                                         FOOD, GOLD,       FRUT,                   DIAM,       TOYS,       SWET, TOFF, \
+                                               CTCD,       PLST,       \
+                                                                                                     ENSP,             \
+                                         FISH,       FRVG,                   MILK, MNSP,                               \
+                                         RFPR,                               TOUR,             WOOL, \
+                                                                           ]; \
+        cargo_disallow_refit:           [      COAL,       OIL_, LVST,       GRAI, WOOD, IORE, STEL,             WHEA, \
+                                                     RUBR,       MAIZ, CORE, WATR,       SUGR,       BATT,             \
+                                         COLA,       BUBL,       FZDR, \
+                                         AORE, BEER, BDMT, BRCK, CERA, CERE, CLAY, CMNT, COPR, DYES,       FERT, FICR, \
+                                               FMSP,       GLAS, GRVL, LIME,             OLSD, PETR, PLAS, POTA, RCYC, \
+                                               SAND, SCMT, SGBT, SGCN, SULP,       VEHI, WDPR,       \
+                                         GEAR, FUEL, RSGR, SCRP, TWOD, WSTE];

@@ -1,0 +1,127 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#define MU_8SPRITES_REVERSAL(name, filename, sprite_template, x, y) \
+spriteset(name ##_set, filename) { \
+	sprite_template (x, y) \
+} \
+spriteset(name ##_reversed_set, filename) { \
+	sprite_template ##_reversed (x, y) \
+} \
+spritegroup  name ##_group { \
+	loading: name ##_set; \
+	loaded:  name ##_set; \
+} \
+spritegroup  name ##_reversed_group { \
+	loading: name ##_reversed_set; \
+	loaded:  name ##_reversed_set; \
+} \
+switch (FEAT_TRAINS, SELF, name ## _reversal_switch, vehicle_is_reversed) { \
+	1: name ##_reversed_group; \
+	name ##_group; \
+}
+
+
+
+#define MU_8SPRITES(name, filename, sprite_template, x, y) \
+spriteset(name ##_set, filename) { \
+	sprite_template (x, y) \
+} \
+spritegroup  name ##_group { \
+	loading: name ##_set; \
+	loaded:  name ##_set; \
+}
+
+#define MU_8SPRITES_32BPP(name, model, filename, sprite_template, x, y) \
+spriteset(name ##_set, filename) { \
+	sprite_template (x, y) \
+} \
+alternative_sprites(name ##_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model, "1") \
+} \
+alternative_sprites(name ##_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model, "2") \
+} \
+alternative_sprites(name ##_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model, "4") \
+} \
+spriteset(name ##_set_gui, filename) { \
+    sprite_template (x, y) \
+} \
+alternative_sprites(name ##_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model) \
+} \
+spritegroup name ##_group_gui { \
+	loading: name ##_set_gui; \
+	loaded: name ##_set_gui; \
+} \
+spritegroup  name ##_group { \
+	loading: name ##_set; \
+	loaded:  name ##_set; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ##_group_gui; \
+    0x11: name ##_group_gui; \
+    0x12: name ##_group_gui; \
+    0x20: name ##_set_gui; \
+    0x21: name ##_set_gui; \
+    name ##_group; \
+}
+
+#define MU_8SPRITES_LOADING_32BPP(name, model1, model2, filename, sprite_template, x1, y1, x2, y2) \
+spriteset(name ##_closed_set, filename) { \
+	sprite_template (x1, y1) \
+} \
+alternative_sprites(name ##_closed_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model1, "1") \
+} \
+alternative_sprites(name ##_closed_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model1, "2") \
+} \
+alternative_sprites(name ##_closed_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model1, "4") \
+} \
+spriteset(name ##_closed_set_gui, filename) { \
+    sprite_template (x1, y1) \
+} \
+alternative_sprites(name ##_closed_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model1) \
+} \
+spriteset(name ##_open_set, filename) { \
+	sprite_template (x2, y2) \
+} \
+alternative_sprites(name ##_open_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model2, "1") \
+} \
+alternative_sprites(name ##_open_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model2, "2") \
+} \
+alternative_sprites(name ##_open_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model2, "4") \
+} \
+spriteset(name ##_open_set_gui, filename) { \
+    sprite_template (x1, y1) \
+} \
+alternative_sprites(name ##_open_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model2) \
+} \
+spritegroup name ##_group_gui { \
+	loading: name ##_open_set_gui; \
+	loaded: name ##_closed_set_gui; \
+} \
+spritegroup  name ##_group { \
+	loading: name ##_open_set; \
+	loaded:  name ##_closed_set; \
+} \
+switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ##_group_gui; \
+    0x11: name ##_group_gui; \
+    0x12: name ##_group_gui; \
+    0x20: name ##_closed_set_gui; \
+    0x21: name ##_closed_set_gui; \
+    name ##_group; \
+}

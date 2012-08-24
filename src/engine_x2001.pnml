@@ -1,4 +1,3 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -6,34 +5,23 @@ divert(-1)
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-# Perform a check to make sure the files have been included
-ifelse(do_included_checks, [1],
-    [check_included([src/templates_engines.pnml])
-     check_included([src/railtype_table.pnml])])
-
-# Define the engine name and check that it was previously undefined
-define_unique([_THIS_ENGINE], [x2001])
-
-divert
-
 /*
- * "'X2001' (Electric)"
+ * =============================================================================
+ * X2001 Monorail
+ * =============================================================================
  */
 
-_ENGINE_INDEPOT_LENGTH88(engine, default,
-    "x2001",
+ENGINE_GRAPHICS_GROUP_32BPP(x2001, "x2001", default,
     "src/gfx/engines/monorail_x2001_88.png",
     tmpl_engine8_42, 0, 0,
     tmpl_engine_88, 176, 0)
 
-item(FEAT_TRAINS, _THIS_ENGINE, 54) {
+item(FEAT_TRAINS, x2001, 54) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
-        climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_monorail) ? bitmask(climate) : NO_CLIMATE;
-        track_type:             MONORAIL;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
     }
-    graphics { _THIS_ENGINE_GRAPHICS_ID(engine, default); }
+    graphics {
+        x2001_default_indepot_switch;
+    }
 }
-
-undefine([_THIS_ENGINE])dnl

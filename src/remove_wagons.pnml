@@ -1,41 +1,22 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
-divert
 
 /*
  * =============================================================================
  * Remove default wagons - they are not required anymore
- * http://newgrf-specs.tt-wiki.net/wiki/NML:Disable_items
- * http://newgrf-specs.tt-wiki.net/wiki/NML:List_of_default_vehicle_IDs
- * We re-use passenger, mail, valuables and livestock for all types so need to
- * exlude these: they are used for their name strings and translations.
- *
- * IDs to exclude:
- *  Rail:     27, 28, 31, 37
- *  Monorail: 57, 58, 61, 67
- *  Maglev:   89, 90, 93, 99
- *
- * disable_item is apparently a short-hand way of setting climates_available to
- * NO_CLIMATE, so in theory we could just disable all: we are just being safe.
  * =============================================================================
  */
 
 if (!param_keep_original) {
-    /* Steam / Diesel / Electric wagons */
-    disable_item(FEAT_TRAINS, 29,  30);
-    disable_item(FEAT_TRAINS, 32,  36);
-    disable_item(FEAT_TRAINS, 38,  53);
-    /* Monorail wagons */
-    disable_item(FEAT_TRAINS, 59,  60);
-    disable_item(FEAT_TRAINS, 62,  66);
-    disable_item(FEAT_TRAINS, 68,  83);
-    /* Maglev wagons */
-    disable_item(FEAT_TRAINS, 91,  92);
-    disable_item(FEAT_TRAINS, 94,  98);
-    disable_item(FEAT_TRAINS, 100, 115);
+	/* Steam / Diesel / Electric wagons */
+	disable_item(FEAT_TRAINS, 29, 53);
+	/* Monorail wagons */
+	disable_item(FEAT_TRAINS, 59, 83);
+	/* Maglev wagons */
+	disable_item(FEAT_TRAINS, 91, 115);
 }
+

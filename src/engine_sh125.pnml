@@ -1,4 +1,3 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -6,91 +5,74 @@ divert(-1)
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-# Perform a check to make sure the files have been included
-ifelse(do_included_checks, [1],
-    [check_included([src/templates_engines.pnml])
-     check_included([src/railtype_table.pnml])
-     check_included([src/wagon_pax.pnml])
-     check_included([src/wagon_mail.pnml])
-     check_included([src/wagon_valuables.pnml])])
-
-# Define the engine name and check that it was previously undefined
-define_unique([_THIS_ENGINE], [sh125])
-
-divert
-
 /*
- * "SH '125' (Diesel)"
- * Livery override for passenger, mail and valuables wagons
+ * =============================================================================
+ * SH125
+ * =============================================================================
  */
 
-/* DEFAULT ENGINE */
-_ENGINE_LOADING_LENGTH88(engine, default,
-    "sh125",
-    "sh125",
-    "src/gfx/mus/sh125/sh125LiveryOverride.png",
-    "src/gfx/mus/sh125/sh125LiveryOverride.png",
-    tmpl_railwagon8_normal, 0, 0, 0, 0)
+/*
+ * SH 125
+ * Livery override for passenger and mail wagons
+ */
 
-/* PASSENGER LIVERY */
-_ENGINE_LIVERY_MAPPING_SWITCH(passenger_wagon, common, early, default)
+#define THIS_ID(...) sh125 ## __VA_ARGS__
 
-_ENGINE_LIVERY_LOADING_LENGTH88(passenger_wagon, modern, default,
-    "passenger",
-    "passenger_loading",
+MU_8SPRITES_32BPP (sh125_engine,
+    "sh125",
     "src/gfx/mus/sh125/sh125LiveryOverride.png",
+    tmpl_railwagon8_normal, 0, 0)
+
+WAGON_BULK_32BPP (sh125_passenger,
+    modern,
+    "passenger_sh125",
+    "passenger_sh125_loading",
     "src/gfx/mus/sh125/sh125LiveryOverride.png",
     tmpl_railwagon8_normal, 0, 27, 0, 27)
 
-_ENGINE_LIVERY_YEAR_SWITCH(passenger_wagon, default, _RAIL_MODERN_YEAR, early, modern)
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, sh125_passenger, passenger_wagon_climate_switch, modern)
 
-/* MAIL LIVERY */
-_ENGINE_LIVERY_MAPPING_SWITCH(mail_wagon, common, early, default)
-
-_ENGINE_LIVERY_LOADING_LENGTH88(mail_wagon, modern, default,
+WAGON_BULK_32BPP (sh125_mail,
+    modern,
     "mail",
     "mail_loading",
     "src/gfx/mus/sh125/sh125LiveryOverride.png",
-    "src/gfx/mus/sh125/sh125LiveryOverride.png",
     tmpl_railwagon8_normal, 0, 54, 0, 54)
 
-_ENGINE_LIVERY_YEAR_SWITCH(mail_wagon, default, _RAIL_MODERN_YEAR, early, modern)
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, sh125_mail, mail_wagon_climate_switch, modern)
 
-/* VALUABLES LIVERY */
-_ENGINE_LIVERY_MAPPING_SWITCH(valuables_wagon, common, early, default)
-
-_ENGINE_LIVERY_LOADING_LENGTH88(valuables_wagon, modern, default,
+WAGON_BULK_32BPP (sh125_valuables,
+    modern,
     "armoured",
     "armoured_loading",
     "src/gfx/mus/sh125/sh125LiveryOverride.png",
-    "src/gfx/mus/sh125/sh125LiveryOverride.png",
     tmpl_railwagon8_normal, 0, 80, 0, 80)
 
-_ENGINE_LIVERY_YEAR_SWITCH(valuables_wagon, default, _RAIL_MODERN_YEAR, early, modern)
+WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, sh125_valuables, valuables_wagon_climate_switch, modern)
 
-item(FEAT_TRAINS, _THIS_ENGINE, 22) {
+#include "template_refit_cost_mu.pnml"
+
+item(FEAT_TRAINS, sh125, 22) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;
-        misc_flags:             bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
-        climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
-        track_type:             NORMAL_RAIL40;
-include([src/template_refit_properties_mu.pnml])
-        default_cargo_type:     _MU_DEFAULT_CARGO([MAIL]);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC);
+        REFIT_PROPERTIES_MU
+        default_cargo_type:             MAIL;
     }
     graphics {
-        refit_cost: _MU_REFIT_COST_SWITCH;
+        refit_cost: THIS_ID(refit_cost_switch);
 
-        _THIS_ENGINE_GRAPHICS_ID(engine, default);
+        sh125_engine_switch_gui;
     }
     livery_override (passenger_wagon) {
-        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(passenger_wagon, default);
+        sh125_passenger_year_switch;
     }
-    livery_override (mail_wagon) {
-        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(mail_wagon, default);
+    livery_override (mail_wagon)      {
+        sh125_mail_year_switch;
     }
     livery_override (valuables_wagon) {
-        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(valuables_wagon, default);
+        sh125_valuables_year_switch;
     }
 }
 
-undefine([_THIS_ENGINE])dnl
+#undef THIS_ID

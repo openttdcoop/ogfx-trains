@@ -1,19 +1,9 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
-
-#############################################################################################
-# do_included_checks
-# If set to [1] then extra checks are made to ensure that required files are included
-# before others. Not strictly necessary but can pick up accidental copy paste mistakes.
-#############################################################################################
-define_unique([do_included_checks], [1])
-
-divert
 
 grf {
     grfid : "OG+1";
@@ -23,65 +13,65 @@ grf {
     version : REPO_REVISION;
     min_compatible_version: 285;
 
-    /* Compatibility parameter: remove unneeded default wagon definitions */
+    // Compatibility parameter: remove unneeded default wagon definitions
     param {
-        param_provide {
-            type:    int;
-            name:    string(STR_PARAM_ENGINES);
-            desc:    string(STR_PARAM_ENGINES_DESC);
-            min_value: 0;
-            max_value: 7;
-            def_value: 0;
-            names: {
-                0: string(STR_PARAM_ENGINES_DEFAULT);
-                1: string(STR_PARAM_ENGINES_NONE);
+		param_provide {
+			type:    int;
+			name:    string(STR_PARAM_ENGINES);
+			desc:    string(STR_PARAM_ENGINES_DESC);
+			min_value: 0;
+			max_value: 7;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_ENGINES_DEFAULT);
+				1: string(STR_PARAM_ENGINES_NONE);
                 2: string(STR_PARAM_ENGINES_TEMPERATE);
                 3: string(STR_PARAM_ENGINES_ARCTIC);
                 4: string(STR_PARAM_ENGINES_TROPICAL);
                 5: string(STR_PARAM_ENGINES_TOYLAND);
                 6: string(STR_PARAM_ENGINES_ALL);
-                    7: string(STR_PARAM_ENGINES_ALL_BUT_TOYLAND);
-            };
-        }
-    }
-    param {
-        param_keep_original {
-            type:    bool;
-            bit:     0;
-            name:    string(STR_PARAM_KEEP_ORIGINAL);
-            desc:    string(STR_PARAM_KEEP_ORIGINAL_DESC);
-            def_value: 0;
-        }
-        param_provide_rail {
-            type:    bool;
-            bit:     1;
-            name:    string(STR_PARAM_PROVIDE_RAIL);
-            desc:    string(STR_PARAM_PROVIDE_RAIL_DESC);
-            def_value: 1;
-        }
-        param_provide_monorail {
-            type:    bool;
-            bit:     2;
-            name:    string(STR_PARAM_PROVIDE_MONORAIL);
-            desc:    string(STR_PARAM_PROVIDE_MONORAIL_DESC);
-            def_value: 1;
-        }
-        param_provide_maglev {
-            type:    bool;
-            bit:     3;
-            name:    string(STR_PARAM_PROVIDE_MAGLEV);
-            desc:    string(STR_PARAM_PROVIDE_MAGLEV_DESC);
-            def_value: 1;
-        }
-    }
-    param {
-        param_running_cost_mult {
-            type:    int;
-            name:    string(STR_PARAM_RUNNING_COST);
-            desc:    string(STR_PARAM_RUNNING_COST_DESC);
+				7: string(STR_PARAM_ENGINES_ALL_BUT_TOYLAND);
+			};
+		}
+	}
+	param {
+		param_keep_original {
+			type:    bool;
+			bit:     0;
+			name:    string(STR_PARAM_KEEP_ORIGINAL);
+			desc:    string(STR_PARAM_KEEP_ORIGINAL_DESC);
+			def_value: 0;
+		}
+		param_provide_rail {
+			type:    bool;
+			bit:     1;
+			name:    string(STR_PARAM_PROVIDE_RAIL);
+			desc:    string(STR_PARAM_PROVIDE_RAIL_DESC);
+			def_value: 1;
+		}
+		param_provide_monorail {
+			type:    bool;
+			bit:     2;
+			name:    string(STR_PARAM_PROVIDE_MONORAIL);
+			desc:    string(STR_PARAM_PROVIDE_MONORAIL_DESC);
+			def_value: 1;
+		}
+		param_provide_maglev {
+			type:    bool;
+			bit:     3;
+			name:    string(STR_PARAM_PROVIDE_MAGLEV);
+			desc:    string(STR_PARAM_PROVIDE_MAGLEV_DESC);
+			def_value: 1;
+		}
+	}
+	param {
+		param_running_cost_mult {
+			type:    int;
+			name:    string(STR_PARAM_RUNNING_COST);
+			desc:    string(STR_PARAM_RUNNING_COST_DESC);
             min_value: 0;
             max_value: 18;
-            def_value: 0;
+			def_value: 0;
             names: {
                 0: string(STR_PARAM_COST_AUTOMATICALLY);
                 1: string(STR_PARAM_COST_BY256);
@@ -103,16 +93,16 @@ grf {
                 17: string(STR_PARAM_COST_TIMES256);
                 18: string(STR_PARAM_COST_TIMES512);
             };
-        }
+		}
     }
-    param {
-        param_purchase_cost_mult {
-            type:    int;
-            name:    string(STR_PARAM_PURCHASE_COST);
-            desc:    string(STR_PARAM_PURCHASE_COST_DESC);
+	param {
+		param_purchase_cost_mult {
+			type:    int;
+			name:    string(STR_PARAM_PURCHASE_COST);
+			desc:    string(STR_PARAM_PURCHASE_COST_DESC);
             min_value: 0;
             max_value: 18;
-            def_value: 0;
+			def_value: 0;
             names: {
                 0: string(STR_PARAM_COST_AUTOMATICALLY);
                 1: string(STR_PARAM_COST_BY256);
@@ -134,22 +124,22 @@ grf {
                 17: string(STR_PARAM_COST_TIMES256);
                 18: string(STR_PARAM_COST_TIMES512);
             };
-        }
-    }
-    param {
-        param_tender {
-            type:       int;
-            name:       string(STR_PARAM_TENDER);
-            desc:       string(STR_PARAM_TENDER_DESC);
+		}
+	}
+	param {
+		param_tender {
+			type:       int;
+			name:       string(STR_PARAM_TENDER);
+			desc:       string(STR_PARAM_TENDER_DESC);
             min_value:  0;
             max_value:  1;
-            def_value:  1;
+			def_value:  1;
             names: {
                 0: string(STR_PARAM_TENDER_NONE);
                 1: string(STR_PARAM_TENDER_ARTICULATED);
-            };
-        }
-    }
+			};
+		}
+	}
 }
 
 /*
@@ -158,12 +148,9 @@ grf {
  * ********************************************
  */
 
-divert(-1)
-# Note the use of quadrigraphs @<:@ and @:>@
-define_unique([CLIMATE_PARAM], [(param@<:@0@:>@ - 2)])
-define_unique([RUNNING_COST_MOD], [param@<:@20@:>@])
-define_unique([PURCHASE_COST_MOD], [param@<:@21@:>@])
-divert
+#define CLIMATE_PARAM      (param[0] - 2)
+#define RUNNING_COST_MOD   param[20]
+#define PURCHASE_COST_MOD  param[21]
 
 /*
  * ********************************************
@@ -179,16 +166,14 @@ divert
  * ********************************************
  */
 
-dnl # Note the use of quadrigraphs @<:@ and @:>@
-if (param@<:@0@:>@ == 0) { param@<:@0@:>@ = climate + 2; }
-divert(-1)
-define_unique([USE_CLIMATE_TEMPERATE], [((param_provide - 2) == CLIMATE_TEMPERATE)])
-define_unique([USE_CLIMATE_ARCTIC], [((param_provide - 2) == CLIMATE_ARCTIC)])
-define_unique([USE_CLIMATE_TROPICAL], [((param_provide - 2) == CLIMATE_TROPICAL)])
-define_unique([USE_CLIMATE_TOYLAND], [((param_provide - 2) == CLIMATE_TOYLAND)])
-define_unique([USE_CLIMATE_ALL], [(param_provide == 6)])
-define_unique([USE_CLIMATE_ALL_BUT_TOYLAND], [(param_provide == 7)])
-divert
+if (param[0] == 0) { param[0] = climate + 2; }
+#define USE_CLIMATE_TEMPERATE       ((param_provide - 2) == CLIMATE_TEMPERATE)
+#define USE_CLIMATE_ARCTIC          ((param_provide - 2) == CLIMATE_ARCTIC)
+#define USE_CLIMATE_TROPICAL        ((param_provide - 2) == CLIMATE_TROPICAL)
+#define USE_CLIMATE_TOYLAND         ((param_provide - 2) == CLIMATE_TOYLAND)
+#define USE_CLIMATE_ALL             (param_provide == 6)
+#define USE_CLIMATE_ALL_BUT_TOYLAND (param_provide == 7)
+
 
 /*
  * ********************************************
@@ -215,7 +200,7 @@ divert
  * ********************************************
  */
 
-define_unique([AUTOMATIC_RUNNING_COST], [(param_running_cost_mult == 0)])dnl
+#define AUTOMATIC_RUNNING_COST (param_running_cost_mult == 0)
 RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param_running_cost_mult - 9;
 
 /*
@@ -232,7 +217,7 @@ RUNNING_COST_MOD = AUTOMATIC_RUNNING_COST ? 0 : param_running_cost_mult - 9;
  * ********************************************
  */
 
-define_unique([AUTOMATIC_PURCHASE_COST], [(param_purchase_cost_mult == 0)])dnl
+#define AUTOMATIC_PURCHASE_COST (param_purchase_cost_mult == 0)
 PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param_purchase_cost_mult - 9;
 
 /*
@@ -243,47 +228,21 @@ PURCHASE_COST_MOD = AUTOMATIC_PURCHASE_COST ? 0 : param_purchase_cost_mult - 9;
  * ********************************************
  */
 
-divert(-1)
-define_unique([TENDER_NONE], [0])
-define_unique([TENDER_ARTICULATED], [1])
-divert
-/* Tender: TENDER_NONE
- * Tender Articulated: TENDER_ARTICULATED
- */
+#define TENDER_NONE        0
+#define TENDER_ARTICULATED 1
 
 /*
  * ********************************************
  * Introduction year for 2nd generation wagons
  * ********************************************
  */
-
-define_unique([_RAIL_MODERN_YEAR], [1970])dnl
-/* Modern Year: _RAIL_MODERN_YEAR */
-
-/*
- * ********************************************
- * 1st generation wagon speed limit
- * ********************************************
- */
-
-define_unique([_SPEED_1ST_GENERATION], [80])dnl
-/* 1st Generation Speed: _SPEED_1ST_GENERATION */
-
-/*
- * ********************************************
- * 2nd generation wagon speed limit - cargo only
- * ********************************************
- */
-
-define_unique([_SPEED_2ND_GENERATION], [160])dnl
-/* 2nd Generation Cargo Speed: _SPEED_2ND_GENERATION */
+#define rail_modern_year 1970
 
 /*
  * ********************************************
  * Vehicles may be 32px wide in the depots
  * ********************************************
  */
-
 train_width_32_px = 1;
 
 /*
@@ -291,7 +250,6 @@ train_width_32_px = 1;
  * Check for engine pool
  * ********************************************
  */
-
 if (!dynamic_engines) {
     error(ERROR, USED_WITH, string(STR_ERR_ENGINE_POOL));
 }
@@ -309,80 +267,71 @@ traininfo_y_offset = 2;
  * Check NewGRFs and adjust base costs
  * ********************************************
  */
-divert(-1)
-# NARS2
-define_unique([GRFID_NARS2], ["\44\44\03\02"])
-define_unique([RUN_NARS2], [2])
-define_unique([BUY_NARS2], [0])
 
-# UKRS2
-define_unique([GRFID_UKRS2], ["\44\44\01\11"])
-define_unique([RUN_UKRS2], [2])
-define_unique([BUY_UKRS2], [0])
+//NARS2
+#define GRFID_NARS2 "\44\44\03\02"
+#define RUN_NARS2 2
+#define BUY_NARS2 0
 
-# Tropical refurbishment set
-define_unique([GRFID_TROP], ["\44\44\40\40"])
-define_unique([RUN_TROP], [2])
-define_unique([BUY_TROP], [0])
+//UKRS2
+#define GRFID_UKRS2 "\44\44\01\11"
+#define RUN_UKRS2 2
+#define BUY_UKRS2 0
 
-# 2ccTrainset
-define_unique([GRFID_2CC2], ["\27\71\10\03"])
-define_unique([RUN_2CC2], [3])
-define_unique([BUY_2CC2], [2])
+//Tropical refurbishment set
+#define GRFID_TROP "\44\44\40\40"
+#define RUN_TROP 2
+#define BUY_TROP 0
 
-# Japanese Trainset
-define_unique([GRFID_JAP2], ["\53\5A\0D\00"])
-define_unique([RUN_JAP2], [1])
-define_unique([BUY_JAP2], [0])
+//2ccTrainset
+#define GRFID_2CC2 "\27\71\10\03"
+#define RUN_2CC2 3
+#define BUY_2CC2 2
 
-# Swedish Trainset
-define_unique([GRFID_SWED], ["\41\49\00\06"])
-define_unique([RUN_SWED], [0])
-define_unique([BUY_SWED], [1])
-divert
+//Japanese Trainset
+#define GRFID_JAP2 "\53\5A\0D\00"
+#define RUN_JAP2 1
+#define BUY_JAP2 0
 
-/* NARS2 */
+//Swedish Trainset
+#define GRFID_SWED "\41\49\00\06"
+#define RUN_SWED 0
+#define BUY_SWED 1
+
 if (grf_future_status(GRFID_NARS2) == 1) {
     if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_NARS2; }
     if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_NARS2; }
 }
 
-/* UKRS2 */
 if (grf_future_status(GRFID_UKRS2) == 1) {
     if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_UKRS2; }
     if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_UKRS2; }
 }
 
-/* Tropical refurbishment set */
 if (grf_future_status(GRFID_TROP) == 1) {
     if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_TROP; }
     if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_TROP; }
 }
 
-/* 2ccTrainset */
-dnl # Note the use of quadrigraphs @<:@ and @:>@
 if (grf_future_status(GRFID_2CC2) == 1) {
-    if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_2CC2 + param@<:@GRFID_2CC2, 1@:>@ - 2; }
-    if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_2CC2 + param@<:@GRFID_2CC2, 0@:>@ - 2; }
+    if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_2CC2 + param[GRFID_2CC2, 1] - 2; }
+    if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_2CC2 + param[GRFID_2CC2, 0] - 2; }
 }
 
-/* Japanese Trainset */
 if (grf_future_status(GRFID_JAP2) == 1) {
     if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_JAP2; }
     if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_JAP2; }
 }
 
-/* Swedish Trainset */
 if (grf_future_status(GRFID_SWED) == 1) {
     if AUTOMATIC_RUNNING_COST { RUNNING_COST_MOD = RUN_SWED; }
     if AUTOMATIC_PURCHASE_COST { PURCHASE_COST_MOD = BUY_SWED; }
 }
 
-/* Basecost table */
 basecost {
-    PR_RUNNING_TRAIN_STEAM:     RUNNING_COST_MOD;
-    PR_RUNNING_TRAIN_DIESEL:    RUNNING_COST_MOD;
-    PR_RUNNING_TRAIN_ELECTRIC:  RUNNING_COST_MOD;
-    PR_BUILD_VEHICLE_TRAIN:     PURCHASE_COST_MOD;
-    PR_BUILD_VEHICLE_WAGON:     PURCHASE_COST_MOD;
+	PR_RUNNING_TRAIN_STEAM:     RUNNING_COST_MOD;
+	PR_RUNNING_TRAIN_DIESEL:    RUNNING_COST_MOD;
+	PR_RUNNING_TRAIN_ELECTRIC:  RUNNING_COST_MOD;
+	PR_BUILD_VEHICLE_TRAIN:     PURCHASE_COST_MOD;
+	PR_BUILD_VEHICLE_WAGON:     PURCHASE_COST_MOD;
 }

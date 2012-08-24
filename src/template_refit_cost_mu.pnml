@@ -1,0 +1,28 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+switch (FEAT_TRAINS, SELF, THIS_ID(engine_refit_cost_check_piece),
+			(cargo_classes_in_consist & bitmask(CC_MAIL, CC_PIECE_GOODS) > 0) &&
+			(extra_callback_info1 & (bitmask(CC_MAIL, CC_PIECE_GOODS) << 16) > 0)
+		) {
+	1: return CB_RESULT_AUTOREFIT;
+	return CB_FAILED;
+}
+switch (FEAT_TRAINS, SELF, THIS_ID(engine_refit_cost_check_armour),
+			(cargo_classes_in_consist & bitmask(CC_ARMOURED) > 0) &&
+			(extra_callback_info1 & (bitmask(CC_ARMOURED) << 16) > 0)
+		){
+	1: return CB_RESULT_AUTOREFIT;
+	THIS_ID(engine_refit_cost_check_piece);
+}
+switch (FEAT_TRAINS, SELF, THIS_ID(refit_cost_switch),
+			(cargo_classes_in_consist & bitmask(CC_PASSENGERS) > 0) &&
+			(extra_callback_info1 & (bitmask(CC_PASSENGERS) << 16) > 0)
+		){
+	1: return CB_RESULT_AUTOREFIT;
+	THIS_ID(engine_refit_cost_check_armour);
+}

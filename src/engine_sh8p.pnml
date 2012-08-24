@@ -1,4 +1,3 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -6,47 +5,56 @@ divert(-1)
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-# Perform a check to make sure the files have been included
-ifelse(do_included_checks, [1],
-    [check_included([src/templates_engines.pnml])
-     check_included([src/railtype_table.pnml])
-     check_included([src/tender.pnml])])
-
-# Define the engine name and check that it was previously undefined
-define_unique([_THIS_ENGINE], [sh8p])
-
-divert
-
 /*
- * "SH '8P' (Steam)"
- * Livery override for tender
+ * SH 8P steam engine
  */
 
-/* DEFAULT ENGINE */
-_ENGINE_LENGTH88(engine, default,
-    "sh8p",
+#define THIS_ID(...) sh8p ## __VA_ARGS__
+
+ENGINE_GRAPHICS_GROUP_32BPP(sh8p, "sh8p", default,
     "src/gfx/engines/temperate_ChaneyJubilee_SH8P_88.png",
-    tmpl_engine_88, 0, 0)
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0
+)
 
-/* Tender SH8P */
-_ENGINE_LIVERY_LENGTH48(tender, early, default,
-    "sh8p_tender",
+/* SH8P */
+SPRITEGROUP_1STAGE_LENGTH48_32BPP(tender_sh8p, "sh8p_tender", all,
     "src/gfx/temperate_tender.png",
-    tmpl_wagon_48, 0, 0)
+    tmpl_wagon_48, 0, 0
+)
 
-item(FEAT_TRAINS, _THIS_ENGINE, 10) {
+item(FEAT_TRAINS, sh8p) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
-        climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
-        track_type:             NORMAL_RAIL40;
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
     }
-    graphics {
-        articulated_part:       _TENDER_ARTICULATED_ENABLED_SWITCH_ID;
-
-        _THIS_ENGINE_GRAPHICS_ID(engine, default);
-    }
-    livery_override (tender) { _THIS_ENGINE_LIVERY_GRAPHICS_ID(tender, early, default); }
 }
 
-undefine([_THIS_ENGINE])dnl
+/* We need to define the whole graphics block with all callbacks at once */
+
+if (param_tender != TENDER_NONE) {
+	/* Articulated vehicle with tender */
+	item(FEAT_TRAINS, sh8p) {
+		graphics {
+			default:            sh8p_default_indepot_switch;
+			articulated_part:   tender_articulated_cb;
+			purchase:           sh8p_default_switch_gui;
+		}
+                livery_override (tender) {
+                        tender_sh8p_all_switch_gui;
+                }
+	}
+} else {
+	/* Normal engine without tender */
+	item(FEAT_TRAINS, sh8p) {
+		graphics {
+			default:            sh8p_default_indepot_switch;
+			purchase:           sh8p_default_switch_gui;
+		}
+                livery_override (tender) {
+                        tender_sh8p_all_switch_gui;
+                }
+	}
+}
+
+#undef THIS_ID

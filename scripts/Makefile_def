@@ -27,10 +27,6 @@ NML_VERSION    := $(shell $(NML) --version | head -n1 | cut -d\  -f1 | sed "s@r\
 CC             ?= gcc
 CC_FLAGS       ?= -C -E - <
 
-M4             ?= m4
-M4_FLAGS       ?= -s -E - <
-PIPEFAIL       ?= set -o pipefail
-
 GIMP           ?= $(shell [ `which gimp 2>/dev/null` ] && echo "gimp" || echo "")
 GIMP_FLAGS     ?= -n -i -b - <
 
@@ -61,9 +57,6 @@ GRFCODEC_FLAGS ?= $(shell $(GRFCODEC) -s -v >/dev/null 2>/dev/null && echo "-s" 
 
 CATCODEC       ?= catcodec
 CATCODEC_FLAGS ?= -e
-
-SED            ?= sed
-SED_QUADS      ?= -e 's/@<:@/[/g' -e 's/@:>@/]/g' -e 's/@S|@/$$/g' -e 's/@%:@/\#/g' -e 's/@{:@/(/g' -e 's/@:}@/)/g' -e 's/@&t@//g'
 
 AWK            ?= awk
 
@@ -180,3 +173,4 @@ NML_FILE           := $(patsubst %.grf,%.nml,$(GRF_FILE))
 # Remove the @ when you want a more verbose output.
 _V ?= @
 _E ?= @echo
+

@@ -1,4 +1,3 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -6,298 +5,157 @@ divert(-1)
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-# Perform a check to make sure the files have been included
-ifelse(do_included_checks, [1],
-    [check_included([src/templates_common.pnml])
-     check_included([src/templates_wagons.pnml])])
+#define ENGINE_GRAPHICS_BLOCK(name) \
+    graphics { \
+        name ## _switch; \
+    }
 
-#############################################################################################
-# _THIS_ENGINE_ID (args...)
-# Creates an identifier by joining _THIS_ENGINE and the provided arguments with an
-# underscore (_) character.
-#############################################################################################
-define_unique([_THIS_ENGINE_ID], [check_defined([_THIS_ENGINE])_THIS_ID(_THIS_ENGINE, $@)])
 
-#############################################################################################
-# _THIS_ENGINE_GRAPHICS_ID (name, climate)
-# Creates an engine graphics identifier that can be used as a unique graphics reference
-# for template macros.
-#############################################################################################
-define_unique([_THIS_ENGINE_GRAPHICS_ID], [check_args_exact([$0], [$#], [2])_THIS_ENGINE_ID($@, graphics_switch)])
+#define ENGINE_GRAPHICS_NOCLIMATE_SWITCH(name) \
+switch (FEAT_TRAINS, SELF, name ## _switch, CLIMATE_PARAM) { \
+    name ## _default_group; \
+}
 
-#############################################################################################
-# _THIS_ENGINE_LIVERY_GRAPHICS_ID (name, type, climate)
-# Creates an engine livery graphics identifier that can be used as a unique graphics reference
-# for template macros.
-#############################################################################################
-define_unique([_THIS_ENGINE_LIVERY_GRAPHICS_ID], [check_args_exact([$0], [$#], [3])_THIS_ENGINE_ID($@, graphics_switch)])
 
-#############################################################################################
-# _THIS_ENGINE_CLIMATE_SWITCH_ID (name, climate)
-# Creates an engine climate switch identifier that can be used as a unique graphics reference
-# for template macros.
-#############################################################################################
-define_unique([_THIS_ENGINE_CLIMATE_SWITCH_ID], [check_args_exact([$0], [$#], [2])_THIS_ENGINE_ID($@, climate_switch)])
+#define ENGINE_GRAPHICS_TROPICAL_SWITCH(name) \
+switch (FEAT_TRAINS, SELF, name ## _switch, CLIMATE_PARAM) { \
+    CLIMATE_TROPICAL: name ## _tropical_group; \
+    name ## _default_group; \
+}
 
-#############################################################################################
-# _THIS_ENGINE_CARGO_SWITCH_ID (name, climate)
-# Creates an engine cargo switch identifier that can be used as a unique graphics reference
-# for template macros.
-#############################################################################################
-define_unique([_THIS_ENGINE_CARGO_SWITCH_ID],
-    [check_args_exact([$0], [$#], [1])_THIS_ENGINE_ID($@, cargo_switch)])
+#define ENGINE_GRAPHICS_TROPICAL_SWITCH_32BPP(name) \
+switch (FEAT_TRAINS, SELF, name ## _indepot_switch, CLIMATE_PARAM) { \
+    CLIMATE_TROPICAL: name ## _tropical_indepot_switch; \
+    name ## _default_indepot_switch; \
+} \
+switch (FEAT_TRAINS, SELF, name ## _switch_gui, CLIMATE_PARAM) { \
+    CLIMATE_TROPICAL: name ## _tropical_switch_gui; \
+    name ## _default_switch_gui; \
+}
 
-#############################################################################################
-# _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID (name, climate)
-# Creates an livery year switch identifier that can be used as a unique graphics reference
-# for template macros.
-#############################################################################################
-define_unique([_THIS_ENGINE_LIVERY_YEAR_SWITCH_ID],
-    [check_args_exact([$0], [$#], [2])_THIS_ENGINE_ID($@, year_switch)])
+#define ENGINE_GRAPHICS_GROUP(name, climate, template, filename) \
+spriteset(name ## _ ## climate ## _set, filename) { template } \
+spritegroup name ## _ ## climate ## _group { \
+    loaded: name ## _ ## climate ## _set; \
+    loading: name ## _ ## climate ## _set; \
+}
 
-#############################################################################################
-# Engine with
-# - no loading stages
-# - length 4/8
-# [_ENGINE_LENGTH48](
-# 1  - type,
-# 2  - climate,
-# 3  - model,
-# 4  - filename,
-# 5  - template,
-# 6  - x1,
-# 7  - y1)
-#############################################################################################
-define_unique([_ENGINE_LENGTH48], [check_args_exact([$0], [$#], [7])dnl
-define_unique([_CNAME], [_THIS_ENGINE_ID($1, $2)])dnl
-_SPRITESET(_LENGTH_48, _CNAME_ID, $4, $5, $6, $7, $3)
-_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_set), _CNAME_ID(set), _CNAME_ID(gui_set))
-_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
-undefine([_CNAME])dnl])
 
-#############################################################################################
-# Engine livery with
-# - no loading stages
-# - length 4/8
-# [_ENGINE_LIVERY_LENGTH48](
-# 1  - name,
-# 2  - type,
-# 3  - climate,
-# 4  - model,
-# 5  - filename,
-# 6  - template,
-# 7  - x1,
-# 8  - y1)
-#############################################################################################
-define_unique([_ENGINE_LIVERY_LENGTH48], [check_args_exact([$0], [$#], [8])dnl
-_ENGINE_LENGTH48(_THIS_ID($1, $2), $3, $4, $5, $6, $7, $8)])
+#define ENGINE_GRAPHICS_GROUP_32BPP(name, model, climate, filename, template1, x1, y1, template2, x2, y2) \
+spriteset(name ## _ ## climate ## _set, filename) { template1(x1, y1) } \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model, "1") \
+} \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model, "2") \
+} \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model, "4") \
+} \
+spritegroup name ## _ ## climate ## _group { \
+    loaded: name ## _ ## climate ## _set; \
+    loading: name ## _ ## climate ## _set; \
+} \
+spriteset(name ## _ ## climate ## _set_gui, filename) { template1(x1, y1) } \
+alternative_sprites(name ## _ ## climate ## _set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model) \
+} \
+spritegroup name ## _ ## climate ## _group_gui { \
+    loaded: name ## _ ## climate ## _set_gui; \
+    loading: name ## _ ## climate ## _set_gui; \
+} \
+spriteset(name ## _depot_ ## climate ## _set, filename) { template2(x2, y2) } \
+alternative_sprites(name ## _depot_ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model) \
+} \
+spritegroup name ## _depot_ ## climate ## _group { \
+    loaded: name ## _depot_ ## climate ## _set; \
+    loading: name ## _depot_ ## climate ## _set; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## climate ## _group_gui; \
+    0x11: name ## _ ## climate ## _group_gui; \
+    0x12: name ## _ ## climate ## _group_gui; \
+    0x20: name ## _ ## climate ## _set_gui; \
+    0x21: name ## _ ## climate ## _set_gui; \
+    name ## _ ## climate ## _group; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _indepot_switch, vehicle_is_in_depot) { \
+    1: name ## _depot_ ## climate ## _group; \
+    name ## _ ## climate ## _switch_gui; \
+}
 
-#############################################################################################
-# Engine with
-# - no loading stages
-# - length 8/8
-# [_ENGINE_LENGTH88](
-# 1  - type,
-# 2  - climate,
-# 3  - model,
-# 4  - filename,
-# 5  - template,
-# 6  - x1,
-# 7  - y1)
-#############################################################################################
-define_unique([_ENGINE_LENGTH88], [check_args_exact([$0], [$#], [7])dnl
-define_unique([_CNAME], [_THIS_ENGINE_ID($1, $2)])dnl
-_SPRITESET(_LENGTH_88, _CNAME_ID, $4, $5, $6, $7, $3)
-_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_set), _CNAME_ID(set), _CNAME_ID(gui_set))
-_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
-undefine([_CNAME])dnl])
 
-#############################################################################################
-# Engine with
-# - no loading stages
-# - length 8/8
-# - indepot sprites
-# [_ENGINE_INDEPOT_LENGTH88](
-# 1  - type,
-# 2  - climate,
-# 3  - model,
-# 4  - filename,
-# 5  - template,
-# 6  - x1,
-# 7  - y1,
-# 8  - template indepot,
-# 9  - x2,
-# 10 - y2)
-#############################################################################################
-define_unique([_ENGINE_INDEPOT_LENGTH88], [check_args_exact([$0], [$#], [10])dnl
-define_unique([_CNAME], [_THIS_ENGINE_ID($1, $2)])dnl
-_SPRITESET(_LENGTH_88, _CNAME_ID, $4, $5, $6, $7, $3)
-_SPRITESET_INDEPOT(_LENGTH_88, _CNAME_ID, $4, $8, $9, $10, $3)
-_SWITCH_INDEPOT(_CNAME_ID, _CNAME_ID(gui_set), _CNAME_ID(set), _CNAME_ID(gui_set), _CNAME_ID(indepot_set))
-_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(indepot_gui_switch))
-undefine([_CNAME])dnl])
-
-#############################################################################################
-# Engine with
-# - no loading stages
-# - length 8/8
-# - reversed sprites
-# [_ENGINE_REVERSED_LENGTH88](
-# 1  - type,
-# 2  - climate,
-# 3  - model,
-# 4  - filename,
-# 5  - template,
-# 6  - x1,
-# 7  - y1)
-#############################################################################################
-define_unique([_ENGINE_REVERSED_LENGTH88], [check_args_exact([$0], [$#], [7])dnl
-define_unique([_CNAME], [_THIS_ENGINE_ID($1, $2)])dnl
-_SPRITESET(_LENGTH_88, _CNAME_ID, $4, $5, $6, $7, $3)
-_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_set), _CNAME_ID(set), _CNAME_ID(gui_set))
-_SPRITESET_REVERSED(_LENGTH_88, _CNAME_ID, $4, $5, $6, $7, $3)
-_SWITCH_GUI(_CNAME_ID(rvs), _CNAME_ID(reversed_gui_set), _CNAME_ID(reversed_set), _CNAME_ID(reversed_gui_set))
-_SWITCH_REVERSED(_CNAME_ID, _CNAME_ID(rvs_gui_switch), _CNAME_ID(gui_switch))
-_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(reversed_switch))
-undefine([_CNAME])dnl])
-
-#############################################################################################
-# Engine with
-# - one loading stage
-# - length 8/8
-# [_ENGINE_LOADING_LENGTH88](
-# 1  - type,
-# 2  - climate,
-# 3  - name_loaded,
-# 4  - name_loading,
-# 5  - file_loaded,
-# 6  - file_loading,
-# 7  - tmpl,
-# 8  - x1,
-# 9  - y1
-# 10 - x2,
-# 11 - y2)
-#############################################################################################
-define_unique([_ENGINE_LOADING_LENGTH88], [check_args_exact([$0], [$#], [11])dnl
-define_unique([_CNAME], [_THIS_ENGINE_ID($1, $2)])dnl
-_SPRITESET(_LENGTH_88, _CNAME_ID(loaded), $5, $7, $8, $9, $3)
-_SPRITESET(_LENGTH_88, _CNAME_ID(loading), $6, $7, $10, $11, $4)
-_SPRITEGROUP_LOADING(_CNAME_ID, _CNAME_ID(loaded_set), _CNAME_ID(loading_set))
-_SPRITEGROUP_LOADING(_CNAME_ID(gui), _CNAME_ID(loaded_gui_set), _CNAME_ID(loading_gui_set))
-_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_group), _CNAME_ID(group), _CNAME_ID(loaded_gui_set))
-_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
-undefine([_CNAME])dnl])
-
-#############################################################################################
-# Engine livery with
-# - one loading stage
-# - length 8/8
-# [_ENGINE_LIVERY_LOADING_LENGTH88](
-# 1  - name,
-# 2  - type,
-# 3  - climate,
-# 4  - name_loaded,
-# 5  - name_loading,
-# 6  - file_loaded,
-# 7  - file_loading,
-# 8  - tmpl,
-# 9  - x1,
-# 10 - y1
-# 11 - x2,
-# 12 - y2)
-#############################################################################################
-define_unique([_ENGINE_LIVERY_LOADING_LENGTH88], [check_args_exact([$0], [$#], [12])dnl
-_ENGINE_LOADING_LENGTH88(_THIS_ID($1, $2), $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)])
-
-#############################################################################################
-# Engine with
-# - one loading stage
-# - length 8/8
-# - reversed sprites
-# [_ENGINE_REVERSED_LOADING_LENGTH88](
-# 1  - type,
-# 2  - climate,
-# 3  - name_loaded,
-# 4  - name_loading,
-# 5  - file_loaded,
-# 6  - file_loading,
-# 7  - tmpl,
-# 8  - x1,
-# 9  - y1
-# 10 - x2,
-# 11 - y2)
-#############################################################################################
-define_unique([_ENGINE_REVERSED_LOADING_LENGTH88], [check_args_exact([$0], [$#], [11])dnl
-define_unique([_CNAME], [_THIS_ENGINE_ID($1, $2)])dnl
-_SPRITESET(_LENGTH_88, _CNAME_ID(loaded), $5, $7, $8, $9, $3)
-_SPRITESET(_LENGTH_88, _CNAME_ID(loading), $6, $7, $10, $11, $4)
-_SPRITEGROUP_LOADING(_CNAME_ID, _CNAME_ID(loaded_set), _CNAME_ID(loading_set))
-_SPRITEGROUP_LOADING(_CNAME_ID(gui), _CNAME_ID(loaded_gui_set), _CNAME_ID(loading_gui_set))
-_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_group), _CNAME_ID(group), _CNAME_ID(loaded_set))
-_SPRITESET_REVERSED(_LENGTH_88, _CNAME_ID(loaded), $5, $7, $8, $9, $3)
-_SPRITESET_REVERSED(_LENGTH_88, _CNAME_ID(loading), $6, $7, $10, $11, $4)
-_SPRITEGROUP_LOADING(_CNAME_ID(rvs), _CNAME_ID(loaded_reversed_set), _CNAME_ID(loading_reversed_set))
-_SPRITEGROUP_LOADING(_CNAME_ID(rvs_gui), _CNAME_ID(loaded_reversed_gui_set), _CNAME_ID(loading_reversed_gui_set))
-_SWITCH_GUI(_CNAME_ID(rvs), _CNAME_ID(rvs_gui_group), _CNAME_ID(rvs_group), _CNAME_ID(loading_reversed_gui_set))
-_SWITCH_REVERSED(_CNAME_ID, _CNAME_ID(rvs_gui_switch), _CNAME_ID(gui_switch))
-_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(reversed_switch))
-undefine([_CNAME])dnl])
-
-#############################################################################################
-# Engine livery with
-# - one loading stage
-# - length 8/8
-# - reversed sprites
-# [_ENGINE_LIVERY_REVERSED_LOADING_LENGTH88](
-# 1  - name,
-# 2  - type,
-# 3  - climate,
-# 4  - name_loaded,
-# 5  - name_loading,
-# 6  - file_loaded,
-# 7  - file_loading,
-# 8  - tmpl,
-# 9  - x1,
-# 10 - y1
-# 11 - x2,
-# 12 - y2)
-#############################################################################################
-define_unique([_ENGINE_LIVERY_REVERSED_LOADING_LENGTH88], [check_args_exact([$0], [$#], [12])dnl
-_ENGINE_REVERSED_LOADING_LENGTH88(_THIS_ID($1, $2), $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)])
-
-#############################################################################################
-# Define a livery graphics mapping switch
-# _ENGINE_LIVERY_MAPPING_SWITCH(
-# 1  - wagon,
-# 2  - name,
-# 3  - type,
-# 4  - climate)
-#############################################################################################
-define_unique([_ENGINE_LIVERY_MAPPING_SWITCH], [check_args_exact([$0], [$#], [4])dnl
-/***************************************************************************
- * Map to another sprite definition
- ***************************************************************************/
-switch(FEAT_TRAINS, SELF, _THIS_ENGINE_LIVERY_GRAPHICS_ID($1, $3, $4), 1) {
-define_unique([_THIS_WAGON], [$1])dnl
-    _THIS_WAGON_CLIMATE_SWITCH_ID($2, $4);
-}undefine([_THIS_WAGON])dnl])
-
-#############################################################################################
-# Define a livery graphics year switch
-# _ENGINE_LIVERY_YEAR_SWITCH(
-# 1  - name,
-# 2  - climate
-# 3  - year_for_modern,
-# 4  - type 1,
-# 5  - type 2)
-#############################################################################################
-define_unique([_ENGINE_LIVERY_YEAR_SWITCH], [check_args_exact([$0], [$#], [5])dnl
-/***************************************************************************
- * Switch wagon graphics at specified year
- ***************************************************************************/
-switch(FEAT_TRAINS, SELF, _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID($1, $2), build_year < $3) {
-    1: _THIS_ENGINE_LIVERY_GRAPHICS_ID($1, $4, $2);
-    _THIS_ENGINE_LIVERY_GRAPHICS_ID($1, $5, $2);
-}])
-
-divert
+#define ENGINE_TENDER_GRAPHICS_GROUP_32BPP(name, model_train, model_tender, climate, filename1, template1, x1, y1, filename2, template2, x2, y2) \
+spriteset(name ## _ ## climate ## _set, filename1) { template1(x1, y1) } \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(1, model_train, "1") \
+} \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(2, model_train, "2") \
+} \
+alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_train_opengfxp32(4, model_train, "4") \
+} \
+spritegroup name ## _ ## climate ## _group { \
+    loaded: name ## _ ## climate ## _set; \
+    loading: name ## _ ## climate ## _set; \
+} \
+spriteset(name ## _ ## climate ## _set_gui, filename1) { template1(x1, y1) } \
+alternative_sprites(name ## _ ## climate ## _set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_train_gui_opengfxp32(model_train) \
+} \
+spritegroup name ## _ ## climate ## _group_gui { \
+    loaded: name ## _ ## climate ## _set_gui; \
+    loading: name ## _ ## climate ## _set_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _ ## climate ## _group_gui; \
+    0x11: name ## _ ## climate ## _group_gui; \
+    0x12: name ## _ ## climate ## _group_gui; \
+    0x20: name ## _ ## climate ## _set_gui; \
+    0x21: name ## _ ## climate ## _set_gui; \
+    name ## _ ## climate ## _group; \
+} \
+spriteset(name ## _tender_ ## climate ## _set, filename2) { template2(x1, y1) } \
+alternative_sprites(name ## _tender_ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(1, model_tender, "1") \
+} \
+alternative_sprites(name ## _tender_ ## climate ## _set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(2, model_tender, "2") \
+} \
+alternative_sprites(name ## _tender_ ## climate ## _set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
+    template_short_train_opengfxp32(4, model_tender, "4") \
+} \
+spritegroup name ## _tender_ ## climate ## _group { \
+    loaded: name ## _tender_ ## climate ## _set; \
+    loading: name ## _tender_ ## climate ## _set; \
+} \
+spriteset(name ## _tender_ ## climate ## _set_gui, filename2) { template2(x1, y1) } \
+alternative_sprites(name ## _tender_ ## climate ## _set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
+    template_short_train_gui_opengfxp32(model_tender) \
+} \
+spritegroup name ## _tender_ ## climate ## _group_gui { \
+    loaded: name ## _tender_ ## climate ## _set_gui; \
+    loading: name ## _tender_ ## climate ## _set_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _tender_ ## climate ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
+    0x10: name ## _tender_ ## climate ## _group_gui; \
+    0x11: name ## _tender_ ## climate ## _group_gui; \
+    0x12: name ## _tender_ ## climate ## _group_gui; \
+    0x20: name ## _tender_ ## climate ## _set_gui; \
+    0x21: name ## _tender_ ## climate ## _set_gui; \
+    name ## _tender_ ## climate ## _group; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _graphics_switch, position_in_consist ) { \
+    1: name ## _tender_ ## climate ## _switch_gui; \
+    name ## _ ## climate ## _switch_gui; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _length_switch, position_in_consist) { \
+    1: return 4; \
+    return 8; \
+} \
+switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _articulated_switch, extra_callback_info1) { \
+    1: return name; \
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; \
+}

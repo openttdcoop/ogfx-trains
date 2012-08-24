@@ -1,4 +1,3 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -6,48 +5,54 @@ divert(-1)
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-# Perform a check to make sure the files have been included
-ifelse(do_included_checks, [1],
-    [check_included([src/templates_engines.pnml])
-     check_included([src/railtype_table.pnml])
-     check_included([src/tender.pnml])])
-
-# Define the engine name and check that it was previously undefined
-define_unique([_THIS_ENGINE], [wills280])
-
-divert
-
 /*
- * "Wills 2-8-0 (Steam)"
+ * ****************************
+ * Wills 2-8-0 Steam engine
+ * ****************************
  */
 
-_ENGINE_LENGTH88(engine, default,
-    "willis",
+#define THIS_ID(...) wills280 ## __VA_ARGS__
+
+ENGINE_GRAPHICS_GROUP_32BPP(wills280, "willis", default,
     "src/gfx/engines/arctic_wills280.png",
-    tmpl_engine_88, 0, 0)
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0
+)
 
-_ENGINE_LENGTH88(engine, tropical,
-    "willis",
+ENGINE_GRAPHICS_GROUP_32BPP(wills280, "willis", tropical,
     "src/gfx/engines/tropical_wills280.png",
-    tmpl_engine_88, 0, 0)
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0
+)
 
-switch(FEAT_TRAINS, SELF,  _THIS_ENGINE_CLIMATE_SWITCH_ID(engine, default), climate) {
-    CLIMATE_TROPICAL: _THIS_ENGINE_GRAPHICS_ID(engine, tropical);
-    _THIS_ENGINE_GRAPHICS_ID(engine, default);
-}
+ENGINE_GRAPHICS_TROPICAL_SWITCH_32BPP(wills280)
 
-item(FEAT_TRAINS, _THIS_ENGINE, 07) {
+item(FEAT_TRAINS, wills280) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
-        climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
-        track_type:             NORMAL_RAIL30;
-    }
-    graphics {
-        articulated_part:       _TENDER_ARTICULATED_ENABLED_SWITCH_ID;
-
-        _THIS_ENGINE_CLIMATE_SWITCH_ID(engine, default);
+        sprite_id:                      SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:                     bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
     }
 }
 
-undefine([_THIS_ENGINE])dnl
+/* We need to define the whole graphics block with all callbacks at once */
+
+if (param_tender != TENDER_NONE) {
+	/* Articulated vehicle with tender */
+	item(FEAT_TRAINS, wills280) {
+		graphics {
+			default:            wills280_indepot_switch;
+			articulated_part:   tender_articulated_cb;
+			purchase:           wills280_switch_gui;
+		}
+	}
+} else {
+	/* Normal engine without tender */
+	item(FEAT_TRAINS, wills280) {
+		graphics {
+			default:            wills280_indepot_switch;
+			purchase:           wills280_switch_gui;
+		}
+	}
+}
+
+#undef THIS_ID

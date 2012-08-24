@@ -1,4 +1,3 @@
-divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -6,45 +5,35 @@ divert(-1)
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-# Perform a check to make sure the files have been included
-ifelse(do_included_checks, [1],
-    [check_included([src/templates_wagons.pnml])
-     check_included([src/cargo_definitions.pnml])])
-
-# Define the wagon name and check that it was previously undefined
-define_unique([_THIS_WAGON], [monorail_mail_wagon])
-
-divert
-
 /*
  * ***************************
- * Monorail Mail wagon:
- *
- * Note this is a redefined wagon and not a new wagon!
+ * Mail wagon:
  * ***************************
  */
 
-_WAGON_LOADING_LENGTH88(common, modern, default,
+#define THIS_ID(...) monorail_mail_wagon ## __VA_ARGS__
+
+MU_8SPRITES_LOADING_32BPP(monorail_mail_wagon_temperate,
     "mono_mail",
     "mono_mail_loading",
     "src/gfx/temperate_monolev.png",
-    "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon42, 0, 40, 0, 20)
+    tmpl_short_railwagon42, 0, 40, 0, 20) // 8 views needed for 32bpp
 
-item(FEAT_TRAINS, _THIS_WAGON, 58) {
+switch (FEAT_TRAINS, SELF, monorail_mail_wagon_climate_switch, climate) {
+    monorail_mail_wagon_temperate_switch_gui;
+}
+
+item(FEAT_TRAINS, monorail_mail_wagon, 58) {
     property {
-include([src/template_wagon_properties_default.pnml])
-include([src/template_wagon_properties_monorail_default.pnml])
-include([src/template_refit_properties_mail.pnml])
-        cost_factor:                    228;
-        cargo_capacity:                 35;
-        weight:                         21 ton;
+        WAGON_PROPERTIES_DEFAULT
+        WAGON_PROPERTIES_MONORAIL_DEFAULT
+        REFIT_PROPERTIES_MAIL
+        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
+        refit_cost:                     0; // refit is free
     }
     graphics {
-        refit_cost:     _MAIL_REFIT_COST_SWITCH;
-
-        _THIS_WAGON_GRAPHICS_ID(common, modern, default);
+        monorail_mail_wagon_climate_switch;
     }
 }
 
-undefine([_THIS_WAGON])dnl
+#undef THIS_ID
