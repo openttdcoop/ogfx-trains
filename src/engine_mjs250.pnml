@@ -21,12 +21,12 @@ divert
  */
 
 _ENGINE_LENGTH88(engine, default,
-    "mjs250",
+    _NONE_AVAILABLE,
     "src/gfx/engines/arctic_MJS250.png",
     tmpl_engine_88, 0, 0)
 
 _ENGINE_LENGTH88(engine, tropical,
-    "mjs250",
+    _NONE_AVAILABLE,
     "src/gfx/engines/tropical_MJS250_88.png",
     tmpl_engine_88, 0, 0)
 
