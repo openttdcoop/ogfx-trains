@@ -23,17 +23,12 @@ item(FEAT_TRAINS, kirbypaul, 00) {
     }
 }
 
-ENGINE_GRAPHICS_GROUP(mjs250, default, tmpl_engine_88(0, 0),  "src/gfx/engines/arctic_MJS250.png")
-ENGINE_GRAPHICS_GROUP(mjs250, tropical, tmpl_engine_88(0, 0),  "src/gfx/engines/tropical_MJS250_88.png")
-ENGINE_GRAPHICS_TROPICAL_SWITCH(mjs250)
 item(FEAT_TRAINS, mjs250, 01) {
     property {
-        sprite_id:              SPRITE_ID_NEW_TRAIN;    // We have our own sprite
-        misc_flags:             bitmask(TRAIN_FLAG_FLIP);
+        // We define this engine in a separate file
         climates_available:     ((USE_CLIMATE_ARCTIC || USE_CLIMATE_TROPICAL || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
         track_type:             NORMAL_RAIL10;
     }
-    ENGINE_GRAPHICS_BLOCK(mjs250)
 }
 
 item(FEAT_TRAINS, ploddyphut_choochoo, 02) {

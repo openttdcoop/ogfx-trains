@@ -1,0 +1,35 @@
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * =============================================================================
+ * MJS 250
+ * =============================================================================
+ */
+
+ENGINE_GRAPHICS_GROUP_32BPP(mjs250, "mjs250", default,
+    "src/gfx/engines/arctic_MJS250.png",
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0)
+
+ENGINE_GRAPHICS_GROUP_32BPP(mjs250, "mjs250", tropical,
+    "src/gfx/engines/tropical_MJS250_88.png",
+    tmpl_engine_88, 0, 0,
+    tmpl_engine_88, 0, 0)
+
+ENGINE_GRAPHICS_TROPICAL_SWITCH_32BPP(mjs250)
+
+item(FEAT_TRAINS, mjs250, 01) {
+    property {
+        sprite_id:          SPRITE_ID_NEW_TRAIN;    // We have our own sprite
+        misc_flags:         bitmask(TRAIN_FLAG_FLIP, TRAIN_FLAG_2CC);
+    }
+    graphics {
+        default:            mjs250_indepot_switch;
+        purchase:           mjs250_switch_gui;
+    }
+}

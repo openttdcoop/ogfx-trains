@@ -93,6 +93,7 @@
 
 // rail engines
 #include "src/engine_kirby_paul.pnml"    // id 00
+#include "src/engine_mjs250.pnml"        // id 01
 #include "src/engine_ploddyphut.pnml"    // id 02
 #include "src/engine_powernaut.pnml"     // id 03
 #include "src/engine_mightymover.pnml"   // id 04
