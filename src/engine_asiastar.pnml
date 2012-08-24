@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,56 +6,85 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/*
- * =============================================================================
- * AsiaStar
- * =============================================================================
- */
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_engines.pnml])
+     check_included([src/railtype_table.pnml])
+     check_included([src/wagon_pax.pnml])
+     check_included([src/wagon_mail.pnml])
+     check_included([src/wagon_valuables.pnml])])
+
+# Define the engine name and check that it was previously undefined
+define_unique([_THIS_ENGINE], [asiastar])
+
+divert
 
 /*
- * AsiaStar
+ * "'AsiaStar' (Electric)"
  * Livery override for passenger, mail and valuables wagons
  */
 
-MU_8SPRITES_32BPP (asiastar_engine,
+/* DEFAULT ENGINE */
+_ENGINE_LENGTH88(engine, default,
     "asia_star",
     "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png",
     tmpl_railwagon8_high2, 0, 0)
 
-WAGON_BULK_32BPP (asiastar_passenger,
-    modern,
+/* PASSENGER LIVERY */
+_ENGINE_LIVERY_MAPPING_SWITCH(passenger_wagon, common, early, default)
+
+_ENGINE_LIVERY_LOADING_LENGTH88(passenger_wagon, modern, default,
     "passenger_asia_star",
     "passenger_asia_star_loading",
     "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png",
+    "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 27, 0, 27)
 
-WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, asiastar_passenger, passenger_wagon_climate_switch, modern)
+_ENGINE_LIVERY_YEAR_SWITCH(passenger_wagon, default, _RAIL_MODERN_YEAR, early, modern)
 
-WAGON_BULK_32BPP (asiastar_mail,
-    modern,
+/* MAIL LIVERY */
+_ENGINE_LIVERY_MAPPING_SWITCH(mail_wagon, common, early, default)
+
+_ENGINE_LIVERY_LOADING_LENGTH88(mail_wagon, modern, default,
     "mail_asia_star",
     "mail_asia_star_loading",
     "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png",
+    "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 54, 0, 54)
 
-WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, asiastar_mail, mail_wagon_climate_switch, modern)
+_ENGINE_LIVERY_YEAR_SWITCH(mail_wagon, default, _RAIL_MODERN_YEAR, early, modern)
 
-WAGON_BULK_32BPP (asiastar_valuables,
-    modern,
+/* VALUABLES LIVERY */
+_ENGINE_LIVERY_MAPPING_SWITCH(valuables_wagon, common, early, default)
+
+_ENGINE_LIVERY_LOADING_LENGTH88(valuables_wagon, modern, default,
     "armoured_asia_star",
     "armoured_asia_star_loading",
     "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png",
+    "src/gfx/mus/asiastar/AsiaStarLiveryOverride.png",
     tmpl_railwagon8_normal, 0, 80, 0, 80)
 
-WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(rail_modern_year, asiastar_valuables, valuables_wagon_climate_switch, modern)
+_ENGINE_LIVERY_YEAR_SWITCH(valuables_wagon, default, _RAIL_MODERN_YEAR, early, modern)
 
-item(FEAT_TRAINS, asiastar, 26) {
+item(FEAT_TRAINS, _THIS_ENGINE, 26) {
     property {
-        sprite_id:                      SPRITE_ID_NEW_TRAIN;
-        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_2CC);
+        sprite_id:              SPRITE_ID_NEW_TRAIN;
+        misc_flags:             bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_2CC);
+        climates_available:     ((USE_CLIMATE_TEMPERATE || USE_CLIMATE_ALL || USE_CLIMATE_ALL_BUT_TOYLAND) && param_provide_rail) ? bitmask(climate) : NO_CLIMATE;
+        track_type:             EL_RAIL;
     }
-    graphics { asiastar_engine_switch_gui; }
-    livery_override (passenger_wagon) { asiastar_passenger_year_switch; }
-    livery_override (mail_wagon)      { asiastar_mail_year_switch; }
-    livery_override (valuables_wagon) { asiastar_valuables_year_switch; }
+    graphics {
+        _THIS_ENGINE_GRAPHICS_ID(engine, default);
+    }
+    livery_override (passenger_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(passenger_wagon, default);
+    }
+    livery_override (mail_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(mail_wagon, default);
+    }
+    livery_override (valuables_wagon) {
+        _THIS_ENGINE_LIVERY_YEAR_SWITCH_ID(valuables_wagon, default);
+    }
 }
+
+undefine([_THIS_ENGINE])dnl

@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,9 +6,20 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])
+     check_included([src/wagon_bulk.pnml])
+     check_included([src/cargo_definitions.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [maglev_bulk_wagon])
+
+divert
+
 /*
  * ***************************
- * Bulk wagon:
+ * Maglev Bulk wagon:
  *
  * coal, iron ore, bauxite, copper ore,
  * gravel, sand, clay, grains, maize, wheat,
@@ -18,9 +30,208 @@
  * ***************************
  */
 
-#define THIS_ID(...) maglev_bulk_wagon ## __VA_ARGS__
+/* AORE */
+_WAGON_2STAGES_NOLOADING_LENGTH88(bauxite,modern, default,
+    "mono_bulk",
+    "mono_bulk_bauxite",
+    "src/gfx/bulk/rail_bauxite_temperate.png",
+    "src/gfx/bulk/rail_bauxite_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
 
-switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_capacity_switch, cargo_type_in_veh) {
+/* CERE, GRAI, MAIZ, WHEA */
+_WAGON_2STAGES_NOLOADING_LENGTH88(grain, modern, default,
+    "mono_bulk",
+    "mono_bulk_grain",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 240, 0, 260)
+
+/* CLAY */
+_WAGON_2STAGES_NOLOADING_LENGTH88(clay, modern, default,
+    "mono_bulk",
+    "mono_bulk_clay",
+    "src/gfx/bulk/rail_clay_temperate.png",
+    "src/gfx/bulk/rail_clay_temperate.png",
+    tmpl_railwagon42, 0, 36, 126, 36)
+
+/* COAL */
+_WAGON_2STAGES_NOLOADING_LENGTH88(coal, modern, default,
+    "mono_bulk",
+    "mono_bulk_coal",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 100, 0, 120)
+
+_WAGON_2STAGES_NOLOADING_LENGTH88(coal, modern, arctic,
+    "mono_bulk",
+    "mono_bulk_coal",
+    "src/gfx/arctic_monolev.png",
+    "src/gfx/arctic_monolev.png",
+    tmpl_short_railwagon42, 0, 100, 0, 120)
+
+/* CORE */
+_WAGON_2STAGES_NOLOADING_LENGTH88(copper, modern, default,
+    "mono_bulk",
+    "mono_bulk_copper_ore",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 280, 0, 300)
+
+/* CTCD */
+_WAGON_2STAGES_NOLOADING_LENGTH88(cottoncandy, modern, default,
+    "mono_bulk",
+    "mono_bulk_candy_floss",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 140, 0, 160)
+
+/* FERT: see GRVL */
+
+/* FRUT, FRVG */
+_WAGON_2STAGES_NOLOADING_LENGTH88(fruits, modern, default,
+    "mono_bulk",
+    "mono_bulk_fruit_veg",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 340, 0, 360)
+
+/* FRVG: see FRUT */
+
+/* GRAI: see CERE */
+
+/* GRVL, FERT */
+_WAGON_2STAGES_NOLOADING_LENGTH88(gravel, modern, default,
+    "mono_bulk",
+    "mono_bulk_gravel",
+    "src/gfx/bulk/rail_gravel_temperate.png",
+    "src/gfx/bulk/rail_gravel_temperate.png",
+    tmpl_railwagon42, 0, 31, 126, 31)
+
+/* IORE */
+_WAGON_2STAGES_NOLOADING_LENGTH88(ironore, modern, default,
+    "mono_bulk",
+    "mono_bulk_iron_ore",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 360, 0, 380)
+
+/* MAIZ: see CERE */
+
+/* RSGR (and SGCN, SGBT) */
+_WAGON_2STAGES_NOLOADING_LENGTH88(rawsugar, modern, default,
+    "mono_bulk",
+    "mono_bulk_sugar_beet",
+    "src/gfx/tropic_railwagons.png",
+    "src/gfx/tropic_railwagons.png",
+    tmpl_railwagon42, 0, 500, 0, 525)
+
+/* SAND, SULP */
+_WAGON_2STAGES_NOLOADING_LENGTH88(sand, modern, default,
+    "mono_bulk",
+    "mono_bulk_sand",
+    "src/gfx/bulk/rail_sand_temperate.png",
+    "src/gfx/bulk/rail_sand_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
+
+/* SCRP */
+_WAGON_2STAGES_NOLOADING_LENGTH88(scrapmetal, modern, default,
+    "mono_bulk",
+    "mono_bulk_scrap_metal",
+    "src/gfx/bulk/rail_scrapmetal_temperate.png",
+    "src/gfx/bulk/rail_scrapmetal_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
+
+/* SUGR */
+_WAGON_2STAGES_NOLOADING_LENGTH88(sugar, modern, default,
+    "mono_bulk",
+    "mono_bulk_sugar",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 100, 0, 120)
+
+/* SULP: see SAND */
+
+/* TOFF */
+_WAGON_2STAGES_NOLOADING_LENGTH88(toffee, modern, default,
+    "mono_bulk",
+    "mono_bulk_toffee",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 180, 0, 200)
+
+/* WHEA: see CERE */
+
+/* WDPR */
+_WAGON_2STAGES_NOLOADING_LENGTH88(woodproducts, modern, default,
+    "mono_bulk",
+    "mono_bulk_woodproducts",
+    "src/gfx/bulk/rail_woodproducts_temperate.png",
+    "src/gfx/bulk/rail_woodproducts_temperate.png",
+    tmpl_railwagon42, 0, 32, 126, 32)
+
+/* RUBR */
+_WAGON_2STAGES_NOLOADING_LENGTH88(rubber, modern, default,
+    "mono_bulk",
+    "mono_bulk_rubber",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 380, 0, 400)
+
+/* LIME */
+_WAGON_2STAGES_NOLOADING_LENGTH88(limestone, modern, default,
+    "mono_bulk",
+    "mono_bulk_limestone",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 380, 0, 400)
+
+/* FICR */
+_WAGON_2STAGES_NOLOADING_LENGTH88(fiber_crop, modern, default,
+    "mono_bulk",
+    "mono_bulk_fiber",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 380, 0, 400)
+
+
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CLIMATE_SWITCH_ID(coal, modern), climate) {
+    CLIMATE_TROPICAL: _THIS_WAGON_GRAPHICS_ID(coal, modern, arctic);
+    _THIS_WAGON_GRAPHICS_ID(coal, modern, default);
+}
+
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(default), cargo_type_in_veh) {
+    AORE: _THIS_WAGON_GRAPHICS_ID(bauxite, modern, default);
+    CERE: _THIS_WAGON_GRAPHICS_ID(grain, modern, default);
+    CLAY: _THIS_WAGON_GRAPHICS_ID(clay, modern, default);
+    COAL: _THIS_WAGON_CLIMATE_SWITCH_ID(coal, modern);
+    CORE: _THIS_WAGON_GRAPHICS_ID(copper, modern, default);
+    CTCD: _THIS_WAGON_GRAPHICS_ID(cottoncandy, modern, default);
+    FERT: _THIS_WAGON_GRAPHICS_ID(gravel, modern, default);
+    FRUT: _THIS_WAGON_GRAPHICS_ID(fruits, modern, default);
+    FRVG: _THIS_WAGON_GRAPHICS_ID(fruits, modern, default);
+    GRAI: _THIS_WAGON_GRAPHICS_ID(grain, modern, default);
+    GRVL: _THIS_WAGON_GRAPHICS_ID(gravel, modern, default);
+    IORE: _THIS_WAGON_GRAPHICS_ID(ironore, modern, default);
+    MAIZ: _THIS_WAGON_GRAPHICS_ID(grain, modern, default);
+    OLSD: _THIS_WAGON_GRAPHICS_ID(fruits, modern, default);
+    RSGR: _THIS_WAGON_GRAPHICS_ID(rawsugar, modern, default);
+    SGCN: _THIS_WAGON_GRAPHICS_ID(rawsugar, modern, default);
+    SGBT: _THIS_WAGON_GRAPHICS_ID(rawsugar, modern, default);
+    SAND: _THIS_WAGON_GRAPHICS_ID(sand, modern, default);
+    SCRP: _THIS_WAGON_GRAPHICS_ID(scrapmetal, modern, default);
+    SCMT: _THIS_WAGON_GRAPHICS_ID(scrapmetal, modern, default);
+    SUGR: _THIS_WAGON_GRAPHICS_ID(sugar, modern, default);
+    SULP: _THIS_WAGON_GRAPHICS_ID(sand, modern, default);
+    TOFF: _THIS_WAGON_GRAPHICS_ID(toffee, modern, default);
+    WHEA: _THIS_WAGON_GRAPHICS_ID(grain, modern, default);
+    WDPR: _THIS_WAGON_GRAPHICS_ID(woodproducts, modern, default);
+    RUBR: _THIS_WAGON_GRAPHICS_ID(rubber, modern, default);
+    LIME: _THIS_WAGON_GRAPHICS_ID(limestone, modern, default);
+    FICR: _THIS_WAGON_GRAPHICS_ID(fiber_crop, modern, default);
+    _THIS_WAGON_CLIMATE_SWITCH_ID(coal, modern);                /* default to coal; also waste (WSTE) */
+}
+
+switch (FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(capacity), cargo_type_in_veh) {
     // default: 37 units
     FICR: return 32;
     FRUT: return 32;
@@ -32,25 +243,26 @@ switch (FEAT_TRAINS, SELF, maglev_bulk_wagon_cb_capacity_switch, cargo_type_in_v
     CB_FAILED;
 }
 
-item(FEAT_TRAINS, maglev_bulk_wagon) {
+item(FEAT_TRAINS, _THIS_WAGON) {
     property {
+        /* We try to simulate the stats of the temperate grain wagon */
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_maglev_default.pnml])
+include([src/template_refit_properties_bulk.pnml])
         name:                           string(STR_NAME_BULK_WAGON);
-        WAGON_PROPERTIES_DEFAULT
-        WAGON_PROPERTIES_MAGLEV_DEFAULT
-        REFIT_PROPERTIES_BULK
         cost_factor:                    176;
         cargo_capacity:                 37;
-        weight:                         18;
-     }
+        weight:                         18 ton;
+    }
     graphics {
-        cargo_capacity:     maglev_bulk_wagon_cb_capacity_switch;
-        weight:             bulk_wagon_cb_property_weight_switch;
-        cargo_subtype_text: bulk_wagon_cb_cargo_subtype_switch;
-        refit_cost:         bulk_refit_cost_switch;
+        cargo_capacity:     _THIS_WAGON_CARGO_SWITCH_ID(capacity);
+        weight:             _BULK_WAGON_WEIGHT_SWITCH_ID;
+        cargo_subtype_text: _BULK_WAGON_SUFFIX_SWITCH_ID;
+        refit_cost:         _BULK_REFIT_COST_SWITCH;
 
-        purchase:           monorail_bulk_wagon_coal_climate_switch;
-        monorail_bulk_wagon_switch;
+        purchase:           _THIS_WAGON_CLIMATE_SWITCH_ID(coal, modern);
+        _THIS_WAGON_CARGO_SWITCH_ID(default);
     }
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

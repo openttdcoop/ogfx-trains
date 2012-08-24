@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,35 +6,45 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])
+     check_included([src/cargo_definitions.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [monorail_passenger_wagon])
+
+divert
+
 /*
  * ***************************
- * Passenger wagon:
+ * Monorail Passenger wagon:
+ *
+ * Note this is a redefined wagon and not a new wagon!
  * ***************************
  */
 
-#define THIS_ID(...) monorail_passenger_wagon ## __VA_ARGS__
-
-MU_8SPRITES_LOADING_32BPP(monorail_passenger_wagon_temperate,
+_WAGON_LOADING_LENGTH88(common, modern, default,
     "mono_passenger",
     "mono_passenger_loading",
     "src/gfx/temperate_monolev.png",
-    tmpl_short_railwagon42, 0, 0, 0, 0) // 8 views needed for 32bpp
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 0, 0, 0)
 
-switch (FEAT_TRAINS, SELF, monorail_passenger_wagon_climate_switch, climate) {
-    monorail_passenger_wagon_temperate_switch_gui;
-}
-
-item(FEAT_TRAINS, monorail_passenger_wagon, 57) {
+item(FEAT_TRAINS, _THIS_WAGON, 57) {
     property {
-        WAGON_PROPERTIES_DEFAULT
-        WAGON_PROPERTIES_MONORAIL_DEFAULT
-        REFIT_PROPERTIES_PAX
-        misc_flags:                     bitmask(TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); // We use special sprites for passenger and mail wagons
-        refit_cost:                     0; // refit is free
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_monorail_default.pnml])
+include([src/template_refit_properties_pax.pnml])
+        cost_factor:                    247;
+        cargo_capacity:                 45;
+        weight:                         25 ton;
     }
     graphics {
-        monorail_passenger_wagon_climate_switch;
+        refit_cost:     _PAX_REFIT_COST_SWITCH;
+
+        _THIS_WAGON_GRAPHICS_ID(common, modern, default);
     }
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

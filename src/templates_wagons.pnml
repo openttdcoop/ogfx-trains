@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,462 +6,274 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_common.pnml])])
 
-/*************************
- * Vehicle with
- * - no loading stages
- * - length 4/8
- * - no temporal variation
- ************************/
-#define SPRITEGROUP_1STAGE_LENGTH48_32BPP(name, model, climate, filename, templatename, x, y) \
-spriteset(name ## _ ## climate ## _set, filename) { templatename(x, y) } \
-alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(1, model, "1") \
-} \
-alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(2, model, "2") \
-} \
-alternative_sprites(name ## _ ## climate ## _set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_short_train_opengfxp32(4, model, "4") \
-} \
-spritegroup name ## _ ## climate ## _group { \
-    loaded: name ## _ ## climate ## _set; \
-    loading: name ## _ ## climate ## _set; \
-} \
-spriteset(name ## _ ## climate ## _set_gui, filename) { templatename(x, y) } \
-alternative_sprites(name ## _ ## climate ## _set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_short_train_gui_opengfxp32(model) \
-} \
-spritegroup name ## _ ## climate ## _group_gui { \
-    loaded: name ## _ ## climate ## _set_gui; \
-    loading: name ## _ ## climate ## _set_gui; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _ ## climate ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _ ## climate ## _group_gui; \
-    0x11: name ## _ ## climate ## _group_gui; \
-    0x12: name ## _ ## climate ## _group_gui; \
-    0x20: name ## _ ## climate ## _set_gui; \
-    0x21: name ## _ ## climate ## _set_gui; \
-    name ## _ ## climate ## _group; \
-}
+#############################################################################################
+# _THIS_WAGON_ID (args...)
+# Creates an identifier by joining _THIS_WAGON and the provided arguments with an
+# underscore (_) character.
+#############################################################################################
+define_unique([_THIS_WAGON_ID],
+    [check_defined([_THIS_WAGON])_THIS_ID(_THIS_WAGON, $@)])
 
+#############################################################################################
+# _THIS_WAGON_GRAPHICS_ID (name, climate)
+# Creates a wagon graphics identifier that can be used as a unique graphics reference
+# for template macros.
+#############################################################################################
+define_unique([_THIS_WAGON_GRAPHICS_ID],
+    [check_args_exact([$0], [$#], [3])_THIS_WAGON_ID($@, graphics_switch)])
 
-/*************************
- * Vehicle with
- * - one loading stage (empty + full)
- * - length 8/8
- ************************/
-#define SPRITEGROUP_2STAGES_NOLOADING_32BPP(name, empty_model, full_model, file1, file2, tmpl, x1, y1, x2, y2) \
-spriteset(name ##_empty_set, file1) { tmpl(x1, y1) } \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, empty_model, "1") \
-} \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, empty_model, "2") \
-} \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, empty_model, "4") \
-} \
-spriteset(name ##_empty_set_gui, file1) { tmpl(x1, y1) } \
-alternative_sprites(name ##_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(empty_model) \
-} \
-spriteset(name ##_full_set, file2) { tmpl(x1, y1) } \
-alternative_sprites(name ##_full_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, full_model, "1") \
-} \
-alternative_sprites(name ##_full_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, full_model, "2") \
-} \
-alternative_sprites(name ##_full_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, full_model, "4") \
-} \
-spriteset(name ##_full_set_gui, file2) { tmpl(x1, y1) } \
-alternative_sprites(name ##_full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(full_model) \
-} \
-spritegroup name ##_group { \
-	loaded: [name ##_empty_set, name ##_full_set]; \
-	loading: [name ##_empty_set, name ##_full_set]; \
-} \
-spritegroup name ##_group_gui { \
-	loaded: [name ##_empty_set_gui, name ##_full_set_gui]; \
-	loading: [name ##_empty_set_gui, name ##_full_set_gui]; \
-} \
-switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ##_group_gui; \
-    0x11: name ##_group_gui; \
-    0x12: name ##_group_gui; \
-    0x20: name ##_empty_set_gui; \
-    0x21: name ##_empty_set_gui; \
-    name ##_group; \
-}
+#############################################################################################
+# _THIS_WAGON_CLIMATE_SWITCH_ID (name, climate)
+# Creates an wagon climate switch identifier that can be used as a unique graphics reference
+# for template macros.
+#############################################################################################
+define_unique([_THIS_WAGON_CLIMATE_SWITCH_ID],
+    [check_args_exact([$0], [$#], [2])_THIS_WAGON_ID($@, climate_switch)])
 
+#############################################################################################
+# _THIS_WAGON_CARGO_SWITCH_ID (name, climate)
+# Creates an wagon cargo switch identifier that can be used as a unique graphics reference
+# for template macros.
+#############################################################################################
+define_unique([_THIS_WAGON_CARGO_SWITCH_ID],
+    [check_args_exact([$0], [$#], [1])_THIS_WAGON_ID($@, cargo_switch)])
 
-#define SPRITEGROUP_4STAGES_NOLOADING(name, file_empty, file_1, file_2, file_3, tmpl, x, yempty, y1, y2, y3) \
-spriteset(name ##_empty_set, file_empty) { tmpl(x, yempty) tmpl(x, yempty) } \
-spriteset(name ##_full13_set, file_1) { tmpl(x, y1) tmpl(x, y1) } \
-spriteset(name ##_full23_set, file_2) { tmpl(x, y2) tmpl(x, y2) } \
-spriteset(name ##_full33_set, file_3) { tmpl(x, y3) tmpl(x, y3) } \
-spritegroup name ##_group { \
-    loaded: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
-    loading: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
-}
+#############################################################################################
+# _THIS_WAGON_RANDOM_SWITCH_ID (name, climate)
+# Creates an wagon random switch identifier that can be used as a unique graphics reference
+# for template macros.
+#############################################################################################
+define_unique([_THIS_WAGON_RANDOM_SWITCH_ID],
+    [check_args_exact([$0], [$#], [1])_THIS_WAGON_ID($@, random_switch)])
 
+#############################################################################################
+# _THIS_WAGON_YEAR_SWITCH_ID (name, climate)
+# Creates an wagon year switch identifier that can be used as a unique graphics reference
+# for template macros.
+#############################################################################################
+define_unique([_THIS_WAGON_YEAR_SWITCH_ID],
+    [check_args_exact([$0], [$#], [2])_THIS_WAGON_ID($@, year_switch)])
 
-#define SPRITEGROUP_4STAGES_NOLOADING_32BPP(name, model_empty, model_13, model_23, model_33, file_empty, file_1, file_2, file_3, tmpl, x1, y1, x2, y2, x3, y3, x4, y4) \
-spriteset(name ##_empty_set, file_empty) { tmpl(x1, y1) } \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, model_empty, "1") \
-} \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, model_empty, "2") \
-} \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, model_empty, "4") \
-} \
-spriteset(name ##_empty_set_gui, file_empty) { tmpl(x1, y1) } \
-alternative_sprites(name ##_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(model_empty) \
-} \
-spriteset(name ##_full13_set, file_1) { tmpl(x2, y2) } \
-alternative_sprites(name ##_full13_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, model_13, "1") \
-} \
-alternative_sprites(name ##_full13_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, model_13, "2") \
-} \
-alternative_sprites(name ##_full13_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, model_13, "4") \
-} \
-spriteset(name ##_full13_set_gui, file_1) { tmpl(x2, y2) } \
-alternative_sprites(name ##_full13_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(model_13) \
-} \
-spriteset(name ##_full23_set, file_2) { tmpl(x3, y3) } \
-alternative_sprites(name ##_full23_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, model_23, "1") \
-} \
-alternative_sprites(name ##_full23_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, model_23, "2") \
-} \
-alternative_sprites(name ##_full23_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, model_23, "4") \
-} \
-spriteset(name ##_full23_set_gui, file_2) { tmpl(x3, y3) } \
-alternative_sprites(name ##_full23_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(model_23) \
-} \
-spriteset(name ##_full33_set, file_3) { tmpl(x4, y4) } \
-alternative_sprites(name ##_full33_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, model_33, "1") \
-} \
-alternative_sprites(name ##_full33_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, model_33, "2") \
-} \
-alternative_sprites(name ##_full33_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, model_33, "4") \
-} \
-spriteset(name ##_full33_set_gui, file_3) { tmpl(x4, y4) } \
-alternative_sprites(name ##_full33_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(model_33) \
-} \
-spritegroup name ##_group { \
-    loaded: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
-    loading: [name ##_empty_set, name ##_full13_set, name ##_full23_set, name ##_full33_set]; \
-} \
-spritegroup name ##_group_gui { \
-	loaded: [name ##_empty_set_gui, name ##_full13_set_gui, name ##_full23_set_gui, name ##_full33_set_gui]; \
-	loading: [name ##_empty_set_gui, name ##_full13_set_gui, name ##_full23_set_gui, name ##_full33_set_gui]; \
-} \
-switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ##_group_gui; \
-    0x11: name ##_group_gui; \
-    0x12: name ##_group_gui; \
-    0x20: name ##_empty_set_gui; \
-    0x21: name ##_empty_set_gui; \
-    name ##_group; \
-}
+#############################################################################################
+# _THIS_WAGON_SPEED_YEAR_SWITCH_ID (name, climate)
+# Creates an wagon speed year switch identifier that can be used as a unique speed reference
+# for template macros.
+#############################################################################################
+define_unique([_THIS_WAGON_SPEED_YEAR_SWITCH_ID],
+    [check_args_exact([$0], [$#], [2])_THIS_WAGON_ID($@, speed_year_switch)])
 
+#############################################################################################
+# Wagon with
+# - no loading stages
+# - length 4/8
+# [_WAGON_LENGTH48](
+# 1 - name,
+# 2 - type,
+# 3 - climate,
+# 4 - model,
+# 5 - filename,
+# 6 - templatename,
+# 7 - x,
+# 8 - y)
+#############################################################################################
+define_unique([_WAGON_LENGTH48], [check_args_exact([$0], [$#], [8])dnl
+define_unique([_CNAME], [_THIS_WAGON_ID($1, $2, $3)])dnl
+_SPRITESET(_LENGTH_48, _CNAME_ID, $5, $6, $7, $8, $4)
+_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_set), _CNAME_ID(set), _CNAME_ID(gui_set))
+_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
+undefine([_CNAME])dnl])
 
-#define SPRITEGROUP_3STAGES_NOLOADING(name, file_empty, file_1, file_2, tmpl, x, yempty, y1, y2) \
-spriteset(name ##_empty_set, file_empty) { tmpl(x, yempty) } \
-spriteset(name ##_full12_set, file_1) { tmpl(x, y1) } \
-spriteset(name ##_full22_set, file_2) { tmpl(x, y2) } \
-spritegroup name ##_group { \
-    loaded: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
-    loading: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
-}
+#############################################################################################
+# Wagon with
+# - no loading stage
+# - length 8/8
+# [_WAGON_LENGTH88](
+# 1 - name,
+# 2 - type,
+# 3 - climate,
+# 4 - model,
+# 5 - filename,
+# 6 - templatename,
+# 7 - x,
+# 8 - y)
+#############################################################################################
+define_unique([_WAGON_LENGTH88], [check_args_exact([$0], [$#], [8])dnl
+define_unique([_CNAME], [_THIS_WAGON_ID($1, $2, $3)])dnl
+_SPRITESET(_LENGTH_88, _CNAME_ID, $5, $6, $7, $8, $4)
+_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_set), _CNAME_ID(set), _CNAME_ID(gui_set))
+_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
+undefine([_CNAME])dnl])
 
+#############################################################################################
+# Wagon with
+# - one loading stage
+# - length 8/8
+# [_WAGON_LOADING_LENGTH88](
+# 1  - name,
+# 2  - type,
+# 3  - climate,
+# 4  - name_loaded,
+# 5  - name_loading,
+# 6  - file_loaded,
+# 7  - file_loading,
+# 8  - tmpl,
+# 9  - x1,
+# 10 - y1
+# 11 - x2,
+# 12 - y2)
+#############################################################################################
+define_unique([_WAGON_LOADING_LENGTH88], [check_args_exact([$0], [$#], [12])dnl
+define_unique([_CNAME], [_THIS_WAGON_ID($1, $2, $3)])dnl
+_SPRITESET(_LENGTH_88, _CNAME_ID(loaded), $6, $8, $9, $10, $4)
+_SPRITESET(_LENGTH_88, _CNAME_ID(loading), $7, $8, $11, $12, $5)
+_SPRITEGROUP_LOADING(_CNAME_ID, _CNAME_ID(loaded_set), _CNAME_ID(loading_set))
+_SPRITEGROUP_LOADING(_CNAME_ID(gui), _CNAME_ID(loaded_gui_set), _CNAME_ID(loading_gui_set))
+_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_group), _CNAME_ID(group), _CNAME_ID(loaded_gui_set))
+_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
+undefine([_CNAME])dnl])
 
-#define SPRITEGROUP_3STAGES_NOLOADING_32BPP(name, model_empty, model_12, model_22, file_empty, file_1, file_2, tmpl, x1, y1, x2, y2, x3, y3) \
-spriteset(name ##_empty_set, file_empty) { tmpl(x1, y1) } \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, model_empty, "1") \
-} \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, model_empty, "2") \
-} \
-alternative_sprites(name ##_empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, model_empty, "4") \
-} \
-spriteset(name ##_empty_set_gui, file_empty) { tmpl(x1, y1) } \
-alternative_sprites(name ##_empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(model_empty) \
-} \
-spriteset(name ##_full12_set, file_1) { tmpl(x2, y2) } \
-alternative_sprites(name ##_full12_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, model_12, "1") \
-} \
-alternative_sprites(name ##_full12_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, model_12, "2") \
-} \
-alternative_sprites(name ##_full12_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, model_12, "4") \
-} \
-spriteset(name ##_full12_set_gui, file_1) { tmpl(x2, y2) } \
-alternative_sprites(name ##_full12_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(model_12) \
-} \
-spriteset(name ##_full22_set, file_2) { tmpl(x3, y3) } \
-alternative_sprites(name ##_full22_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, model_22, "1") \
-} \
-alternative_sprites(name ##_full22_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, model_22, "2") \
-} \
-alternative_sprites(name ##_full22_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, model_22, "4") \
-} \
-spriteset(name ##_full22_set_gui, file_2) { tmpl(x3, y3) } \
-alternative_sprites(name ##_full22_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(model_22) \
-} \
-spritegroup name ##_group { \
-    loaded: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
-    loading: [name ##_empty_set, name ##_full12_set, name ##_full22_set]; \
-} \
-spritegroup name ##_group_gui { \
-	loaded: [name ##_empty_set_gui, name ##_full12_set_gui, name ##_full22_set_gui]; \
-	loading: [name ##_empty_set_gui, name ##_full12_set_gui, name ##_full22_set_gui]; \
-} \
-switch(FEAT_TRAINS, SELF, name ##_switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ##_group_gui; \
-    0x11: name ##_group_gui; \
-    0x12: name ##_group_gui; \
-    0x20: name ##_empty_set_gui; \
-    0x21: name ##_empty_set_gui; \
-    name ##_group; \
-}
+#############################################################################################
+# Wagon with
+# - no loading stage
+# - two cargo stages (empty + full)
+# - length 8/8
+# [_WAGON_2STAGES_NOLOADING_LENGTH88](
+# 1  - name,
+# 2  - type,
+# 3  - climate,
+# 4  - name_empty,
+# 5  - name_full,
+# 6  - file,
+# 7  - file,
+# 8  - tmpl,
+# 9  - x1,
+# 10 - y1,
+# 11 - x2,
+# 12 - y2)
+# Note the use of quadrigraphs @<:@ and @:>@
+#############################################################################################
+define_unique([_WAGON_2STAGES_NOLOADING_LENGTH88], [check_args_exact([$0], [$#], [12])dnl
+define_unique([_CNAME], [_THIS_WAGON_ID($1, $2, $3)])dnl
+_SPRITESET(_LENGTH_88, _CNAME_ID(empty), $6, $8, $9, $10, $4)
+_SPRITESET(_LENGTH_88, _CNAME_ID(full), $7, $8, $11, $12, $5)
+_SPRITEGROUP_NOLOADING(_CNAME_ID, [@<:@_CNAME_ID(empty_set), _CNAME_ID(full_set)@:>@])
+_SPRITEGROUP_NOLOADING(_CNAME_ID(gui), [@<:@_CNAME_ID(empty_gui_set), _CNAME_ID(full_gui_set)@:>@])
+_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_group), _CNAME_ID(group), _CNAME_ID(empty_gui_set))
+_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
+undefine([_CNAME])dnl])
 
+#############################################################################################
+# Wagon with
+# - no loading stage
+# - three cargo stages (empty + 1/2 full + full)
+# - length 8/8
+# [_WAGON_3STAGES_NOLOADING_LENGTH88](
+# 1  - name,
+# 2  - type,
+# 3  - climate,
+# 4  - model_empty,
+# 5  - model_12,
+# 6  - model_22,
+# 7  - file_empty,
+# 8  - file_1,
+# 9  - file_2,
+# 10 - tmpl,
+# 11 - x1,
+# 12 - y1,
+# 13 - x2,
+# 14 - y2,
+# 15 - x3,
+# 16 - y3)
+# Note the use of quadrigraphs @<:@ and @:>@
+#############################################################################################
+define_unique([_WAGON_3STAGES_NOLOADING_LENGTH88], [check_args_exact([$0], [$#], [16])dnl
+define_unique([_CNAME], [_THIS_WAGON_ID($1, $2, $3)])dnl
+_SPRITESET(_LENGTH_88, _CNAME_ID(empty), $7, $10, $11, $12, $4)
+_SPRITESET(_LENGTH_88, _CNAME_ID(full12), $8, $10, $13, $14, $5)
+_SPRITESET(_LENGTH_88, _CNAME_ID(full22), $9, $10, $15, $16, $6)
+_SPRITEGROUP_NOLOADING(_CNAME_ID, [@<:@_CNAME_ID(empty_set), _CNAME_ID(full12_set), _CNAME_ID(full22_set)@:>@])
+_SPRITEGROUP_NOLOADING(_CNAME_ID(gui), [@<:@_CNAME_ID(empty_gui_set), _CNAME_ID(full12_gui_set), _CNAME_ID(full22_gui_set)@:>@])
+_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_group), _CNAME_ID(group), _CNAME_ID(empty_gui_set))
+_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
+undefine([_CNAME])dnl])
 
-#define SPRITEGROUP_1STAGE_LOAD(name, filename, spritetemplate, x, yload, ydrive) \
-spriteset(name ## _open_set, filename) { spritetemplate (x, yload) } \
-spriteset(name ##_closed_set, filename) { spritetemplate (x, ydrive) } \
-spritegroup name ## _group { \
-	loaded: name ## _closed_set; \
-	loading: name ## _open_set; \
-}
+#############################################################################################
+# Wagon with
+# - no loading stage
+# - four cargo stages (empty + 1/3 full + 2/3 full + full)
+# - length 8/8
+# [_WAGON_4STAGES_NOLOADING_LENGTH88](
+# 1  - name,
+# 2  - type,
+# 3  - climate,
+# 4  - model_empty,
+# 5  - model_13,
+# 6  - model_23,
+# 7  - model_33,
+# 8  - file_empty,
+# 9  - file_1,
+# 10 - file_2,
+# 11 - file_3,
+# 12 - tmpl,
+# 13 - x1,
+# 14 - y1,
+# 15 - x2,
+# 16 - y2,
+# 17 - x3,
+# 18 - y3,
+# 19 - x4,
+# 20 - y4)
+# Note the use of quadrigraphs @<:@ and @:>@
+#############################################################################################
+define_unique([_WAGON_4STAGES_NOLOADING_LENGTH88], [check_args_exact([$0], [$#], [20])dnl
+define_unique([_CNAME], [_THIS_WAGON_ID($1, $2, $3)])dnl
+_SPRITESET(_LENGTH_88, _CNAME_ID(empty), $8, $12, $13, $14, $4)
+_SPRITESET(_LENGTH_88, _CNAME_ID(full13), $9, $12, $15, $16, $5)
+_SPRITESET(_LENGTH_88, _CNAME_ID(full23), $10, $12, $17, $18, $6)
+_SPRITESET(_LENGTH_88, _CNAME_ID(full33), $11, $12, $19, $20, $7)
+_SPRITEGROUP_NOLOADING(_CNAME_ID, [@<:@_CNAME_ID(empty_set), _CNAME_ID(full13_set), _CNAME_ID(full23_set), _CNAME_ID(full33_set)@:>@])
+_SPRITEGROUP_NOLOADING(_CNAME_ID(gui), [@<:@_CNAME_ID(empty_gui_set), _CNAME_ID(full13_gui_set), _CNAME_ID(full23_gui_set), _CNAME_ID(full33_gui_set)@:>@])
+_SWITCH_GUI(_CNAME_ID, _CNAME_ID(gui_group), _CNAME_ID(group), _CNAME_ID(empty_gui_set))
+_SWITCH_REFERENCE(_CNAME_ID, _CNAME_ID(gui_switch))
+undefine([_CNAME])dnl])
 
+#############################################################################################
+# Define a graphics year switch
+# _WAGON_YEAR_SWITCH(
+# 1  - name,
+# 2  - climate
+# 3  - year_for_modern,
+# 4  - type 1,
+# 5  - type 2)
+#############################################################################################
+define_unique([_WAGON_YEAR_SWITCH], [check_args_exact([$0], [$#], [5])dnl
+/***************************************************************************
+ * Switch wagon graphics at specified year
+ ***************************************************************************/
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_YEAR_SWITCH_ID($1, $2), build_year < $3) {
+    1: _THIS_WAGON_GRAPHICS_ID($1, $4, $2);
+    _THIS_WAGON_GRAPHICS_ID($1, $5, $2);
+}])
 
-#define WAGON_YEARSWITCH_2STAGE(year_for_modern, name) \
-spritegroup name ## _early_group { \
-	loaded: [ name ## _early_empty_set, name ## _early_full_set]; \
-	loading: [ name ## _early_empty_set, name ## _early_full_set]; \
-} \
-spritegroup name ## _modern_group { \
-	loaded: [ name ## _modern_empty_set, name ## _modern_full_set]; \
-	loading: [ name ## _modern_empty_set, name ## _modern_full_set]; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
-    1: name ## _early_group; \
-    name ## _modern_group; \
-}
+#############################################################################################
+# Define a speed year switch
+# _WAGON_SPEED_YEAR_SWITCH(
+# 1  - name,
+# 2  - climate
+# 3  - year_for_modern,
+# 4  - speed)
+#############################################################################################
+define_unique([_WAGON_SPEED_YEAR_SWITCH], [check_args_exact([$0], [$#], [4])dnl
+/***************************************************************************
+ * Switch wagon speed at specified year
+ ***************************************************************************/
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_SPEED_YEAR_SWITCH_ID($1, $2), build_year < $3) {
+    1: return $4;
+    CB_FAILED;
+}])
 
-
-#define WAGON_BULK_32BPP(name, type, name_empty, name_full, file, tmpl, x1, y1, x2, y2) \
-spriteset(name ## _ ## type ## _empty_set, file) { \
-	tmpl(x1, y1) \
-} \
-alternative_sprites(name ## _ ## type ## _empty_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, name_empty, "1") \
-} \
-alternative_sprites(name ## _ ## type ## _empty_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, name_empty, "2") \
-} \
-alternative_sprites(name ## _ ## type ## _empty_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, name_empty, "4") \
-} \
-spriteset(name ## _ ## type ## _empty_set_gui, file) { \
-	tmpl(x1, y1) \
-} \
-alternative_sprites(name ## _ ## type ## _empty_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(name_empty) \
-} \
-spriteset(name ## _ ## type ## _full_set, file) { \
-	tmpl(x1, y1) \
-} \
-alternative_sprites(name ## _ ## type ## _full_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(1, name_full, "1") \
-} \
-alternative_sprites(name ## _ ## type ## _full_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(2, name_full, "2") \
-} \
-alternative_sprites(name ## _ ## type ## _full_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) { \
-    template_train_opengfxp32(4, name_full, "4") \
-} \
-spriteset(name ## _ ## type ## _full_set_gui, file) { \
-	tmpl(x1, y1) \
-} \
-alternative_sprites(name ## _ ## type ## _full_set_gui, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) { \
-    template_train_gui_opengfxp32(name_full) \
-}
-
-
-#define WAGON_YEARSWITCH_2STAGE_32BPP(year_for_modern, name, type1, type2) \
-spritegroup name ## _ ## type1 ## _group { \
-	loaded: [ name ## _ ## type1 ## _empty_set, name ## _ ## type1 ## _full_set]; \
-	loading: [ name ## _ ## type1 ## _empty_set, name ## _ ## type1 ## _full_set]; \
-} \
-spritegroup name ## _ ## type1 ## _group_gui { \
-	loaded: [ name ## _ ## type1 ## _empty_set_gui, name ## _ ## type1 ## _full_set_gui]; \
-	loading: [ name ## _ ## type1 ## _empty_set_gui, name ## _ ## type1 ## _full_set_gui]; \
-} \
-spritegroup name ## _ ## type2 ## _group { \
-	loaded: [ name ## _ ## type2 ## _empty_set, name ## _ ## type2 ## _full_set]; \
-	loading: [ name ## _ ## type2 ## _empty_set, name ## _ ## type2 ## _full_set]; \
-} \
-spritegroup name ## _ ## type2 ## _group_gui { \
-	loaded: [ name ## _ ## type2 ## _empty_set_gui, name ## _ ## type2 ## _full_set_gui]; \
-	loading: [ name ## _ ## type2 ## _empty_set_gui, name ## _ ## type2 ## _full_set_gui]; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _ ## type1 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _ ## type1 ## _group_gui; \
-    0x11: name ## _ ## type1 ## _group_gui; \
-    0x12: name ## _ ## type1 ## _group_gui; \
-    0x20: name ## _ ## type1 ## _empty_set_gui; \
-    0x21: name ## _ ## type1 ## _empty_set_gui; \
-    name ## _ ## type1 ## _group; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _ ## type2 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _ ## type2 ## _group_gui; \
-    0x11: name ## _ ## type2 ## _group_gui; \
-    0x12: name ## _ ## type2 ## _group_gui; \
-    0x20: name ## _ ## type2 ## _empty_set_gui; \
-    0x21: name ## _ ## type2 ## _empty_set_gui; \
-    name ## _ ## type2 ## _group; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
-    1: name ## _ ## type1 ## _switch_gui; \
-    name ## _ ## type2 ## _switch_gui; \
-}
-
-
-#define WAGON_YEARSWITCH_LOADING_32BPP(year_for_modern, name, type1, type2) \
-spritegroup name ## _ ## type1 ## _group { \
-	loading: name ## _ ## type1 ## _full_set; \
-	loaded: name ## _ ## type1 ## _empty_set; \
-} \
-spritegroup name ## _ ## type1 ## _group_gui { \
-	loading: name ## _ ## type1 ## _full_set_gui; \
-	loaded: name ## _ ## type1 ## _empty_set_gui; \
-} \
-spritegroup name ## _ ## type2 ## _group { \
-	loading: name ## _ ## type2 ## _full_set; \
-	loaded: name ## _ ## type2 ## _empty_set; \
-} \
-spritegroup name ## _ ## type2 ## _group_gui { \
-	loading: name ## _ ## type2 ## _full_set_gui; \
-	loaded: name ## _ ## type2 ## _empty_set_gui; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _ ## type1 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _ ## type1 ## _group_gui; \
-    0x11: name ## _ ## type1 ## _group_gui; \
-    0x12: name ## _ ## type1 ## _group_gui; \
-    0x20: name ## _ ## type1 ## _empty_set_gui; \
-    0x21: name ## _ ## type1 ## _empty_set_gui; \
-    name ## _ ## type1 ## _group; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _ ## type2 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _ ## type2 ## _group_gui; \
-    0x11: name ## _ ## type2 ## _group_gui; \
-    0x12: name ## _ ## type2 ## _group_gui; \
-    0x20: name ## _ ## type2 ## _empty_set_gui; \
-    0x21: name ## _ ## type2 ## _empty_set_gui; \
-    name ## _ ## type2 ## _group; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
-    1: name ## _ ## type1 ## _switch_gui; \
-    name ## _ ## type2 ## _switch_gui; \
-}
-
-
-#define WAGON_YEARSWITCH_LOADING_MAPPED_32BPP(year_for_modern, name, mapped, type2) \
-spritegroup name ## _ ## type2 ## _group { \
-	loading: name ## _ ## type2 ## _full_set; \
-	loaded: name ## _ ## type2 ## _empty_set; \
-} \
-spritegroup name ## _ ## type2 ## _group_gui { \
-	loading: name ## _ ## type2 ## _full_set_gui; \
-	loaded: name ## _ ## type2 ## _empty_set_gui; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _ ## type2 ## _switch_gui, (extra_callback_info1 & 0xFF)) { \
-    0x10: name ## _ ## type2 ## _group_gui; \
-    0x11: name ## _ ## type2 ## _group_gui; \
-    0x12: name ## _ ## type2 ## _group_gui; \
-    0x20: name ## _ ## type2 ## _empty_set_gui; \
-    0x21: name ## _ ## type2 ## _empty_set_gui; \
-    name ## _ ## type2 ## _group; \
-} \
-switch(FEAT_TRAINS, SELF, name ## _year_switch, build_year < year_for_modern) { \
-    1: mapped; \
-    name ## _ ## type2 ## _switch_gui; \
-}
-
-
-#define WAGON_SINGLE_SET8(name, filename, tmpl, x, y) \
-spriteset(name ##_set, filename) { \
-	tmpl(x, y) tmpl(x, y) \
-} \
-spritegroup name ##_group { \
-	loading: name ##_set; \
-	loaded: name ##_set; \
-}
-
-
-#define WAGON_PROPERTIES_DEFAULT \
-        sprite_id:                      SPRITE_ID_NEW_TRAIN; \
-        retire_early:                   0; \
-        vehicle_life:                   20; \
-        reliability_decay:              20; \
-        loading_speed:                  5; \
-        running_cost_factor:            5; \
-        power:                          0; \
-        bitmask_vehicle_info:           0; \
-        refit_cost:                     40; \
-        misc_flags:                     bitmask(TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_2CC); \
-        running_cost_base:              RUNNING_COST_STEAM;
-
-
-#define WAGON_PROPERTIES_RAIL_DEFAULT \
-        introduction_date:              date(1925,1,1); \
-        climates_available:             param_provide_rail ? ALL_CLIMATES : NO_CLIMATE; \
-        speed:                          160 km/h; \
-        model_life:                     VEHICLE_NEVER_EXPIRES; \
-        track_type:                     NORMAL_RAIL10;
-
-
-#define WAGON_PROPERTIES_MONORAIL_DEFAULT \
-        introduction_date:              date(1980,1,1); \
-        climates_available:             param_provide_monorail ? ALL_CLIMATES : NO_CLIMATE; \
-        speed:                          0; \
-        model_life:                     VEHICLE_NEVER_EXPIRES; \
-        track_type:                     MONORAIL;
-
-
-#define WAGON_PROPERTIES_MAGLEV_DEFAULT \
-        introduction_date:              date(2010,1,1); \
-        climates_available:             param_provide_maglev ? ALL_CLIMATES : NO_CLIMATE; \
-        speed:                          0; \
-        model_life:                     VEHICLE_NEVER_EXPIRES; \
-        track_type:                     MAGLEV;
+divert

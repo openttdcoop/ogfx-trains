@@ -1,9 +1,21 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
  * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
+
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])
+     check_included([src/wagon_tank.pnml])
+     check_included([src/cargo_definitions.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [maglev_tank_wagon])
+
+divert
 
 /*
  * ***************************
@@ -15,9 +27,97 @@
  * ***************************
  */
 
-#define THIS_ID(...) maglev_tank_wagon ## __VA_ARGS__
+/* DEFAULT */
+_WAGON_LENGTH88(common, modern, default,
+    "mono_tank",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 140)
 
-switch (FEAT_TRAINS, SELF, maglev_tank_wagon_cb_capacity_switch, cargo_type_in_veh) {
+_WAGON_LENGTH88(common, modern, tropical,
+    "mono_tank",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 100)
+
+/* CMNT: */
+_WAGON_LENGTH88(cement, modern, default,
+    "mono_tank",
+    "src/gfx/tank/rail_cement_temperate.png",
+    tmpl_railwagon42, 0, 0)
+
+/* COLA */
+_WAGON_2STAGES_NOLOADING_LENGTH88(cola, modern, default,
+    "mono_tank_cola_empty",
+    "mono_tank_cola",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 220, 0, 240)
+
+/* FZDR */
+_WAGON_2STAGES_NOLOADING_LENGTH88(fizzy, modern, default,
+    "mono_tank_fizzy_drink_empty",
+    "mono_tank_fizzy_drink",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 140, 0, 140)
+
+/* MILK: */
+_WAGON_LENGTH88(milk, modern, default,
+    "mono_tank_milk",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 140)
+
+/* OIL_ */
+_WAGON_LENGTH88(oil, modern, default,
+    "mono_tank_oil",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 140)
+
+_WAGON_LENGTH88(oil, modern, tropical,
+    "mono_tank_oil",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 100)
+
+/* PETR */
+_WAGON_LENGTH88(fueloil, modern, default,
+    "mono_tank_petrol",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 140)
+
+/* RFPR: */
+_WAGON_LENGTH88(refineryproducts, modern, default,
+    "mono_tank_refinery",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 140)
+
+/* WATR */
+_WAGON_LENGTH88(water, modern, default,
+    "mono_tank_water",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 140)
+
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CLIMATE_SWITCH_ID(common, modern), climate) {
+    CLIMATE_TROPICAL: _THIS_WAGON_GRAPHICS_ID(common, modern, tropical);
+    _THIS_WAGON_GRAPHICS_ID(common, modern, default);
+}
+
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CLIMATE_SWITCH_ID(oil, modern), climate) {
+    CLIMATE_TROPICAL: _THIS_WAGON_GRAPHICS_ID(oil, modern, tropical);
+    _THIS_WAGON_GRAPHICS_ID(oil, modern, default);
+}
+
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(default), cargo_type_in_veh) {
+    CMNT: _THIS_WAGON_GRAPHICS_ID(cement, modern, default);
+    COLA: _THIS_WAGON_GRAPHICS_ID(cola, modern, default);
+    FZDR: _THIS_WAGON_GRAPHICS_ID(fizzy, modern, default);
+    MILK: _THIS_WAGON_GRAPHICS_ID(milk, modern, default);
+    OIL_: _THIS_WAGON_CLIMATE_SWITCH_ID(oil, modern);
+    PETR: _THIS_WAGON_GRAPHICS_ID(fueloil, modern, default);
+    RFPR: _THIS_WAGON_GRAPHICS_ID(refineryproducts, modern, default);
+    WATR: _THIS_WAGON_GRAPHICS_ID(water, modern, default);
+    _THIS_WAGON_CLIMATE_SWITCH_ID(common, modern);
+}
+
+switch (FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(capacity), cargo_type_in_veh) {
     // default 37.000l
     COLA: return 32;
     CMNT: return 22;
@@ -27,24 +127,25 @@ switch (FEAT_TRAINS, SELF, maglev_tank_wagon_cb_capacity_switch, cargo_type_in_v
     CB_FAILED;
 }
 
-item(FEAT_TRAINS, maglev_tank_wagon) {
+item(FEAT_TRAINS, _THIS_WAGON) {
     property {
+        /* We try to simulate the stats of the temperate oil wagon */
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_maglev_default.pnml])
+include([src/template_refit_properties_tank.pnml])
         name:                           string(STR_NAME_TANK_WAGON);
-        WAGON_PROPERTIES_DEFAULT
-        WAGON_PROPERTIES_MAGLEV_DEFAULT
-        REFIT_PROPERTIES_TANK
         cost_factor:                    200;
         cargo_capacity:                 37;
-        weight:                         24;
+        weight:                         24 ton;
     }
     graphics {
-	cargo_capacity:     maglev_tank_wagon_cb_capacity_switch;
-	weight:             tank_wagon_cb_property_weight_switch;
-        refit_cost:         tank_refit_cost_switch;
+	cargo_capacity:     _THIS_WAGON_CARGO_SWITCH_ID(capacity);
+	weight:             _TANK_WAGON_WEIGHT_SWITCH_ID;
+        refit_cost:         _TANK_REFIT_COST_SWITCH;
 
-        purchase:           monorail_tank_wagon_default_climate_switch;
-        monorail_tank_wagon_switch;
+        purchase:           _THIS_WAGON_CLIMATE_SWITCH_ID(common, modern);
+        _THIS_WAGON_CARGO_SWITCH_ID(default);
     }
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

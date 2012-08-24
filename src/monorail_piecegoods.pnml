@@ -1,3 +1,4 @@
+divert(-1)
 /*
  * This file is part of OpenGFX+ Trains.
  * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
@@ -5,9 +6,20 @@
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
  */
 
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_wagons.pnml])
+     check_included([src/wagon_piecegoods.pnml])
+     check_included([src/cargo_definitions.pnml])])
+
+# Define the wagon name and check that it was previously undefined
+define_unique([_THIS_WAGON], [monorail_piecegoods_wagon])
+
+divert
+
 /*
  * ***************************
- * Piece goods wagon:
+ * Monorail Piece goods wagon:
  *
  * goods, food, paper, fruits, fruit + vegetables,
  * farm supplies, engineering supplies,
@@ -15,60 +27,113 @@
  * ***************************
  */
 
-#define THIS_ID(...) monorail_piecegoods_wagon ## __VA_ARGS__
+/* DEFAULT */
+_WAGON_LOADING_LENGTH88(common, modern, default,
+    "mono_goods",
+    "mono_goods_loading",
+    "src/gfx/temperate_monolev.png",
+    "src/gfx/temperate_monolev.png",
+    tmpl_short_railwagon42, 0, 220, 0, 200)
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_temperate, "mono_goods", "mono_goods_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 220, 0, 200) // 8 views needed
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_arctic, "mono_goods", "mono_goods_loading", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 220, 0, 200) // 8 views needed
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_tropic, "mono_goods", "mono_goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 140, 0, 120) // 8 views needed
+_WAGON_LOADING_LENGTH88(common, modern, arctic,
+    "mono_goods",
+    "mono_goods_loading",
+    "src/gfx/arctic_monolev.png",
+    "src/gfx/arctic_monolev.png",
+    tmpl_short_railwagon42, 0, 220, 0, 200)
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_paper, "mono_goods", "mono_goods_loading", "src/gfx/arctic_monolev.png", tmpl_short_railwagon42, 0, 380, 0, 360) // 8 views needed
+_WAGON_LOADING_LENGTH88(common, modern, tropical,
+    "mono_goods",
+    "mono_goods_loading",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 140, 0, 120)
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_fruit, "goods", "goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 240, 0, 260) // 8 views needed
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_food, "goods", "goods_loading", "src/gfx/tropic_monolev.png", tmpl_short_railwagon42, 0, 240, 0, 260) // 8 views needed
+/* PAPER */
+_WAGON_LOADING_LENGTH88(paper, modern, default,
+    "mono_goods",
+    "mono_goods_loading",
+    "src/gfx/arctic_monolev.png",
+    "src/gfx/arctic_monolev.png",
+    tmpl_short_railwagon42, 0, 380, 0, 360)
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_livestock, "mono_livestock", "mono_livestock_loading", "src/gfx/temperate_monolev.png", tmpl_short_railwagon42, 0, 180, 0, 160) // 8 views needed
+/* FRUIT */
+_WAGON_LOADING_LENGTH88(fruit, modern, default,
+    "mono_goods",
+    "mono_goods_loading",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 260, 0, 240)
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_toyland, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 280, 0, 260) // 8 views needed
+/* FOOD */
+_WAGON_LOADING_LENGTH88(food, modern, default,
+    "mono_goods",
+    "mono_goods_loading",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 260, 0, 240)
 
-MU_8SPRITES_LOADING_32BPP(monorail_piecegoods_wagon_toys, "goods", "goods_loading", "src/gfx/toyland_railwagons.png", tmpl_short_railwagon42, 0, 320, 0, 300) // 8 views needed
+/* LIVESTOCK */
+_WAGON_LOADING_LENGTH88(livestock, modern, default,
+    "mono_livestock",
+    "mono_livestock_loading",
+    "src/gfx/tropic_monolev.png",
+    "src/gfx/tropic_monolev.png",
+    tmpl_short_railwagon42, 0, 180, 0, 160)
 
-switch(FEAT_TRAINS, SELF, monorail_piecegoods_wagon_climate_switch, climate) {
-	CLIMATE_ARCTIC: monorail_piecegoods_wagon_arctic_switch_gui;
-	CLIMATE_TROPIC: monorail_piecegoods_wagon_tropic_switch_gui;
-	monorail_piecegoods_wagon_temperate_switch_gui;
+/* TOYLAND */
+_WAGON_LOADING_LENGTH88(toyland, modern, default,
+    "mono_goods",
+    "mono_goods_loading",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 280, 0, 260)
+
+/* TOYS */
+_WAGON_LOADING_LENGTH88(toys, modern, default,
+    "mono_goods",
+    "mono_goods_loading",
+    "src/gfx/toyland_railwagons.png",
+    "src/gfx/toyland_railwagons.png",
+    tmpl_short_railwagon42, 0, 320, 0, 300)
+
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CLIMATE_SWITCH_ID(common, modern), climate) {
+    CLIMATE_ARCTIC: _THIS_WAGON_GRAPHICS_ID(common, modern, arctic);
+    CLIMATE_TROPIC: _THIS_WAGON_GRAPHICS_ID(common, modern, tropical);
+    _THIS_WAGON_GRAPHICS_ID(common, modern, default);
 }
 
-switch(FEAT_TRAINS, SELF, monorail_piecegoods_wagon_switch, cargo_type_in_veh) {
-    BATT: monorail_piecegoods_wagon_toyland_switch_gui;
-    FRUT: monorail_piecegoods_wagon_fruit_switch_gui;
-    FRVG: monorail_piecegoods_wagon_fruit_switch_gui;
-    FOOD: monorail_piecegoods_wagon_food_switch_gui;
-    LVST: monorail_piecegoods_wagon_livestock_switch_gui;
-    PAPR: monorail_piecegoods_wagon_paper_switch_gui;
-    SWET: monorail_piecegoods_wagon_toyland_switch_gui;
-    TOYS: monorail_piecegoods_wagon_toys_switch_gui;
-    monorail_piecegoods_wagon_climate_switch;
+switch(FEAT_TRAINS, SELF, _THIS_WAGON_CARGO_SWITCH_ID(default), cargo_type_in_veh) {
+    BATT: _THIS_WAGON_GRAPHICS_ID(toyland, modern, default);
+    FRUT: _THIS_WAGON_GRAPHICS_ID(fruit, modern, default);
+    FRVG: _THIS_WAGON_GRAPHICS_ID(fruit, modern, default);
+    FOOD: _THIS_WAGON_GRAPHICS_ID(food, modern, default);
+    LVST: _THIS_WAGON_GRAPHICS_ID(livestock, modern, default);
+    PAPR: _THIS_WAGON_GRAPHICS_ID(paper, modern, default);
+    SWET: _THIS_WAGON_GRAPHICS_ID(toyland, modern, default);
+    TOYS: _THIS_WAGON_GRAPHICS_ID(toys, modern, default);
+    _THIS_WAGON_CLIMATE_SWITCH_ID(common, modern);
 }
 
-item(FEAT_TRAINS, monorail_piecegoods_wagon) {
+item(FEAT_TRAINS, _THIS_WAGON) {
     property {
-        // We try to simulate the stats of the temperate goods wagon
-        name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
-        WAGON_PROPERTIES_DEFAULT
-        WAGON_PROPERTIES_MONORAIL_DEFAULT
-        REFIT_PROPERTIES_PIECE_GOODS
+        /* We try to simulate the stats of the temperate goods wagon */
+include([src/template_wagon_properties_default.pnml])
+include([src/template_wagon_properties_monorail_default.pnml])
+include([src/template_refit_properties_piece_goods.pnml])
+	name:                           string(STR_NAME_COVERED_PIECE_GOODS_WAGON);
         cost_factor:                    190;
         cargo_capacity:                 25;
-        weight:                         21;
+        weight:                         21 ton;
     }
     graphics {
-        weight:         piecegoods_wagon_weight_switch;
-        cargo_capacity: piecegoods_wagon_capacity_switch;
-        refit_cost:     piecegoods_refit_cost_switch;
+        weight:         _PIECEGOODS_WAGON_WEIGHT_SWITCH_ID;
+        cargo_capacity: _PIECEGOODS_WAGON_CAPACITY_SWITCH_ID;
+        refit_cost:     _PIECEGOODS_REFIT_COST_SWITCH;
 
-        purchase:       monorail_piecegoods_wagon_climate_switch;
-        monorail_piecegoods_wagon_switch;
+        purchase:       _THIS_WAGON_CLIMATE_SWITCH_ID(common, modern);
+        _THIS_WAGON_CARGO_SWITCH_ID(default);
     }
 }
 
-#undef THIS_ID
+undefine([_THIS_WAGON])dnl

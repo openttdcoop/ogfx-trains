@@ -1,0 +1,303 @@
+divert(-1)
+/*
+ * This file is part of OpenGFX+ Trains.
+ * OpenGFX+ Trains is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+ * OpenGFX+ Trains is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with OpenGFX+ Trains. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+# Perform a check to make sure the files have been included
+ifelse(do_included_checks, [1],
+    [check_included([src/templates_sprites.pnml])
+     check_included([src/templates_32bpp.pnml])])
+
+# Note that some of the spriteset macros could be reduced further into smaller macros and reused.
+
+#############################################################################################
+# _USE_RENDERED_SPRITES_GLOBAL
+# If set to [1] then OpenGFX+ Trains is built using 8bpp rendered sprites
+# instead of 8bpp pixel art sprites.
+#############################################################################################
+define_unique([_USE_RENDERED_SPRITES_GLOBAL], [0])
+
+#############################################################################################
+# _NONE_AVAILABLE
+# Used to mark that either no pixel art or no rendered sprites are available.
+#############################################################################################
+define_unique([_NONE_AVAILABLE], ["none"])
+
+#############################################################################################
+# _CNAME_ID ([args...])
+# Creates an identifier by joining _CNAME and the provided arguments with an underscore
+# (_) character.
+#############################################################################################
+define_unique([_CNAME_ID], [check_defined([_CNAME])ifelse([$#], [0], [_CNAME], [_THIS_ID(_CNAME, $@)])])
+
+#############################################################################################
+# Define a standard spriteset
+# _SPRITESET(
+# 1  - length,
+# 2  - name,
+# 3  - file,
+# 4  - template,
+# 5  - x,
+# 6  - y,
+# 7  - model)
+#############################################################################################
+define_unique([_SPRITESET], [check_args_exact([$0], [$#], [7])dnl
+/***************************************************************************
+ * Primary spriteset
+ ***************************************************************************/
+ifelse([$3], _NONE_AVAILABLE,
+    [/* No pixel art sprites available */ifelse([$7], _NONE_AVAILABLE,
+        [exit_with_error([$0:No sprites available for $2.])],
+        [
+spriteset($2_set) {
+    _TEMPLATE_$1_8BPP(_ZOOM_1x, $7)
+}])],
+    [dnl
+spriteset($2_set, $3) {
+    $4($5, $6)
+}])
+ifelse([$7], _NONE_AVAILABLE,
+    [/* No rendered sprites available */],
+    [dnl
+alternative_sprites($2_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    _TEMPLATE_$1_32BPP(_ZOOM_1x, $7)
+}
+alternative_sprites($2_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    _TEMPLATE_$1_32BPP(_ZOOM_2x, $7)
+}
+alternative_sprites($2_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    _TEMPLATE_$1_32BPP(_ZOOM_4x, $7)
+}])
+/***************************************************************************
+ * Primary GUI spriteset
+ ***************************************************************************/
+ifelse([$3], _NONE_AVAILABLE,
+    [/* No pixel art sprites available */ifelse([$7], _NONE_AVAILABLE,
+        [exit_with_error([$0:No sprites available for $2.])],
+        [
+spriteset($2_gui_set) {
+    _TEMPLATE_GUI_$1_8BPP($7)
+}])],
+    [dnl
+spriteset($2_gui_set, $3) {
+    $4($5, $6)
+}])
+ifelse([$7], _NONE_AVAILABLE,
+    [/* No rendered sprites available */],
+    [dnl
+alternative_sprites($2_gui_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    _TEMPLATE_GUI_$1_32BPP($7)
+}])])
+
+#############################################################################################
+# Define a variable 10 switch
+# _SWITCH_VARIABLE_1O(
+# 1  - name,
+# 2  - Vehicle is drawn in the depot GUI,
+# 3  - Vehicle is drawn in the vehicle details GUI. (This includes the refit GUI.),
+# 4  - Vehicle is drawn in the vehicle list.,
+# 5  - Vehicle is drawn in the purchase list. (This includes the autoreplace GUI.).,
+# 6  - Vehicle is drawn in the exclusive preview GUI or in the advertisement news.,
+# 7  - Vehicle is drawn in everything else.)
+# Note the use of quadrigraphs @%:@
+#############################################################################################
+define_unique([_SWITCH_VARIABLE_1O], [check_args_exact([$0], [$#], [7])dnl
+/***************************************************************************
+ * Variable 10 switch to display different sprites in the GUI and on the map
+ * http://newgrf-specs.tt-wiki.net/wiki/Action2/Vehicles@%:@Introduction
+ ***************************************************************************/
+switch(FEAT_TRAINS, SELF, $1_gui_switch, (extra_callback_info1 & 0xFF)) {
+    0x10: $2; /* Vehicle is drawn in the depot GUI. */
+    0x11: $3; /* Vehicle is drawn in the vehicle details GUI. (This includes the refit GUI.) */
+    0x12: $4; /* Vehicle is drawn in the vehicle list. */
+    0x20: $5; /* Vehicle is drawn in the purchase list. (This includes the autoreplace GUI.) */
+    0x21: $6; /* Vehicle is drawn in the exclusive preview GUI or in the advertisement news. */
+    $7; /* Vehicle is drawn in everything else. */
+}])
+
+#############################################################################################
+# Define a standard GUI switch
+# _SWITCH_GUI(
+# 1  - name,
+# 2  - GUI call,
+# 3  - In-game call,
+# 4  - purchase call)
+#############################################################################################
+define_unique([_SWITCH_GUI], [check_args_exact([$0], [$#], [4])dnl
+/***************************************************************************
+ * Standard GUI Switch
+ ***************************************************************************/
+_SWITCH_VARIABLE_1O($1, $2, $2, $2, $4, $4, $3)])
+
+#############################################################################################
+# Define an indepot spriteset
+# _SPRITESET_INDEPOT(
+# 1  - length,
+# 2  - name,
+# 3  - file,
+# 4  - template,
+# 5  - x,
+# 6  - y,
+# 7  - model)
+#############################################################################################
+define_unique([_SPRITESET_INDEPOT], [check_args_exact([$0], [$#], [7])dnl
+/***************************************************************************
+ * Indepot spriteset
+ ***************************************************************************/
+ifelse([$3], _NONE_AVAILABLE,
+    [/* No pixel art sprites available */ifelse([$7], _NONE_AVAILABLE,
+        [exit_with_error([$0:No sprites available for $2.])],
+        [
+spriteset($2_indepot_set) {
+    _TEMPLATE_GUI_$1_8BPP(_ZOOM_1x, $7)
+}])],
+    [dnl
+spriteset($2_indepot_set, $3) {
+    $4($5, $6)
+}])
+ifelse([$7], _NONE_AVAILABLE,
+    [/* No rendered sprites available */],
+    [dnl
+alternative_sprites($2_indepot_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    _TEMPLATE_GUI_$1_32BPP($7)
+}])])
+
+#############################################################################################
+# Define an indepot callback switch
+# _SWITCH_INDEPOT(
+# 1  - name,
+# 2  - GUI call,
+# 3  - In-game call,
+# 4  - purchase call,
+# 5  - indepot call)
+#############################################################################################
+define_unique([_SWITCH_INDEPOT], [check_args_exact([$0], [$#], [5])dnl
+/***************************************************************************
+ * Indepot GUI Switch
+ ***************************************************************************/
+_SWITCH_VARIABLE_1O($1_indepot, $5, $2, $2, $4, $4, $3)])
+
+#############################################################################################
+# Define a reversed spriteset
+# _SPRITESET_REVERSED(
+# 1  - length,
+# 2  - name,
+# 3  - file,
+# 4  - template,
+# 5  - x,
+# 6  - y,
+# 7  - model)
+#############################################################################################
+define_unique([_SPRITESET_REVERSED], [check_args_exact([$0], [$#], [7])dnl
+/***************************************************************************
+ * Primary reversed spriteset
+ ***************************************************************************/
+ifelse([$3], _NONE_AVAILABLE,
+    [/* No pixel art sprites available */ifelse([$7], _NONE_AVAILABLE,
+        [exit_with_error([$0:No sprites available for $2.])],
+        [
+spriteset($2_reversed_set) {
+    _TEMPLATE_$1_8BPP_REVERSED(_ZOOM_1x, $7)
+}])],
+    [dnl
+spriteset($2_reversed_set, $3) {
+    $4_reversed($5, $6)
+}])
+ifelse([$7], _NONE_AVAILABLE,
+    [/* No rendered sprites available */],
+    [dnl
+alternative_sprites($2_reversed_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    _TEMPLATE_$1_32BPP_REVERSED(_ZOOM_1x, $7)
+}
+alternative_sprites($2_reversed_set, ZOOM_LEVEL_IN_2X, BIT_DEPTH_32BPP) {
+    _TEMPLATE_$1_32BPP_REVERSED(_ZOOM_2x, $7)
+}
+alternative_sprites($2_reversed_set, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+    _TEMPLATE_$1_32BPP_REVERSED(_ZOOM_4x, $7)
+}])
+/***************************************************************************
+ * Primary reversed GUI spriteset
+ ***************************************************************************/
+ifelse([$3], _NONE_AVAILABLE,
+    [/* No pixel art sprites available */ifelse([$7], _NONE_AVAILABLE,
+        [exit_with_error([$0:No sprites available for $2.])],
+        [
+spriteset($2_reversed_gui_set) {
+    _TEMPLATE_GUI_$1_8BPP_REVERSED($7)
+}])],
+    [dnl
+spriteset($2_reversed_gui_set, $3) {
+    $4_reversed($5, $6)
+}])
+ifelse([$7], _NONE_AVAILABLE,
+    [/* No rendered sprites available */],
+    [dnl
+alternative_sprites($2_reversed_gui_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP) {
+    _TEMPLATE_GUI_$1_32BPP_REVERSED($7)
+}])])
+
+#############################################################################################
+# Define a reversed callback switch
+# _SWITCH_REVERSED(
+# 1  - name,
+# 2  - reversed graphics cb,
+# 3  - normal graphics cb)
+#############################################################################################
+define_unique([_SWITCH_REVERSED], [check_args_exact([$0], [$#], [3])dnl
+/***************************************************************************
+ * Reversed vehicle Switch
+ ***************************************************************************/
+switch(FEAT_TRAINS, SELF, $1_reversed_switch, vehicle_is_reversed) {
+    1: $2;
+    $3;
+}])
+
+#############################################################################################
+# Define a loading spritegroup
+# _SPRITEGROUP_LOADING(
+# 1  - name,
+# 2  - loaded cb,
+# 3  - loading cb)
+#############################################################################################
+define_unique([_SPRITEGROUP_LOADING], [check_args_exact([$0], [$#], [3])dnl
+/***************************************************************************
+ * Loading spritegroup
+ ***************************************************************************/
+spritegroup $1_group {
+    loaded:  $2;
+    loading: $3;
+}])
+
+#############################################################################################
+# Define a no loading spritegroup
+# _SPRITEGROUP_NOLOADING(
+# 1  - name,
+# 2  - loaded cb)
+#############################################################################################
+define_unique([_SPRITEGROUP_NOLOADING], [check_args_exact([$0], [$#], [2])dnl
+/***************************************************************************
+ * No loading spritegroup
+ ***************************************************************************/
+spritegroup $1_group {
+    loaded:  $2;
+    loading: $2;
+}])
+
+#############################################################################################
+# Define a reference graphics switch
+# _SWITCH_REFERENCE(
+# 1  - name,
+# 1  - call)
+#############################################################################################
+define_unique([_SWITCH_REFERENCE], [check_args_exact([$0], [$#], [2])dnl
+/***************************************************************************
+ * Reference Switch - provides a standard call name for accessing graphics
+ ***************************************************************************/
+switch(FEAT_TRAINS, SELF, $1_graphics_switch, 1) {
+    $2;
+}])
+
+divert
