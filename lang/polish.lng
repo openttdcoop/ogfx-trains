@@ -1,0 +1,71 @@
+﻿##grflangid 0x30
+STR_GRF_NAME                                                    :OpenGFX+ Pociągi {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Pociągi{BLACK} poprawia standardowe pojazdy kolejowe i udostępnia nowe wagony.{}Zaprojektowane tak, by pasowały do stylu OpenGFX.{}Programowanie: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Grafika: {SILVER}Xotic750, Zephyris,DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencja: {SILVER}GPL v2{}{BLACK}Podziękowanie dla {SILVER}Yexo{BLACK} i {SILVER}Ammler{BLACK} za ich wsparcie i udział
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
+
+STR_NAME_BULK_WAGON                                             :Masowiec
+STR_NAME_TANK_WAGON                                             :Wagon cysterna
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Drobnicowiec
+STR_NAME_FLATBED_WAGON                                          :Płaski wagon
+STR_NAME_REFRIGERATOR_WAGON                                     :Wagon chłodnia
+
+STR_NAME_TENDER                                                 :Tender
+
+STR_PARAM_ENGINES                                               :Wybór lokomotyw dla klimatu:
+STR_PARAM_ENGINES_DESC                                          :Wybierz jakie lokomotywy chcesz dodać (możesz wybrać inny klimat lub żaden, jeśli chcesz). Domyślnie zostaną wybrane lokomotywy przeznaczone dla danego klimatu. "Żadne" dezaktywuje WSZYSTKIE lokomotywy.
+STR_PARAM_ENGINES_DEFAULT                                       :Automatyczny (domyślnie)
+STR_PARAM_ENGINES_NONE                                          :Żadne
+STR_PARAM_ENGINES_TEMPERATE                                     :Umiarkowany
+STR_PARAM_ENGINES_ARCTIC                                        :Arktyczny
+STR_PARAM_ENGINES_TROPICAL                                      :Tropikalny
+STR_PARAM_ENGINES_TOYLAND                                       :Zabawkowy
+STR_PARAM_ENGINES_ALL                                           :Wszystkie
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Wszystkie oprócz zabawkowego
+
+STR_PARAM_KEEP_ORIGINAL                                         :Zachowaj wszystkie istniejące domyślne pojazdy
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :To ustawienie istnieje do celów debuggowania. Możesz użyć go, jeśli chcesz dodać ten zestaw NewGRF do gry uruchomionej z domyślnymi pojazdami. Wiadomo, że spowoduje to problemy, więc aktywuj to na własne ryzyko.
+STR_PARAM_PROVIDE_RAIL                                          :Dodaj pojazdy kolejowe
+STR_PARAM_PROVIDE_RAIL_DESC                                     :Dodaj pojazdy kolejowe. Wyłącz, jeśli ten NewGRF ma nie dodawać pojazdów kolejowych.
+STR_PARAM_PROVIDE_MONORAIL                                      :Dodaj pojazdy jednoszynowe
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :Dodaj pojazdy jednoszynowe. Wyłącz, jeśli ten NewGRF ma nie dodawać pojazdów jednoszynowych.
+STR_PARAM_PROVIDE_MAGLEV                                        :Dodaj pojazdy MagLev
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Dodaj pojazdy MagLev. Wyłącz, jeśli ten NewGRF ma nie dodawać pojazdów MagLev.
+
+STR_PARAM_RUNNING_COST                                          :Ustaw koszty utrzymania
+STR_PARAM_RUNNING_COST_DESC                                     :Pozwala na dostosowanie kosztów utrzymania pojazdów pochodzących z tego zestawu (np. żeby dopasować je do innych)
+STR_PARAM_PURCHASE_COST                                         :Ustaw koszty zakupu
+STR_PARAM_PURCHASE_COST_DESC                                    :Pozwala na dostosowanie kosztów zakupu pojazdów pochodzących z tego zestawu (np. żeby dopasować je do innych)
+STR_PARAM_COST_AUTOMATICALLY                                    :automatyczny (domyślnie)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 / 128
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :normalny
+STR_PARAM_COST_TIMES2                                           :2x
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER                                                :Tendery
+STR_PARAM_TENDER_DESC                                           :Wybierz dostępność tenderów dla parowozów. Pamiętaj, że kiedy są one dostepne, nie można używać parowozów w trybie odwróconym (jeżdżących tyłem)
+STR_PARAM_TENDER_NONE                                           :Nie używaj
+STR_PARAM_TENDER_ARTICULATED                                    :Używaj
+
+STR_ERR_ENGINE_POOL                                             :Aktywuj wiele zestawów lokomotyw NewGRF = włączone
+
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :Towary w tych pojazdach pozostają świeże przez dłuższy czas niż w innych typach pojazdów.
+
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Odpady drzewne)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Beczki)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY                       : (Maszyny)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER                       : (Kontenery)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        : (Traktory)
