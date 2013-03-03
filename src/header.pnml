@@ -25,11 +25,11 @@ grf {
 			names: {
 				0: string(STR_PARAM_ENGINES_DEFAULT);
 				1: string(STR_PARAM_ENGINES_NONE);
-                2: string(STR_PARAM_ENGINES_TEMPERATE);
-                3: string(STR_PARAM_ENGINES_ARCTIC);
-                4: string(STR_PARAM_ENGINES_TROPICAL);
-                5: string(STR_PARAM_ENGINES_TOYLAND);
-                6: string(STR_PARAM_ENGINES_ALL);
+				2: string(STR_PARAM_ENGINES_TEMPERATE);
+				3: string(STR_PARAM_ENGINES_ARCTIC);
+				4: string(STR_PARAM_ENGINES_TROPICAL);
+				5: string(STR_PARAM_ENGINES_TOYLAND);
+				6: string(STR_PARAM_ENGINES_ALL);
 				7: string(STR_PARAM_ENGINES_ALL_BUT_TOYLAND);
 			};
 		}
@@ -69,30 +69,30 @@ grf {
 			type:    int;
 			name:    string(STR_PARAM_RUNNING_COST);
 			desc:    string(STR_PARAM_RUNNING_COST_DESC);
-            min_value: 0;
-            max_value: 18;
+			min_value: 0;
+			max_value: 18;
 			def_value: 0;
-            names: {
-                0: string(STR_PARAM_COST_AUTOMATICALLY);
-                1: string(STR_PARAM_COST_BY256);
-                2: string(STR_PARAM_COST_BY128);
-                3: string(STR_PARAM_COST_BY64);
-                4: string(STR_PARAM_COST_BY32);
-                5: string(STR_PARAM_COST_BY16);
-                6: string(STR_PARAM_COST_BY8);
-                7: string(STR_PARAM_COST_BY4);
-                8: string(STR_PARAM_COST_BY2);
-                9: string(STR_PARAM_COST_NORMAL);
-                10: string(STR_PARAM_COST_TIMES2);
-                11: string(STR_PARAM_COST_TIMES4);
-                12: string(STR_PARAM_COST_TIMES8);
-                13: string(STR_PARAM_COST_TIMES16);
-                14: string(STR_PARAM_COST_TIMES32);
-                15: string(STR_PARAM_COST_TIMES64);
-                16: string(STR_PARAM_COST_TIMES128);
-                17: string(STR_PARAM_COST_TIMES256);
-                18: string(STR_PARAM_COST_TIMES512);
-            };
+			names: {
+				0: string(STR_PARAM_COST_AUTOMATICALLY);
+				1: string(STR_PARAM_COST_BY256);
+				2: string(STR_PARAM_COST_BY128);
+				3: string(STR_PARAM_COST_BY64);
+				4: string(STR_PARAM_COST_BY32);
+				5: string(STR_PARAM_COST_BY16);
+				6: string(STR_PARAM_COST_BY8);
+				7: string(STR_PARAM_COST_BY4);
+				8: string(STR_PARAM_COST_BY2);
+				9: string(STR_PARAM_COST_NORMAL);
+				10: string(STR_PARAM_COST_TIMES2);
+				11: string(STR_PARAM_COST_TIMES4);
+				12: string(STR_PARAM_COST_TIMES8);
+				13: string(STR_PARAM_COST_TIMES16);
+				14: string(STR_PARAM_COST_TIMES32);
+				15: string(STR_PARAM_COST_TIMES64);
+				16: string(STR_PARAM_COST_TIMES128);
+				17: string(STR_PARAM_COST_TIMES256);
+				18: string(STR_PARAM_COST_TIMES512);
+			};
 		}
     }
 	param {
