@@ -1,8 +1,17 @@
 ##grflangid 0x38
 STR_GRF_NAME                                                    :OpenGFX+ Vlakovi {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Vlakovi{BLACK} poboljšava osnovni set vlakova i povećava vozni park.{}Dizajniran za OpenGFX stil.{}Programiranje: {SILVER}planetmaker, Terkhen{}{BLACK}Grafika: {SILVER}Zeyphris, DanMacK, molace, Uzurpator{}{BLACK}Licenca: {SILVER}GPL v2{}{BLACK}Web stranica: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Posebne zahvale{SILVER}Yexo{BLACK} i {SILVER}Ammler{BLACK} za njihovu podršku i priloge
+
 STR_NAME_BULK_WAGON                                             :Wagon za rasuti teret
 STR_NAME_TANK_WAGON                                             :Vagon-cisterna
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Vagon za komadnu robu (pokriveni)
 STR_NAME_FLATBED_WAGON                                          :Plato-vagon
 STR_NAME_REFRIGERATOR_WAGON                                     :Vagon-hladnjača
+
+
+
+
+
+
+
+

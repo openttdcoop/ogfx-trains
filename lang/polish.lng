@@ -1,4 +1,4 @@
-﻿##grflangid 0x30
+##grflangid 0x30
 STR_GRF_NAME                                                    :OpenGFX+ Pociągi {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Pociągi{BLACK} poprawia standardowe pojazdy kolejowe i udostępnia nowe wagony.{}Zaprojektowane tak, by pasowały do stylu OpenGFX.{}Programowanie: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Grafika: {SILVER}Xotic750, Zephyris,DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencja: {SILVER}GPL v2{}{BLACK}Podziękowanie dla {SILVER}Yexo{BLACK} i {SILVER}Ammler{BLACK} za ich wsparcie i udział
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains

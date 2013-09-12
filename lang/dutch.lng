@@ -1,4 +1,4 @@
-##grflangid 0x1F
+##grflangid 0x1f
 STR_GRF_NAME                                                    :OpenGFX+ Treinen {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Treinen{BLACK} verbetert de standaard railvoertuigen en breidt het wagenpark uit.{}Ontworpen om te passen bij de stijl van OpenGFX.{}Programmeren: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Graphics: {SILVER}Xotic750, Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licentie: {SILVER}GPL v2{}{BLACK}Met dank aan {SILVER}Yexo{BLACK} en {SILVER}Ammler{BLACK} voor hun ondersteuning en bijdragen
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains

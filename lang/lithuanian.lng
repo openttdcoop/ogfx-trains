@@ -1,4 +1,4 @@
-﻿##grflangid 0x2B
+##grflangid 0x2b
 STR_GRF_NAME                                                    :OpenGFX+ Traukiniai {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Traukiniai{BLACK} praplečia numatytų bėgininių transporto priemonių sąrašą į naujus.{}Sukurtas atitikti OpenGFX stilių.{}Programavimas: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Grafika: {SILVER}Xotic750, Zephyris,DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licencija: {SILVER}GPL v2{}{BLACK}Ypatingai didelis ačiū {SILVER}Yexo{BLACK} ir {SILVER}Ammler{BLACK} už jū paramą ir įnašą
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains

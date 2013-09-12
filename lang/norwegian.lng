@@ -1,7 +1,16 @@
-##grflangid 0x2F
+##grflangid 0x2f
 STR_GRF_NAME                                                    :OpenGFX+ Tog {VERSION}
 STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Tog{BLACK} forbedrer de standard lokomotivene og utvider vognvalget Designet til å passe til OpenGFX.{}Programering: {SILVER}planetmaker, Terkhen{}{BLACK}Grafikk: {SILVER}Zeyphris, DanMacK, molace, Uzurpator{}{BLACK}Lisens: {SILVER}GPL v2{}{BLACK}Webside: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}En spesiell takk til {SILVER}Yexo{BLACK} og {SILVER}Ammler{BLACK} for deres støtte og bigrag
+
 STR_NAME_BULK_WAGON                                             :Bulkvogn
 STR_NAME_TANK_WAGON                                             :Tankvogn
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Stykkgodsvogn (tildekt)
 STR_NAME_FLATBED_WAGON                                          :Flatvogn
+
+
+
+
+
+
+
+

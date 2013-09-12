@@ -1,6 +1,6 @@
-##grflangid 0x1B
+##grflangid 0x1b
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Treine{BLACK} verbeter die standaard spoor voertuie en hul goedere waens. {} Ontwerp om by OpenGFX styl aan te pas.{}Programming: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Grafie: {SILVER}Xotic750, Zephyris,DanMacK, buttercup, molace, Uzurpator{}{BLACK}Lisensie: {SILVER}GPL v2{}{BLACK}Spesiale dankie aan {SILVER}Yexo{BLACK} en {SILVER}Ammler{BLACK} vir hulle ondersteuning en bydrae.
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Treine{BLACK} verbeter die standaard spoor voertuie en hul goedere waens.{} Ontwerp om by OpenGFX styl aan te pas.{}Programming: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Grafie: {SILVER}Xotic750, Zephyris,DanMacK, buttercup, molace, Uzurpator{}{BLACK}Lisensie: {SILVER}GPL v2{}{BLACK}Spesiale dankie aan {SILVER}Yexo{BLACK} en {SILVER}Ammler{BLACK} vir hulle ondersteuning en bydrae.
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Bulk wa

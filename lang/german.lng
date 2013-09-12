@@ -1,6 +1,6 @@
 ##grflangid 0x02
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} erweitert und ergänzt die üblichen Schienenfahrzeuge.{}Im Design angelehnt an OpenGFX.{}Programmierung: {SILVER}planetmaker, Terkhen{}{BLACK}Grafik: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Licenz: {SILVER}GPL v2{}{BLACK}Webseite: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Besonderen Dank an {SILVER}Yexo{BLACK} und {SILVER}Ammler{BLACK} für ihre Unterstützung und Beiträge
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK} erweitert und ergänzt die üblichen Schienenfahrzeuge.{}Im Design angelehnt an OpenGFX.{}Programmierung: {SILVER}planetmaker, Terkhen{}{BLACK}Grafik: {SILVER}Xotic750, Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Lizenz: {SILVER}GPL v2{}{BLACK}Besonderen Dank an {SILVER}Yexo{BLACK} und {SILVER}Ammler{BLACK} für ihre Unterstützung und Beiträge
 STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Schüttgutwaggon
@@ -8,6 +8,8 @@ STR_NAME_TANK_WAGON                                             :Kesselwaggon
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Stückgutwaggon
 STR_NAME_FLATBED_WAGON                                          :Flachbettwaggon
 STR_NAME_REFRIGERATOR_WAGON                                     :Kühlwaggon
+
+STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Auswahl der Lokomotiven:
 STR_PARAM_ENGINES_DESC                                          :Auswählen welche Lokomotiven dem Spiel zugefügt werden sollen. Es kann die für jedes Klima bestimmte Zusammenstellung unabhängig vom tatsächlichen Klima ausgewählt werden. Standardmäßig wird die für das jeweilige Klima bestimmte Zusammenstellung genommen. Die Einstellung 'Keine' deaktiviert alle Lokomotiven.
@@ -52,6 +54,11 @@ STR_PARAM_COST_TIMES64                                          :64x
 STR_PARAM_COST_TIMES128                                         :128x
 STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER                                                :Tender
+STR_PARAM_TENDER_DESC                                           :Verfügbarkeit von Tendern für Dampflokomotiven. Bedenke, dass Lokomotiven nicht umgedreht werden können, wenn diese Option angeschaltet ist.
+STR_PARAM_TENDER_NONE                                           :Nicht benutzen
+STR_PARAM_TENDER_ARTICULATED                                    :Nutzen
 
 STR_ERR_ENGINE_POOL                                             :Mehrere NewGRF-Fahrzeugsets erlauben = an
 
