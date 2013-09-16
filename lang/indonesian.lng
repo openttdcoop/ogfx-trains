@@ -27,6 +27,7 @@ STR_PARAM_PROVIDE_MONORAIL_DESC                                 :Sediakan kendar
 STR_PARAM_PROVIDE_MAGLEV                                        :Sediakan kendaraan maglev
 STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Sediakan kendaraan maglev. Dinon-aktifkan, jika NewGRF ini tidak akan sediakan kendaraan maglev apa saja.
 
+STR_PARAM_RUNNING_COST                                          :Gantikan biaya operasional
 STR_PARAM_RUNNING_COST_DESC                                     :Mememungkinkan untuk ganti biaya operasi kendaraan dalam kumpulan ini (e.g. untuk timbangkan biaya sama kumpulan yang lain)
 STR_PARAM_PURCHASE_COST                                         :Gantikan biaya membeli
 STR_PARAM_PURCHASE_COST_DESC                                    :Mememungkinkan untuk ganti biaya membeli kendaraan dalam kumpulan ini (e.g. untuk timbangkan biaya sama kumpulan yang lain)
