@@ -11,6 +11,10 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Kylvagn
 
 
 
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :normal
+STR_PARAM_COST_TIMES8                                           :8x
 
 
 
