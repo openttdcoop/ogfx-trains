@@ -1,6 +1,7 @@
 ##grflangid 0x07
 STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
 STR_GRF_DESCRIPTION                                             :Набор {ORANGE}Поезда OpenGFX+{BLACK} улучшает стандартные железнодорожные транспортные стредства и дополняет подвижной состав.{}Разработан в соответствии со стилем OpenGFX.{}Программирование: {SILVER}planetmaker, Terkhen{}{BLACK}Графика: {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}Лицензия: {SILVER}GPL v2{}{BLACK}Вебсайт: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}Особая благодарность {SILVER}Yexo{BLACK} и {SILVER}Ammler{BLACK} за их вклад и поддержку
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Полувагон
 STR_NAME_TANK_WAGON                                             :Цистерна
@@ -8,6 +9,7 @@ STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Крытый в
 STR_NAME_FLATBED_WAGON                                          :Платформа
 STR_NAME_REFRIGERATOR_WAGON                                     :Рефрижераторный вагон
 
+STR_NAME_TENDER                                                 :Тендер
 
 STR_PARAM_ENGINES                                               :Выбор климата для локомотивов
 STR_PARAM_ENGINES_DESC                                          :Выберите, какие локомотивы вы хотите добавить (если желаете, вы можете выбрать другой климат или 'нет'). По умолчанию будут выбраны локомотивы, предназначенные для работы в текущем климате. 'Нет' запретит все локомотивы.
@@ -22,6 +24,12 @@ STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :все кром
 
 STR_PARAM_KEEP_ORIGINAL                                         :Оставить все существующие стандартные ТС
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :Этот параметр используется в целях отладки. Вы можете использовать его, если хотите добавить этот набор newgrf в запущенную игру с существующим стандартным транспортом. Известно, что это вызовет проблемы. Включайте его на свой страх и риск.
+STR_PARAM_PROVIDE_RAIL                                          :Сделать доступным железнодорожный транспорт.
+STR_PARAM_PROVIDE_RAIL_DESC                                     :Сделать доступным железнодорожный транспорт. Отключить, если этот сет не должен предоставлять железнодорожный транспорт.
+STR_PARAM_PROVIDE_MONORAIL                                      :Сделать доступным монорельсовый транспорт.
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :Сделать доступным монорельсовый транспорт. Отключить, если этот сет не должен предоставлять монорельсовый транспорт.
+STR_PARAM_PROVIDE_MAGLEV                                        :Сделать доступным транспорт на магнитной подушке
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Сделать доступным транспорт на магнитной подушке. Отключить, если этот сет не должен предоставлять транспорт на магнитной подушке.
 
 STR_PARAM_RUNNING_COST                                          :Настройка стоимости обслуживания
 STR_PARAM_RUNNING_COST_DESC                                     :Позволяет настроить стоимость обслуживания транспортных средств из этого набора (например, чтобы сбалансировать её по отношению к другим)
@@ -47,9 +55,14 @@ STR_PARAM_COST_TIMES128                                         :128x
 STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
 
+STR_PARAM_TENDER                                                :Тендеры
+STR_PARAM_TENDER_DESC                                           :Сделать доступными тендеры для паровозов. После включения паровозы потеряют возможность движения задним ходом.
+STR_PARAM_TENDER_NONE                                           :Не использовать
+STR_PARAM_TENDER_ARTICULATED                                    :Использовать
 
 STR_ERR_ENGINE_POOL                                             :Включите поддержку нескольких наборов NewGRF с транспортом = да
 
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :Грузы в этом ТС дольше сохраняют свои характеристики в сравнении с другими ТС.
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (Древесная стружка)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (Бочки)
