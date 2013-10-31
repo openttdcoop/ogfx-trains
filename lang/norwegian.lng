@@ -1,6 +1,6 @@
 ##grflangid 0x2f
 STR_GRF_NAME                                                    :OpenGFX+ Tog {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Tog{BLACK} forbedrer de standard lokomotivene og utvider vognvalget Designet til å passe til OpenGFX.{}Programering: {SILVER}planetmaker, Terkhen{}{BLACK}Grafikk: {SILVER}Zeyphris, DanMacK, molace, Uzurpator{}{BLACK}Lisens: {SILVER}GPL v2{}{BLACK}Webside: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}En spesiell takk til {SILVER}Yexo{BLACK} og {SILVER}Ammler{BLACK} for deres støtte og bigrag
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Tog{BLACK} forbedrer standard lokomotivene og utvider vognvalget Designet til å passe til OpenGFX.{}Programering: {SILVER}planetmaker, Terkhen{}{BLACK}Grafikk: {SILVER}Zeyphris, DanMacK, molace, Uzurpator{}{BLACK}Lisens: {SILVER}GPL v2{}{BLACK}Webside: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}En spesiell takk til {SILVER}Yexo{BLACK} og {SILVER}Ammler{BLACK} for deres støtte og bigrag
 
 STR_NAME_BULK_WAGON                                             :Bulkvogn
 STR_NAME_TANK_WAGON                                             :Tankvogn
@@ -8,9 +8,32 @@ STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Stykkgodsvogn (
 STR_NAME_FLATBED_WAGON                                          :Flatvogn
 
 
+STR_PARAM_ENGINES_DEFAULT                                       :Automatisk (default)
+STR_PARAM_ENGINES_NONE                                          :Ingen
+STR_PARAM_ENGINES_TROPICAL                                      :Tropisk
+STR_PARAM_ENGINES_ALL                                           :Alle
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Alt utenom Toyland
+
+STR_PARAM_KEEP_ORIGINAL                                         :Behold alle vanlige kjøretøy
+
+STR_PARAM_PURCHASE_COST                                         :Juster innkjøpspris
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :vanlig
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER_NONE                                           :Ikke bruk
+STR_PARAM_TENDER_ARTICULATED                                    :Bruk
 
 
-
-
-
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :Varer i denne vognen forblir ferske lenger enn i andre vogner.
 
