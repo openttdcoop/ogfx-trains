@@ -1,25 +1,34 @@
 ##grflangid 0x2f
 STR_GRF_NAME                                                    :OpenGFX+ Tog {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Tog{BLACK} forbedrer standard lokomotivene og utvider vognvalget Designet til å passe til OpenGFX.{}Programering: {SILVER}planetmaker, Terkhen{}{BLACK}Grafikk: {SILVER}Zeyphris, DanMacK, molace, Uzurpator{}{BLACK}Lisens: {SILVER}GPL v2{}{BLACK}Webside: {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}En spesiell takk til {SILVER}Yexo{BLACK} og {SILVER}Ammler{BLACK} for deres støtte og bigrag
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Tog{BLACK} forbedrer standardtogene og utvider utvalget av tog.{}Designet for å passe med OpenGFX stilen.{}Programmering: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}Graphics: {SILVER}Xotic750, Zephyris,DanMacK, buttercup, molace, Uzurpator{}{BLACK}License: {SILVER}GPL v2{}{BLACK}Spesiell takk til {SILVER}Yexo{BLACK} og {SILVER}Ammler{BLACK} for deres støtte og bidrag
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :Bulkvogn
 STR_NAME_TANK_WAGON                                             :Tankvogn
 STR_NAME_COVERED_PIECE_GOODS_WAGON                              :Stykkgodsvogn (tildekt)
 STR_NAME_FLATBED_WAGON                                          :Flatvogn
+STR_NAME_REFRIGERATOR_WAGON                                     :Kjølevogn
 
 
 STR_PARAM_ENGINES_DEFAULT                                       :Automatisk (default)
 STR_PARAM_ENGINES_NONE                                          :Ingen
 STR_PARAM_ENGINES_TROPICAL                                      :Tropisk
+STR_PARAM_ENGINES_TOYLAND                                       :Leketøyland
 STR_PARAM_ENGINES_ALL                                           :Alle
-STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Alt utenom Toyland
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Alt utenom leketøyland
 
 STR_PARAM_KEEP_ORIGINAL                                         :Behold alle vanlige kjøretøy
 
+STR_PARAM_RUNNING_COST                                          :Juster driftskostander
 STR_PARAM_PURCHASE_COST                                         :Juster innkjøpspris
+STR_PARAM_COST_AUTOMATICALLY                                    :Automatisk (default)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 /128
 STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
 STR_PARAM_COST_BY16                                             :1 / 16
 STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
 STR_PARAM_COST_BY2                                              :1 / 2
 STR_PARAM_COST_NORMAL                                           :vanlig
 STR_PARAM_COST_TIMES4                                           :4x
