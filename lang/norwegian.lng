@@ -12,6 +12,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Kjølevogn
 
 STR_PARAM_ENGINES_DEFAULT                                       :Automatisk (default)
 STR_PARAM_ENGINES_NONE                                          :Ingen
+STR_PARAM_ENGINES_TEMPERATE                                     :Temperert
 STR_PARAM_ENGINES_TROPICAL                                      :Tropisk
 STR_PARAM_ENGINES_TOYLAND                                       :Leketøyland
 STR_PARAM_ENGINES_ALL                                           :Alle
@@ -46,3 +47,4 @@ STR_PARAM_TENDER_ARTICULATED                                    :Bruk
 
 STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :Varer i denne vognen forblir ferske lenger enn i andre vogner.
 
+STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER                       :(Kontainer)
