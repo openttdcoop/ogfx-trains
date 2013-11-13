@@ -1,0 +1,71 @@
+##grflangid 0x3A
+STR_GRF_NAME                                                    :OpenGFX+ Trains {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ Trains{BLACK}는 기본 열차를 향상시키고 기관차 목록을 확장시킵니다.{}OpenGFX 그래픽과 어울리게 디자인되었습니다.{}프로그래밍: {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}그래픽: {SILVER}Xotic750, Zephyris,DanMacK, buttercup, molace, Uzurpator{}{BLACK}저작권: {SILVER}GPL v2{}{BLACK}특별히 {SILVER}Yexo{BLACK}와 {SILVER}Ammler{BLACK} 님의 지원과 헌신에 감사드립니다.
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
+
+STR_NAME_BULK_WAGON                                             :대용량 수송차량
+STR_NAME_TANK_WAGON                                             :탱크 수송차량
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :상품 수송차량
+STR_NAME_FLATBED_WAGON                                          :평판 수송차량
+STR_NAME_REFRIGERATOR_WAGON                                     :냉장 수송차량
+
+STR_NAME_TENDER                                                 :급탄차
+
+STR_PARAM_ENGINES                                               :기관차 기후 선택
+STR_PARAM_ENGINES_DESC                                          :어떤 기후에 기관차를 추가하고 싶은지 선택하십시오. (원할 경우, 다른 기후나 없음을 고를 수도 있습니다. 기본값으로 설정할 경우 그 기후에 나타날 기관차를 선택할 것입니다. '없음'으로 설정하면 모든 기관차를 사용할 수 없게 됩니다.
+STR_PARAM_ENGINES_DEFAULT                                       :자동 (기본)
+STR_PARAM_ENGINES_NONE                                          :없음
+STR_PARAM_ENGINES_TEMPERATE                                     :온대
+STR_PARAM_ENGINES_ARCTIC                                        :냉대
+STR_PARAM_ENGINES_TROPICAL                                      :아열대
+STR_PARAM_ENGINES_TOYLAND                                       :장난감나라
+STR_PARAM_ENGINES_ALL                                           :모두
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :장난감나라를 제외한 모든 기후
+
+STR_PARAM_KEEP_ORIGINAL                                         :기본 열차 그대로 두기
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :이 설정은 디버그용 목적으로 넣어두었습니다. 이미 진행중인 게임에서 기존에 존재하던 기본 차량을 없애지 않고 이 NewGRF을 추가할 때 사용하십시오. 이 설정을 사용할 시 문제가 발생할 수 있으므로 위험을 감수하겠다면 활성화하십시오.
+STR_PARAM_PROVIDE_RAIL                                          :일반철도 차량 추가
+STR_PARAM_PROVIDE_RAIL_DESC                                     :일반철도 차량을 추가합니다. 만약 이 NewGRF이 일반철도 차량을 추가하지 않도록 하길 원하면 이 옵션을 끄십시오.
+STR_PARAM_PROVIDE_MONORAIL                                      :모노레일 차량 추가
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :모노레일 차량을 추가합니다. 만약 이 NewGRF이 모노레일 차량을 추가하지 않도록 하길 원하면 이 옵션을 끄십시오.
+STR_PARAM_PROVIDE_MAGLEV                                        :자기부상열차 차량 추가
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :자기부상열차 차량을 추가합니다. 만약 이 NewGRF이 자기부상열차 차량을 추가하지 않도록 하길 원하면 이 옵션을 끄십시오.
+
+STR_PARAM_RUNNING_COST                                          :유지비 조정
+STR_PARAM_RUNNING_COST_DESC                                     :이 NewGRF에서 제공하는 차량의 유지비를 조정할 수 있습니다. (예: 다른 차량과의 밸런스 조정 등)
+STR_PARAM_PURCHASE_COST                                         :구입 가격 조정
+STR_PARAM_PURCHASE_COST_DESC                                    :이 NewGRF에서 제공하는 차량의 구입 가격을 조정할 수 있습니다. (예: 다른 차량과의 밸런스 조정 등)
+STR_PARAM_COST_AUTOMATICALLY                                    :자동 (기본)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 / 128
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :보통
+STR_PARAM_COST_TIMES2                                           :2x
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER                                                :급탄차
+STR_PARAM_TENDER_DESC                                           :증기 기관차에 급탄차를 사용할 것인지 선택합니다. 이 옵션을 사용할 경우, 증기 기관차를 뒤집어서 후방으로 운전할 수 없게 됨을 알아두십시오.
+STR_PARAM_TENDER_NONE                                           :사용 안 함
+STR_PARAM_TENDER_ARTICULATED                                    :사용
+
+STR_ERR_ENGINE_POOL                                             :여러 개의 NewGRF 엔진 세트를 허용 = 예
+
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :이 차량에 있는 화물은 다른 차량에 실었을 때보다 더 신선하게 유지됩니다.
+
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (목재 칩)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (통)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY                       : (기계)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER                       : (컨테이너)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        : (트랙터)
