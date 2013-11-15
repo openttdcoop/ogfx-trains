@@ -11,7 +11,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Kjølevogn
 
 STR_NAME_TENDER                                                 :Brennstoffvogn
 
-STR_PARAM_ENGINES                                               :Kjøretøy klimavalg:
+STR_PARAM_ENGINES                                               :Kjøretøy klimavalg
 STR_PARAM_ENGINES_DESC                                          :Velg hvilke kjøretøy du vil legge til (du kan velge fra et annet klima, eller ingen om du ønsker det). Standard vil velge kjøretøyene som er ment for klimaet. 'Ingen' vil ta bort ALLE kjøretøy.
 STR_PARAM_ENGINES_DEFAULT                                       :Automatisk (default)
 STR_PARAM_ENGINES_NONE                                          :Ingen
