@@ -1,0 +1,71 @@
+##grflangid 0x56
+STR_GRF_NAME                                                    :OpenGFX+ 列车 {VERSION}
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ 列车{BLACK} 扩充了原有的机车和车廂集，{}并根据 OpenGFX 的风格设计。{}程式编写： {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}绘图： {SILVER}Xotic750, Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}授权条款： {SILVER}GPL v2{}{BLACK}特別鸣谢 {SILVER}Yexo{BLACK} 及 {SILVER}Ammler{BLACK} 的支持和贡献。
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
+
+STR_NAME_BULK_WAGON                                             :重型货运斗车
+STR_NAME_TANK_WAGON                                             :罐车
+STR_NAME_COVERED_PIECE_GOODS_WAGON                              :布匹车廂
+STR_NAME_FLATBED_WAGON                                          :平板车
+STR_NAME_REFRIGERATOR_WAGON                                     :冷藏车廂
+
+STR_NAME_TENDER                                                 :煤水车
+
+STR_PARAM_ENGINES                                               :列车场景选择：
+STR_PARAM_ENGINES_DESC                                          :选择游戏中出现的OpenGFX+机车种类。{}您可以选择使用其他场景的机车或不使用任何机车。预设值(自动)是选择符合游戏本身的场景的机车。如果选择「无」，游戏將不会使用任何OpenGFX+机车。
+STR_PARAM_ENGINES_DEFAULT                                       :自动 (预设值)
+STR_PARAM_ENGINES_NONE                                          :无
+STR_PARAM_ENGINES_TEMPERATE                                     :溫带
+STR_PARAM_ENGINES_ARCTIC                                        :寒带
+STR_PARAM_ENGINES_TROPICAL                                      :亞热带
+STR_PARAM_ENGINES_TOYLAND                                       :玩具楽园
+STR_PARAM_ENGINES_ALL                                           :所有场景
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :所有场景 (玩具楽园除外)
+
+STR_PARAM_KEEP_ORIGINAL                                         :保留所有原装机车和车廂
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :这个选项是供除错使用。如果你想把 OpenGFX+ 列车集加入使用原有机车和车廂的旧游戏之中，可啟用这个选项。然而啟用此选项可能会引起游戏当机等问题，务请小心。
+STR_PARAM_PROVIDE_RAIL                                          :提供传统铁路车辆
+STR_PARAM_PROVIDE_RAIL_DESC                                     :此选项決定是否在游戏中使用传统铁路车辆。如您不想在游戏中使用OpenGFX+的传统铁路车辆，可以停用此选项。
+STR_PARAM_PROVIDE_MONORAIL                                      :提供单轨铁路车辆
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :此选项決定是否在游戏中使用单轨铁路车辆。如您不想在游戏中使用OpenGFX+的单轨铁路车辆，可以停用此选项。
+STR_PARAM_PROVIDE_MAGLEV                                        :提供磁浮轨道车辆
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :此选项決定是否在游戏中使用磁浮轨道车辆。如您不想在游戏中使用OpenGFX+的磁浮轨道车辆，可以停用此选项。
+
+STR_PARAM_RUNNING_COST                                          :调整营运成本
+STR_PARAM_RUNNING_COST_DESC                                     :调整OpenGFX+ 列车的营运成本 (例如与其他车辆的营运成本作出平衡)
+STR_PARAM_PURCHASE_COST                                         :调整购买成本
+STR_PARAM_PURCHASE_COST_DESC                                    :调整购买OpenGFX+ 列车的成本 (例如与其他车辆的购买成本作出平衡)
+STR_PARAM_COST_AUTOMATICALLY                                    :自动 (预设值)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 / 128
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :一般
+STR_PARAM_COST_TIMES2                                           :2x
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER                                                :煤水车
+STR_PARAM_TENDER_DESC                                           :选择是否為蒸汽机车配置煤水车。{}注意：如果您啟用此选项，則蒸汽机车不能反向行走。
+STR_PARAM_TENDER_NONE                                           :停用
+STR_PARAM_TENDER_ARTICULATED                                    :啟用
+
+STR_ERR_ENGINE_POOL                                             :允許载入多个NewGRF车辆組 = 啟用
+
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :由这种车廂运载的货物可保存较长时间
+
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (木屑)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (桶)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY                       : (机器)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER                       : (集装箱)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        : (拖拉机)
