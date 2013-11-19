@@ -1,6 +1,7 @@
 ##grflangid 0x0c
 STR_GRF_NAME                                                    :OpenGFX+ 列車 {VERSION}
-STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ 列車{BLACK} 擴張了原有列車車輛和車卡的種類，{}並根據 OpenGFX 的風格而設計。{}程式編寫： {SILVER}planetmaker, Terkhen{}{BLACK}繪圖： {SILVER}Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}授權條款： {SILVER}GPL v2{}{BLACK}網站： {SILVER}http://dev.openttdcoop.org/projects/ogfx-trains{}{BLACK}特別鳴謝 {SILVER}Yexo{BLACK} 和 {SILVER}Ammler{BLACK} 的支持和貢獻。
+STR_GRF_DESCRIPTION                                             :{ORANGE}OpenGFX+ 列車{BLACK} 是原有的機車和車卡的擴充集，{}並根據 OpenGFX 的風格設計。{}程式編寫： {SILVER}planetmaker, Xotic750, Terkhen{}{BLACK}繪圖： {SILVER}Xotic750, Zephyris, DanMacK, buttercup, molace, Uzurpator{}{BLACK}授權條款： {SILVER}GPL v2{}{BLACK}特別鳴謝 {SILVER}Yexo{BLACK} 和 {SILVER}Ammler{BLACK} 的支持和貢獻。
+STR_GRF_URL                                                     :http://dev.openttdcoop.org/projects/ogfx-trains
 
 STR_NAME_BULK_WAGON                                             :重型車卡
 STR_NAME_TANK_WAGON                                             :槽車卡
@@ -8,6 +9,7 @@ STR_NAME_COVERED_PIECE_GOODS_WAGON                              :布匹車卡
 STR_NAME_FLATBED_WAGON                                          :平板車卡
 STR_NAME_REFRIGERATOR_WAGON                                     :雪藏車卡
 
+STR_NAME_TENDER                                                 :煤水車
 
 STR_PARAM_ENGINES                                               :列車場景選擇：
 STR_PARAM_ENGINES_DESC                                          :選擇加入列車的種類 (你可以選擇加入其他場景的列車或不選擇加入任何列車。預設值是選擇合符遊戲本身的場景的列車。選擇'無'將不會選擇任何列車。
@@ -18,9 +20,16 @@ STR_PARAM_ENGINES_ARCTIC                                        :寒帶
 STR_PARAM_ENGINES_TROPICAL                                      :亞熱帶
 STR_PARAM_ENGINES_TOYLAND                                       :玩具樂園
 STR_PARAM_ENGINES_ALL                                           :所有場景
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :所有場景 (玩具樂園除外)
 
 STR_PARAM_KEEP_ORIGINAL                                         :保留所有原有列車車輛和車卡
 STR_PARAM_KEEP_ORIGINAL_DESC                                    :這個選項是供除錯使用。如果你想把這個NewGRF加入使用原有列車車輛和車卡的舊遊戲之中，可使用這個選項。這個做法可能會引起問題，有一定風險。
+STR_PARAM_PROVIDE_RAIL                                          :提供傳統鐵路車輛
+STR_PARAM_PROVIDE_RAIL_DESC                                     :此選項決定是否在遊戲中使用傳統鐵路車輛。如您不想在遊戲中使用OpenGFX+的傳統鐵路車輛，可以停用此選項。
+STR_PARAM_PROVIDE_MONORAIL                                      :提供單軌鐵路車輛
+STR_PARAM_PROVIDE_MONORAIL_DESC                                 :此選項決定是否在遊戲中使用單軌鐵路車輛。如您不想在遊戲中使用OpenGFX+的單軌鐵路車輛，可以停用此選項。
+STR_PARAM_PROVIDE_MAGLEV                                        :提供磁浮軌道車輛
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :此選項決定是否在遊戲中使用磁浮軌道車輛。如您不想在遊戲中使用OpenGFX+的磁浮軌道車輛，可以停用此選項。
 
 STR_PARAM_RUNNING_COST                                          :調整營運成本
 STR_PARAM_RUNNING_COST_DESC                                     :調整OpenGFX+ 列車的營運成本 (例如與其他車輛的營運成本作出平衡)
@@ -46,9 +55,14 @@ STR_PARAM_COST_TIMES128                                         :128x
 STR_PARAM_COST_TIMES256                                         :256x
 STR_PARAM_COST_TIMES512                                         :512x
 
+STR_PARAM_TENDER                                                :煤水車
+STR_PARAM_TENDER_DESC                                           :選擇是否為蒸汽機車配置煤水車。{}注意：如果您啟用此選項，蒸汽機車將不能反向行走。
+STR_PARAM_TENDER_NONE                                           :停用
+STR_PARAM_TENDER_ARTICULATED                                    :啟用
 
 STR_ERR_ENGINE_POOL                                             :允許載入多個NewGRF車輛組 = 開
 
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :由這種車廂運載的貨物可保存較長時間
 
 STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               : (木屑)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         : (桶)
