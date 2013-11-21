@@ -23,7 +23,7 @@ STR_PARAM_ENGINES_ALL                                           :所有场景
 STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :所有场景 (玩具楽园除外)
 
 STR_PARAM_KEEP_ORIGINAL                                         :保留所有原装机车和车廂
-STR_PARAM_KEEP_ORIGINAL_DESC                                    :这个选项是供除错使用。如果你想把 OpenGFX+ 列车集加入使用原有机车和车廂的旧游戏之中，可啟用这个选项。然而啟用此选项可能会引起游戏当机等问题，务请小心。
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :这个选项是供除错使用。如果您想把这个 NewGRF 加入使用原装列车集的旧游戏之中，可啟用这个选项。然而啟用此选项可能会使游戏无法正常运行，务请小心。
 STR_PARAM_PROVIDE_RAIL                                          :提供传统铁路车辆
 STR_PARAM_PROVIDE_RAIL_DESC                                     :此选项決定是否在游戏中使用传统铁路车辆。如您不想在游戏中使用OpenGFX+的传统铁路车辆，可以停用此选项。
 STR_PARAM_PROVIDE_MONORAIL                                      :提供单轨铁路车辆
