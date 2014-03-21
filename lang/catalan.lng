@@ -1,0 +1,37 @@
+##grflangid 0x22
+##plural 0
+##gender Masculin Femenin
+
+STR_NAME_REFRIGERATOR_WAGON                                     :Vagó refrigerador
+
+
+STR_PARAM_ENGINES_NONE                                          :Cap
+STR_PARAM_ENGINES_ARCTIC                                        :Subàrtic
+STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Tots excepte els del "Món de Joguines"
+
+STR_PARAM_KEEP_ORIGINAL                                         :Mantenir tots els vehicles per defecte existents
+STR_PARAM_PROVIDE_RAIL                                          :Proporcionar vehicles de rail
+STR_PARAM_PROVIDE_MONORAIL                                      :Proporcionar vehicles de monorail
+STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Proporciona vehicles maglev. Desactivar si aquest NewGRF no els ha de proporcionar
+
+STR_PARAM_RUNNING_COST                                          :Ajustar els costos d'utilització
+STR_PARAM_PURCHASE_COST                                         :Ajustar els costos de compra de vehicles
+STR_PARAM_COST_AUTOMATICALLY                                    :automàtic (per defecte)
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES512                                         :512x
+
+STR_PARAM_TENDER_NONE                                           :No usar
+STR_PARAM_TENDER_ARTICULATED                                    :Usar
+
+
+STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :La càrrega transportada en aquest vehicle es manté fresca durant més temps que en altres vehicles.
+
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               :(Serradures de fusta)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        :(Tractors)
