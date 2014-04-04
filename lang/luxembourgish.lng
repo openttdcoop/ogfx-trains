@@ -17,7 +17,7 @@ STR_PARAM_ENGINES_DESC                                          :Wiel wellech Ma
 STR_PARAM_ENGINES_DEFAULT                                       :Automatesch (standard)
 STR_PARAM_ENGINES_NONE                                          :Keng
 STR_PARAM_ENGINES_TEMPERATE                                     :Temperéiert
-STR_PARAM_ENGINES_ARCTIC                                        :Aktesch
+STR_PARAM_ENGINES_ARCTIC                                        :Arktesch
 STR_PARAM_ENGINES_TROPICAL                                      :Tropesch
 STR_PARAM_ENGINES_TOYLAND                                       :Spillland
 STR_PARAM_ENGINES_ALL                                           :All
