@@ -12,7 +12,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Verkoel wa
 STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Enjin klimaat seleksie:
-STR_PARAM_ENGINES_DESC                                          :Kies enjins wat jy wil byvoeg (jy kan 'n ander klimaat of geen kies, as jy wil. Default sal die enjins kies wat vir daardie klimaat bedoel is. "Geen" Skakel alle enjins af.
+STR_PARAM_ENGINES_DESC                                          :Kies enjins wat jy wil byvoeg. J y kan 'n ander klimaat of almal (behalwe speelgoed), as jy wil. Default sal die enjins kies wat vir daardie klimaat bedoel is. "Geen" Skakel alle enjins af.
 STR_PARAM_ENGINES_DEFAULT                                       :Outomaties (default)
 STR_PARAM_ENGINES_NONE                                          :Geen
 STR_PARAM_ENGINES_TEMPERATE                                     :Gematigde

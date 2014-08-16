@@ -14,7 +14,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Vagó refrigera
 STR_NAME_TENDER                                                 :Tènder
 
 STR_PARAM_ENGINES                                               :Selecció de locomotores i vagons per clima:
-STR_PARAM_ENGINES_DESC                                          :Selecciona quines locomotores i vagons vols afegir. Escollint "Per defecte" s'empraran els d'aquell clima. "Cap" els desactivarà tots.
+STR_PARAM_ENGINES_DESC                                          :Selecciona quins vagons i locomotores vols afegir. Pots escollir els d'un clima concret, o bé tots excepte els de 'toyland'. Escollint "Per defecte" s'empraran els del clima corresponent. "Cap" els desactivarà tots.
 STR_PARAM_ENGINES_DEFAULT                                       :Automàtic (per defecte)
 STR_PARAM_ENGINES_NONE                                          :Cap
 STR_PARAM_ENGINES_TEMPERATE                                     :Temperat
