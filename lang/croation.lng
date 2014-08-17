@@ -12,7 +12,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Vagon-hladnjač
 STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Odabir vozila prema klimi:
-STR_PARAM_ENGINES_DESC                                          :Odaberi koja vozila želite dodati (možete odabrati druge klime ili nijedno, po želji.) Osnovne postavke će odabrati vozila koja su predviđena za pojedinu odabranu klimu. "Nijedno" će isključiti SVA vozila.
+STR_PARAM_ENGINES_DESC                                          :Odaberi koja vozila želite dodati. Ako želite, možete odabrati druge klime ili sve klime (osim Zemlje Igračaka. Osnovne postavke će odabrati vozila koja su predviđena za pojedinu odabranu klimu. "Nijedno" će isključiti SVA vozila.
 STR_PARAM_ENGINES_DEFAULT                                       :Automatsko (osnovna postavka)
 STR_PARAM_ENGINES_NONE                                          :Nijedno
 STR_PARAM_ENGINES_TEMPERATE                                     :Umjerena klima
