@@ -15,7 +15,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Carbad fuaraich
 STR_NAME_TENDER                                                 :Carbad-connaidh
 
 STR_PARAM_ENGINES                                               :Taghadh cruth-tìre nan einnseanan:
-STR_PARAM_ENGINES_DESC                                          :Tagh na h-einnseanan a tha thu airson cur ris (faodaidh tu cruth-tìre eile a thaghadh ach cha leig leas. Taghaidh a’ bhun-roghainn na h-einnseanan a chaidh a dhealbhadh airson a’ chrutha-thìre. Cuiridh “Chan eil gin” a h-uile einnsean à comas.
+STR_PARAM_ENGINES_DESC                                          :Tagh na h-einnseanan a tha thu airson cur ris. Faodaidh tu cruth-tìre eile a thaghadh seach tìr nan dèideag ach cha leig thu leas. Taghaidh a’ bhun-roghainn na h-einnseanan a chaidh a dhealbhadh airson a’ chrutha-thìre. Cuiridh “Chan eil gin” a h-uile einnsean à comas.
 STR_PARAM_ENGINES_DEFAULT                                       :Fèin-obrachail (bun-roghainn)
 STR_PARAM_ENGINES_NONE                                          :Chan eil gin
 STR_PARAM_ENGINES_TEMPERATE                                     :Measarra

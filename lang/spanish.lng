@@ -12,7 +12,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Vagón refriger
 STR_NAME_TENDER                                                 :Ténder
 
 STR_PARAM_ENGINES                                               :Selección de locomotoras por clima:
-STR_PARAM_ENGINES_DESC                                          :Seleccione las locomotoras que desea emplear. Al seleccionar el valor por defecto se emplearán las locomotoras del clima seleccionado. Seleccionar ninguna desactivará TODAS las locomotoras.
+STR_PARAM_ENGINES_DESC                                          :Selecciona las locomotoras que deseas emplear. Puedes elegir otro clima, o todos (menos juguetelandia) los climas si así lo deseas. 'Por defecto' elegirá las locomotoras que están destinadas a aparecer en ese clima.  Si eliges 'Ninguna' se desactivarán TODAS las locomotoras.
 STR_PARAM_ENGINES_DEFAULT                                       :Automático (por defecto)
 STR_PARAM_ENGINES_NONE                                          :Ninguna
 STR_PARAM_ENGINES_TEMPERATE                                     :Templado
