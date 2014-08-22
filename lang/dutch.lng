@@ -12,7 +12,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Koelwagen
 STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Trein landschap selectie:
-STR_PARAM_ENGINES_DESC                                          :Selecteer uit welk landschap je treinen wilt (je kan een ander landschap keizen of "geen". Standaard zullen de treinen uit het landschap dat je speelt gebruikt worden. "Geen" zal alle treinen uitschakelen.
+STR_PARAM_ENGINES_DESC                                          :Selecteer uit welk landschap je treinen wilt. Je kan een ander landschap keizen of alle (non-toyland) landschappen. Standaard zullen de treinen uit het landschap dat je speelt gebruikt worden. "Geen" zal ALLE treinen uitschakelen.
 STR_PARAM_ENGINES_DEFAULT                                       :Automatisch (standaard)
 STR_PARAM_ENGINES_NONE                                          :Geen
 STR_PARAM_ENGINES_TEMPERATE                                     :Gematigd

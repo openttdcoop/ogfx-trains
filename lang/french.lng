@@ -13,7 +13,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Wagon frigorifi
 STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Sélection des locomotives selon l'environnement
-STR_PARAM_ENGINES_DESC                                          :Sélectionne les locomotives à utiliser (on peut choisir un autre environnement que celui de la carte ou même aucun). Par défaut, les locomotives correspondant à l'environnement de la carte seront sélectionnées. «{NBSP}Aucun{NBSP}» désactivera TOUTES les locomotives.
+STR_PARAM_ENGINES_DESC                                          :Séléctionne quelles locomotives a utiliser. Vous pouvez choisir un autre climat, ou tous (hors pays des jouets) les climats au choix. "Automatique" va choisir les locomotives correspondant à l'environnement de la carte. "Aucun" désactivera TOUTES les locomotives.
 STR_PARAM_ENGINES_DEFAULT                                       :Automatique (par défaut)
 STR_PARAM_ENGINES_NONE                                          :Aucun
 STR_PARAM_ENGINES_TEMPERATE                                     :Tempéré
