@@ -13,7 +13,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Kylmävaunu
 STR_NAME_TENDER                                                 :Tenderi
 
 STR_PARAM_ENGINES                                               :Vetureiden ilmastovalikoima:
-STR_PARAM_ENGINES_DESC                                          :Valitse, mitkä veturit haluat lisätä (voit valita toisen ilmaston tai et mitään, jos haluat). Oletus valitsee ne veturit, jotka on tarkoitettu sille ilmastolle, jolla pelaat. 'Ei mitään' estää KAIKKI veturit.
+STR_PARAM_ENGINES_DESC                                          :Valitse, mitkä veturit haluat lisätä. Voit valita toisen ilmaston tai kaikki ilmastot (ei Lelumaata), jos haluat. 'Oletus' valitsee ne veturit, jotka on tarkoitettu sille ilmastolle, jolla pelaat. 'Ei mitään' estää KAIKKI veturit.
 STR_PARAM_ENGINES_DEFAULT                                       :Automaattinen (oletus)
 STR_PARAM_ENGINES_NONE                                          :Ei mitään
 STR_PARAM_ENGINES_TEMPERATE                                     :Lauhkea
