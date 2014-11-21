@@ -122,7 +122,7 @@ the game you'll find at least one wagon which supports transporting it:
 Passenger wagons:
  • Refit: free at stations and depots
  • Cargos:
-     Passengers and tourists.
+     Passengers, tourists and Yeti.
 
 Mail wagons:
  • Refit: None available
@@ -147,6 +147,7 @@ Bulk wagon:
        Cereal, cotton candy, fibre crops, fruit, fruit and vegetables, grain,
        maize, oil seeds, sugar, sugar beet, sugar cane, toffee and wheat.
        Refits in stops cost half.
+     • Uranium (separate group, always needs depot cleaning)
 
 Flatbed wagons:
  • Refit:
@@ -160,7 +161,7 @@ Flatbed wagons:
        manufacturing supplies, sweets.
      • Stakes group:
        Batteries, bubbles, copper, fizzy drinks, lumber, metal, paper,
-       petrol, plastic, refined products, steel, and wood.
+       petrol, plastic, refined products, steel, wood, and yeti.
 
 Livestock wagon:
  • Refit: None available
@@ -206,7 +207,7 @@ rail wagons 1970.
 ---------
 
 OpenGFX+ Trains trainset for OpenTTD
-Copyright (C) 2010-2011 by the OpenGFX+ Trains team (see below)
+Copyright (C) 2010-2014 by the OpenGFX+ Trains team (see below)
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License version 2 (or, at your
@@ -299,8 +300,8 @@ hg clone http://hg.openttdcoop.org/ogfx-trains
 ----------------
 
 In order to build this newgrf from source you need:
-- python 2.5 ... 2.7 with yacc, pil, ply modules installed
-- NML r1789
+- python 3.2 or newer with yacc, pil, ply modules installed
+- NML 0.4.0 or newer
 - make 3.80+
 - gcc as pre-processor (Alternatively GNU M4 1.4.16+ for the m4 branch)
 - mercurial (recommended)
