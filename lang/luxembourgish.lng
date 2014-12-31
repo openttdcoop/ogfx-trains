@@ -13,7 +13,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Killwaggon
 STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Klimaauswiel fir d'Maschinnen
-STR_PARAM_ENGINES_DESC                                          :Wiel wellech Maschinnen sollen bäigesat ginn. En anert Klima kann benotzt ginn oder och net. Standard-Astellung ass, dass Gefierer fir d'aktuellt Klima benotzt ginn. 'Keng' schalt ALL Maschinnen aus.
+STR_PARAM_ENGINES_DESC                                          :Wiel wellech Maschinnen sollen bäigesat ginn. En anert Klima kann benotzt ginn, oder all (net Spillsaacheland) falls erwënscht. Standard-Astellung ass, dass Gefierer fir d'aktuellt Klima benotzt ginn. 'Keng' schalt ALL Maschinnen aus.
 STR_PARAM_ENGINES_DEFAULT                                       :Automatesch (standard)
 STR_PARAM_ENGINES_NONE                                          :Keng
 STR_PARAM_ENGINES_TEMPERATE                                     :Temperéiert
