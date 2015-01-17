@@ -12,7 +12,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Kylvagn
 STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Val av fordon med hänsyn till klimat:
-STR_PARAM_ENGINES_DESC                                          :Välj vilka fordon som du vill lägga till (du kan välja andra klimat eller inget - om det är önskvärt. Standard innebär att de fordon som är ämnade för aktuellt klimat kommer att finnas med. 'Inga' kommer att stänga av samtliga fordon.
+STR_PARAM_ENGINES_DESC                                          :Välj vilka fordon som du vill lägga till. Du kan välja andra klimat eller alla klimat (ej leksaksland) om det är önskvärt. Standard innebär att de fordon som är ämnade för aktuellt klimat kommer att finnas med. 'Inga' kommer att stänga av samtliga fordon.
 STR_PARAM_ENGINES_DEFAULT                                       :Automatiskt (standard)
 STR_PARAM_ENGINES_NONE                                          :Inga
 STR_PARAM_ENGINES_TEMPERATE                                     :Tempererad
@@ -64,6 +64,8 @@ STR_ERR_ENGINE_POOL                                             :Tillåt multipl
 
 STR_ADDITIONAL_TEXT_REFRIGERATED_WAGON                          :Gods i detta fordon hålls färskt längre tid än i andra fordon
 
+STR_BULK_WAGON_CARGO_SUBTYPE_WDPR                               :(Flis)
+STR_FLATBED_WAGON_CARGO_SUBTYPE_BARRELS                         :(Tunnor)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_MACHINERY                       :(Maskiner)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_CONTAINER                       :(Container)
 STR_FLATBED_WAGON_CARGO_SUBTYPE_TRACTORS                        :(Traktorer)
