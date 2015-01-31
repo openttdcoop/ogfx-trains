@@ -23,7 +23,7 @@ STR_PARAM_ENGINES_ALL                                           :Todos
 STR_PARAM_ENGINES_ALL_BUT_TOYLAND                               :Todos menos Juguetelandia
 
 STR_PARAM_KEEP_ORIGINAL                                         :Mantener activos todos los vehículos estándar
-STR_PARAM_KEEP_ORIGINAL_DESC                                    :Esta opción se incluye para ser usada para depurar. Puedes usar esta opción si deseas añadir este newgrf a una partida ya comenzada que contiene vehículos estándar. Esta opción puede causar problemas; actívela bajo su propia responsabilidad.
+STR_PARAM_KEEP_ORIGINAL_DESC                                    :Esta opción se incluye para ser usada en labores de depuración (programación). Puedes usar esta opción si deseas añadir este newgrf a una partida ya iniciada que contenga vehículos estándar. Esta opción puede causar problemas; actívela bajo su propia responsabilidad (y riesgo).
 STR_PARAM_PROVIDE_RAIL                                          :Activar vehículos de raíl
 STR_PARAM_PROVIDE_RAIL_DESC                                     :Permite usar vehículos de raíl. Deshabilitar en caso de que no se desee usar vehículos de raíl.
 STR_PARAM_PROVIDE_MONORAIL                                      :Activar vehículos de monorraíl
@@ -33,8 +33,8 @@ STR_PARAM_PROVIDE_MAGLEV_DESC                                   :Permite usar ve
 
 STR_PARAM_RUNNING_COST                                          :Ajustar costes de operación
 STR_PARAM_RUNNING_COST_DESC                                     :Permite ajustar los costes de operación de este newgrf (para, por ejemplo, equilibrarlos con los de otros newgrfs).
-STR_PARAM_PURCHASE_COST                                         :Ajustar costes de compra
-STR_PARAM_PURCHASE_COST_DESC                                    :Permite ajustar los costes de los vehículos de este newgrf (para, por ejemplo, equilibrarlos con los de otros newgrfs).
+STR_PARAM_PURCHASE_COST                                         :Ajustar precio de compra
+STR_PARAM_PURCHASE_COST_DESC                                    :Permite ajustar el precio de los vehículos de este newgrf (para, por ejemplo, equilibrarlos con los de otros newgrfs).
 STR_PARAM_COST_AUTOMATICALLY                                    :Automático (por defecto)
 STR_PARAM_COST_BY256                                            :1 / 256
 STR_PARAM_COST_BY128                                            :1 / 128
