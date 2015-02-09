@@ -12,7 +12,7 @@ STR_NAME_REFRIGERATOR_WAGON                                     :Kühlwaggon
 STR_NAME_TENDER                                                 :Tender
 
 STR_PARAM_ENGINES                                               :Auswahl der Lokomotiven:
-STR_PARAM_ENGINES_DESC                                          :Auswählen welche Lokomotiven dem Spiel zugefügt werden sollen. Es kann die für jedes Klima bestimmte Zusammenstellung unabhängig vom tatsächlichen Klima ausgewählt werden. Standardmäßig wird die für das jeweilige Klima bestimmte Zusammenstellung genommen. Die Einstellung 'Keine' deaktiviert alle Lokomotiven.
+STR_PARAM_ENGINES_DESC                                          :Auswählen welche Lokomotiven dem Spiel zugefügt werden sollen. Du kannst ein anderes Klima oder alle Klimata (mit Ausnahme des Spielzeuglands) auswählen. Standardmäßig wird die für das jeweilige Klima bestimmte Zusammenstellung genommen. Die Einstellung 'Keine' deaktiviert alle Lokomotiven.
 STR_PARAM_ENGINES_DEFAULT                                       :automatisch nach Klima (standard)
 STR_PARAM_ENGINES_NONE                                          :Keine
 STR_PARAM_ENGINES_TEMPERATE                                     :gemäßigtes Klima
