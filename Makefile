@@ -118,7 +118,7 @@ GIT            ?= git
 PYTHON         ?= python
 
 UNIX2DOS       ?= unix2dos
-UNIX2DOS_FLAGS ?= $(shell [ -n $(UNIX2DOS) ] && $(UNIX2DOS) -q --version 2>/dev/null && echo "-q" || echo "")
+UNIX2DOS_FLAGS ?= $(shell [ -n $(UNIX2DOS) ] && $(UNIX2DOS) -q --version 2>/dev/null 1>&2 && echo "-q" || echo "")
 
 ################################################################
 # Get the Repository revision, tags and the modified status
@@ -395,7 +395,7 @@ bananas: $(DIR_NAME)
 
 $(DIR_NAME).tar: $(DIR_NAME)
 	$(_E) "[BUNDLE TAR] $@"
-	$(_V) $(TAR) $(TAR_FLAGS) $@ $< --exclude=bananas.ini
+	$(_V) $(TAR) --exclude=bananas.ini $(TAR_FLAGS) $@ $<
 
 bundle_tar: $(DIR_NAME).tar
 bundle_zip: $(ZIP_FILENAME)

@@ -1,6 +1,3 @@
-# Use glob syntax:
-syntax: glob
-
 # The local makefile should be ignored:
 Makefile.local
 Makefile.fordist
@@ -45,7 +42,3 @@ ogfx-trains.nml
 
 # Ignore nml cache:
 .nmlcache
-
-# Ignore source directory cloned from ogfx-train-renders
-syntax: regexp
-^sprite_source/blender
